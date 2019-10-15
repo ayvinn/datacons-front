@@ -7,11 +7,13 @@ import { MaterialModule } from './core/material.module';
 import { ReactiveFormsModule , FormsModule} from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { AuthComponent } from './auth/auth.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthComponent
+    AuthComponent,
+    DashboardComponent
 
   ],
   imports: [

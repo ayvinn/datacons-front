@@ -35,7 +35,8 @@
               "src/assets/vendor/animate/animate.css",
               "src/assets/vendor/select2/select2.css",
               "src/assets/vendor/select2/select2.min.css",
-              "src/assets/vendor/css-hamburgers/hamburgers.css"
+              "src/assets/vendor/css-hamburgers/hamburgers.css",
+              "src/assets/css/material-dashboard.css"
 
 
             ],
