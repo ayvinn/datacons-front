@@ -46,7 +46,26 @@
               "src/assets/js/main.js",
               "src/assets/vendor/select2/select2.js",
               "src/assets/vendor/select2/select2.min.js",
-              "src/assets/vendor/tilt/tilt.jquery.min.js"
+              "src/assets/vendor/tilt/tilt.jquery.min.js",
+              "src/assets/js/core/popper.min.js",
+              "src/assets/js/core/bootstrap-material-design.min.js",
+              "src/assets/js/plugins/perfect-scrollbar.jquery.min.js",
+              "src/assets/js/plugins/moment.min.js",
+              "src/assets/js/plugins/sweetalert2.js",
+              "src/assets/js/plugins/jquery.validate.min.js",
+              "src/assets/js/plugins/jquery.bootstrap-wizard.js",
+              "src/assets/js/plugins/bootstrap-selectpicker.js",
+              "src/assets/js/plugins/bootstrap-datetimepicker.min.js",
+              "src/assets/js/plugins/jquery.dataTables.min.js",
+              "src/assets/js/plugins/bootstrap-tagsinput.js",
+              "src/assets/js/plugins/jasny-bootstrap.min.js",
+              "src/assets/js/plugins/fullcalendar.min.js",
+              "src/assets/js/plugins/jquery-jvectormap.js",
+              "src/assets/js/plugins/nouislider.min.js",
+              "src/assets/js/plugins/arrive.min.js",
+              "src/assets/js/plugins/bootstrap-notify.js",
+              "src/assets/js/material-dashboard.js",
+              "src/assets/demo/demo.js"
               
             ]
           },
