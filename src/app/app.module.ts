@@ -12,7 +12,7 @@ import { TemplateComponent } from './template/template.component';
 import { SeviceComponent } from './sevice/sevice.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableDataSource} from '@angular/material/table';
-import { MatTableModule } from '@angular/material' ;
+import { MatTableModule, MatFormFieldModule } from '@angular/material' ;
 
 @NgModule({
   declarations: [
@@ -21,6 +21,7 @@ import { MatTableModule } from '@angular/material' ;
     DashboardComponent,
     TemplateComponent,
     SeviceComponent,
+    
     
     
 
@@ -34,6 +35,7 @@ import { MatTableModule } from '@angular/material' ;
     HttpClientModule,
     BrowserAnimationsModule,
     MatTableModule,
+    MatFormFieldModule
     
   ],
   providers: [],
