@@ -8,12 +8,14 @@ import { ReactiveFormsModule , FormsModule} from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { AuthComponent } from './auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TemplateComponent } from './template/template.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    DashboardComponent
+    DashboardComponent,
+    TemplateComponent
 
   ],
   imports: [
