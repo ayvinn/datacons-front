@@ -11,7 +11,7 @@ import { stringify } from 'querystring';
 export class ServiceService {
 
   url:string="http://localhost:52255/api/services";
-  services:Service[];
+  public services:Service[];
   service:Service;
   constructor(private http:HttpClient) {}
 

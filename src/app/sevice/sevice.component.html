@@ -1,0 +1,45 @@
+<!--<table class="table table-bordered table-hover">
+        <thead>
+            <th>Libelle</th>
+        </thead>
+        <tbody>
+          <tr (click)="fillData(item)" *ngFor="let item of service.services">
+              <td>{{  item.libelle }}</td>
+              <td (click)="delete(item.id)"><span class="btn btn-danger">Supprimer</span></td>
+            </tr>
+        </tbody>
+        </table>-->
+
+
+
+
+
+           <!--  <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+              </mat-form-field>
+              --> 
+              <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+              
+                <!-- Position Column -->
+         
+              
+                <!-- Name Column -->
+                <ng-container matColumnDef="libelle">
+                  <th mat-header-cell *matHeaderCellDef> libelle </th>
+                  <td mat-cell *matCellDef="let element"> {{element.libelle}} </td>
+                </ng-container>
+        
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>        
+
+
+
+  <script>
+  $(document).ready(function() {
+        $('#datatable').dataTable();
+        
+         $("[data-toggle=tooltip]").tooltip();
+        
+    } );
+    </script>            

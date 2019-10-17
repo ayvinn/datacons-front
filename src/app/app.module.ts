@@ -9,13 +9,20 @@ import { HttpClientModule } from "@angular/common/http";
 import { AuthComponent } from './auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TemplateComponent } from './template/template.component';
+import { SeviceComponent } from './sevice/sevice.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTableDataSource} from '@angular/material/table';
+import { MatTableModule } from '@angular/material' ;
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
     DashboardComponent,
-    TemplateComponent
+    TemplateComponent,
+    SeviceComponent,
+    
+    
 
   ],
   imports: [
@@ -25,6 +32,9 @@ import { TemplateComponent } from './template/template.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
