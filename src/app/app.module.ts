@@ -10,9 +10,11 @@ import { HttpClientModule } from "@angular/common/http";
 import { AuthComponent } from './auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TemplateComponent } from './template/template.component';
-import { SeviceComponent } from './sevice/sevice.component';
+import { SeviceComponent,dialogajout } from './sevice/sevice.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule, MatFormFieldModule, MatNativeDateModule } from '@angular/material' ;
+
+
 
 
 @NgModule({
@@ -22,6 +24,7 @@ import { MatTableModule, MatFormFieldModule, MatNativeDateModule } from '@angula
     DashboardComponent,
     TemplateComponent,
     SeviceComponent,
+    dialogajout
     
     
 
@@ -45,8 +48,11 @@ import { MatTableModule, MatFormFieldModule, MatNativeDateModule } from '@angula
     MaterialModule
     
   ],
+  exports :[
+    dialogajout
+  ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [SeviceComponent],
+  entryComponents: [SeviceComponent,dialogajout],
 })
 export class AppModule { }
