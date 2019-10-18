@@ -3,6 +3,7 @@ import { Service } from '../models/service.model';
 import { HttpClient } from '@angular/common/http';
 import { TreeError } from '@angular/compiler';
 import { stringify } from 'querystring';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -15,12 +16,10 @@ export class ServiceService {
   service:Service;
   constructor(private http:HttpClient) {}
 
-    getAllServices(){
-      this.http.get(this.url).toPromise().then(
-        res=>{
-          this.services = res as Service[];
-        }
-      )
+    getAllServices(): Observable<Service[]>{
+      return this.http.get<Service[]>(this.url);
+ 
+      
     }
   
     postService(){

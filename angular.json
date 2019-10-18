@@ -65,7 +65,9 @@
               "src/assets/js/plugins/arrive.min.js",
               "src/assets/js/plugins/bootstrap-notify.js",
               "src/assets/js/material-dashboard.js",
-              "src/assets/demo/demo.js"
+              "src/assets/demo/demo.js",
+              "src/assets/js/datatable.js",
+              "src/assets/js/datatablebootstrap.min.js"
             ]
           },
           "configurations": {
