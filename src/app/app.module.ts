@@ -7,13 +7,14 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { ReactiveFormsModule , FormsModule} from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
-import { AuthComponent } from './auth/auth.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { TemplateComponent } from './template/template.component';
-import { SeviceComponent,dialogajout } from './sevice/sevice.component';
+import { AuthComponent } from './component/auth/auth.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { TemplateComponent } from './component/template/template.component';
+import { SeviceComponent } from './component/sevice/sevice.component';
+import { AddServiceComponent } from './component/sevice/add-service/add-service.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule, MatFormFieldModule, MatNativeDateModule } from '@angular/material' ;
-
+import { UpdateServiceComponent } from './component/sevice/update-service/update-service.component';
 
 
 
@@ -24,7 +25,8 @@ import { MatTableModule, MatFormFieldModule, MatNativeDateModule } from '@angula
     DashboardComponent,
     TemplateComponent,
     SeviceComponent,
-    dialogajout
+    AddServiceComponent,
+    UpdateServiceComponent
     
     
 
@@ -49,10 +51,10 @@ import { MatTableModule, MatFormFieldModule, MatNativeDateModule } from '@angula
     
   ],
   exports :[
-    dialogajout
+    AddServiceComponent,UpdateServiceComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [SeviceComponent,dialogajout],
+  entryComponents: [SeviceComponent,AddServiceComponent,UpdateServiceComponent],
 })
 export class AppModule { }

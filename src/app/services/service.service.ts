@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Service } from '../models/service.model';
-import { HttpClient } from '@angular/common/http';
-import { TreeError } from '@angular/compiler';
-import { stringify } from 'querystring';
+import { constantURL } from 'src/app/shared/constantURL';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import * as _ from 'lodash';
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
 
-  url:string="http://localhost:52255/api/services";
+ 
+  readonly url: string = constantURL.apiEndpoint+'/api/services';
   public services:Service[];
   service:Service;
   constructor(private http:HttpClient) {}
@@ -26,8 +27,8 @@ export class ServiceService {
       return this.http.post(this.url,this.service);
     }
   
-    putService(){
-      return this.http.put(this.url + "/" + this.service.id,this.service);
+    put(id,data) {
+      return this.http.put(`${this.url}/${id}`, data);
     }
   
     deleteService(id){

@@ -1,3 +1,3 @@
 export const constantURL = {
-    apiEndpoint:'https://localhost:44398',
+    apiEndpoint:'http://192.168.1.88:5000',
 };

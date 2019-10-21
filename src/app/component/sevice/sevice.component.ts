@@ -1,11 +1,16 @@
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
-import { ServiceService } from '../services/service.service';
+import { ServiceService } from '../../services/service.service';
 import { MatTableDataSource } from '@angular/material';
 import { DataSource } from '@angular/cdk/table';
-import { Service } from '../models/service.model';
+import { Service } from '../../models/service.model';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { AddServiceComponent } from './add-service/add-service.component';
+import { UpdateServiceComponent } from './update-service/update-service.component';
+
 
 
 
@@ -28,7 +33,7 @@ export class SeviceComponent implements OnInit {
   constructor(private service:ServiceService,public dialog: MatDialog) { }
   
   openDialog(): void {
-    const dialogRef = this.dialog.open(dialogajout, {
+    const dialogRef = this.dialog.open(AddServiceComponent, {
       width: '700px',
       data: {libelle: this.Libelle}
     });
@@ -40,11 +45,20 @@ export class SeviceComponent implements OnInit {
       this.ngOnInit();
     });
   }
+  openDialog1(element): void {
+    console.log(element);
 
+    const dialogRef = this.dialog.open(UpdateServiceComponent, {
+      width: '700px',
+      data: {element}
+    });
 
-
-
-
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.Libelle = result;
+      this.ngOnInit();
+    });
+  }
 
   ngOnInit() {
     this.service.getAllServices().subscribe(res => {
@@ -55,20 +69,16 @@ export class SeviceComponent implements OnInit {
     });
     
   }
- 
-  
-  fillData(item){
-    this.service.service.id=item.id;
-    this.service.service.Libelle=item.title;
+
+  delete(id,libelle_:string){
+    if(confirm("vous etes sur de supprimer ce service "+libelle_)){
+      this.service.deleteService(id).subscribe(res=>{
+      this.service.getAllServices();
+      this.ngOnInit();
+    })}
   }
 
-  delete(id){
-    this.service.deleteService(id).subscribe(res=>{
-      this.service.getAllServices()
-    })
-  }
-
-    displayedColumns: string[] = ['id', 'libelle'];
+    displayedColumns: string[] = ['id', 'libelle','Action'];
     
   
     applyFilter(filterValue: string) {
@@ -77,11 +87,10 @@ export class SeviceComponent implements OnInit {
 
 
 }
-@Component({
+/*@Component({
   selector: 'dialogajout',
   templateUrl: 'dialogajout.html',
 })
-
 
 export class dialogajout implements OnInit {
   ngOnInit() {
@@ -126,4 +135,54 @@ export class dialogajout implements OnInit {
       
     
     }
+  }*/
+  
+//class update
+/*@Component({
+  selector: 'dialogupdate',
+  templateUrl: 'dialogupdate.html',
+})
+
+export class dialogupdate implements OnInit {
+
+    form:FormGroup;
+    private toastr: ToastrService;
+    services:Service[];
+        
+    constructor(private formBuilder: FormBuilder,
+      public dialogRef: MatDialogRef<dialogupdate>,
+      private service:ServiceService,
+      @Inject(MAT_DIALOG_DATA) public data: any) {}
+    
+    
+    ngOnInit() {
+      this.createForm();
+
+    }
+
+    onNoClick(): void {
+      this.dialogRef.close();
+    }
+    createForm(){
+      this.form = this.formBuilder.group({
+          id :[this.data.element.id],
+          libelle:[this.data.element.libelle,Validators.required]
+      })
+      
+    }
+    get f() { return this.form.controls; }
+    update(){
+      console.log(this.data.id);
+      this.service.put(this.data.element.id,this.form.value).subscribe(res=>{
+          this.service.getAllServices();
+        },
+        err=>{
+          console.log(err);
+        })
+        this.onNoClick();
+        this.ngOnInit();
   }
+        
+      
+}*/
+    
