@@ -15,6 +15,9 @@ import { AddServiceComponent } from './component/sevice/add-service/add-service.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule, MatFormFieldModule, MatNativeDateModule } from '@angular/material' ;
 import { UpdateServiceComponent } from './component/sevice/update-service/update-service.component';
+import { CategorieComponent } from './component/categorie/categorie.component';
+import { AddcategorieComponent } from './component/categorie/addcategorie/addcategorie.component';
+import { UpdatecategorieComponent } from './component/categorie/updatecategorie/updatecategorie.component';
 
 
 
@@ -26,7 +29,10 @@ import { UpdateServiceComponent } from './component/sevice/update-service/update
     TemplateComponent,
     SeviceComponent,
     AddServiceComponent,
-    UpdateServiceComponent
+    UpdateServiceComponent,
+    CategorieComponent,
+    AddcategorieComponent,
+    UpdatecategorieComponent
     
     
 
