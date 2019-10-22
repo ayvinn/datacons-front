@@ -23,7 +23,7 @@ export class CategorieComponent implements OnInit {
   
   openDialog(): void {
     const dialogRef = this.dialog.open(AddcategorieComponent, {
-      width: '700px',
+      width: '400px',
       data: {nomcomplet: this.NomComplet_}
     });
 
@@ -38,7 +38,7 @@ export class CategorieComponent implements OnInit {
     console.log(element);
 
     const dialogRef = this.dialog.open(UpdatecategorieComponent, {
-      width: '700px',
+      width: '400px',
       data: {element}
     });
 
