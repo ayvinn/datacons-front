@@ -49,7 +49,7 @@ export class SeviceComponent implements OnInit {
     console.log(element);
 
     const dialogRef = this.dialog.open(UpdateServiceComponent, {
-      width: '700px',
+      width: '400px',
       data: {element}
     });
 

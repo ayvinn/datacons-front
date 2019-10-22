@@ -1,26 +1,20 @@
-<div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="header">
-                    <h4 class="title">Modifier cette categorie </h4>
-                </div>
-                <div class="content">
-                    <form novalidate class="form-horizontal" [formGroup]="form" (ngSubmit)="update()">
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <mat-form-field class="example-full-width ">
-                                    <input matInput type="text" formControlName="nomcomplet" placeholder="categorie "  />
-                                    <mat-error *ngIf="f.nomcomplet.errors" class="invalid-feedback">
-                                        <mat-error *ngIf="f.nomcomplet.errors.required"> Nom de categorie est obligatoire</mat-error>
-                                    </mat-error>
-                                </mat-form-field>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-success btn-fill pull-right">Modifier</button>
-                        <button type="button" mat-raised-button color="warn" (click)="onNoClick()">Annuler</button>
-                        <div class="clearfix"></div>
-                    </form>
-                </div>
-            </div>
+
+    <div class="header">
+            <h4 class="title">Modifier cette categorie</h4>
         </div>
-    </div>
+        <div class="content">
+            <form novalidate class="form-horizontal" [formGroup]="form" (ngSubmit)="update()">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <mat-form-field style="width: 100%;">
+                            <input matInput type="text" formControlName="nomcomplet" placeholder="Categorie "  />
+                            <mat-error *ngIf="f.nomcomplet.errors" class="invalid-feedback">
+                                <mat-error *ngIf="f.nomcomplet.errors.required"> Nom de categorie est obligatoire</mat-error>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <button type="button" mat-button (click)="onNoClick()" class="btn btn-danger" style="margin-right: 10px">Non Merci</button>   
+                <button type="submit"  cdkFocusInitial class="btn btn-info ">Ok</button>
+            </form>
+        </div>
