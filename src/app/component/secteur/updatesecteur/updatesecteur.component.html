@@ -1,1 +1,26 @@
-<p>updatesecteur works!</p>
+<div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Modifier ce Secteur </h4>
+                </div>
+                <div class="content">
+                    <form novalidate class="form-horizontal" [formGroup]="form" (ngSubmit)="update()">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <mat-form-field class="example-full-width ">
+                                    <input matInput type="text" formControlName="nomsecteur" placeholder="secteur "  />
+                                    <mat-error *ngIf="f.nomsecteur.errors" class="invalid-feedback">
+                                        <mat-error *ngIf="f.nomsecteur.errors.required"> Nom de secteur est obligatoire</mat-error>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-fill pull-right">Modifier</button>
+                        <button type="button" mat-raised-button color="warn" (click)="onNoClick()">Annuler</button>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

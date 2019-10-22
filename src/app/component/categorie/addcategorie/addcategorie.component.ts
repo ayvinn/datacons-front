@@ -19,17 +19,17 @@ import { DialogData } from '../../sevice/sevice.component';
 export class AddcategorieComponent implements OnInit {
   
 
-  ngOnInit() {
-    this.categorie.categorie={
-      id:0,
-      Nomcomplet:null
-    }
-  }
+ 
  categories:Categorie[];
   constructor(
     public dialogRef: MatDialogRef<AddcategorieComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,private categorie:ServicecategorieService) {}
-
+    ngOnInit() {
+      this.categorie.categorie={
+        id:0,
+        Nomcomplet:null
+      }
+    }
   onNoClick(): void {
     this.dialogRef.close();
   }

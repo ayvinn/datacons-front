@@ -1,1 +1,15 @@
-<p>addsecteur works!</p>
+<!--<h1 mat-dialog-title>Hi {{data.name}}</h1>-->
+<form ngForm="form" (submit)="submit()">
+   
+        <div mat-dialog-content>
+                Entrer le nom du secteur :
+          <p></p>
+          <mat-form-field>
+            <input  required type="text" matInput [(ngModel)]="secteur.secteur.nomsecteur" name="nomsecteur">
+          </mat-form-field>
+        </div>
+        <div mat-dialog-actions>
+          <button mat-button (click)="onNoClick()">Non Merci</button>
+          <button type="submit" mat-button [mat-dialog-close]="secteur.nomsecteur" cdkFocusInitial>Ok</button>
+        </div>
+        </form>

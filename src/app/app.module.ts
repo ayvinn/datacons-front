@@ -21,6 +21,9 @@ import { UpdatecategorieComponent } from './component/categorie/updatecategorie/
 import { SecteurComponent } from './component/secteur/secteur.component';
 import { AddsecteurComponent } from './component/secteur/addsecteur/addsecteur.component';
 import { UpdatesecteurComponent } from './component/secteur/updatesecteur/updatesecteur.component';
+import { DemandeurComponent } from './component/demandeur/demandeur.component';
+import { AdddemandeurComponent } from './component/demandeur/adddemandeur/adddemandeur.component';
+import { UpdatedemandeurComponent } from './component/demandeur/updatedemandeur/updatedemandeur.component';
 
 
 
@@ -38,7 +41,10 @@ import { UpdatesecteurComponent } from './component/secteur/updatesecteur/update
     UpdatecategorieComponent,
     SecteurComponent,
     AddsecteurComponent,
-    UpdatesecteurComponent
+    UpdatesecteurComponent,
+    DemandeurComponent,
+    AdddemandeurComponent,
+    UpdatedemandeurComponent
     
     
 
@@ -66,13 +72,17 @@ import { UpdatesecteurComponent } from './component/secteur/updatesecteur/update
     AddServiceComponent,UpdateServiceComponent,AddcategorieComponent,
     UpdatecategorieComponent,SecteurComponent,
     AddsecteurComponent,
-    UpdatesecteurComponent
+    UpdatesecteurComponent,DemandeurComponent,
+    AdddemandeurComponent,
+    UpdatedemandeurComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [SeviceComponent,AddServiceComponent,UpdateServiceComponent,CategorieComponent,AddcategorieComponent,
     UpdatecategorieComponent,SecteurComponent,
     AddsecteurComponent,
-    UpdatesecteurComponent],
+    UpdatesecteurComponent,DemandeurComponent,
+    AdddemandeurComponent,
+    UpdatedemandeurComponent],
 })
 export class AppModule { }
