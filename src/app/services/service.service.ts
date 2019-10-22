@@ -22,6 +22,14 @@ export class ServiceService {
  
       
     }
+    getAllServices2(){
+
+      this.http.get(this.url).toPromise().then(
+        res=>{
+          this.services = res as Service[];
+        }
+      )
+    }
   
     postService(){
       return this.http.post(this.url,this.service);
@@ -34,4 +42,5 @@ export class ServiceService {
     deleteService(id){
       return this.http.delete(this.url+"/"+id);
     }
+    
    }

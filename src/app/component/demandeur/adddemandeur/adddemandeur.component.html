@@ -1,1 +1,56 @@
-<p>adddemandeur works!</p>
+<!--<h1 mat-dialog-title>Hi {{data.name}}</h1>-->
+
+<form ngForm="form" (submit)="submit()">
+   
+        <div mat-dialog-content>
+                Entrer le nom du demandeur :
+          <p></p>
+          <mat-form-field>
+            <input  required type="text" matInput [(ngModel)]="demandeur.demandeur.Nomcomplet" name="nomsecteur">
+          </mat-form-field>
+        </div>
+        <div mat-dialog-content>
+                Entrer les droits :
+          <p></p>
+          <mat-form-field>
+            <input  required type="text" matInput [(ngModel)]="demandeur.demandeur.Droit" name="droit">
+          </mat-form-field>
+        </div>
+        <div mat-dialog-content>
+                login:
+          <p></p>
+          <mat-form-field>
+            <input  required type="text" matInput [(ngModel)]="demandeur.demandeur.Login" name="login">
+          </mat-form-field>
+        </div>
+        <div mat-dialog-content>
+                password :
+          <p></p>
+          <mat-form-field>
+            <input  required type="text" matInput [(ngModel)]="demandeur.demandeur.password" name="password">
+          </mat-form-field>
+        </div>
+        <mat-form-field>
+                <mat-label>Selectionner votre service</mat-label>
+                <select matNativeControl [(ngModel)]="demandeur.demandeur.IDservice" name="idservice">
+                  <option *ngFor="let item of service.services" [value]="item.id">
+                    {{item.libelle}}
+                  </option>
+                 
+                </select>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Selectionner votre categorie</mat-label>
+                <select matNativeControl [(ngModel)]="demandeur.demandeur.IDcategorie" name="Idcategorie">
+                  <option *ngFor="let item of categorie.categories" [value]="item.id">
+                    {{item.nomcomplet}}
+                  </option>
+                 
+                </select>
+              </mat-form-field>
+
+        <div mat-dialog-actions>
+          <button mat-button (click)="onNoClick()">Non Merci</button>
+          <button type="submit" mat-button [mat-dialog-close]="demandeur.nomcomplet" cdkFocusInitial>Ok</button>
+        </div>
+        </form>

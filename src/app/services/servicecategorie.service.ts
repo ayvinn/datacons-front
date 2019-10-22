@@ -20,6 +20,15 @@ export class ServicecategorieService {
 
     
   }
+  getAllCategories2(){
+
+    this.http.get(this.url).toPromise().then(
+      res=>{
+        this.categories = res as Categorie[];
+      }
+    )
+  }
+
 
   postCategorie(){
     return this.http.post(this.url,this.categorie);

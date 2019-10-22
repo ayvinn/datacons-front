@@ -35,13 +35,13 @@ export class SeviceComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(AddServiceComponent, {
       width: '400px',
-      data: {libelle: this.Libelle}
+     // data: {libelle: this.Libelle}
     });
 
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.Libelle = result;
+      //this.Libelle = result;
       this.ngOnInit();
     });
   }
@@ -55,7 +55,7 @@ export class SeviceComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.Libelle = result;
+      //this.Libelle = result;
       this.ngOnInit();
     });
   }
