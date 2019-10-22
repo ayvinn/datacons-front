@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { SeviceComponent } from '../component/sevice/sevice.component';
 import { CategorieComponent } from '../component/categorie/categorie.component';
 import { SecteurComponent } from '../component/secteur/secteur.component';
+import { Demandeur } from '../models/demandeur.model';
+import { DemandeurComponent } from '../component/demandeur/demandeur.component';
 
 
 const routes: Routes = [
@@ -26,9 +28,8 @@ const routes: Routes = [
 },
 {
   path:"demandeur",
-  component:SecteurComponent,
+  component:DemandeurComponent,
   pathMatch :'full'
-
 },
 
 ];
