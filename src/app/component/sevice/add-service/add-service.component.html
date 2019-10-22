@@ -3,7 +3,7 @@
    
         <div mat-dialog-content>
                 Entrer le libelle :
-          <p></p>
+       <p></p>
           <mat-form-field>
             <input  required type="text" matInput [(ngModel)]="service.service.libelle" name="libelle">
           </mat-form-field>
@@ -12,4 +12,4 @@
           <button mat-button (click)="onNoClick()">Non Merci</button>
           <button type="submit" mat-button [mat-dialog-close]="service.libelle" cdkFocusInitial>Ok</button>
         </div>
-        </form>
+</form>
