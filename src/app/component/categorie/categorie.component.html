@@ -17,7 +17,7 @@
                      </div>
                      <div class="card-body">
                        <div class="table-responsive">
-             <table mat-table [dataSource]="dataSource" matSort class ="table table-striped table-hover " >
+             <table mat-table [dataSource]="dataSource" matSort class ="table  table-hover " >
              
                <!-- Position Column -->
                <ng-container matColumnDef="id">
@@ -35,8 +35,8 @@
                  <ng-container  matColumnDef="Action"> 
                    <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header>Action</th>
                    <td  mat-cell *matCellDef="let element" >
-                     <i (click)="delete(element.id,element.Nomcomplet)" class="mdc-icon-button material-icons icon-red"> delete </i>
                      <i (click)="openDialog1(element)" class="mdc-icon-button material-icons icon-blue"> edit </i>
+                     <i (click)="delete(element.id,element.Nomcomplet)" class="mdc-icon-button material-icons icon-red"> close </i>
                    </td>            
                  </ng-container>    
  

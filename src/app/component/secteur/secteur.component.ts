@@ -21,7 +21,7 @@ export class SecteurComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddsecteurComponent, {
-      width: '700px',
+      width: '400px',
       data: {nomsecteur: this.Nomsecteur}
     });
 
@@ -36,7 +36,7 @@ export class SecteurComponent implements OnInit {
     console.log(element);
 
     const dialogRef = this.dialog.open(UpdatesecteurComponent, {
-      width: '700px',
+      width: '400px',
       data: {element}
     });
 
