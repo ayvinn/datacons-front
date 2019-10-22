@@ -58,15 +58,15 @@ export class CategorieComponent implements OnInit {
     
   }
 
-  delete(id,libelle_:string){
-    if(confirm("vous etes sur de supprimer ce service "+libelle_)){
+  delete(id,NomComplet_:string){
+    if(confirm("vous etes sur de supprimer cette categorie "+NomComplet_)){
       this.service.deleteService(id).subscribe(res=>{
       this.service.getAllCategories();
       this.ngOnInit();
     })}
   }
 
-    displayedColumns: string[] = ['id', 'libelle','Action'];
+    displayedColumns: string[] = ['id', 'NomComplet','Action'];
     
   
     applyFilter(filterValue: string) {
