@@ -34,7 +34,7 @@ export class SeviceComponent implements OnInit {
   
   openDialog(): void {
     const dialogRef = this.dialog.open(AddServiceComponent, {
-      width: '700px',
+      width: '400px',
       data: {libelle: this.Libelle}
     });
 

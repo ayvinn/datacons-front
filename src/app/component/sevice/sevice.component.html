@@ -1,5 +1,5 @@
  <br>
-      <button mat-raised-button class="btn btn-outline-info" (click)="openDialog()">Ajouter un service</button>
+      <button mat-raised-button class="btn btn-info" (click)="openDialog()">Ajouter un service</button>
  <br>
  <br>
  <br>
@@ -8,6 +8,13 @@
               <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
           </mat-form-field>
             <div class="mat-elevation-z8">
+                <div class="card">
+                    <div class="card-header card-header-primary" style="background: #00bcd4; ">
+                      <h4 class="card-title ">Table Service</h4>
+                      <p class="card-category"> Liste des services</p>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
             <table mat-table [dataSource]="dataSource" matSort class ="table table-striped table-hover " >
             
               <!-- Position Column -->
@@ -34,6 +41,13 @@
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
+          </div>
+        </div>
+      </div>
+   
+  
+  
+            
             <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
           </div>
             
