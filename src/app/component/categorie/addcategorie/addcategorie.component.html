@@ -5,11 +5,11 @@
                 Entrer le nom du categorie :
           <p></p>
           <mat-form-field>
-            <input  required type="text" matInput [(ngModel)]="servicecategorie.categorie.Nomcomplet" name="Nomcomplet">
+            <input  required type="text" matInput [(ngModel)]="categorie.categorie.nomcomplet" name="nomcomplet">
           </mat-form-field>
         </div>
         <div mat-dialog-actions>
           <button mat-button (click)="onNoClick()">Non Merci</button>
-          <button type="submit" mat-button [mat-dialog-close]="categorie.Nomcomplet" cdkFocusInitial>Ok</button>
+          <button type="submit" mat-button [mat-dialog-close]="categorie.nomcomplet" cdkFocusInitial>Ok</button>
         </div>
         </form>

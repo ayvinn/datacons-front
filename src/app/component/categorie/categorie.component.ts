@@ -6,6 +6,7 @@ import { AddServiceComponent } from '../sevice/add-service/add-service.component
 import { AddcategorieComponent } from './addcategorie/addcategorie.component';
 import { UpdatecategorieComponent } from './updatecategorie/updatecategorie.component';
 
+
 @Component({
   selector: 'app-categorie',
   templateUrl: './categorie.component.html',
@@ -13,23 +14,23 @@ import { UpdatecategorieComponent } from './updatecategorie/updatecategorie.comp
 })
 export class CategorieComponent implements OnInit {
 
-  Libelle: string;
-  services:Categorie[];
+  NomComplet_: string;
+  categories:Categorie[];
   dataSource;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-  constructor(private service:ServicecategorieService,public dialog: MatDialog) { }
+  constructor(private categorie:ServicecategorieService,public dialog: MatDialog) { }
   
   openDialog(): void {
     const dialogRef = this.dialog.open(AddcategorieComponent, {
       width: '700px',
-      data: {libelle: this.Libelle}
+      data: {nomcomplet: this.NomComplet_}
     });
 
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.Libelle = result;
+      this.NomComplet_ = result;
       this.ngOnInit();
     });
   }
@@ -43,13 +44,13 @@ export class CategorieComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.Libelle = result;
+      this.NomComplet_ = result;
       this.ngOnInit();
     });
   }
 
   ngOnInit() {
-    this.service.getAllCategories().subscribe(res => {
+    this.categorie.getAllCategories().subscribe(res => {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -60,8 +61,8 @@ export class CategorieComponent implements OnInit {
 
   delete(id,NomComplet_:string){
     if(confirm("vous etes sur de supprimer cette categorie "+NomComplet_)){
-      this.service.deleteService(id).subscribe(res=>{
-      this.service.getAllCategories();
+      this.categorie.deleteService(id).subscribe(res=>{
+      this.categorie.getAllCategories();
       this.ngOnInit();
     })}
   }

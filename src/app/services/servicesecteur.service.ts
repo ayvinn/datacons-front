@@ -5,24 +5,25 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as _ from 'lodash';
-import { Categorie } from '../models/categorie.model';
+import { Secteur } from '../models/secteur.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ServicecategorieService {
-  readonly url: string = constantURL.apiEndpoint+'/api/categories';
-  public categories:Categorie[];
-  categorie:Categorie;
-  constructor( private http:HttpClient) { }
-  getAllCategories(): Observable<Categorie[]>{
-    return this.http.get<Categorie[]>(this.url);
+export class ServicesecteurService {
+  readonly url: string = constantURL.apiEndpoint+'/api/secteurs';
+  public secteurs:Secteur[];
+  secteur:Secteur;
+  constructor(private http:HttpClient) { }
+
+  getAllSecteurs(): Observable<Secteur[]>{
+    return this.http.get<Secteur[]>(this.url);
 
     
   }
 
-  postCategorie(){
-    return this.http.post(this.url,this.categorie);
+  postSecteur(){
+    return this.http.post(this.url,this.secteur);
   }
 
   put(id,data) {
@@ -33,3 +34,4 @@ export class ServicecategorieService {
     return this.http.delete(this.url+"/"+id);
   }
 }
+

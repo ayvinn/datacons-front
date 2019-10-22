@@ -17,10 +17,10 @@ import { DialogData } from '../../sevice/sevice.component';
   styleUrls: ['./addcategorie.component.sass']
 })
 export class AddcategorieComponent implements OnInit {
-  servicecategorie: any;
+  
 
   ngOnInit() {
-    this.servicecategorie.categorie={
+    this.categorie.categorie={
       id:0,
       Nomcomplet:null
     }
@@ -34,7 +34,7 @@ export class AddcategorieComponent implements OnInit {
     this.dialogRef.close();
   }
   submit(){
-    if(this.servicecategorie.categorie.id==0){
+    if(this.categorie.categorie.id==0){
       this.categorie.postCategorie().subscribe(res=>{
         this.categorie.getAllCategories();
       },

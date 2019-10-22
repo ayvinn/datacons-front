@@ -18,6 +18,9 @@ import { UpdateServiceComponent } from './component/sevice/update-service/update
 import { CategorieComponent } from './component/categorie/categorie.component';
 import { AddcategorieComponent } from './component/categorie/addcategorie/addcategorie.component';
 import { UpdatecategorieComponent } from './component/categorie/updatecategorie/updatecategorie.component';
+import { SecteurComponent } from './component/secteur/secteur.component';
+import { AddsecteurComponent } from './component/secteur/addsecteur/addsecteur.component';
+import { UpdatesecteurComponent } from './component/secteur/updatesecteur/updatesecteur.component';
 
 
 
@@ -32,7 +35,10 @@ import { UpdatecategorieComponent } from './component/categorie/updatecategorie/
     UpdateServiceComponent,
     CategorieComponent,
     AddcategorieComponent,
-    UpdatecategorieComponent
+    UpdatecategorieComponent,
+    SecteurComponent,
+    AddsecteurComponent,
+    UpdatesecteurComponent
     
     
 
@@ -57,10 +63,16 @@ import { UpdatecategorieComponent } from './component/categorie/updatecategorie/
     
   ],
   exports :[
-    AddServiceComponent,UpdateServiceComponent
+    AddServiceComponent,UpdateServiceComponent,AddcategorieComponent,
+    UpdatecategorieComponent,SecteurComponent,
+    AddsecteurComponent,
+    UpdatesecteurComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [SeviceComponent,AddServiceComponent,UpdateServiceComponent],
+  entryComponents: [SeviceComponent,AddServiceComponent,UpdateServiceComponent,CategorieComponent,AddcategorieComponent,
+    UpdatecategorieComponent,SecteurComponent,
+    AddsecteurComponent,
+    UpdatesecteurComponent],
 })
 export class AppModule { }

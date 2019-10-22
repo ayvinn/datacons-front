@@ -39,7 +39,7 @@ export class UpdatecategorieComponent implements OnInit {
     createForm(){
       this.form = this.formBuilder.group({
           id :[this.data.element.id],
-          NomComplet:[this.data.element.NomComplet,Validators.required]
+          nomcomplet:[this.data.element.nomcomplet,Validators.required]
       })
       
     }
