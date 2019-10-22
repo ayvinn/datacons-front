@@ -24,6 +24,12 @@ const routes: Routes = [
   pathMatch :'full'
 
 },
+{
+  path:"demandeur",
+  component:SecteurComponent,
+  pathMatch :'full'
+
+},
 
 ];
 
