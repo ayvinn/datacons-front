@@ -1,1 +1,82 @@
-<p>addequipement works!</p>
+
+        <div class="col-md-14" >
+            <div class="card">
+              <div class="card-header card-header-info">
+                <h4 class="card-title">Ajouter un Demandeur</h4>
+                <p class="card-category">Remplissez le formulaire</p>
+              </div>
+              <div class="card-body">
+                <form ngForm="form" (submit)="submit()">
+                  <div class="row">
+                    <div class="col-md-8" >
+                        <div mat-dialog-content>
+                           
+                      <p></p>
+                      <mat-form-field style="width: 100%;">
+                        <input  required type="text" matInput [(ngModel)]="equipement.equipement.CodeHAC" placeholder=" Entrer le code  :" name="codeHac">
+                      </mat-form-field>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-8">
+                      <div class="form-group">
+                        <div mat-dialog-content>
+                          
+                        <p></p>
+                        <mat-form-field style="width: 100%;">
+                          <input  required type="text" matInput [(ngModel)]="equipement.equipement.Description" name="description" placeholder="Entrer la description :">
+                        </mat-form-field>
+                         </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                 
+              
+                 
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
+                        <mat-form-field style="width: 100%;">
+                            <mat-label>Selectionner votre secteur</mat-label>
+                            <select matNativeControl [(ngModel)]="equipement.equipement.IDsecteur" name="idsecteur">
+                              <option *ngFor="let item of secteur.secteurs" [value]="item.id">
+                                {{item.nomsecteur}}
+                              </option>
+                             
+                            </select>
+                          </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                  <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <div mat-dialog-content>
+                                  
+                              <p></p>
+                              <mat-radio-group style="width: 100%;" matInput [(ngModel)]="equipement.equipement.etat"[ngModelOptions]="{standalone: true}" aria-label="Select an option">
+                                  <div style="display: inline-block;"> <mat-radio-button value=true>validé</mat-radio-button></div>
+                                 
+                                  <div style="display: inline-block; margin-left: 4%;"><mat-radio-button value=false>non validé</mat-radio-button></div>
+                                </mat-radio-group>
+                              </div>
+                            </div>
+                          </div>
+                         
+  
+                     
+                    </div>
+                
+                 <div mat-dialog-actions class="float-right">
+                    <button type="button" mat-button (click)="onNoClick()" class="btn btn-danger">Non Merci</button>
+                    <button type="submit" mat-button [mat-dialog-close]="equipement.codeHac" cdkFocusInitial class="btn btn-info">Ok</button>
+                  </div>
+                  <div class="clearfix"></div>
+                </form>
+              </div>
+            </div>
+          
+      
+        

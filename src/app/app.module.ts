@@ -80,7 +80,9 @@ import { UpdateequipementComponent } from './component/equipement/updateequipeme
     AddsecteurComponent,
     UpdatesecteurComponent,DemandeurComponent,
     AdddemandeurComponent,
-    UpdatedemandeurComponent
+    UpdatedemandeurComponent, EquipementComponent,
+    AddequipementComponent,
+    UpdateequipementComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
@@ -89,6 +91,8 @@ import { UpdateequipementComponent } from './component/equipement/updateequipeme
     AddsecteurComponent,
     UpdatesecteurComponent,DemandeurComponent,
     AdddemandeurComponent,
-    UpdatedemandeurComponent],
+    UpdatedemandeurComponent, EquipementComponent,
+    AddequipementComponent,
+    UpdateequipementComponent],
 })
 export class AppModule { }

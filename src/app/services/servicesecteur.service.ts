@@ -21,6 +21,14 @@ export class ServicesecteurService {
 
     
   }
+  getAllSecteurs2(){
+
+    this.http.get(this.url).toPromise().then(
+      res=>{
+        this.secteurs = res as Secteur[];
+      }
+    )
+  }
 
   postSecteur(){
     return this.http.post(this.url,this.secteur);

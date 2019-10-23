@@ -68,6 +68,7 @@ submit(){
 
 
     )
+    this.ngOnInit();
   }
     
   
