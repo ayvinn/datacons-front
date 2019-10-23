@@ -1,60 +1,112 @@
 
 
-    <div class="header">
-        <h4 class="title">Modifier Le demandeur </h4>
-    </div>
-    <div class="content">
-        <form novalidate class="form-horizontal" [formGroup]="form" (ngSubmit)="update()">
-            <div class="row">
-                <div class="form-group col-md-12">
-                    <mat-form-field style="width: 100%;">
-                        <input matInput type="text" formControlName="nomcomplet" placeholder="nom "  />
+<div class="col-md-14" >
+        <div class="card">
+          <div class="card-header card-header-info">
+            <h4 class="card-title">Modifier Le Demandeur</h4>
+            <p class="card-category">Remplissez le formulaire</p>
+          </div>
+          <div class="card-body">
+            <form ngForm="form" [formGroup]="form" (ngSubmit)="update()">
+              <div class="row">
+                <div class="col-md-8" >
+                    <div mat-dialog-content>
+                       
+                  <p></p>
+                  <mat-form-field style="width: 100%;">
+                        <input matInput type="text" formControlName="nomcomplet" placeholder="Nom du demandeur :"  />
                         <mat-error *ngIf="f.nomcomplet.errors" class="invalid-feedback">
                             <mat-error *ngIf="f.nomcomplet.errors.required"> Nom du demandeur est obligatoire</mat-error>
                         </mat-error>
-                    </mat-form-field>
-
-                    <mat-form-field style="width: 100%;">
-                        <input matInput type="text" formControlName="droit" placeholder="droit "  />
-                        <mat-error *ngIf="f.droit.errors" class="invalid-feedback">
-                            <mat-error *ngIf="f.droit.errors.required"> droit est obligatoire</mat-error>
-                        </mat-error>
-                    </mat-form-field>
-
-                    <mat-form-field style="width: 100%;">
-                        <input matInput type="text" formControlName="login" placeholder="login "  />
-                        <mat-error *ngIf="f.login.errors" class="invalid-feedback">
-                            <mat-error *ngIf="f.login.errors.required"> login est obligatoire</mat-error>
-                        </mat-error>
-                    </mat-form-field>
-                    <mat-form-field style="width: 100%;">
-                        <input matInput type="text" formControlName="password" placeholder="password "  />
-                        <mat-error *ngIf="f.password.errors" class="invalid-feedback">
-                            <mat-error *ngIf="f.password.errors.required"> Nom de service est obligatoire</mat-error>
-                        </mat-error>
-                    </mat-form-field>
-                    <mat-form-field>
-                        <mat-label>Selectionner votre service</mat-label>
-                        <select matNativeControl formControlName="Idservice" [(value)]="this.data.element.idservice" name="idservice">
-                          <option *ngFor="let item of service.services" [value]="item.id">
-                            {{item.libelle}}
-                          </option>
-                         
-                        </select>
-                      </mat-form-field>
-                      <mat-form-field>
-                        <mat-label>Selectionner votre categorie</mat-label>
-                        <select matNativeControl formControlName="Idcategorie" name="Idcategorie">
-                          <option *ngFor="let item of categorie.categories" [value]="item.id">
-                            {{item.nomcomplet}}
-                          </option>
-                         
-                        </select>
-                      </mat-form-field>
+                  </mat-form-field>
                 </div>
-            </div>
-            <button type="button" mat-button (click)="onNoClick()" class="btn btn-danger" style="margin-right: 10px">Non Merci</button>   
-            <button type="submit"  cdkFocusInitial class="btn btn-info ">Ok</button>
-        </form>
-</div>
+                </div>
+              
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <div mat-dialog-content>
+                      
+                    <p></p>
+                    <mat-form-field style="width: 100%;">
+                            <input matInput type="text" formControlName="droit" placeholder="Droit :"  />
+                            <mat-error *ngIf="f.droit.errors" class="invalid-feedback">
+                                <mat-error *ngIf="f.droit.errors.required"> Droit est obligatoire</mat-error>
+                            </mat-error>
+                    </mat-form-field>
+                     </div>
+                  </div>
+                </div>
+                
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <div class="form-group">
+                          <div mat-dialog-content>
+                            
+                        <p></p>
+                        <mat-form-field>
+                                <input matInput type="text" formControlName="login" placeholder="Nom d'utulisateur : "  />
+                                <mat-error *ngIf="f.login.errors" class="invalid-feedback">
+                                    <mat-error *ngIf="f.login.errors.required"> login est obligatoire</mat-error>
+                                </mat-error>
+                        </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                      <div mat-dialog-content>
+                          
+                    <p></p>
+                    <mat-form-field>
+                            <input matInput type="text" formControlName="password" placeholder="Mot de passe :"  />
+                            <mat-error *ngIf="f.password.errors" class="invalid-feedback">
+                                <mat-error *ngIf="f.password.errors.required"> Mot de Passe obligatoire</mat-error>
+                            </mat-error>
+                    </mat-form-field>
+                     </div>
+                  </div>
+                </div>
 
+               
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                      <mat-form-field style="width: 40%;">
+                            <mat-label>service :</mat-label>
+                            <select matNativeControl formControlName="Idservice" [(value)]="this.data.element.idservice" name="idservice">
+                              <option *ngFor="let item of service.services" [value]="item.id">
+                                {{item.libelle}}
+                              </option>
+                             
+                            </select>
+                        </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <mat-form-field style="width: 100%;">
+                                <mat-label>Categorie :</mat-label>
+                                <select matNativeControl formControlName="Idcategorie" name="Idcategorie">
+                                  <option *ngFor="let item of categorie.categories" [value]="item.id">
+                                    {{item.nomcomplet}}
+                                  </option>
+                                 
+                                </select>
+                          </mat-form-field>
+                    </div>
+                  </div>
+              </div>
+            
+             <div mat-dialog-actions class="float-right">
+                <button type="button" mat-button (click)="onNoClick()" class="btn btn-danger">Non Merci</button>
+                <button type="submit" mat-button [mat-dialog-close]="demandeur.nomcomplet" cdkFocusInitial class="btn btn-info">Ok</button>
+              </div>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+    
