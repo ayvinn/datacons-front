@@ -1,0 +1,53 @@
+<button mat-raised-button (click)="openDialog()">Ajouter un Equipement</button>
+
+
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- id Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- code hac Column -->
+        <ng-container matColumnDef="codeHAC">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> codehac </th>
+            <td mat-cell *matCellDef="let element"> {{element.codeHac}} </td>
+        </ng-container>
+        <!-- description Column -->
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> description </th>
+            <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+       
+        
+            <ng-container matColumnDef="Idsecteur">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header>  secteur </th>
+                    <td mat-cell *matCellDef="let element"> {{element.idsecteurNavigation.nomsecteur}} </td>
+                </ng-container>
+                <ng-container matColumnDef="etat">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> etat </th>
+                    <td mat-cell *matCellDef="let element"> {{element.etat}} </td>
+                </ng-container>
+
+        <!-- action Column delete -->
+        <ng-container matColumnDef="Action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header>action </th>
+            <td mat-cell *matCellDef="let element"><span (click)="delete(element.id,element.CodeHAC,element.Description,element.idsecteurNavigation.nomsecteur,element.etat)"
+                    class="btn btn-danger">delete</span>
+                <span (click)="openDialog1(element)" class="btn btn-dark">update</span> </td>
+        </ng-container>
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

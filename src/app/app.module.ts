@@ -24,6 +24,9 @@ import { UpdatesecteurComponent } from './component/secteur/updatesecteur/update
 import { DemandeurComponent } from './component/demandeur/demandeur.component';
 import { AdddemandeurComponent } from './component/demandeur/adddemandeur/adddemandeur.component';
 import { UpdatedemandeurComponent } from './component/demandeur/updatedemandeur/updatedemandeur.component';
+import { EquipementComponent } from './component/equipement/equipement.component';
+import { AddequipementComponent } from './component/equipement/addequipement/addequipement.component';
+import { UpdateequipementComponent } from './component/equipement/updateequipement/updateequipement.component';
 
 
 
@@ -44,7 +47,10 @@ import { UpdatedemandeurComponent } from './component/demandeur/updatedemandeur/
     UpdatesecteurComponent,
     DemandeurComponent,
     AdddemandeurComponent,
-    UpdatedemandeurComponent
+    UpdatedemandeurComponent,
+    EquipementComponent,
+    AddequipementComponent,
+    UpdateequipementComponent
     
     
 

@@ -5,6 +5,7 @@ import { CategorieComponent } from '../component/categorie/categorie.component';
 import { SecteurComponent } from '../component/secteur/secteur.component';
 import { Demandeur } from '../models/demandeur.model';
 import { DemandeurComponent } from '../component/demandeur/demandeur.component';
+import { EquipementComponent } from '../component/equipement/equipement.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,12 @@ const routes: Routes = [
   component:DemandeurComponent,
   pathMatch :'full'
 },
+{
+  path:"equipement",
+  component:EquipementComponent,
+  pathMatch :'full'
+},
+
 
 ];
 
