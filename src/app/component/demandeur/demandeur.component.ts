@@ -34,6 +34,19 @@ export class DemandeurComponent implements OnInit {
       this.ngOnInit();
     });
   }
+  openDialog1(elt): void {
+    const dialogRef = this.dialog.open(UpdatedemandeurComponent, {
+      width: '700px',
+      data: {element: elt}
+    });
+
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+     
+      this.ngOnInit();
+    });
+  }
 
   ngOnInit() {
     this.demandeurser.getAllDemandeurs().subscribe(res => {
