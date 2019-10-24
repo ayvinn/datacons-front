@@ -6,6 +6,7 @@ import { SecteurComponent } from '../component/secteur/secteur.component';
 import { Demandeur } from '../models/demandeur.model';
 import { DemandeurComponent } from '../component/demandeur/demandeur.component';
 import { EquipementComponent } from '../component/equipement/equipement.component';
+import { StepperComponent } from '../component/equipement/stepper/stepper.component';
 
 
 const routes: Routes = [
@@ -35,6 +36,11 @@ const routes: Routes = [
 {
   path:"equipement",
   component:EquipementComponent,
+  pathMatch :'full'
+},
+{
+  path:"ajouter-equipement",
+  component:StepperComponent,
   pathMatch :'full'
 },
 

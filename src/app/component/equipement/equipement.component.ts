@@ -23,7 +23,7 @@ export class EquipementComponent implements OnInit {
   constructor(private equipementser:ServiceequipementService,public dialog: MatDialog) { }
   openDialog(): void {
     const dialogRef = this.dialog.open(AddequipementComponent, {
-      width: '700px',
+      width: '1000px',
       
     });
 

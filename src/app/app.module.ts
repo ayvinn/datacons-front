@@ -27,6 +27,7 @@ import { UpdatedemandeurComponent } from './component/demandeur/updatedemandeur/
 import { EquipementComponent } from './component/equipement/equipement.component';
 import { AddequipementComponent } from './component/equipement/addequipement/addequipement.component';
 import { UpdateequipementComponent } from './component/equipement/updateequipement/updateequipement.component';
+import { StepperComponent } from './component/equipement/stepper/stepper.component';
 
 
 
@@ -50,7 +51,8 @@ import { UpdateequipementComponent } from './component/equipement/updateequipeme
     UpdatedemandeurComponent,
     EquipementComponent,
     AddequipementComponent,
-    UpdateequipementComponent
+    UpdateequipementComponent,
+    StepperComponent
     
     
 

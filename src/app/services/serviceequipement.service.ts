@@ -22,8 +22,8 @@ export class ServiceequipementService {
   }
 
 
-  postEquipement(){
-    return this.http.post(this.url,this.equipement);
+  postEquipement(par:Equipment){
+    return this.http.post(this.url,par);
   }
 
   put(id,data) {
