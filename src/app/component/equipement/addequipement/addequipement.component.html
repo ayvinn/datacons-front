@@ -22,7 +22,7 @@
                   <mat-form-field style="width: 100%;">
                     <input matInput type="text" formControlName="CodeHAC" placeholder="code hac :" />
                     <mat-error *ngIf="f.CodeHAC.errors" class="invalid-feedback">
-                      <mat-error *ngIf="f.CodeHAC.errors.required"> Nom du demandeur est obligatoire</mat-error>
+                      <mat-error *ngIf="f.CodeHAC.errors.required"> le CodeHAC est obligatoire</mat-error>
                     </mat-error>
                   </mat-form-field>
                 </div>
@@ -35,9 +35,9 @@
 
                     <p></p>
                     <mat-form-field style="width: 100%;">
-                      <input matInput type="text" formControlName="Description" placeholder="code hac :" />
+                      <input matInput type="text" formControlName="Description" placeholder="Description :" />
                       <mat-error *ngIf="f.Description.errors" class="invalid-feedback">
-                        <mat-error *ngIf="f.Description.errors.required"> Nom du demandeur est obligatoire</mat-error>
+                        <mat-error *ngIf="f.Description.errors.required"> Description est obligatoire</mat-error>
                       </mat-error>
                     </mat-form-field>
                   </div>
