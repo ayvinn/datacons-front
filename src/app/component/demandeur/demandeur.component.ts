@@ -61,7 +61,7 @@ export class DemandeurComponent implements OnInit {
   }
 
   delete(id,Nomdem:string){
-    if(confirm("vous etes sur de supprimer cette categorie ")){
+    if(confirm("vous etes sur de supprimer ce demandeur ")){
       this.demandeurser.deleteService(id).subscribe(res=>{
       this.demandeurser.getAllDemandeurs();
       this.ngOnInit();
