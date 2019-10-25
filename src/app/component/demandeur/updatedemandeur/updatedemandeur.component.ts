@@ -55,12 +55,13 @@ export class UpdatedemandeurComponent implements OnInit {
     console.log(this.data.id);
     this.demandeur.put(this.data.element.id, this.form.value).subscribe(res => {
       this.demandeur.getAllDemandeurs();
+      this.ngOnInit();
     },
       err => {
         console.log(err);
       })
     this.onNoClick();
-    this.ngOnInit();
+    
   }
 
 }
