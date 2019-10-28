@@ -64,7 +64,7 @@ export class AddequipementComponent implements OnInit {
     if(formName === 'equipement'){
       this.equipement.postEquipement(this.form.value).subscribe(res => {
         console.log('Posted: ', res);
-        this.data1.changeMessage(res.id);
+        this.data1.changeMessage(res['id']);
         this.equipement.getAllEquipements();
       },
         err => {
