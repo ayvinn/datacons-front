@@ -28,7 +28,8 @@ import { EquipementComponent } from './component/equipement/equipement.component
 import { AddequipementComponent } from './component/equipement/addequipement/addequipement.component';
 import { UpdateequipementComponent } from './component/equipement/updateequipement/updateequipement.component';
 import { StepperComponent } from './component/equipement/stepper/stepper.component';
-
+import { AddimageComponent } from './component/equipement/addequipement/addimage/addimage.component';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { StepperComponent } from './component/equipement/stepper/stepper.compone
     EquipementComponent,
     AddequipementComponent,
     UpdateequipementComponent,
-    StepperComponent
+    StepperComponent,
+    AddimageComponent
     
     
 
@@ -73,7 +75,7 @@ import { StepperComponent } from './component/equipement/stepper/stepper.compone
     HttpClientModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,NgxDropzoneModule
     
   ],
   exports :[

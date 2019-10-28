@@ -20,7 +20,14 @@ export class ServiceequipementService {
 
     
   }
+  getAllEquipements2(){
 
+    this.http.get(this.url).toPromise().then(
+      res=>{
+        this.equipements = res as Equipment[];
+      }
+    )
+  }
 
   postEquipement(par:Equipment){
     return this.http.post(this.url,par);
