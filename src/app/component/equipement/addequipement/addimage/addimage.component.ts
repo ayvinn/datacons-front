@@ -106,7 +106,7 @@ export class AddimageComponent implements OnInit {
       err => this.error = err
     );
   }  */
-  onSubmit(form: NgForm) {
+  onSubmit() {
     /*const formData = new FormData();
     formData.append('id', this.imageForm.get('id').value);
     formData.append('lien', this.imageForm.get('lien').value);

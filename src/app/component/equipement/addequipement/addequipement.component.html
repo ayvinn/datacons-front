@@ -1,49 +1,46 @@
-<mat-horizontal-stepper linear="!isLinear" #stepper>
-    <mat-step [stepControl]="form">
+<mat-horizontal-stepper #stepper>
+    <mat-step [stepControl]="form" >
 
         <div class="col-md-14">
             <div class="card">
                 <div class="card-header card-header-info">
                     <h4 class="card-title">Ajouter un Demandeur</h4>
-                    <p class="card-category">Remplissez le formulaire</p>
+                    <p class="card-category" >Remplissez le formulaire</p>
                 </div>
                 <div class="card-body">
 
 
-                    <form [formGroup]="form" (ngSubmit)="submit(form.value, 'equipement')">
+                    <form [formGroup]="form" (ngSubmit)="submit(form, 'equipement', stepper)">
                         <ng-template matStepLabel>Equipement</ng-template>
                         <!---->
                         <div class="row">
                             <div class="col-md-8">
-                               
 
-                                    <p></p>
-                                    <mat-form-field style="width: 100%;">
-                                        <input matInput type="text" formControlName="CodeHAC"
-                                            placeholder="code hac :" />
-                                        <mat-error *ngIf="f.CodeHAC.errors" class="invalid-feedback">
-                                            <mat-error *ngIf="f.CodeHAC.errors.required"> </mat-error>
-                                        </mat-error>
-                                    </mat-form-field>
-                                
+
+                                <p></p>
+                                <mat-form-field style="width: 100%;">
+                                    <input matInput type="text" formControlName="CodeHAC" placeholder="code hac :" />
+                                    <mat-error *ngIf="f.CodeHAC.errors" class="invalid-feedback">
+                                        <mat-error *ngIf="f.CodeHAC.errors.required"> </mat-error>
+                                    </mat-error>
+                                </mat-form-field>
+
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="form-group">
-                                  
 
-                                          
-                                            <mat-form-field style="width: 100%;">
-                                                <input matInput type="text" formControlName="Description"
-                                                    placeholder=":" />
-                                                <mat-error *ngIf="f.Description.errors" class="invalid-feedback">
-                                                    <mat-error *ngIf="f.Description.errors.required"> Nom du demandeur
-                                                        est
-                                                        obligatoire</mat-error>
-                                                </mat-error>
-                                            </mat-form-field>
-                                    
+
+
+                                    <mat-form-field style="width: 100%;">
+                                        <input matInput type="text" formControlName="Description"
+                                            placeholder="description:" />
+                                        <mat-error *ngIf="f.Description.errors" class="invalid-feedback">
+                                            <mat-error *ngIf="f.Description.errors.required"> description</mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+
                                 </div>
                             </div>
                         </div>
@@ -57,72 +54,71 @@
                                             <option *ngFor="let item of secteur.secteurs" [value]="item.id">
                                                 {{item.nomsecteur}}
                                             </option>
-                                          </select>
-                                          </mat-form-field>
-                                            <p></p>
-                                            
+                                        </select>
+                                    </mat-form-field>
+                                    <p></p>
+
                                 </div>
                             </div>
                         </div>
-                       
-                    
 
-                
-            
-        
-        <div class="row">
-            <div class="col-md-8">
-                <div class="form-group">
-                   
 
-                        <p></p>
-                        <!--  <mat-radio-group style="width: 100%;" matInput formControlName="etat" [ngModelOptions]="{standalone: true}" aria-label="Select an option">
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+
+
+                                    <p></p>
+                                    <!--  <mat-radio-group style="width: 100%;" matInput formControlName="etat" [ngModelOptions]="{standalone: true}" aria-label="Select an option">
                                   <div style="display: inline-block;"> <mat-radio-button value=true>validé</mat-radio-button></div>
                                  
                                   <div style="display: inline-block; margin-left: 4%;"><mat-radio-button value=false>non validé</mat-radio-button></div>
                                 </mat-radio-group>-->
-                        <label>
-                            <input type="radio" value=true formControlName="etat">
-                            <span>active</span>
-                        </label>
-                        <label>
-                            <input type="radio" value=false formControlName="etat">
-                            <span>nom active</span>
-                        </label>
-                    
+                                    <label>
+                                        <input type="radio" value=true formControlName="etat">
+                                        <span>active</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" value=false formControlName="etat">
+                                        <span>nom active</span>
+                                    </label>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="clearfix"></div>
+
+                        <!---->
+                        <div>
+                            <button type="submit" mat-button class="float-right btn btn-info">Next</button>
+                        </div>
+
+                    </form>
                 </div>
             </div>
         </div>
 
-
-        <div class="clearfix"></div>
-
-        <!---->
-        <div>
-            <button type="submit" mat-button class="float-right btn btn-info" matStepperNext
-                (click)="test()">Next</button>
-        </div>
-       
-    </form>
-</div>
-</div>
-</div>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Image</ng-template>
+        <app-addimage></app-addimage>
+        <button mat-button class="mt-2" matStepperPrevious>Back</button>
+        <button mat-button class="float-right mt-2 btn btn-info" matStepperNext>Suivant</button>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel> Sous Equipement
+        </ng-template>
+        <app-sousequipement></app-sousequipement>
+        <button mat-button class="mt-2" matStepperPrevious>Back</button>
+        <button mat-button class="float-right btn btn-info mt-2" matStepperNext>Suivant</button>
 
     </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
-        <form [formGroup]="secondFormGroup">
-            <app-addimage></app-addimage>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button class="float-right btn btn-info" matStepperNext>Suivant</button>
-        </form>
-    </mat-step>
-    <mat-step [stepControl]="thirdFormGroup">
-            <form [formGroup]="thirdFormGroup">
-                <app-sousequipement></aapp-sousequipement>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button class="float-right btn btn-info" matStepperNext>Suivant</button>
-            </form>
-        </mat-step>
     <mat-step>
         <ng-template matStepLabel>Done</ng-template>
         You are now done.

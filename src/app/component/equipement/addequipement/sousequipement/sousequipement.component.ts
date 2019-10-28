@@ -41,7 +41,7 @@ delete(id,Nomse:string){
   })}
 }
 
-  displayedColumns: string[] = ['id', 'codeHAC','Nomequipement','Emplacement','TypeEnergie','Lieu','IDequipement','action'];
+  displayedColumns: string[] = ['id', 'codeHAC','nomequipement','emplacement','typeenergie','lieu','idequipement','action'];
   
 
   applyFilter(filterValue: string) {

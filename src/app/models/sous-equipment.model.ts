@@ -3,7 +3,7 @@ export class SousEquipment {
     CodeHAC:string;
     Nomequipement:string;
     Emplacement:string;
-    TypeEnergie:SVGStringList;
+    TypeEnergie:String;
     Lieu:string;
     IDequipement:number;
 }
