@@ -3,9 +3,9 @@ import { ServiceService } from '../../../services/service.service';
 import { MatTableDataSource } from '@angular/material';
 import { DataSource } from '@angular/cdk/table';
 import { Service } from '../../../models/service.model';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { DialogData } from '../sevice.component';
@@ -17,51 +17,50 @@ import { DialogData } from '../sevice.component';
 export class AddServiceComponent implements OnInit {
 
   ngOnInit() {
-    this.service.service={
-      id:0,
-      Libelle:null
+    this.service.service = {
+      id: 0,
+      Libelle: null
     }
   }
-  services:Service[];
+  services: Service[];
   constructor(
     public dialogRef: MatDialogRef<AddServiceComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,private service:ServiceService) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData, private service: ServiceService) { }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
-  submit(){
-    if(this.service.service.id==0){
-      this.service.postService().subscribe(res=>{
+  submit() {
+    if (this.service.service.id == 0) {
+      this.service.postService().subscribe(res => {
         this.service.getAllServices();
       },
-      err=>{
-        console.log(err);
-      }
+        err => {
+          console.log(err);
+        }
 
 
 
       )
     }
-    else{
-      this.service.postService().subscribe(res=>{
+    else {
+      this.service.postService().subscribe(res => {
         this.service.getAllServices();
       },
-      err=>{
-        console.log(err);
-      }
+        err => {
+          console.log(err);
+        }
 
 
 
       )
     }
-      
-    
-    }
-  
+
+
+  }
+
 
 }
 
 
 
- 

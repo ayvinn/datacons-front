@@ -28,8 +28,8 @@ export class AddequipementComponent implements OnInit {
   equipements: Equipment[];
   secteurs: Secteur[];
   dataSource;
-  constructor(public dialogRef: MatDialogRef<AddequipementComponent>, private _formBuilder: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData, private equipement: ServiceequipementService, private secteur: ServicesecteurService,private data1: DataService) { }
+  constructor( private _formBuilder: FormBuilder,
+     private equipement: ServiceequipementService, private secteur: ServicesecteurService,private data1: DataService) { }
 
   ngOnInit() {
     this.equipement.equipement = {
