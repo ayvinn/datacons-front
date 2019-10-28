@@ -8,6 +8,7 @@ import { Equipment } from 'src/app/models/equipment.model';
 
 import { ServiceequipementService } from 'src/app/services/serviceequipement.service';
 import { UpdateequipementComponent } from './updateequipement/updateequipement.component';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-equipement',
@@ -20,7 +21,7 @@ export class EquipementComponent implements OnInit {
   dataSource;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-  constructor(private equipementser:ServiceequipementService,public dialog: MatDialog) { }
+  constructor(private equipementser:ServiceequipementService,public dialog: MatDialog, private router: Router, private route: ActivatedRoute) { }
   openDialog(): void {
     const dialogRef = this.dialog.open(AddequipementComponent, {
       width: '1000px',
@@ -75,4 +76,8 @@ export class EquipementComponent implements OnInit {
       this.dataSource.filter = filterValue.trim().toLowerCase();
     }
 
+    navigateTo() {
+      console.log('Navigate');
+      this.router.navigate([{outlets: {template: 'ajouterequipement'}}], {replaceUrl: false});
+    }
 }

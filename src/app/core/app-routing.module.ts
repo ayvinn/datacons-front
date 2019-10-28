@@ -7,42 +7,47 @@ import { Demandeur } from '../models/demandeur.model';
 import { DemandeurComponent } from '../component/demandeur/demandeur.component';
 import { EquipementComponent } from '../component/equipement/equipement.component';
 import { StepperComponent } from '../component/equipement/stepper/stepper.component';
+import { AddequipementComponent } from '../component/equipement/addequipement/addequipement.component';
 
 
 const routes: Routes = [
   {
-      path:"service",
-      component:SeviceComponent,
-      pathMatch :'full'
+    path: "service",
+    component: SeviceComponent,
+    //pathMatch: 'full'
+    outlet: 'template'
 
   },
   {
-    path:"categorie",
-    component:CategorieComponent,
-    pathMatch :'full'
-
-},
-{
-  path:"secteur",
-  component:SecteurComponent,
-  pathMatch :'full'
-
-},
-{
-  path:"demandeur",
-  component:DemandeurComponent,
-  pathMatch :'full'
-},
-{
-  path:"equipement",
-  component:EquipementComponent,
-  pathMatch :'full'
-},
-{
-  path:"ajouter-equipement",
-  component:StepperComponent,
-  pathMatch :'full'
-},
+    path: "categorie",
+    component: CategorieComponent,
+    //pathMatch: 'full'
+    outlet: 'template'
+  },
+  {
+    path: "secteur",
+    component: SecteurComponent,
+    // pathMatch: 'full'
+    outlet: 'template'
+  },
+  {
+    path: "demandeur",
+    component: DemandeurComponent,
+    // pathMatch: 'full'
+    outlet: 'template'
+  },
+  {
+    path: "equipement",
+    component: EquipementComponent,
+    // pathMatch: 'full'
+    outlet: 'template'
+  },
+  {
+    path: "ajouterequipement",
+    component: AddequipementComponent,
+    // pathMatch: 'full'
+    outlet: 'template'
+  },
 
 
 ];
