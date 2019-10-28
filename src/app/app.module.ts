@@ -30,6 +30,7 @@ import { UpdateequipementComponent } from './component/equipement/updateequipeme
 import { StepperComponent } from './component/equipement/stepper/stepper.component';
 import { AddimageComponent } from './component/equipement/addequipement/addimage/addimage.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { SousequipementComponent } from './component/equipement/addequipement/sousequipement/sousequipement.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     AddequipementComponent,
     UpdateequipementComponent,
     StepperComponent,
-    AddimageComponent
+    AddimageComponent,
+    SousequipementComponent
     
     
 
@@ -86,7 +88,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     AdddemandeurComponent,
     UpdatedemandeurComponent, EquipementComponent,
     AddequipementComponent,
-    UpdateequipementComponent
+    UpdateequipementComponent, SousequipementComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
@@ -97,6 +99,6 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     AdddemandeurComponent,
     UpdatedemandeurComponent, EquipementComponent,
     AddequipementComponent,
-    UpdateequipementComponent],
+    UpdateequipementComponent, SousequipementComponent],
 })
 export class AppModule { }

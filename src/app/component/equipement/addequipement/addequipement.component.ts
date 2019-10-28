@@ -23,6 +23,7 @@ export class AddequipementComponent implements OnInit {
   isLinear = false;
   form: FormGroup;
   secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
   idEquipement;
   equipements: Equipment[];
   secteurs: Secteur[];
@@ -47,6 +48,9 @@ export class AddequipementComponent implements OnInit {
       etat: ['', Validators.required],
     });
     this.secondFormGroup = this._formBuilder.group({
+      secondCtrl: ['', Validators.required]
+    });
+    this.thirdFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
     });
     this.secteur.getAllSecteurs2();
