@@ -79,7 +79,7 @@ export class AddsousequipementComponent implements OnInit {
     if(formName === 'sousequipement'){
       this.sousequipement.postSousEquipment(values).subscribe(res => {
         console.log('Posted: ', res);
-        this.data1.changeMessage(res['id']);
+       
         this.sousequipement.getAllSousEquipments();
         
       },

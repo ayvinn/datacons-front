@@ -32,13 +32,15 @@
                     <!-- Position Column -->
                     <ng-container matColumnDef="id">              
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                        <div>
                         <td mat-cell *matCellDef="let element" > {{element.id}} </td>
+                        </div>
                     </ng-container>
 
                     <!-- code hac Column -->
                     <ng-container matColumnDef="codeHAC">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> codehac </th>
-                        <td mat-cell *matCellDef="let element"> {{element.codeHac}} </td>
+                        <td mat-cell *matCellDef="let element"  > {{element.codeHac}} </td>
                     </ng-container>
                     <!-- description Column -->
                     <ng-container matColumnDef="nomequipement">

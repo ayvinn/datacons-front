@@ -27,15 +27,17 @@ export class SousequipementComponent implements OnInit {
   constructor(private sousequipementser:ServicesousequipementService,public dialog: MatDialog,private data1: DataService) { }
 
   ngOnInit() {
-    this.sousequipementser.getAllSousEquipments().subscribe(res => {
+    this.data1.currentMessage.subscribe(id => {
+      console.log('ID: ', id);
+      this.idEquipement = id;
+    }) 
+    console.log('idequipment :',this.idEquipement);
+    this.sousequipementser.GetTodoItems(this.idEquipement).subscribe(res => {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
 
-      this.data1.currentMessage.subscribe(id => {
-        console.log('ID: ', id);
-        this.idEquipement = id;
-      }) 
+  
     });
 
 }

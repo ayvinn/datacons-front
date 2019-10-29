@@ -13,6 +13,7 @@ import { SousEquipment } from '../models/sous-equipment.model';
 })
 export class ServicesousequipementService {
   readonly url: string = constantURL.apiEndpoint+'/api/SousEquipments';
+  readonly url2: string = constantURL.apiEndpoint+'/api/SousEquipments/sous';
   public soussequipements:SousEquipment[];
   sousequipement:SousEquipment;
   constructor(private http:HttpClient) { }
@@ -24,8 +25,10 @@ export class ServicesousequipementService {
   postSousEquipment(par:SousEquipment){
     return this.http.post(this.url,par);
   }
-
-
+  GetTodoItems(idequipment : number){
+    return this.http.get<SousEquipment[]>(this.url2+"/"+idequipment);
+  }
+  
   put(id,data) {
     return this.http.put(`${this.url}/${id}`, data);
   }
