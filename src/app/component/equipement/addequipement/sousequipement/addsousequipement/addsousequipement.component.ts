@@ -8,6 +8,7 @@ import { DialogData } from 'src/app/component/sevice/sevice.component';
 import { ServiceService } from 'src/app/services/service.service';
 import { DataService } from 'src/app/services/data.service';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
+import { SousequipementComponent } from '../sousequipement.component';
 
 @Component({
   selector: 'app-addsousequipement',
@@ -90,6 +91,7 @@ export class AddsousequipementComponent implements OnInit {
     
     this.ngOnInit();
     this.dialogRef.close();
+
   }
 
 }

@@ -9,6 +9,7 @@ import { Equipment } from 'src/app/models/equipment.model';
 import { ServicesousequipementService } from 'src/app/services/servicesousequipement.service';
 import { SousEquipment } from 'src/app/models/sous-equipment.model';
 import { AddsousequipementComponent } from './addsousequipement/addsousequipement.component';
+import { DataService } from 'src/app/services/data.service';
 //import { UpdateequipementComponent } from './updateequipement/updateequipement.component';
 
 @Component({
@@ -19,10 +20,11 @@ import { AddsousequipementComponent } from './addsousequipement/addsousequipemen
 export class SousequipementComponent implements OnInit {
   sousequipement=new SousEquipment;
   sousequipements:SousEquipment[];
+  idEquipement: number;
   dataSource;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-  constructor(private sousequipementser:ServicesousequipementService,public dialog: MatDialog) { }
+  constructor(private sousequipementser:ServicesousequipementService,public dialog: MatDialog,private data1: DataService) { }
 
   ngOnInit() {
     this.sousequipementser.getAllSousEquipments().subscribe(res => {
@@ -30,6 +32,10 @@ export class SousequipementComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
 
+      this.data1.currentMessage.subscribe(id => {
+        console.log('ID: ', id);
+        this.idEquipement = id;
+      }) 
     });
 
 }
@@ -53,6 +59,9 @@ delete(id,Nomse:string){
     const dialogRef = this.dialog.open(AddsousequipementComponent, {
       width: '700px',
       
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
     });
 
   }
