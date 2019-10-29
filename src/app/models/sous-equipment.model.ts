@@ -6,4 +6,7 @@ export class SousEquipment {
     TypeEnergie:String;
     Lieu:string;
     IDequipement:number;
+    Remarque:string;
+    etat:boolean;
+    numero:number;    
 }
