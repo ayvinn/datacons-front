@@ -31,6 +31,7 @@ import { StepperComponent } from './component/equipement/stepper/stepper.compone
 import { AddimageComponent } from './component/equipement/addequipement/addimage/addimage.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { SousequipementComponent } from './component/equipement/addequipement/sousequipement/sousequipement.component';
+import { AddlototoComponent } from './component/equipement/addequipement/addlototo/addlototo.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { SousequipementComponent } from './component/equipement/addequipement/so
     UpdateequipementComponent,
     StepperComponent,
     AddimageComponent,
-    SousequipementComponent
+    SousequipementComponent,
+    AddlototoComponent
     
     
 

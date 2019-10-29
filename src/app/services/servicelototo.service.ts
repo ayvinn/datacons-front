@@ -1,34 +1,34 @@
 import { Injectable } from '@angular/core';
+
 import { constantURL } from 'src/app/shared/constantURL';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as _ from 'lodash';
-import { Equipment } from '../models/equipment.model';
+import { Lototo } from '../models/lototo.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ServiceequipementService {
-  readonly url: string = constantURL.apiEndpoint+'/api/equipements';
-  public equipements:Equipment[];
-  equipement:Equipment;
+export class ServicelototoService {
+  readonly url: string = constantURL.apiEndpoint+'/api/lototoes';
+  public lototos:Lototo[];
+  lototo:Lototo;
   constructor(private http:HttpClient) { }
-  getAllEquipements(): Observable<Equipment[]>{
-    return this.http.get<Equipment[]>(this.url);
+  getAllLototos(): Observable<Lototo[]>{
+    return this.http.get<Lototo[]>(this.url);
 
     
   }
-  getAllEquipements2(){
+  getAllLototos2(){
 
     this.http.get(this.url).toPromise().then(
       res=>{
-        this.equipements = res as Equipment[];
+        this.lototos = res as Lototo[];
       }
     )
   }
-
-  postEquipement(par:Equipment){
+  postLototo(par){
     return this.http.post(this.url,par);
   }
 
@@ -39,7 +39,4 @@ export class ServiceequipementService {
   deleteService(id){
     return this.http.delete(this.url+"/"+id);
   }
-
 }
-
-
