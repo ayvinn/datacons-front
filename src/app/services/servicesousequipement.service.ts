@@ -21,10 +21,10 @@ export class ServicesousequipementService {
 
     
   }
-
-  postSousEquipment(){
-    return this.http.post(this.url,this.sousequipement);
+  postSousEquipment(par:SousEquipment){
+    return this.http.post(this.url,par);
   }
+
 
   put(id,data) {
     return this.http.put(`${this.url}/${id}`, data);

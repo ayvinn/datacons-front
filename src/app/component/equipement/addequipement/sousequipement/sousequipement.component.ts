@@ -8,6 +8,7 @@ import { Equipment } from 'src/app/models/equipment.model';
 
 import { ServicesousequipementService } from 'src/app/services/servicesousequipement.service';
 import { SousEquipment } from 'src/app/models/sous-equipment.model';
+import { AddsousequipementComponent } from './addsousequipement/addsousequipement.component';
 //import { UpdateequipementComponent } from './updateequipement/updateequipement.component';
 
 @Component({
@@ -46,5 +47,13 @@ delete(id,Nomse:string){
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddsousequipementComponent, {
+      width: '700px',
+      
+    });
+
   }
 }
