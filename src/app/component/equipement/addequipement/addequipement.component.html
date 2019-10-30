@@ -1,11 +1,11 @@
 <mat-horizontal-stepper #stepper>
-    <mat-step [stepControl]="form" >
+    <mat-step [stepControl]="form">
 
         <div class="col-md-14">
             <div class="card">
                 <div class="card-header card-header-info">
                     <h4 class="card-title">Ajouter un Demandeur</h4>
-                    <p class="card-category" >Remplissez le formulaire</p>
+                    <p class="card-category">Remplissez le formulaire</p>
                 </div>
                 <div class="card-body">
 
@@ -48,7 +48,7 @@
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="form-group">
-                                    <mat-form-field >
+                                    <mat-form-field>
                                         <mat-label>Selectionner votre secteur</mat-label>
                                         <select matNativeControl formControlName="IDsecteur" name="idsecteur">
                                             <option *ngFor="let item of secteur.secteurs" [value]="item.id">
@@ -67,7 +67,37 @@
 
 
 
+<<<<<<< HEAD
                        
+=======
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+
+
+                                    <p></p>
+                                    <!--  <mat-radio-group style="width: 100%;" matInput formControlName="etat" [ngModelOptions]="{standalone: true}" aria-label="Select an option">
+                                  <div style="display: inline-block;"> <mat-radio-button value=true>validé</mat-radio-button></div>
+                                 
+                                  <div style="display: inline-block; margin-left: 4%;"><mat-radio-button value=false>non validé</mat-radio-button></div>
+                                </mat-radio-group>
+                                    <label>
+                                        <input type="radio" value=true formControlName="etat">
+                                        <span>active</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" value=false formControlName="etat">
+                                        <span>nom active</span>
+                                    </label>-->
+                                    <mat-button-toggle-group formControlName="etat" color="primary">
+                                        <mat-button-toggle [value]="true"> Enable </mat-button-toggle>
+                                        <mat-button-toggle [value]="false"> Disable </mat-button-toggle>
+                                    </mat-button-toggle-group>
+                                </div>
+                            </div>
+                        </div>
+
+>>>>>>> 793a11ad47b235c43e78a8e58a1c454cdf78f5ce
 
                         <div class="clearfix"></div>
 
@@ -97,12 +127,21 @@
 
     </mat-step>
     <mat-step>
-            <ng-template matStepLabel> Lototo
-            </ng-template>
-            <app-addlototo></app-addlototo>
-           
-    
-        </mat-step>
+        <ng-template matStepLabel> Lototo
+        </ng-template>
+        <app-addlototo></app-addlototo>
+
+
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel> Interventions
+        </ng-template>
+        <app-intervention>
+            </ app-intervention>
+            <button mat-button class="mt-2" matStepperPrevious>Back</button>
+            <button mat-button class="float-right btn btn-info mt-2" matStepperNext>Suivant</button>
+
+    </mat-step>
     <mat-step>
         <ng-template matStepLabel>Done</ng-template>
         You are now done.
@@ -111,6 +150,7 @@
             <button mat-button (click)="stepper.reset()">Reset</button>
         </div>
     </mat-step>
+
 </mat-horizontal-stepper>
 
 

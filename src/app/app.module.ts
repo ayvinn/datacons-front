@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './core/app-routing.module';
 import { AppComponent } from './app.component';
 // import { MaterialModule } from './core/material.module';
@@ -33,8 +32,13 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 import { SousequipementComponent } from './component/equipement/addequipement/sousequipement/sousequipement.component';
 import { AddlototoComponent } from './component/equipement/addequipement/addlototo/addlototo.component';
 import { AddsousequipementComponent } from './component/equipement/addequipement/sousequipement/addsousequipement/addsousequipement.component';
+
 import { UpdateimageComponent } from './component/equipement/updateequipement/updateimage/updateimage.component';
 import { UpdatesousequipementComponent } from './component/equipement/updateequipement/updatesousequipement/updatesousequipement.component';
+
+import { InterventionComponent } from './component/equipement/addequipement/intervention/intervention.component';
+import {AddinterventionComponent} from './component/equipement/addequipement/intervention/addintervention/addintervention.component'
+
 
 
 @NgModule({
@@ -66,9 +70,14 @@ import { UpdatesousequipementComponent } from './component/equipement/updateequi
 
     AddsousequipementComponent,
 
+
     UpdateimageComponent,
 
-    UpdatesousequipementComponent
+    UpdatesousequipementComponent,
+
+    InterventionComponent,
+    AddinterventionComponent
+
 
     
     
@@ -101,7 +110,8 @@ import { UpdatesousequipementComponent } from './component/equipement/updateequi
     AdddemandeurComponent,
     UpdatedemandeurComponent, EquipementComponent,
     AddequipementComponent,
-    UpdateequipementComponent, SousequipementComponent, AddlototoComponent,AddsousequipementComponent
+    UpdateequipementComponent, SousequipementComponent, AddlototoComponent,AddsousequipementComponent,AddinterventionComponent, InterventionComponent,
+    AddinterventionComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
@@ -111,7 +121,8 @@ import { UpdatesousequipementComponent } from './component/equipement/updateequi
     UpdatesecteurComponent,DemandeurComponent,
     AdddemandeurComponent,
     UpdatedemandeurComponent, EquipementComponent,
-    AddequipementComponent,
-    UpdateequipementComponent, SousequipementComponent,AddsousequipementComponent, AddlototoComponent,],
+    AddequipementComponent,AddinterventionComponent,
+    UpdateequipementComponent, SousequipementComponent,AddsousequipementComponent, AddlototoComponent, InterventionComponent,
+    AddinterventionComponent],
 })
 export class AppModule { }
