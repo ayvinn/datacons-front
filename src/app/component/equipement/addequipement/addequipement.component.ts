@@ -6,7 +6,7 @@ import { Equipment } from '../../../models/equipment.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder, NgForm, FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { DialogData } from '../../sevice/sevice.component';
 import { ServicesecteurService } from 'src/app/services/servicesecteur.service';
@@ -23,6 +23,9 @@ export class AddequipementComponent implements OnInit {
   isLinear = false;
   form: FormGroup;
   idEquipement;
+  etat = new FormControl(true, [
+    Validators.required
+]);
   equipements: Equipment[];
   secteurs: Secteur[];
   dataSource;
@@ -39,6 +42,7 @@ export class AddequipementComponent implements OnInit {
       Description: null,
       etat: false,
       IDsecteur: 0,
+      
 
     }
     this.form = this._formBuilder.group({
@@ -46,7 +50,7 @@ export class AddequipementComponent implements OnInit {
       CodeHAC: ['', Validators.required],
       Description: ['', Validators.required],
       IDsecteur: ['', Validators.required],
-      etat: ['', Validators.required],
+      etat: [true, Validators.required],
     });
    
    
