@@ -16,35 +16,35 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./equipement.component.sass']
 })
 export class EquipementComponent implements OnInit {
-  equipement=new Equipment;
-  equipements:Equipment[];
+  equipement = new Equipment;
+  equipements: Equipment[];
   dataSource;
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
-  constructor(private equipementser:ServiceequipementService,public dialog: MatDialog, private router: Router, private route: ActivatedRoute) { }
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  constructor(private equipementser: ServiceequipementService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute) { }
   openDialog(): void {
     const dialogRef = this.dialog.open(AddequipementComponent, {
       width: '1000px',
-      
+
     });
 
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-     
+
       this.ngOnInit();
     });
   }
   openDialog1(elt): void {
     const dialogRef = this.dialog.open(UpdateequipementComponent, {
       width: '700px',
-      data: {element: elt}
+      data: { element: elt }
     });
 
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-     
+
       this.ngOnInit();
     });
   }
@@ -56,28 +56,30 @@ export class EquipementComponent implements OnInit {
       this.dataSource.sort = this.sort;
 
     });
- 
-  
-    
+
+
+
   }
 
-  delete(id,Nomdem:string){
-    if(confirm("vous etes sur de supprimer cette categorie ")){
-      this.equipementser.deleteService(id).subscribe(res=>{
-      this.equipementser.getAllEquipements();
-      this.ngOnInit();
-    })}
+  delete(id, Nomdem: string) {
+    if (confirm("vous etes sur de supprimer cet equipement ")) {
+      this.equipementser.deleteService(id).subscribe(res => {
+
+        this.equipementser.getAllEquipements();
+        this.ngOnInit();
+      })
+    }
   }
 
-    displayedColumns: string[] = ['id', 'codeHAC','description','Idsecteur','etat','Action'];
-    
-  
-    applyFilter(filterValue: string) {
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-    }
+  displayedColumns: string[] = ['id', 'codeHAC', 'description', 'Idsecteur', 'etat', 'Action'];
 
-    navigateTo() {
-      console.log('Navigate');
-      this.router.navigate([{outlets: {template: 'ajouterequipement'}}], {replaceUrl: false});
-    }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  navigateTo() {
+    console.log('Navigate');
+    this.router.navigate([{ outlets: { template: 'ajouterequipement' } }], { replaceUrl: false });
+  }
 }

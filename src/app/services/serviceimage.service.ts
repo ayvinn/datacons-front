@@ -12,6 +12,7 @@ import { ajax } from 'rxjs/ajax';
 })
 export class ServiceimageService {
   readonly url: string = constantURL.apiEndpoint+'/api/images';
+ 
   public images:Image[];
   image:Image;
   constructor(private http:HttpClient) { }
@@ -54,5 +55,8 @@ export class ServiceimageService {
 
   deleteService(id){
     return this.http.delete(this.url+"/"+id);
+  }
+  GetImagemodification(id){
+    return this.http.get<Image[]>(this.url+"/sous/"+id);
   }
 }

@@ -33,6 +33,8 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 import { SousequipementComponent } from './component/equipement/addequipement/sousequipement/sousequipement.component';
 import { AddlototoComponent } from './component/equipement/addequipement/addlototo/addlototo.component';
 import { AddsousequipementComponent } from './component/equipement/addequipement/sousequipement/addsousequipement/addsousequipement.component';
+import { UpdateimageComponent } from './component/equipement/updateequipement/updateimage/updateimage.component';
+import { UpdatesousequipementComponent } from './component/equipement/updateequipement/updatesousequipement/updatesousequipement.component';
 
 
 @NgModule({
@@ -62,7 +64,11 @@ import { AddsousequipementComponent } from './component/equipement/addequipement
 
     AddlototoComponent,
 
-    AddsousequipementComponent
+    AddsousequipementComponent,
+
+    UpdateimageComponent,
+
+    UpdatesousequipementComponent
 
     
     

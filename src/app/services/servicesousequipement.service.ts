@@ -22,6 +22,14 @@ export class ServicesousequipementService {
 
     
   }
+  getAllSousEquipments2(){
+
+    this.http.get(this.url).toPromise().then(
+      res=>{
+        this.soussequipements = res as SousEquipment[];
+      }
+    )
+  }
   postSousEquipment(par:SousEquipment){
     return this.http.post(this.url,par);
   }

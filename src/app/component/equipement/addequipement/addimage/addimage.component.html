@@ -36,8 +36,8 @@
             <div class="form-group">
                 <ngx-dropzone (change)="upload($event)">
                     <ngx-dropzone-label>ajouter des images</ngx-dropzone-label>
-                    <ngx-dropzone-preview *ngFor="let file of files" [removable]="true">
-                        <ngx-dropzone-label>{{ file.id }} ({{file.lien}}) ({{file.idequipement}})</ngx-dropzone-label>
+                    <ngx-dropzone-preview *ngFor="let file of files" [removable]="true" (removed)="onRemove(file)">
+                        <ngx-dropzone-label>{{ file.name }} ({{ file.type }})</ngx-dropzone-label>
                     </ngx-dropzone-preview>
                 </ngx-dropzone>
             </div>

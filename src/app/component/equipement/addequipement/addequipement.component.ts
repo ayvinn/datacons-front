@@ -37,7 +37,7 @@ export class AddequipementComponent implements OnInit {
       id: 0,
       CodeHAC: null,
       Description: null,
-      etat: false,
+      etat: true,
       IDsecteur: 0,
 
     }
@@ -46,7 +46,7 @@ export class AddequipementComponent implements OnInit {
       CodeHAC: ['', Validators.required],
       Description: ['', Validators.required],
       IDsecteur: ['', Validators.required],
-      etat: ['', Validators.required],
+      etat:['']
     });
    
    
@@ -57,12 +57,16 @@ export class AddequipementComponent implements OnInit {
   get f() { return this.form.controls; }
   
   submit(form: NgForm, formName:string, stepper: MatStepper) {
+    const values = {id:0, CodeHAC: this.form.value.CodeHAC,
+      Description: this.form.value.Description,
+      etat :true, IDsecteur:this.form.value.IDsecteur
+    };
     console.log('Submit: ', form.valid );
     if(!form.valid) {
       return;
     }
     if(formName === 'equipement'){
-      this.equipement.postEquipement(this.form.value).subscribe(res => {
+      this.equipement.postEquipement(values).subscribe(res => {
         console.log('Posted: ', res);
         this.data1.changeMessage(res['id']);
         this.equipement.getAllEquipements();

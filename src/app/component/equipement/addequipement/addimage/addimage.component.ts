@@ -11,15 +11,18 @@ import { DataService } from "src/app/services/data.service";
   styleUrls: ['./addimage.component.sass']
 })
 export class AddimageComponent implements OnInit {
+  @ViewChild(Image, { static: true }) private image: ElementRef;
+  @Output() close = new EventEmitter();
+
   fileData: File = null;
   previewUrl: any = null;
   imageForm: FormGroup;
   error: string;
   uploadError: string;
-  @ViewChild(Image, { static: true }) private image: ElementRef;
+
   idEquipement: number;
-  @Output() close = new EventEmitter();
   message: string;
+  files: File[] = [];
 
   constructor(private fb: FormBuilder,
     private imageService: ServiceimageService,
@@ -42,6 +45,8 @@ export class AddimageComponent implements OnInit {
 
   public upload(event: any): void {
     this.fileData = event.addedFiles[0];
+    this.files.push(...event.addedFiles);
+    console.log('Event: ', event.addedFiles);
     console.log('FileName: ', this.fileData.name);
     this.preview();
   }
@@ -113,9 +118,12 @@ export class AddimageComponent implements OnInit {
     formData.append('idequipement', this.imageForm.get('idequipement').value);*/
 
     const values = { lien: this.previewUrl, Idequipement: this.idEquipement };
+    
     console.log('Form: ', values);
+    if(this.previewUrl!=null)
     this.imageService.saveProduct(values).subscribe(
       res => {
+        console.log('Ajouter Produit: ', res);
         if (res.status === 'success') {
           this.onClose(res);
         }
@@ -123,6 +131,14 @@ export class AddimageComponent implements OnInit {
       err => this.error = err
     );
   }
+
+
+	onRemove(event) {
+		console.log(event);
+    this.files.splice(this.files.indexOf(event), 1);
+    this.previewUrl=null;
+  }
+  
   onClose(data: any) {
     this.close.emit(data);
   }
@@ -133,11 +149,8 @@ export class AddimageComponent implements OnInit {
 		console.log(event);
 		this.files.push(...event.addedFiles);
 	}
+*/
 
-	onRemove(event) {
-		console.log(event);
-		this.files.splice(this.files.indexOf(event), 1);
-	}
- */
+
 
 }
