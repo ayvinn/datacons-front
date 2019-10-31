@@ -37,7 +37,8 @@ import { UpdateimageComponent } from './component/equipement/updateequipement/up
 import { UpdatesousequipementComponent } from './component/equipement/updateequipement/updatesousequipement/updatesousequipement.component';
 
 import { InterventionComponent } from './component/equipement/addequipement/intervention/intervention.component';
-import {AddinterventionComponent} from './component/equipement/addequipement/intervention/addintervention/addintervention.component'
+import {AddinterventionComponent} from './component/equipement/addequipement/intervention/addintervention/addintervention.component';
+import { UpdatelototoComponent } from './component/equipement/updateequipement/updatelototo/updatelototo.component'
 
 
 
@@ -76,7 +77,8 @@ import {AddinterventionComponent} from './component/equipement/addequipement/int
     UpdatesousequipementComponent,
 
     InterventionComponent,
-    AddinterventionComponent
+    AddinterventionComponent,
+    UpdatelototoComponent
 
 
     
