@@ -37,7 +37,8 @@ import { UpdateimageComponent } from './component/equipement/updateequipement/up
 import { UpdatesousequipementComponent } from './component/equipement/updateequipement/updatesousequipement/updatesousequipement.component';
 
 import { InterventionComponent } from './component/equipement/addequipement/intervention/intervention.component';
-import {AddinterventionComponent} from './component/equipement/addequipement/intervention/addintervention/addintervention.component'
+import {AddinterventionComponent} from './component/equipement/addequipement/intervention/addintervention/addintervention.component';
+import { UpdateinterventionComponent } from './component/equipement/updateequipement/updateintervention/updateintervention.component'
 
 
 
@@ -76,7 +77,8 @@ import {AddinterventionComponent} from './component/equipement/addequipement/int
     UpdatesousequipementComponent,
 
     InterventionComponent,
-    AddinterventionComponent
+    AddinterventionComponent,
+    UpdateinterventionComponent
 
 
     
@@ -123,6 +125,6 @@ import {AddinterventionComponent} from './component/equipement/addequipement/int
     UpdatedemandeurComponent, EquipementComponent,
     AddequipementComponent,AddinterventionComponent,
     UpdateequipementComponent, SousequipementComponent,AddsousequipementComponent, AddlototoComponent, InterventionComponent, UpdatesousequipementComponent,
-    AddinterventionComponent],
+    AddinterventionComponent,UpdateinterventionComponent],
 })
 export class AppModule { }
