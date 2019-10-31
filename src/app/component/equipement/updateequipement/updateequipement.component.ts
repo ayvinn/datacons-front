@@ -21,12 +21,13 @@ import { DataService } from 'src/app/services/data.service';
 export class UpdateequipementComponent implements OnInit {
   formupdate: FormGroup;
   private toastr: ToastrService;
+  
   equipements: Equipment[];
   constructor(private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<UpdateequipementComponent>,
     private equipement: ServiceequipementService,
     private secteur: ServicesecteurService,
-    private dataShared: DataService,
+    private dataShared: DataService,private data1: DataService,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
@@ -35,6 +36,7 @@ export class UpdateequipementComponent implements OnInit {
     this.dataShared.currentIdEquipement.subscribe();
     this.dataShared.changeIdEquipement(this.data.element.id);
     console.log('Data: ', this.data);
+    this.data1.currentMessage.subscribe();
   }
   onNoClick(): void {
     this.dialogRef.close();
@@ -54,8 +56,9 @@ export class UpdateequipementComponent implements OnInit {
     console.log(this.equipement);
     console.log(this.data.id);
 
-    this.equipement.put(this.data.element.id, this.formupdate.value).subscribe(res => {
+      this.equipement.put(this.data.element.id, this.formupdate.value).subscribe(res => {
       this.equipement.getAllEquipements();
+      this.data1.changeMessage(res['id']);
       this.ngOnInit();
     },
       err => {

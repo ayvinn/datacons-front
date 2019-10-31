@@ -69,19 +69,6 @@
 
 
                                     <p></p>
-                                    <!--  <mat-radio-group style="width: 100%;" matInput formControlName="etat" [ngModelOptions]="{standalone: true}" aria-label="Select an option">
-                                  <div style="display: inline-block;"> <mat-radio-button value=true>validé</mat-radio-button></div>
-                                 
-                                  <div style="display: inline-block; margin-left: 4%;"><mat-radio-button value=false>non validé</mat-radio-button></div>
-                                </mat-radio-group>
-                                    <label>
-                                        <input type="radio" value=true formControlName="etat">
-                                        <span>active</span>
-                                    </label>
-                                    <label>
-                                        <input type="radio" value=false formControlName="etat">
-                                        <span>nom active</span>
-                                    </label>-->
                                     <mat-button-toggle-group formControlName="etat" color="primary">
                                         <mat-button-toggle [value]="true"> Enable </mat-button-toggle>
                                         <mat-button-toggle [value]="false"> Disable </mat-button-toggle>
@@ -145,8 +132,3 @@
     </mat-step>
 
 </mat-horizontal-stepper>
-
-
-<!-- Copyright 2019 Google Inc. All Rights Reserved.
-                Use of this source code is governed by an MIT-style license that
-                can be found in the LICENSE file at http://angular.io/license -->

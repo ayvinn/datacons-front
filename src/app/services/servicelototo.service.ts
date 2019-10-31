@@ -12,6 +12,7 @@ import { Lototo } from '../models/lototo.model';
 })
 export class ServicelototoService {
   readonly url: string = constantURL.apiEndpoint+'/api/lototoes';
+  readonly url2: string = constantURL.apiEndpoint+'/api/lototoes/sous';
   public lototos:Lototo[];
   lototo:Lototo;
   constructor(private http:HttpClient) { }
@@ -39,4 +40,8 @@ export class ServicelototoService {
   deleteService(id){
     return this.http.delete(this.url+"/"+id);
   }
+  GetTodoItems(idequipment : number){
+    return this.http.get<Lototo[]>(this.url2+"/"+idequipment);
+  }
+  
 }

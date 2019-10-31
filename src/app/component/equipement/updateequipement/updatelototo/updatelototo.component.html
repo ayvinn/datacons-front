@@ -1,1 +1,61 @@
-<p>updatelototo works!</p>
+<form [formGroup]="formupdate" (ngSubmit)="update(formupdate)">
+    <ng-template matStepLabel>lototo</ng-template>
+    <!---->
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+
+                <mat-form-field style="width: 100%;">
+                    <input matInput type="text" formControlName="numero" placeholder="numero:"  />
+                </mat-form-field>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+
+                <mat-form-field style="width: 100%;">
+                    <input matInput type="text" formControlName="Description" placeholder="description:" />
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>details</mat-label>
+                    <select  formControlName="Details" matNativeControl >
+                        <option  value="det1" selected="{{p1}}">det1</option>
+                        <option value="det2" selected="{{p2}}">det2</option>
+                        <option value="det3" selected="{{p3}}">det3</option>
+                    </select>
+                </mat-form-field>
+                <p></p>
+
+            </div>
+        </div>
+    </div>
+
+    <button mat-button class="mt-2" matStepperPrevious>Back</button>
+    <button mat-button type="submit" class="float-right btn btn-info mt-2" matStepperNext>Suivant</button>
+
+    <div class="clearfix"></div>
+
+    <!---->
+
+
+</form>
+
+
+
+
+
+
+
+<!-- Copyright 2019 Google Inc. All Rights Reserved.
+                        Use of this source code is governed by an MIT-style license that
+                        can be found in the LICENSE file at http://angular.io/license -->
