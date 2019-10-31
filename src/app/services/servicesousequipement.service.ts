@@ -44,4 +44,8 @@ export class ServicesousequipementService {
   deleteService(id){
     return this.http.delete(this.url+"/"+id);
   }
+  GetSousEquipment(id){
+
+      return this.http.get(this.url+"/"+id);
+  }
 }

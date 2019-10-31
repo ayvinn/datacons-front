@@ -37,7 +37,7 @@ export class EquipementComponent implements OnInit {
   }
   openDialog1(elt): void {
     const dialogRef = this.dialog.open(UpdateequipementComponent, {
-      width: '700px',
+      width: '1500px',
       data: { element: elt }
     });
 

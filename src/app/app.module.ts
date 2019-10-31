@@ -122,7 +122,7 @@ import {AddinterventionComponent} from './component/equipement/addequipement/int
     AdddemandeurComponent,
     UpdatedemandeurComponent, EquipementComponent,
     AddequipementComponent,AddinterventionComponent,
-    UpdateequipementComponent, SousequipementComponent,AddsousequipementComponent, AddlototoComponent, InterventionComponent,
+    UpdateequipementComponent, SousequipementComponent,AddsousequipementComponent, AddlototoComponent, InterventionComponent, UpdatesousequipementComponent,
     AddinterventionComponent],
 })
 export class AppModule { }

@@ -10,6 +10,7 @@ import { ServicesousequipementService } from 'src/app/services/servicesousequipe
 import { SousEquipment } from 'src/app/models/sous-equipment.model';
 import { AddsousequipementComponent } from './addsousequipement/addsousequipement.component';
 import { DataService } from 'src/app/services/data.service';
+import { UpdatesousequipementComponent } from '../../updateequipement/updatesousequipement/updatesousequipement.component';
 //import { UpdateequipementComponent } from './updateequipement/updateequipement.component';
 
 @Component({
@@ -50,12 +51,23 @@ delete(id,Nomse:string){
   })}
 }
 
-  displayedColumns: string[] = ['id', 'codeHAC','nomequipement','emplacement','typeenergie','lieu','idequipement','action'];
+  displayedColumns: string[] = ['id', 'codeHAC','nomequipement','emplacement','typeenergie','lieu','idequipement','numero','remarque','action'];
   
+  openDialog1(elt): void {
+    const dialogRef = this.dialog.open(UpdatesousequipementComponent, {
+      width: '700px',
+      data: {element: elt}
+  })
+  dialogRef.afterClosed().subscribe(result => {
+    this.ngOnInit();
+  });
+
+};
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+  
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddsousequipementComponent, {
@@ -65,6 +77,7 @@ delete(id,Nomse:string){
     dialogRef.afterClosed().subscribe(result => {
       this.ngOnInit();
     });
+
 
   }
 }

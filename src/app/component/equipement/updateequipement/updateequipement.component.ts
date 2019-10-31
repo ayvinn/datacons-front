@@ -37,6 +37,7 @@ export class UpdateequipementComponent implements OnInit {
     this.dataShared.changeIdEquipement(this.data.element.id);
     console.log('Data: ', this.data);
     this.data1.currentMessage.subscribe();
+    this.data1.changeMessage(this.data.element.id);
   }
   onNoClick(): void {
     this.dialogRef.close();
@@ -58,12 +59,14 @@ export class UpdateequipementComponent implements OnInit {
 
       this.equipement.put(this.data.element.id, this.formupdate.value).subscribe(res => {
       this.equipement.getAllEquipements();
-      this.data1.changeMessage(res['id']);
+      
       this.ngOnInit();
     },
+    
       err => {
         console.log(err);
       })
+      
   }
 
 }
