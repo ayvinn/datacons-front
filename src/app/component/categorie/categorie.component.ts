@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Categorie } from 'src/app/models/categorie.model';
 import { MatPaginator, MatSort, MatDialog, MatTableDataSource } from '@angular/material';
 import { ServicecategorieService } from 'src/app/services/servicecategorie.service';
-import { AddServiceComponent } from '../sevice/add-service/add-service.component';
 import { AddcategorieComponent } from './addcategorie/addcategorie.component';
 import { UpdatecategorieComponent } from './updatecategorie/updatecategorie.component';
 

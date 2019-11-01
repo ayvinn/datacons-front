@@ -3,10 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { SeviceComponent } from '../component/sevice/sevice.component';
 import { CategorieComponent } from '../component/categorie/categorie.component';
 import { SecteurComponent } from '../component/secteur/secteur.component';
-import { Demandeur } from '../models/demandeur.model';
 import { DemandeurComponent } from '../component/demandeur/demandeur.component';
 import { EquipementComponent } from '../component/equipement/equipement.component';
-import { StepperComponent } from '../component/equipement/stepper/stepper.component';
 import { AddequipementComponent } from '../component/equipement/addequipement/addequipement.component';
 
 
