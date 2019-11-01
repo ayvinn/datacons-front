@@ -12,7 +12,7 @@
     </div>
     <div class="sidebar-wrapper">
       <ul class="nav">
-        <li class="nav-item active  ">
+        <li class="nav-item">
           <a class="nav-link" href="./dashboard.html">
             <i class="material-icons">dashboard</i>
             <p>Tableau de bord</p>
@@ -30,32 +30,32 @@
             <p>Table List</p>
           </a>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link"  [routerLink]="[{outlets: {template: ['equipement']}}]">
+        <li class="nav-item " [routerLink]="[{outlets: {template: ['equipement']}}]" routerLinkActive="active">
+          <a class="nav-link"   [routerLink]="[{outlets: {template: ['equipement']}}]">
             <i class="material-icons">library_books</i>
             <p>Equipement</p>
           </a>
         </li>
-        <li class="nav-item ">
+        <li class="nav-item "  [routerLink]="[{outlets: {template: ['demandeur']}}]" routerLinkActive="active">
           <a class="nav-link"   [routerLink]="[{outlets: {template: ['demandeur']}}]">
             <i class="material-icons">bubble_chart</i>
             <p>Demandeur</p>
           </a>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link"  [routerLink]="[{outlets: {template: ['service']}}]">
+        <li class="nav-item " [routerLink]="[{outlets: {template: ['service']}}]" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="[{outlets: {template: ['service']}}]" >
             <i class="material-icons">location_ons</i>
             <p>Service</p>
           </a>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link"  [routerLink]="[{outlets: {template: ['categorie']}}]">
+        <li class="nav-item " [routerLink]="[{outlets: {template: ['categorie']}}]" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="[{outlets: {template: ['categorie']}}]" >
             <i class="material-icons">notifications</i>
             <p>categorie</p>
           </a>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link"  [routerLink]="[{outlets: {template: ['secteur']}}]">
+        <li class="nav-item " [routerLink]="[{outlets: {template: ['secteur']}}]" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="[{outlets: {template: ['secteur']}}]" >
             <i class="material-icons">language</i>
             <p>secteur</p>
           </a>
@@ -74,7 +74,10 @@
     <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
       <div class="container-fluid">
         <div class="navbar-wrapper">
-          <a class="navbar-brand" href="#pablo">Data Consignation</a>
+         
+          <div class="tim-typo">
+            <h5> Data Consignation</h5>
+          </div>
         </div>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"

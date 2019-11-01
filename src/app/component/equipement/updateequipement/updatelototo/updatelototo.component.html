@@ -6,7 +6,7 @@
             <div class="form-group">
 
                 <mat-form-field style="width: 100%;">
-                    <input matInput type="text" formControlName="numero" placeholder="numero:"  />
+                    <input matInput type="text" formControlName="numero" placeholder="numero:" />
                 </mat-form-field>
 
             </div>
@@ -28,11 +28,11 @@
             <div class="form-group">
                 <mat-form-field>
                     <mat-label>details</mat-label>
-                    <select  formControlName="Details" matNativeControl >
-                        <option  value="det1" selected="{{p1}}">det1</option>
-                        <option value="det2" selected="{{p2}}">det2</option>
-                        <option value="det3" selected="{{p3}}">det3</option>
-                    </select>
+                    <mat-select formControlName="Details" (selectionChange)="change($event)">
+                        <mat-option value="det1" >det1</mat-option>
+                        <mat-option value="det2" >det2</mat-option>
+                        <mat-option value="det3" >det3</mat-option>
+                    </mat-select>
                 </mat-form-field>
                 <p></p>
 

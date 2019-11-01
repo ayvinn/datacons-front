@@ -17,7 +17,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   templateUrl: './updatelototo.component.html',
   styleUrls: ['./updatelototo.component.sass']
 })
-export class UpdatelototoComponent implements OnInit, AfterViewInit {
+export class UpdatelototoComponent implements OnInit{
   
   formupdate: FormGroup;
   private toastr: ToastrService;
@@ -85,10 +85,10 @@ export class UpdatelototoComponent implements OnInit, AfterViewInit {
     this.equipement.getAllEquipements2();
   }
 
-  ngAfterViewInit() {
-    this.selected = this.lototoVal[0].details;
+ /*  ngAfterViewInit() {
+    this.selected = this.lototoVal[0].Details;
     console.log('Selected: ', this.selected);
-  }
+  } */
 
   
   onNoClick(): void {
@@ -102,17 +102,19 @@ export class UpdatelototoComponent implements OnInit, AfterViewInit {
     this.formupdate.controls['id'].patchValue(this.lototoVal[0].id);
     this.formupdate.controls['numero'].patchValue(this.lototoVal[0].numero);
     this.formupdate.controls['Description'].patchValue(this.lototoVal[0].description);
-    this.formupdate.controls['Details'].patchValue(this.lototoVal[0].details);
+    this.formupdate.controls['Details'].patchValue(this.selected);
     const loto = {
       'id': this.lototoVal[0].id,
       'numero': this.lototoVal[0].numero,
       'Description': this.lototoVal[0].description,
-      'Details': this.formupdate.controls['Details'].value,
+      'Details': this.selected,
       'idequipement': this.lototoVal[0].idequipement
     };
     console.log('Form: ', form.value);
+    console.log('Loto: ', loto);
 
     this.lototo.put(this.lototoVal[0].id, loto).subscribe(res => {
+      console.log('Put: ', res);
       this.lototo.getAllLototos();
       // this.dataShared.changeIdEquipement(res['id']);
       this.ngOnInit();
@@ -121,7 +123,9 @@ export class UpdatelototoComponent implements OnInit, AfterViewInit {
         console.log(err);
       })
   }
+
   change(event) {
-    console.log(event.value);
+    console.log(event);
+    this.selected = event.value;
   }
 }

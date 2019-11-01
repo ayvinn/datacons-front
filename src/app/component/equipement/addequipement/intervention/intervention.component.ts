@@ -5,6 +5,7 @@ import { ServicesousequipementService } from 'src/app/services/servicesousequipe
 import { DataService } from 'src/app/services/data.service';
 import { ServiceinterventionService } from 'src/app/services/serviceintervention.service';
 import { AddinterventionComponent } from './addintervention/addintervention.component';
+import { UpdateinterventionComponent } from '../../updateequipement/updateintervention/updateintervention.component';
 
 
 @Component({
@@ -56,6 +57,17 @@ export class InterventionComponent implements OnInit {
     openDialog(): void {
       const dialogRef = this.dialog.open(AddinterventionComponent, {
         width: '700px',
+        
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        this.ngOnInit();
+      });
+  
+    }
+    openDialog1(elt): void {
+      const dialogRef = this.dialog.open(UpdateinterventionComponent, {
+        width: '500px',
+       data: {element: elt}
         
       });
       dialogRef.afterClosed().subscribe(result => {

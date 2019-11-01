@@ -39,6 +39,7 @@ import { UpdatesousequipementComponent } from './component/equipement/updateequi
 import { InterventionComponent } from './component/equipement/addequipement/intervention/intervention.component';
 import {AddinterventionComponent} from './component/equipement/addequipement/intervention/addintervention/addintervention.component';
 import { UpdatelototoComponent } from './component/equipement/updateequipement/updatelototo/updatelototo.component'
+import { UpdateinterventionComponent } from './component/equipement/updateequipement/updateintervention/updateintervention.component';
 
 
 
@@ -78,8 +79,8 @@ import { UpdatelototoComponent } from './component/equipement/updateequipement/u
 
     InterventionComponent,
     AddinterventionComponent,
-    UpdatelototoComponent
-
+    UpdatelototoComponent,
+    UpdateinterventionComponent
 
     
     
@@ -113,7 +114,7 @@ import { UpdatelototoComponent } from './component/equipement/updateequipement/u
     UpdatedemandeurComponent, EquipementComponent,
     AddequipementComponent,
     UpdateequipementComponent, SousequipementComponent, AddlototoComponent,AddsousequipementComponent,AddinterventionComponent, InterventionComponent,
-    AddinterventionComponent
+    AddinterventionComponent,UpdateinterventionComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
@@ -124,7 +125,7 @@ import { UpdatelototoComponent } from './component/equipement/updateequipement/u
     AdddemandeurComponent,
     UpdatedemandeurComponent, EquipementComponent,
     AddequipementComponent,AddinterventionComponent,
-    UpdateequipementComponent, SousequipementComponent,AddsousequipementComponent, AddlototoComponent, InterventionComponent,
-    AddinterventionComponent],
+    UpdateequipementComponent, SousequipementComponent,AddsousequipementComponent, AddlototoComponent, InterventionComponent, UpdatesousequipementComponent,
+    AddinterventionComponent,UpdateinterventionComponent],
 })
 export class AppModule { }

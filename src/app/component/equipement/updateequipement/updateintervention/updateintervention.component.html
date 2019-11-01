@@ -1,0 +1,26 @@
+<div class="col-md-14">
+    <div class="card">
+        <div class="card-header card-header-info">
+            <h4 class="card-title">Modifier Le Demandeur</h4>
+            <p class="card-category">Remplissez le formulaire</p>
+        </div>
+        <div class="card-body">
+            <form ngForm="formupdatese" [formGroup]="formupdatese" (ngSubmit)="update()">
+
+
+                <mat-form-field style="width: 100%;">
+                    <input matInput type="text" formControlName="libelle" placeholder="libelle:" />
+                    <mat-error *ngIf="f.libelle.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.libelle.errors.required"> libelle</mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+                <div mat-dialog-actions class="float-right">
+                    <button type="button" mat-button (click)="onNoClick()" class="btn btn-danger">Non Merci</button>
+                    <button type="submit" mat-button cdkFocusInitial class="btn btn-info">Ok</button>
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+    </div>
+</div>

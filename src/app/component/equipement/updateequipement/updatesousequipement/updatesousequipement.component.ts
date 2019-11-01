@@ -62,11 +62,9 @@ export class UpdatesousequipementComponent implements OnInit {
 get f() { return this.formupdatese.controls; }
 update() {
   console.log(this.sousequipement);
-  console.log(this.data.id);
+  console.log(this.data.element.id, this.formupdatese.value);
   this.sousequipement.put(this.data.element.id, this.formupdatese.value).subscribe(res => {
     this.sousequipement.getAllSousEquipments2();
-    this.data1.changeMessage(res['id']);
-    this.ngOnInit();
   },
     err => {
       console.log(err);
@@ -76,5 +74,4 @@ update() {
 }
 
 }
-
 

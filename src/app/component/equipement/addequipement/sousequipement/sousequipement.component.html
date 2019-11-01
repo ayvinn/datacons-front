@@ -44,28 +44,39 @@
                     </ng-container>
                     <!-- description Column -->
                     <ng-container matColumnDef="nomequipement">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> description </th>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> Non du sous equipement </th>
                         <td mat-cell *matCellDef="let element"> {{element.nomequipement}} </td>
                     </ng-container>
                     <!-- description Column -->
                     <ng-container matColumnDef="emplacement">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> description </th>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> Emplacement </th>
                         <td mat-cell *matCellDef="let element"> {{element.emplacement}} </td>
                     </ng-container>
                     <!-- description Column -->
                     <ng-container matColumnDef="typeenergie">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> type energie </th>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> Type energie </th>
                         <td mat-cell *matCellDef="let element"> {{element.typeEnergie}} </td>
                     </ng-container>
                     <!-- description Column -->
                     <ng-container matColumnDef="lieu">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> lieu </th>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> Lieu </th>
                         <td mat-cell *matCellDef="let element"> {{element.lieu}} </td>
                     </ng-container>
 
                     <ng-container matColumnDef="idequipement">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> Equipement </th>
                         <td mat-cell *matCellDef="let element"> {{element.idequipementNavigation.description}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="numero">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> N° </th>
+                        <td mat-cell *matCellDef="let element"> {{element.numero}} </td>
+                    </ng-container>
+
+                    
+                    <ng-container matColumnDef="remarque">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> Remarque </th>
+                        <td mat-cell *matCellDef="let element"> {{element.remarque}} </td>
                     </ng-container>
 
 
