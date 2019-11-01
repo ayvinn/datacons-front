@@ -1,14 +1,9 @@
-import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ServiceequipementService } from '../../../services/serviceequipement.service';
-import { MatTableDataSource, MatStepper } from '@angular/material';
-import { DataSource } from '@angular/cdk/table';
+import { MatStepper } from '@angular/material';
+
 import { Equipment } from '../../../models/equipment.model';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, Validators, FormBuilder, NgForm, FormControl } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
-import { DialogData } from '../../sevice/sevice.component';
 import { ServicesecteurService } from 'src/app/services/servicesecteur.service';
 import { Secteur } from 'src/app/models/secteur.model';
 import { DataService } from "src/app/services/data.service";
@@ -20,6 +15,7 @@ import { DataService } from "src/app/services/data.service";
   styleUrls: ['./addequipement.component.sass']
 })
 export class AddequipementComponent implements OnInit {
+
   isLinear = false;
   form: FormGroup;
   idEquipement;
@@ -42,19 +38,13 @@ export class AddequipementComponent implements OnInit {
       Description: null,
       etat: true,
       IDsecteur: 0,
-      
-
     }
     this.form = this._formBuilder.group({
 
       CodeHAC: ['', Validators.required],
       Description: ['', Validators.required],
       IDsecteur: ['', Validators.required],
-
       etat:['']
-
-      
-
     });
    
    
@@ -85,9 +75,7 @@ export class AddequipementComponent implements OnInit {
         }
       )
     }
-    
     this.ngOnInit();
-
   }
 
   test() {

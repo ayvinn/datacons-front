@@ -76,7 +76,7 @@
                       <mat-form-field style="width: 40%;">
                             <mat-label>service :</mat-label>
                             <select matNativeControl formControlName="Idservice" [(value)]="this.data.element.idservice" name="idservice">
-                              <option *ngFor="let item of service.services" [value]="item.id">
+                              <option *ngFor="let item of services" [value]="item.id">
                                 {{item.libelle}}
                               </option>
                              
@@ -89,10 +89,9 @@
                         <mat-form-field style="width: 100%;">
                                 <mat-label>Categorie :</mat-label>
                                 <select matNativeControl formControlName="Idcategorie" name="Idcategorie">
-                                  <option *ngFor="let item of categorie.categories" [value]="item.id">
+                                  <option *ngFor="let item of categories" [value]="item.id">
                                     {{item.nomcomplet}}
                                   </option>
-                                 
                                 </select>
                           </mat-form-field>
                     </div>

@@ -1,99 +1,86 @@
+<div class="col-md-14">
+  <div class="card">
+    <div class="card-header card-header-info">
+      <h4 class="card-title">Ajouter un Demandeur</h4>
+      <p class="card-category">Remplissez le formulaire</p>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="demandeurForm" (submit)="submit(demandeurForm)">
+        <div class="row">
+          <div class="col-md-8">
+            <div mat-dialog-content>
+              <mat-form-field class="w-100">
+                <input type="text" matInput formControlName="nomComplet"
+                  placeholder="Entrer le nom du demandeur:">
+              </mat-form-field>
+            </div>
+          </div>
 
-        <div class="col-md-14" >
-            <div class="card">
-              <div class="card-header card-header-info">
-                <h4 class="card-title">Ajouter un Demandeur</h4>
-                <p class="card-category">Remplissez le formulaire</p>
-              </div>
-              <div class="card-body">
-                <form ngForm="form" (submit)="submit()">
-                  <div class="row">
-                    <div class="col-md-8" >
-                        <div mat-dialog-content>
-                           
-                      <p></p>
-                      <mat-form-field style="width: 100%;">
-                        <input  required type="text" matInput [(ngModel)]="demandeur.demandeur.Nomcomplet" placeholder=" Entrer le nom du demandeur :" name="nomsecteur">
-                      </mat-form-field>
-                    </div>
-                    </div>
-                  
-                    <div class="col-md-5">
-                      <div class="form-group">
-                        <div mat-dialog-content>
-                          
-                        <p></p>
-                        <mat-form-field style="width: 100%;">
-                          <input  required type="text" matInput [(ngModel)]="demandeur.demandeur.Droit" name="droit" placeholder="Entrer les droits :">
-                        </mat-form-field>
-                         </div>
-                      </div>
-                    </div>
-                    
-                  </div>
-                  <div class="row">
-                      <div class="col-md-4">
-                          <div class="form-group">
-                              <div mat-dialog-content>
-                                
-                            <p></p>
-                            <mat-form-field>
-                              <input  required type="text" matInput [(ngModel)]="demandeur.demandeur.Login" name="login" placeholder="Nom d'utilisateur :">
-                            </mat-form-field>
-                            </div>
-                          </div>
-                        </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                          <div mat-dialog-content>
-                              
-                        <p></p>
-                        <mat-form-field>
-                          <input  required type="text" matInput [(ngModel)]="demandeur.demandeur.password" name="password" placeholder="Mot de passe :">
-                        </mat-form-field>
-                         </div>
-                      </div>
-                    </div>
-
-                   
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                          <mat-form-field style="width: 40%;">
-                              <mat-label>Selectionner votre categorie</mat-label>
-                              <select matNativeControl [(ngModel)]="demandeur.demandeur.IDcategorie" name="Idcategorie">
-                                <option *ngFor="let item of categorie.categories" [value]="item.id">
-                                  {{item.nomcomplet}}
-                                </option>
-                               
-                              </select>
-                            </mat-form-field>
-                      </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="form-group">
-                            <mat-form-field style="width: 100%;">
-                                <mat-label>Selectionner votre service</mat-label>
-                                <select matNativeControl [(ngModel)]="demandeur.demandeur.IDservice" name="idservice">
-                                  <option *ngFor="let item of service.services" [value]="item.id">
-                                    {{item.libelle}}
-                                  </option>
-                                 
-                                </select>
-                              </mat-form-field>
-                        </div>
-                      </div>
-                  </div>
-                
-                 <div mat-dialog-actions class="float-right">
-                    <button type="button" mat-button (click)="onNoClick()" class="btn btn-danger">Non Merci</button>
-                    <button type="submit" mat-button [mat-dialog-close]="demandeur.nomcomplet" cdkFocusInitial class="btn btn-info">Ok</button>
-                  </div>
-                  <div class="clearfix"></div>
-                </form>
+          <div class="col-md-5">
+            <div class="form-group">
+              <div mat-dialog-content>
+                <mat-form-field class="w-100">
+                  <input type="text" matInput formControlName="droit" placeholder="Entrer les droits :">
+                </mat-form-field>
               </div>
             </div>
           </div>
-      
-        
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <div mat-dialog-content>
+                <mat-form-field>
+                  <input type="text" matInput formControlName="login" placeholder="Nom d'utilisateur :">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <div mat-dialog-content>
+                <mat-form-field>
+                  <input type="text" matInput formControlName="password" placeholder="Mot de passe: ">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <mat-form-field style="width: 40%;">
+                <mat-label>Selectionner votre categorie</mat-label>
+                <mat-select formControlName="idCategorie">
+                  <mat-option *ngFor="let item of categories" [value]="item.id">
+                    {{item.nomcomplet}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <mat-form-field class="w-100">
+                <mat-label>Selectionner votre service</mat-label>
+                <mat-select formControlName="idService">
+                  <mat-option *ngFor="let item of services" [value]="item.id">
+                    {{item.libelle}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div mat-dialog-actions class="form-row justify-content-end mb-2">
+          <button type="button" mat-button (click)="onNoClick()" class="btn btn-danger">Non Merci</button>
+          <button type="submit" mat-button class="btn btn-info">Ok</button>
+        </div>
+        <div class="clearfix"></div>
+      </form>
+    </div>
+  </div>
+</div>

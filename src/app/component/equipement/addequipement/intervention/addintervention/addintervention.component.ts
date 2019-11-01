@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { Intervention } from 'src/app/models/intervention.model';
 import { ServiceinterventionService } from 'src/app/services/serviceintervention.service';
-import { DialogData } from 'src/app/component/sevice/sevice.component';
+import { DialogData } from 'src/app/component/service/sevice.component';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({

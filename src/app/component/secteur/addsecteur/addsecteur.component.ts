@@ -1,14 +1,12 @@
-import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ServicesecteurService } from '../../../services/servicesecteur.service';
-import { MatTableDataSource } from '@angular/material';
-import { DataSource } from '@angular/cdk/table';
+
 import { Secteur } from '../../../models/secteur.model';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
-import { DialogData } from '../../sevice/sevice.component';
+
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+import { DialogData } from '../../service/sevice.component';
+import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-addsecteur',
@@ -17,45 +15,34 @@ import { DialogData } from '../../sevice/sevice.component';
 })
 export class AddsecteurComponent implements OnInit {
 
-secteurs:Secteur[];
-  constructor( public dialogRef: MatDialogRef<AddsecteurComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,private secteur:ServicesecteurService) { }
+  secteurForm: FormGroup;
+  secteurs: Secteur[];
+
+  constructor(public dialogRef: MatDialogRef<AddsecteurComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    private secteur: ServicesecteurService,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.secteur.secteur={
-      id:0,
-      Nomsecteur:null
+    this.secteurForm = this.formBuilder.group({
+      nomSecteur: ['', Validators.required]
+    });
   }
 
-}
-onNoClick(): void {
-  this.dialogRef.close();
-}
-submit(){
-  if(this.secteur.secteur.id==0){
-    this.secteur.postSecteur().subscribe(res=>{
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  submit(form: NgForm) {
+    if (!form.valid) {
+      return;
+    }
+    this.secteur.postSecteur(form.value).subscribe(res => {
+      console.log('Ajouter Post Secteur: ', res);
       this.secteur.getAllSecteurs();
     },
-    err=>{
-      console.log(err);
-    }
-
-
-
-    )
+      err => {
+        console.log(err);
+      });
   }
-  else{
-    this.secteur.postSecteur().subscribe(res=>{
-      this.secteur.getAllSecteurs();
-    },
-    err=>{
-      console.log(err);
-    }
-
-
-
-    )
-  }
-    
-  
-  }}
+}

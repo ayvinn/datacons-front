@@ -19,16 +19,6 @@ export class ServiceService {
 
   getAllServices(): Observable<Service[]> {
     return this.http.get<Service[]>(this.url);
-
-
-  }
-  getAllServices2() {
-
-    this.http.get(this.url).toPromise().then(
-      res => {
-        this.services = res as Service[];
-      }
-    )
   }
 
   postService() {

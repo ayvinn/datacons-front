@@ -1,14 +1,10 @@
-import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ServiceService } from '../../../services/service.service';
-import { MatTableDataSource } from '@angular/material';
-import { DataSource } from '@angular/cdk/table';
+
 import { Service } from '../../../models/service.model';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { DialogData } from '../sevice.component';
 
 
 @Component({

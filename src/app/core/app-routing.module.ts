@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SeviceComponent } from '../component/sevice/sevice.component';
+import { SeviceComponent } from '../component/service/sevice.component';
 import { CategorieComponent } from '../component/categorie/categorie.component';
 import { SecteurComponent } from '../component/secteur/secteur.component';
 import { DemandeurComponent } from '../component/demandeur/demandeur.component';

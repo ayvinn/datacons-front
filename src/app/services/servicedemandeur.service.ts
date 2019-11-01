@@ -21,8 +21,8 @@ export class ServicedemandeurService {
     
   }
 
-  postDemandeur(){
-    return this.http.post(this.url,this.demandeur);
+  postDemandeur(data){
+    return this.http.post(this.url, data);
   }
 
   put(id,data) {

@@ -15,20 +15,10 @@ export class ServicecategorieService {
   public categories:Categorie[];
   categorie:Categorie;
   constructor( private http:HttpClient) { }
+
   getAllCategories(): Observable<Categorie[]>{
     return this.http.get<Categorie[]>(this.url);
-
-    
   }
-  getAllCategories2(){
-
-    this.http.get(this.url).toPromise().then(
-      res=>{
-        this.categories = res as Categorie[];
-      }
-    )
-  }
-
 
   postCategorie(){
     return this.http.post(this.url,this.categorie);

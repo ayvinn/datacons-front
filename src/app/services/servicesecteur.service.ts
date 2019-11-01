@@ -30,8 +30,8 @@ export class ServicesecteurService {
     )
   }
 
-  postSecteur(){
-    return this.http.post(this.url,this.secteur);
+  postSecteur(data){
+    return this.http.post(this.url, data);
   }
 
   put(id,data) {

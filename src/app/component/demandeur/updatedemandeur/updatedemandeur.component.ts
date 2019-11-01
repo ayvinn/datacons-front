@@ -1,17 +1,13 @@
-import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ServicedemandeurService } from '../../../services/servicedemandeur.service';
-import { MatTableDataSource } from '@angular/material';
-import { DataSource } from '@angular/cdk/table';
 import { Demandeur } from '../../../models/demandeur.model';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { DialogData } from '../../sevice/sevice.component';
 import { ServiceService } from 'src/app/services/service.service';
-import { Service } from 'src/app/models/service.model';
 import { ServicecategorieService } from 'src/app/services/servicecategorie.service';
+import { Service } from 'src/app/models/service.model';
+import { Categorie } from 'src/app/models/categorie.model';
 
 @Component({
   selector: 'app-updatedemandeur',
@@ -20,8 +16,11 @@ import { ServicecategorieService } from 'src/app/services/servicecategorie.servi
 })
 export class UpdatedemandeurComponent implements OnInit {
   form: FormGroup;
-  private toastr: ToastrService;
+
   demandeurs: Demandeur[];
+  services: Service[];
+  categories: Categorie[];
+
   constructor(private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<UpdatedemandeurComponent>,
     private demandeur: ServicedemandeurService,
@@ -30,13 +29,21 @@ export class UpdatedemandeurComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    this.service.getAllServices2();
-    this.categorie.getAllCategories2();
+    this.service.getAllServices().subscribe(res => {
+      this.services = res;
+    });
+
+
+    this.categorie.getAllCategories().subscribe(res => {
+      this.categories = res;
+    });
     console.log('Data: ', this.data);
   }
+  
   onNoClick(): void {
     this.dialogRef.close();
   }
+
   createForm() {
     this.form = this.formBuilder.group({
       id: [this.data.element.id],
@@ -46,14 +53,17 @@ export class UpdatedemandeurComponent implements OnInit {
       password: [this.data.element.password, Validators.required],
       Idservice: [this.data.element.idservice, Validators.required],
       Idcategorie: [this.data.element.idcategorie, Validators.required]
-    })
+    });
 
   }
+
   get f() { return this.form.controls; }
+
   update() {
     console.log(this.demandeur);
     console.log(this.data.id);
     this.demandeur.put(this.data.element.id, this.form.value).subscribe(res => {
+      console.log('Put demandeur: ', res);
       this.demandeur.getAllDemandeurs();
       this.ngOnInit();
     },
@@ -61,7 +71,6 @@ export class UpdatedemandeurComponent implements OnInit {
         console.log(err);
       })
     this.onNoClick();
-    
   }
 
 }

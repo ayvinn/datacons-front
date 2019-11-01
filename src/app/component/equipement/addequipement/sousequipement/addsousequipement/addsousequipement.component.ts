@@ -1,14 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Equipment } from 'src/app/models/equipment.model';
 import { SousEquipment } from 'src/app/models/sous-equipment.model';
-import { Service } from 'src/app/models/service.model';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ServicesousequipementService } from 'src/app/services/servicesousequipement.service';
-import { DialogData } from 'src/app/component/sevice/sevice.component';
-import { ServiceService } from 'src/app/services/service.service';
+import { DialogData } from 'src/app/component/service/sevice.component';
 import { DataService } from 'src/app/services/data.service';
 import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
-import { SousequipementComponent } from '../sousequipement.component';
 
 @Component({
   selector: 'app-addsousequipement',

@@ -1,17 +1,15 @@
 
     <!--<h1 mat-dialog-title>Hi {{data.name}}</h1>-->
-<form ngForm="form" (ngSubmit)="submit()">
+<form [formGroup]="secteurForm" (ngSubmit)="submit(secteurForm)">
    
     <div mat-dialog-content>
-            Entrer le nom du secteur :
-   <p></p>
-      <mat-form-field style="width: 100%;">
-        <input  required type="text" matInput [(ngModel)]="secteur.secteur.nomsecteur" name="nomsecteur">
-        
+      <span>Entrer le nom du secteur :</span>
+      <mat-form-field class="w-100">
+        <input type="text" matInput formControlName="nomSecteur" placeholder="Nom Secteur">
       </mat-form-field>
     </div>
     <div mat-dialog-actions>
       <button type="button" mat-button (click)="onNoClick()" class="btn btn-danger">Non Merci</button>
-      <button type="submit" mat-button [mat-dialog-close]="secteur.nomsecteur" cdkFocusInitial class="btn btn-info ">Ok</button>
+      <button type="submit" mat-button class="btn btn-info ">Ok</button>
     </div>
 </form>
