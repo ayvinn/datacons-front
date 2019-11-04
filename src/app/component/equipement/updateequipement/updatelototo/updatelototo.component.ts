@@ -1,16 +1,12 @@
-import { Component, OnInit, Inject, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ServiceequipementService } from '../../../../services/serviceequipement.service';
 import { Lototo } from '../../../../models/lototo.model';
-
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-
 import { DataService } from 'src/app/services/data.service';
 import { ServicelototoService } from 'src/app/services/servicelototo.service';
 import { take } from 'rxjs/operators';
-import { TestBed } from '@angular/core/testing';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-updatelototo',
@@ -21,13 +17,10 @@ export class UpdatelototoComponent implements OnInit{
   
   formupdate: FormGroup;
   private toastr: ToastrService;
-  p1: string;
-  p2: string;
-  p3: string;
   lototos: Lototo[];
   lototoVal = [];
   idEquipement: number;
-  selected = 'det1';
+  selected = 'Les points 1,4,5,6 et 7 doivent étre isolés par le chargé de consignation électrique';
 
   constructor(private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<UpdatelototoComponent>,
@@ -47,22 +40,6 @@ export class UpdatelototoComponent implements OnInit{
       Details: ['', Validators.required]
     });
 
-    if ("det1" == this.lototoVal[0]){
-        this.p1 = "selected";
-        this.p2 = "";
-        this.p3 = "";
-
-    }
-    else if ("det2" == this.lototoVal[0]){
-      this.p1 = "";
-      this.p2 = "selected";
-      this.p3 = "";
-    }
-    else{
-      this.p1 = "";
-      this.p2 = "";
-      this.p3 = "selected";
-    }
 
     await this.dataShared.currentIdEquipement.pipe(take(1)).toPromise().then(async (id) => {
       console.log('ID Test: ', id);
@@ -72,7 +49,7 @@ export class UpdatelototoComponent implements OnInit{
         // this.lototoVal[0]['description'] = res[0].Description;
         this.lototoVal = res;
         console.log('res', this.lototoVal);
-        //console.log('rdet', this.lototoVal[0].details);
+        console.log('rdet', this.lototoVal[0].details);
         this.selected=this.lototoVal[0].details;
         this.formupdate.controls['numero'].patchValue(this.lototoVal[0].numero);
         this.formupdate.controls['Description'].patchValue(this.lototoVal[0].description);
