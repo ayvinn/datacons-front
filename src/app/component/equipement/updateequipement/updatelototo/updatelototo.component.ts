@@ -72,12 +72,12 @@ export class UpdatelototoComponent implements OnInit{
         // this.lototoVal[0]['description'] = res[0].Description;
         this.lototoVal = res;
         console.log('res', this.lototoVal);
-        console.log('rdet', this.lototoVal[0].details);
-        //this.selected = this.lototoVal[0].details;
+        //console.log('rdet', this.lototoVal[0].details);
+        this.selected=this.lototoVal[0].details;
         this.formupdate.controls['numero'].patchValue(this.lototoVal[0].numero);
         this.formupdate.controls['Description'].patchValue(this.lototoVal[0].description);
         this.formupdate.controls['Details'].patchValue(this.lototoVal[0].details);
-        //this.selected=this.lototoVal[0].details;
+       
       });
     });
     

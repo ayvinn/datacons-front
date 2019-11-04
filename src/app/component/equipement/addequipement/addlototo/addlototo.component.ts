@@ -65,7 +65,7 @@ export class AddlototoComponent implements OnInit {
 
     this.lototo.postLototo(values).subscribe(res => {
       console.log('Lototo: ', res);
-      this.data1.changeMessage(res['id']);
+      //this.data1.changeMessage(res['id']);
       this.lototo.getAllLototos();
     },
       err => {
