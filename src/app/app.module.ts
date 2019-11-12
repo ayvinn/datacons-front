@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './core/app-routing.module';
 import { AppComponent } from './app.component';
-// import { MaterialModule } from './core/material.module';
 import { MaterialModule } from './material/material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
@@ -31,14 +30,17 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 import { SousequipementComponent } from './component/equipement/addequipement/sousequipement/sousequipement.component';
 import { AddlototoComponent } from './component/equipement/addequipement/addlototo/addlototo.component';
 import { AddsousequipementComponent } from './component/equipement/addequipement/sousequipement/addsousequipement/addsousequipement.component';
-
 import { UpdateimageComponent } from './component/equipement/updateequipement/updateimage/updateimage.component';
 import { UpdatesousequipementComponent } from './component/equipement/updateequipement/updatesousequipement/updatesousequipement.component';
-
 import { InterventionComponent } from './component/equipement/addequipement/intervention/intervention.component';
 import { AddinterventionComponent } from './component/equipement/addequipement/intervention/addintervention/addintervention.component';
 import { UpdatelototoComponent } from './component/equipement/updateequipement/updatelototo/updatelototo.component'
 import { UpdateinterventionComponent } from './component/equipement/updateequipement/updateintervention/updateintervention.component';
+import { TemplateDataConsingnationComponent } from './component/template-data-consingnation/template-data-consingnation.component';
+import { ConsignationComponent } from './component/consignation/consignation.component';
+import { AddConsignationComponent } from './component/consignation/add-consignation/add-consignation.component';
+import { LoginComponent } from './component/consignation/add-consignation/login/login.component';
+
 
 
 
@@ -72,7 +74,12 @@ import { UpdateinterventionComponent } from './component/equipement/updateequipe
     InterventionComponent,
     AddinterventionComponent,
     UpdatelototoComponent,
-    UpdateinterventionComponent
+    UpdateinterventionComponent,
+    TemplateDataConsingnationComponent,
+    ConsignationComponent,
+    AddConsignationComponent,
+    LoginComponent,
+ 
   ],
   imports: [
     BrowserModule,

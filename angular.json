@@ -38,7 +38,8 @@
               "src/assets/vendor/select2/select2.min.css",
               "src/assets/vendor/css-hamburgers/hamburgers.css",
               "src/assets/css/material-dashboard.css",
-              "src/assets/css/datatable.css"
+              "src/assets/css/datatable.css",
+              "src/assets/css/material-kit.css?v=2.0.6"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -67,7 +68,9 @@
               "src/assets/js/material-dashboard.js",
               "src/assets/demo/demo.js",
               "src/assets/js/datatable.js",
-              "src/assets/js/datatablebootstrap.min.js"
+              "src/assets/js/datatablebootstrap.min.js",
+              "src/assets/js/moment.min.js",
+              "src/assets/js/material-kit.js"
             ]
           },
           "configurations": {
