@@ -35,7 +35,7 @@ export class AddsecteurComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  submit(form: NgForm) {
+  submit(form) {
     if (!form.valid) {
       return;
     }

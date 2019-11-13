@@ -25,7 +25,7 @@ export class AddServiceComponent implements OnInit {
   services: Service[];
   constructor(
     public dialogRef: MatDialogRef<AddServiceComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData, private service: ServiceService, private toastr: ToastrService) { }
+    @Inject(MAT_DIALOG_DATA) public data: DialogData, public service: ServiceService, private toastr: ToastrService) { }
 
   onNoClick(): void {
     this.dialogRef.close();

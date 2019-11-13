@@ -18,7 +18,7 @@ export class AddcategorieComponent implements OnInit {
  categories:Categorie[];
   constructor(
     public dialogRef: MatDialogRef<AddcategorieComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,private categorie:ServicecategorieService,private toastr:ToastrService) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,public categorie:ServicecategorieService,private toastr:ToastrService) {}
     ngOnInit() {
       this.categorie.categorie={
         id:0,
