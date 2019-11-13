@@ -33,7 +33,7 @@ export class AddsousequipementComponent implements OnInit {
       IDequipement: 0,
       Remarque:null,
       etat:true,
-      numero:0
+      numero:null
 
     }
     this.form = this._formBuilder.group({
@@ -46,7 +46,7 @@ export class AddsousequipementComponent implements OnInit {
       IDequipement:[''],
       Remarque:[''],
       etat:[''],
-      numero:0
+      numero:['']
     });
     
     this.data1.currentMessage.subscribe(id => {

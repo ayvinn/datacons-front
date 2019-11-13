@@ -31,7 +31,9 @@ export class ServiceequipementService {
   postEquipement(par:Equipment){
     return this.http.post(this.url,par);
   }
-
+  GetTodoItems(etat : boolean){
+    return this.http.get<Equipment[]>(this.url+"/sous/"+etat);
+  }
   put(id,data) {
     return this.http.put(`${this.url}/${id}`, data);
   }

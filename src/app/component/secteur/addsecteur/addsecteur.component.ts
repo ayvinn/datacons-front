@@ -7,6 +7,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { DialogData } from '../../service/sevice.component';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-addsecteur',
@@ -21,7 +22,8 @@ export class AddsecteurComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<AddsecteurComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private secteur: ServicesecteurService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
     this.secteurForm = this.formBuilder.group({
@@ -39,7 +41,10 @@ export class AddsecteurComponent implements OnInit {
     }
     this.secteur.postSecteur(form.value).subscribe(res => {
       console.log('Ajouter Post Secteur: ', res);
-      this.secteur.getAllSecteurs();
+      this.secteur.getAllSecteurs();  
+      this.ngOnInit();
+      this.toastr.success('Secteur Ajouter !', '');
+      this.onNoClick();
     },
       err => {
         console.log(err);

@@ -6,6 +6,7 @@ import { SecteurComponent } from '../component/secteur/secteur.component';
 import { DemandeurComponent } from '../component/demandeur/demandeur.component';
 import { EquipementComponent } from '../component/equipement/equipement.component';
 import { AddequipementComponent } from '../component/equipement/addequipement/addequipement.component';
+import { NotificationComponent } from '../component/notification/notification.component';
 
 
 const routes: Routes = [
@@ -43,6 +44,12 @@ const routes: Routes = [
   {
     path: "ajouterequipement",
     component: AddequipementComponent,
+    // pathMatch: 'full'
+    outlet: 'template'
+  },
+  {
+    path: "notifications",
+    component: NotificationComponent,
     // pathMatch: 'full'
     outlet: 'template'
   },

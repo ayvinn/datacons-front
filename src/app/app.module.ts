@@ -40,6 +40,10 @@ import { TemplateDataConsingnationComponent } from './component/template-data-co
 import { ConsignationComponent } from './component/consignation/consignation.component';
 import { AddConsignationComponent } from './component/consignation/add-consignation/add-consignation.component';
 import { LoginComponent } from './component/consignation/add-consignation/login/login.component';
+import { CommonModule } from '@angular/common'; 
+import { ToastrModule } from 'ngx-toastr';
+import { NotificationComponent } from './component/notification/notification.component';
+ 
 
 
 
@@ -79,6 +83,8 @@ import { LoginComponent } from './component/consignation/add-consignation/login/
     ConsignationComponent,
     AddConsignationComponent,
     LoginComponent,
+    NotificationComponent,
+    
  
   ],
   imports: [
@@ -97,7 +103,13 @@ import { LoginComponent } from './component/consignation/add-consignation/login/
     HttpClientModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
+    BrowserAnimationsModule
   ],
   exports: [
     AddServiceComponent, UpdateServiceComponent, AddcategorieComponent,

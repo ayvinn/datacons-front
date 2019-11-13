@@ -59,7 +59,7 @@ export class CategorieComponent implements OnInit {
   }
 
   delete(id,NomComplet_:string){
-    if(confirm("vous etes sur de supprimer cette categorie "+NomComplet_)){
+    if(confirm("vous etes sur de supprimer cette categorie ?")){
       this.categorie.deleteService(id).subscribe(res=>{
       this.categorie.getAllCategories();
       this.ngOnInit();

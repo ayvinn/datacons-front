@@ -3,6 +3,7 @@ import { ServicecategorieService } from '../../../services/servicecategorie.serv
 import { Categorie } from '../../../models/categorie.model';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DialogData } from '../../service/sevice.component';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class AddcategorieComponent implements OnInit {
  categories:Categorie[];
   constructor(
     public dialogRef: MatDialogRef<AddcategorieComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,private categorie:ServicecategorieService) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,private categorie:ServicecategorieService,private toastr:ToastrService) {}
     ngOnInit() {
       this.categorie.categorie={
         id:0,
@@ -31,6 +32,9 @@ export class AddcategorieComponent implements OnInit {
     if(this.categorie.categorie.id==0){
       this.categorie.postCategorie().subscribe(res=>{
         this.categorie.getAllCategories();
+        this.toastr.success('Categorie Ajouter !', '');
+        this.ngOnInit();
+        this.onNoClick();
       },
       err=>{
         console.log(err);
@@ -43,6 +47,9 @@ export class AddcategorieComponent implements OnInit {
     else{
       this.categorie.postCategorie().subscribe(res=>{
         this.categorie.getAllCategories();
+        this.toastr.success('Categorie Ajouter !', '');
+        this.ngOnInit();
+        this.onNoClick();
       },
       err=>{
         console.log(err);
