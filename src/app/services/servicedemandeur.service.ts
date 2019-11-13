@@ -16,9 +16,7 @@ export class ServicedemandeurService {
   demandeur:Demandeur;
   constructor(private http:HttpClient) { }
   getAllDemandeurs(): Observable<Demandeur[]>{
-    return this.http.get<Demandeur[]>(this.url);
-
-    
+    return this.http.get<Demandeur[]>(this.url);   
   }
 
   postDemandeur(data){
@@ -31,5 +29,8 @@ export class ServicedemandeurService {
 
   deleteService(id){
     return this.http.delete(this.url+"/"+id);
+  }
+  LoginAsync(formData) {
+    return this.http.post(this.url + '/', formData);
   }
 }
