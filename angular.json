@@ -40,7 +40,8 @@
               "src/assets/css/material-dashboard.css",
               "src/assets/css/datatable.css",
               "src/assets/css/material-kit.css?v=2.0.6",
-              "node_modules/ngx-toastr/toastr.css"
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -71,7 +72,7 @@
               "src/assets/js/datatable.js",
               "src/assets/js/datatablebootstrap.min.js",
               "src/assets/js/moment.min.js",
-              "src/assets/js/material-kit.js",
+              "src/assets/js/material-kit.js"
               
             ]
           },
@@ -163,6 +164,6 @@
         }
       }
     }
-  },
-  "defaultProject": "DataConsignation"
+  }
 }
+ 
