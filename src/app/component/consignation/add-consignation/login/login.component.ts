@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
   }
   createFormControls() {
     this.demandeurControl = new FormControl('', Validators.required);
+  
   }
   get f() { return this.form.controls; }
   createForm() {
