@@ -62,7 +62,7 @@ export class DemandeurComponent implements OnInit {
 
   }
 
-  delete(id, Nomdem: string) {
+  delete(id) {
     if (confirm("vous etes sur de supprimer ce demandeur ")) {
       this.demandeurser.deleteService(id).subscribe(res => {
         this.demandeurser.getAllDemandeurs();

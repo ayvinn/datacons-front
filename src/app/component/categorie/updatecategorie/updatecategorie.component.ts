@@ -19,7 +19,7 @@ export class UpdatecategorieComponent implements OnInit {
         
     constructor(private formBuilder: FormBuilder,
       public dialogRef: MatDialogRef<UpdatecategorieComponent>,
-      private categorie:ServicecategorieService,
+      public categorie:ServicecategorieService,
       @Inject(MAT_DIALOG_DATA) public data: any) {}
     
     

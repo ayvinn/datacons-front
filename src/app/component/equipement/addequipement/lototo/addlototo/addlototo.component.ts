@@ -24,6 +24,7 @@ export class AddlototoComponent implements OnInit {
   formlototo: FormGroup;
   dataSource;
   idEquipement: number;
+ 
   constructor(private _formBuilder: FormBuilder, private lototo: ServicelototoService, private data1: DataService) { }
 
   ngOnInit() {
@@ -51,8 +52,8 @@ export class AddlototoComponent implements OnInit {
     this.formlototo.controls['numero'].patchValue(4);
   }
   get f() { return this.formlototo.controls; }
-
-  submit(form: NgForm) {
+ 
+  submit(form) {
     const values = {
       Idequipement: this.idEquipement, numero: this.formlototo.controls['numero'].value,
       Description: this.formlototo.controls['Description'].value,

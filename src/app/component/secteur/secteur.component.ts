@@ -20,13 +20,14 @@ export class SecteurComponent implements OnInit {
   constructor(private secteur:ServicesecteurService,public dialog: MatDialog) { }
 
   openDialog(): void {
+
     const dialogRef = this.dialog.open(AddsecteurComponent, {
       width: '400px',
       data: {nomsecteur: this.Nomsecteur}
     });
 
-
     dialogRef.afterClosed().subscribe(result => {
+      
       console.log('The dialog was closed');
       this.Nomsecteur = result;
       this.ngOnInit();

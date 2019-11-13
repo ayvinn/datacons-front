@@ -61,7 +61,7 @@ export class EquipementComponent implements OnInit {
 
   }
 
-  delete(id, Nomdem: string) {
+  delete(id) {
     if (confirm("vous etes sur de supprimer cet equipement ")) {
       this.equipementser.deleteService(id).subscribe(res => {
 

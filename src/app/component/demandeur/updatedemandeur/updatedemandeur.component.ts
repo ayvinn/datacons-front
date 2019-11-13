@@ -23,7 +23,7 @@ export class UpdatedemandeurComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<UpdatedemandeurComponent>,
-    private demandeur: ServicedemandeurService,
+    public demandeur: ServicedemandeurService,
     private service: ServiceService, private categorie: ServicecategorieService,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 

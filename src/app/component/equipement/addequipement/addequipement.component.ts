@@ -27,7 +27,7 @@ export class AddequipementComponent implements OnInit {
   dataSource;
   constructor( private _formBuilder: FormBuilder,
      private equipement: ServiceequipementService, 
-     private secteur: ServicesecteurService,
+     public secteur: ServicesecteurService,
      private data1: DataService,
     ) { }
 
@@ -54,7 +54,7 @@ export class AddequipementComponent implements OnInit {
   }
   get f() { return this.form.controls; }
   
-  submit(form: NgForm, formName:string, stepper: MatStepper) {
+  submit(form, formName:string, stepper: MatStepper) {
     const values = {id:0, CodeHAC: this.form.value.CodeHAC,
       Description: this.form.value.Description,
       etat :true, IDsecteur:this.form.value.IDsecteur

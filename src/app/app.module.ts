@@ -29,7 +29,7 @@ import { UpdateequipementComponent } from './component/equipement/updateequipeme
 import { AddimageComponent } from './component/equipement/addequipement/addimage/addimage.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { SousequipementComponent } from './component/equipement/addequipement/sousequipement/sousequipement.component';
-import { AddlototoComponent } from './component/equipement/addequipement/addlototo/addlototo.component';
+import { AddlototoComponent } from './component/equipement/addequipement/lototo/addlototo/addlototo.component';
 import { AddsousequipementComponent } from './component/equipement/addequipement/sousequipement/addsousequipement/addsousequipement.component';
 
 import { UpdateimageComponent } from './component/equipement/updateequipement/updateimage/updateimage.component';
@@ -39,6 +39,8 @@ import { InterventionComponent } from './component/equipement/addequipement/inte
 import { AddinterventionComponent } from './component/equipement/addequipement/intervention/addintervention/addintervention.component';
 import { UpdatelototoComponent } from './component/equipement/updateequipement/updatelototo/updatelototo.component'
 import { UpdateinterventionComponent } from './component/equipement/updateequipement/updateintervention/updateintervention.component';
+import { LototoComponent } from './component/equipement/addequipement/lototo/lototo.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -72,7 +74,8 @@ import { UpdateinterventionComponent } from './component/equipement/updateequipe
     InterventionComponent,
     AddinterventionComponent,
     UpdatelototoComponent,
-    UpdateinterventionComponent
+    UpdateinterventionComponent,
+    LototoComponent,UpdatelototoComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +93,11 @@ import { UpdateinterventionComponent } from './component/equipement/updateequipe
     HttpClientModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right'
+    })
   ],
   exports: [
     AddServiceComponent, UpdateServiceComponent, AddcategorieComponent,
@@ -101,7 +108,7 @@ import { UpdateinterventionComponent } from './component/equipement/updateequipe
     UpdatedemandeurComponent, EquipementComponent,
     AddequipementComponent,
     UpdateequipementComponent, SousequipementComponent, AddlototoComponent, AddsousequipementComponent, AddinterventionComponent, InterventionComponent,
-    AddinterventionComponent, UpdateinterventionComponent
+    AddinterventionComponent, UpdateinterventionComponent,  LototoComponent,UpdatelototoComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
@@ -113,6 +120,6 @@ import { UpdateinterventionComponent } from './component/equipement/updateequipe
     UpdatedemandeurComponent, EquipementComponent,
     AddequipementComponent, AddinterventionComponent,
     UpdateequipementComponent, SousequipementComponent, AddsousequipementComponent, AddlototoComponent, InterventionComponent, UpdatesousequipementComponent,
-    AddinterventionComponent, UpdateinterventionComponent],
+    AddinterventionComponent, UpdateinterventionComponent,  LototoComponent,UpdatelototoComponent],
 })
 export class AppModule { }

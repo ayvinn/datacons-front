@@ -20,7 +20,7 @@ export class UpdateServiceComponent implements OnInit {
         
     constructor(private formBuilder: FormBuilder,
       public dialogRef: MatDialogRef<UpdateServiceComponent>,
-      private service:ServiceService,
+      public service:ServiceService,
       @Inject(MAT_DIALOG_DATA) public data: any) {}
     
     
@@ -35,7 +35,7 @@ export class UpdateServiceComponent implements OnInit {
     createForm(){
       this.form = this.formBuilder.group({
           id :[this.data.element.id],
-          libelle:[this.data.element.libelle,Validators.required]
+          Libelle:[this.data.element.libelle,Validators.required]
       })
       
     }

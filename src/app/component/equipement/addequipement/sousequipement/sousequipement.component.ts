@@ -43,7 +43,7 @@ export class SousequipementComponent implements OnInit {
 
 }
 
-delete(id,Nomse:string){
+delete(id){
   if(confirm("vous etes sur de supprimer cette categorie ")){
     this.sousequipementser.deleteService(id).subscribe(res=>{
     this.sousequipementser.getAllSousEquipments();

@@ -19,7 +19,7 @@ export class UpdateequipementComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<UpdateequipementComponent>,
     private equipement: ServiceequipementService,
-    private secteur: ServicesecteurService,
+    public secteur: ServicesecteurService,
     private dataShared: DataService,private data1: DataService,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 

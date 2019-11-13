@@ -1,27 +1,30 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Intervention } from 'src/app/models/intervention.model';
+
 import { MatPaginator, MatSort, MatDialog, MatTableDataSource } from '@angular/material';
 import { ServicesousequipementService } from 'src/app/services/servicesousequipement.service';
 import { DataService } from 'src/app/services/data.service';
 import { ServiceinterventionService } from 'src/app/services/serviceintervention.service';
-import { AddinterventionComponent } from './addintervention/addintervention.component';
-import { UpdateinterventionComponent } from '../../updateequipement/updateintervention/updateintervention.component';
 
+import { UpdateinterventionComponent } from '../../updateequipement/updateintervention/updateintervention.component';
+import { Lototo } from 'src/app/models/lototo.model';
+import { ServicelototoService } from 'src/app/services/servicelototo.service';
+import { AddlototoComponent } from './addlototo/addlototo.component';
+import { UpdatelototoComponent } from '../../updateequipement/updatelototo/updatelototo.component';
 
 @Component({
-  selector: 'app-intervention',
-  templateUrl: './intervention.component.html',
-  styleUrls: ['./intervention.component.sass']
+  selector: 'app-lototo',
+  templateUrl: './lototo.component.html',
+  styleUrls: ['./lototo.component.sass']
 })
-export class InterventionComponent implements OnInit {
+export class LototoComponent implements OnInit {
 
-    intervention=new Intervention;
-    interventions:Intervention[];
+  lototo=new Lototo;
+    lototos:Lototo[];
     idEquipement: number;
     dataSource;
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
     @ViewChild(MatSort, {static: true}) sort: MatSort;
-    constructor(private interventionser:ServiceinterventionService,public dialog: MatDialog,private data1: DataService) { }
+    constructor(private lototoser:ServicelototoService,public dialog: MatDialog,private data1: DataService) { }
   
     ngOnInit() {
       this.data1.currentMessage.subscribe(id => {
@@ -29,7 +32,7 @@ export class InterventionComponent implements OnInit {
         this.idEquipement = id;
       }) 
       console.log('idequipment :',this.idEquipement);
-      this.interventionser.GetTodoItems(this.idEquipement).subscribe(res => {
+      this.lototoser.GetTodoItems(this.idEquipement).subscribe(res => {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -40,14 +43,14 @@ export class InterventionComponent implements OnInit {
   }
   
   delete(id){
-    if(confirm("vous etes sur de supprimer cette categorie ")){
-      this.interventionser.DeleteIntervention(id).subscribe(res=>{
-      this.interventionser.GetIntervention();
+    if(confirm("vous etes sur de supprimer cette lototo ")){
+      this.lototoser.deleteService(id).subscribe(res=>{
+      this.lototoser.getAllLototos();
       this.ngOnInit();
     })}
   }
   
-    displayedColumns: string[] = ['id', 'libelle','action'];
+    displayedColumns: string[] = ['id','numero', 'description','details','action'];
     
   
     applyFilter(filterValue: string) {
@@ -55,7 +58,7 @@ export class InterventionComponent implements OnInit {
     }
   
     openDialog(): void {
-      const dialogRef = this.dialog.open(AddinterventionComponent, {
+      const dialogRef = this.dialog.open(AddlototoComponent, {
         width: '700px',
         
       });
@@ -65,7 +68,7 @@ export class InterventionComponent implements OnInit {
   
     }
     openDialog1(elt): void {
-      const dialogRef = this.dialog.open(UpdateinterventionComponent, {
+      const dialogRef = this.dialog.open(UpdatelototoComponent, {
         width: '500px',
        data: {element: elt}
         
@@ -76,3 +79,8 @@ export class InterventionComponent implements OnInit {
   
     }
 }
+
+
+
+
+

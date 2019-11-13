@@ -19,19 +19,19 @@ export class AddServiceComponent implements OnInit {
   ngOnInit() {
     this.service.service = {
       id: 0,
-      Libelle: null
+      Libelle:null
     }
   }
   services: Service[];
   constructor(
     public dialogRef: MatDialogRef<AddServiceComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData, private service: ServiceService) { }
+    @Inject(MAT_DIALOG_DATA) public data: DialogData, public service: ServiceService) { }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
   submit() {
-    if (this.service.service.id == 0) {
+   
       this.service.postService().subscribe(res => {
         this.service.getAllServices();
       },
@@ -42,19 +42,9 @@ export class AddServiceComponent implements OnInit {
 
 
       )
-    }
-    else {
-      this.service.postService().subscribe(res => {
-        this.service.getAllServices();
-      },
-        err => {
-          console.log(err);
-        }
-
-
-
-      )
-    }
+      this.onNoClick();
+    
+    
 
 
   }

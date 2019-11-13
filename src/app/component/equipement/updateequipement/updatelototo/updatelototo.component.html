@@ -1,4 +1,4 @@
-<form [formGroup]="formupdate" (ngSubmit)="update(formupdate)">
+<form [formGroup]="formupdatese" (ngSubmit)="update()">
     <ng-template matStepLabel>lototo</ng-template>
     <!---->
     <div class="row">
@@ -26,23 +26,21 @@
     <div class="row">
         <div class="col-md-8">
             <div class="form-group">
+
                 <mat-form-field style="width: 100%;">
-                    <mat-label>details</mat-label>
-                    <mat-select formControlName="Details"  style="width: 100%;" (selectionChange)="change($event)">
-                        <mat-option value="Les points 1,4,5,6 et 7 doivent étre isolés par le chargé de consignation électrique">Les points 1,4,5,6 et 7 doivent étre isolés par le chargé de consignation électrique</mat-option>
-                        <mat-option value="deLes points 2,3,8,9 et 10 doivent étre isolés par le controleur de consignationt2">Les points 2,3,8,9 et 10 doivent étre isolés par le controleur de consignation</mat-option>
-                        <mat-option value="Le point 11 doit étre isolé par le chargé de consignation(vidange du broyeur ou accés à l'interieur si température est inférieure à 40°C)">point 11 doit étre isolé par le chargé de consignation (vidange du broyeur ou accés à l'interieur si température est inferieure à 40°C)</mat-option>
-                    </mat-select>
+                    <input matInput type="text" formControlName="Details"  />
                 </mat-form-field>
-                <p></p>
 
             </div>
         </div>
     </div>
 
-    <button mat-button class="mt-2" matStepperPrevious>Back</button>
-    <button mat-button type="submit" class="float-right btn btn-info mt-2" matStepperNext>Suivant</button>
+    
 
+    <div mat-dialog-actions class="float-right">
+        <button type="button" mat-button (click)="onNoClick()" class="btn btn-danger">Non Merci</button>
+        <button type="submit" mat-button cdkFocusInitial class="btn btn-info">Ok</button>
+    </div>
     <div class="clearfix"></div>
 
     <!---->

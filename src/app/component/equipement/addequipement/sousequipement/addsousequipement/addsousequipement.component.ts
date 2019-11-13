@@ -61,7 +61,7 @@ export class AddsousequipementComponent implements OnInit {
   //.subscribe(res=>{
   //  this.sousequipement.getAllSousEquipments();
   //  ),
-  submit(form: NgForm, formName:string) {
+  submit(form, formName:string) {
   
     const values = {id:0, CodeHAC: this.form.value.CodeHAC,Nomequipement: this.form.value.Nomequipement,
       Emplacement: this.form.value.Emplacement,TypeEnergie: this.form.value.TypeEnergie,

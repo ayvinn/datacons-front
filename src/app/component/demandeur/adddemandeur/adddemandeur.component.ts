@@ -51,7 +51,7 @@ export class AdddemandeurComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  submit(form: NgForm) {
+  submit(form) {
     console.log('Form: ', form);
     if(!form.valid) {
       return;

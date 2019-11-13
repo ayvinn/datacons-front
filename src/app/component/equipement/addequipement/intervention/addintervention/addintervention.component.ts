@@ -50,7 +50,7 @@ export class AddinterventionComponent implements OnInit {
   //.subscribe(res=>{
   //  this.sousequipement.getAllSousEquipments();
   //  ),
-  submit(form: NgForm, formName:string) {
+  submit(form, formName:string) {
   
     const values = {id:0, libelle: this.form.value.libelle, idequipement: this.idEquipement 
     };
