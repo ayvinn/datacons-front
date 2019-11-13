@@ -37,17 +37,18 @@ export class UpdatelototoComponent implements OnInit{
     createForm() {
       this.formupdatese = this.formBuilder.group({
         id: [this.data.element.id],
-        numero: [this.data.element.numero, Validators.required],
-        description: [this.data.element.description, Validators.required],
+        numero: [ '4', Validators.required],
+        description: ['Isolation' , Validators.required],
         details: [this.data.element.details, Validators.required],
         IDequipement: [this.data.element.idequipement, Validators.required],
       })//
+    console.log("create :"+this.formupdatese.value.description);
       
   }
   get f() { return this.formupdatese.controls; }
   update() {
     console.log(this.lototoser);
-    console.log(this.data.element.id, this.formupdatese.value);
+    console.log("testtt :"+this.formupdatese.value.description);
     this.lototoser.put(this.data.element.id, this.formupdatese.value).subscribe(res => {
       this.lototoser.getAllLototos();
     },
