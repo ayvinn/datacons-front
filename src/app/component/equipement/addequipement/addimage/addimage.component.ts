@@ -4,6 +4,7 @@ import { ServiceimageService } from 'src/app/services/serviceimage.service';
 import { Image } from 'src/app/models/image.model';
 import { ServiceequipementService } from 'src/app/services/serviceequipement.service';
 import { DataService } from "src/app/services/data.service";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-addimage',
@@ -26,7 +27,8 @@ export class AddimageComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private imageService: ServiceimageService,
-    private renderer: Renderer2, private equipement: ServiceequipementService, private data1: DataService) { }
+    private renderer: Renderer2, private equipement: ServiceequipementService, private data1: DataService,
+    private toastr: ToastrService) { }
   ngOnInit() {
     this.imageForm = this.fb.group({
       id: [''],
@@ -40,6 +42,7 @@ export class AddimageComponent implements OnInit {
       console.log('ID: ', id);
       this.idEquipement = id;
     })
+    
   }
 
 
@@ -126,7 +129,7 @@ export class AddimageComponent implements OnInit {
         console.log('Ajouter Produit: ', res);
         if (res.status === 'success') {
           this.onClose(res);
-        }
+        } this.toastr.success('Image ajouter', 'Image bien ajouter');
       },
       err => this.error = err
     );

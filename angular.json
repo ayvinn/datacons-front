@@ -23,9 +23,9 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": false,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
+            "assets": [         
+              "src/assets",
+              "src/favicon.ico"
             ],
             "styles": [
               "src/custom-theme.scss",
@@ -39,6 +39,7 @@
               "src/assets/vendor/css-hamburgers/hamburgers.css",
               "src/assets/css/material-dashboard.css",
               "src/assets/css/datatable.css",
+              "src/assets/css/material-kit.css?v=2.0.6",
               "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
@@ -68,7 +69,10 @@
               "src/assets/js/material-dashboard.js",
               "src/assets/demo/demo.js",
               "src/assets/js/datatable.js",
-              "src/assets/js/datatablebootstrap.min.js"
+              "src/assets/js/datatablebootstrap.min.js",
+              "src/assets/js/moment.min.js",
+              "src/assets/js/material-kit.js",
+              
             ]
           },
           "configurations": {
@@ -91,8 +95,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "5mb",
-                  "maximumError": "6mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 }
               ]
             }

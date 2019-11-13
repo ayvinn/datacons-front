@@ -19,9 +19,17 @@
           <div class="col-md-5">
             <div class="form-group">
               <div mat-dialog-content>
-                <mat-form-field class="w-100">
-                  <input type="text" matInput formControlName="droit" placeholder="Entrer les droits :">
-                </mat-form-field>
+                  <mat-form-field class="w-100">
+                      <mat-label>Droit</mat-label>
+                      <select formControlName="droit" matNativeControl required>
+                          <option value="ICV">
+                              ICV
+                          </option>
+                          <option value="Multiple">
+                              Multiple
+                          </option>
+                      </select>
+                  </mat-form-field>
               </div>
             </div>
           </div>

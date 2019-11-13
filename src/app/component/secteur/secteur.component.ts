@@ -6,6 +6,7 @@ import { AddsecteurComponent } from './addsecteur/addsecteur.component';
 import { UpdatesecteurComponent } from './updatesecteur/updatesecteur.component';
 import { Secteur } from 'src/app/models/secteur.model';
 import { ServicesecteurService } from 'src/app/services/servicesecteur.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-secteur',
   templateUrl: './secteur.component.html',
@@ -13,17 +14,18 @@ import { ServicesecteurService } from 'src/app/services/servicesecteur.service';
 })
 export class SecteurComponent implements OnInit {
   Nomsecteur: string;
-  secteurs:Secteur[];
+  secteurs: Secteur[];
   dataSource;
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
-  constructor(private secteur:ServicesecteurService,public dialog: MatDialog) { }
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  constructor(private secteur: ServicesecteurService, public dialog: MatDialog,
+    private toastr: ToastrService) { }
 
   openDialog(): void {
 
     const dialogRef = this.dialog.open(AddsecteurComponent, {
       width: '400px',
-      data: {nomsecteur: this.Nomsecteur}
+      data: { nomsecteur: this.Nomsecteur }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -38,7 +40,7 @@ export class SecteurComponent implements OnInit {
 
     const dialogRef = this.dialog.open(UpdatesecteurComponent, {
       width: '400px',
-      data: {element}
+      data: { element }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -47,7 +49,7 @@ export class SecteurComponent implements OnInit {
       this.ngOnInit();
     });
   }
-
+  delete1: boolean;
   ngOnInit() {
     this.secteur.getAllSecteurs().subscribe(res => {
       this.dataSource = new MatTableDataSource(res);
@@ -55,23 +57,27 @@ export class SecteurComponent implements OnInit {
       this.dataSource.sort = this.sort;
 
     });
-    
+
   }
 
-  delete(id,Nomsecteur:string){
-    if(confirm("vous etes sur de supprimer cette categorie "+this.Nomsecteur)){
-      this.secteur.deleteService(id).subscribe(res=>{
-      this.secteur.getAllSecteurs();
-      this.ngOnInit();
-    })}
-  }
 
-    displayedColumns: string[] = ['id', 'Nomsecteur','Action'];
-    
-  
-    applyFilter(filterValue: string) {
-      this.dataSource.filter = filterValue.trim().toLowerCase();
+
+  delete(id, Nomsecteur: string) {
+    if (confirm("etes-vous sur de supprimer ce secteur ?  ")) {
+      this.secteur.deleteService(id).subscribe(res => {
+        this.secteur.getAllSecteurs();
+        this.ngOnInit();
+      }
+      )
     }
+  }
+
+  displayedColumns: string[] = ['id', 'Nomsecteur', 'Action'];
+
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
 
 }

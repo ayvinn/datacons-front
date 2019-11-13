@@ -25,7 +25,7 @@ export class AddlototoComponent implements OnInit {
   dataSource;
   idEquipement: number;
  
-  constructor(private _formBuilder: FormBuilder, private lototo: ServicelototoService, private data1: DataService) { }
+  constructor(public dialogRef: MatDialogRef<AddlototoComponent>,private _formBuilder: FormBuilder, private lototo: ServicelototoService, private data1: DataService) { }
 
   ngOnInit() {
     this.lototo.lototo = {
@@ -52,7 +52,9 @@ export class AddlototoComponent implements OnInit {
     this.formlototo.controls['numero'].patchValue(4);
   }
   get f() { return this.formlototo.controls; }
- 
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
   submit(form) {
     const values = {
       Idequipement: this.idEquipement, numero: this.formlototo.controls['numero'].value,
@@ -72,11 +74,12 @@ export class AddlototoComponent implements OnInit {
       err => {
         console.log(err);
       }
+      
     )
 
 
     this.ngOnInit();
-
+    this.onNoClick();
   }
 
   change(event) {

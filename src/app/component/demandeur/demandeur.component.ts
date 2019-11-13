@@ -71,7 +71,7 @@ export class DemandeurComponent implements OnInit {
     }
   }
 
-  displayedColumns: string[] = ['id', 'Nomcomplet', 'Droit', 'login', 'password', 'Idservice', 'Idcategorie', 'Action'];
+  displayedColumns: string[] = [ 'Nomcomplet', 'Droit', 'login', 'password', 'Idservice', 'Idcategorie', 'Action'];
 
 
   applyFilter(filterValue: string) {

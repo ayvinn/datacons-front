@@ -1,40 +1,23 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-
-import { MatPaginator, MatSort, MatDialog, MatTableDataSource } from '@angular/material';
-
-import { AddequipementComponent } from './addequipement/addequipement.component';
-//import { UpdatedemandeurComponent } from './updatedemandeur/updatedemandeur.component';
 import { Equipment } from 'src/app/models/equipment.model';
-
+import { MatPaginator, MatSort, MatDialog, MatTableDataSource } from '@angular/material';
 import { ServiceequipementService } from 'src/app/services/serviceequipement.service';
-import { UpdateequipementComponent } from './updateequipement/updateequipement.component';
 import { Router, ActivatedRoute } from '@angular/router';
+import { UpdateequipementComponent } from '../equipement/updateequipement/updateequipement.component';
 
 @Component({
-  selector: 'app-equipement',
-  templateUrl: './equipement.component.html',
-  styleUrls: ['./equipement.component.sass']
+  selector: 'app-notification',
+  templateUrl: './notification.component.html',
+  styleUrls: ['./notification.component.sass']
 })
-export class EquipementComponent implements OnInit {
+export class NotificationComponent implements OnInit {
   equipement = new Equipment;
   equipements: Equipment[];
   dataSource;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   constructor(private equipementser: ServiceequipementService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute) { }
-  openDialog(): void {
-    const dialogRef = this.dialog.open(AddequipementComponent, {
-      width: '1000px',
 
-    });
-
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-
-      this.ngOnInit();
-    });
-  }
   openDialog1(elt): void {
     const dialogRef = this.dialog.open(UpdateequipementComponent, {
       width: '2000px',
@@ -50,7 +33,7 @@ export class EquipementComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.equipementser.GetTodoItems(true).subscribe(res => {
+    this.equipementser.GetTodoItems(false).subscribe(res => {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -61,7 +44,7 @@ export class EquipementComponent implements OnInit {
 
   }
 
-  delete(id) {
+  delete(id, Nomdem: string) {
     if (confirm("vous etes sur de supprimer cet equipement ")) {
       this.equipementser.deleteService(id).subscribe(res => {
 
@@ -71,7 +54,7 @@ export class EquipementComponent implements OnInit {
     }
   }
 
-  displayedColumns: string[] = ['codeHAC', 'description', 'Idsecteur', 'etat', 'Action'];
+  displayedColumns: string[] = ['id', 'codeHAC', 'description', 'Idsecteur', 'etat', 'Action'];
 
 
   applyFilter(filterValue: string) {

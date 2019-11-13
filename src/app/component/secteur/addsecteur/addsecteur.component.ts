@@ -22,39 +22,32 @@ export class AddsecteurComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<AddsecteurComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private secteur: ServicesecteurService,
-    private toastr: ToastrService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
     this.secteurForm = this.formBuilder.group({
       nomSecteur: ['', Validators.required]
     });
-    
   }
 
   onNoClick(): void {
-   
     this.dialogRef.close();
-   
   }
 
-  submit(form) {
+  submit(form: NgForm) {
     if (!form.valid) {
       return;
     }
     this.secteur.postSecteur(form.value).subscribe(res => {
       console.log('Ajouter Post Secteur: ', res);
-      this.secteur.getAllSecteurs();
-      this.toastr.success('Le secteur a bien été ajouter !', 'Secteur Ajouter !');
-
+      this.secteur.getAllSecteurs();  
+      this.ngOnInit();
+      this.toastr.success('Secteur Ajouter !', '');
+      this.onNoClick();
     },
       err => {
         console.log(err);
       });
-    
-      this.onNoClick();
-    
   }
-
-
 }

@@ -1,6 +1,6 @@
 export class Demandeur {
     id:number;
-    Nomcomplet:string;
+    nomcomplet:string;
     Droit:string;
     Login:string;
     password:string;
