@@ -33,4 +33,17 @@ export class ServicedemandeurService {
   LoginAsync(formData) {
     return this.http.post(this.url + '/', formData);
   }
+  logout(): void {
+    localStorage.setItem('isLoggedIn', "false");
+    localStorage.removeItem('token');
+    localStorage.removeItem('url');
+  } 
+  authLogin(model): Observable<Demandeur> {
+    return this.http.post<Demandeur>(`${this.url}/Login`, model, {
+      headers: {
+          'Content-Type': 'application/json'
+      }
+    });
+   
+  } 
 }

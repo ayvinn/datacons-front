@@ -6,32 +6,35 @@
         </div>
         <div class="card-body">
 
-            <form [formGroup]="form" >
+            <form [formGroup]="demandeurForm" (ngSubmit)="connecter()" >
                 <ng-template matStepLabel>Intervention</ng-template>
                 <!---->
                 <div class="row">
                     <div class="col-md-8">
-
                         <p></p>
                         <mat-form-field style="width: 100%;">
-                                <input #input type="text" placeholder="Nom Complet" matInput formControlName="demandeur" [matAutocomplete]="autoDemandeur" required>
+                                <input #input type="text" placeholder="Nom Complet" matInput formControlName="LoginDemandeur" [matAutocomplete]="autoDemandeur" required>
                                 <mat-autocomplete #autoDemandeur="matAutocomplete">
                                     <mat-option *ngFor="let option of (filteredDemandeurs | async)" [value]="option.nomcomplet">
                                         {{option.nomcomplet}}
                                     </mat-option>
                                 </mat-autocomplete>
                         </mat-form-field>
-
+                        <mat-form-field style="width: 100%;">
+                            <input type="password" matInput placeholder="Password" formControlName="PassDemandeur">
+                          </mat-form-field>
+                       
                     </div>
                 </div>
-
-
+                <p>
+                    
                 <div class="clearfix"></div>
 
-                <!---->
                 <div mat-dialog-actions class="float-right">
                     <button type="submit" cdkFocusInitial class="btn btn-info">Ok</button>
                 </div>
 
             </form>
-            
+        </div>
+    </div>
+</div>

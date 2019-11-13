@@ -12,9 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./addcategorie.component.sass']
 })
 export class AddcategorieComponent implements OnInit {
-  
 
- 
  categories:Categorie[];
   constructor(
     public dialogRef: MatDialogRef<AddcategorieComponent>,
@@ -39,9 +37,6 @@ export class AddcategorieComponent implements OnInit {
       err=>{
         console.log(err);
       }
-
-
-
       )
     }
     else{
@@ -54,9 +49,6 @@ export class AddcategorieComponent implements OnInit {
       err=>{
         console.log(err);
       }
-
-
-
       )
     }
       

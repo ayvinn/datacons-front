@@ -37,11 +37,7 @@ export class NotificationComponent implements OnInit {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-
     });
-
-
-
   }
 
   delete(id) {
@@ -55,8 +51,6 @@ export class NotificationComponent implements OnInit {
   }
 
   displayedColumns: string[] = ['id', 'codeHAC', 'description', 'Idsecteur', 'etat', 'Action'];
-
-
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }

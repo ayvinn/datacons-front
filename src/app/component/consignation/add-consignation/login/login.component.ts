@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -17,51 +17,42 @@ export class LoginComponent implements OnInit {
   demandeurs: Demandeur[];
   demandeurControl: FormControl;
   demandeurForm: FormGroup;
+  interval :any;
+  model = {};
   
+  message: string;
+  returnUrl: string;
+  role :string;
 
-  form: FormGroup;
   filteredDemandeurs: Observable<Demandeur[]>;
+
   constructor(private _DemandeurService: ServicedemandeurService, private formBuilder: FormBuilder,
     private router: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
-    this.demandeurForm = this.formBuilder.group({
-      nomComplet: ['', Validators.required],
-      droit: ['', Validators.required],
-      login: ['', Validators.required],
-      password: ['', Validators.required],
-      idCategorie: ['', Validators.required],
-      idService: ['', Validators.required]
-    });
     this.getData()
     this.createFormControls();
     this.createForm();
-    if (localStorage.getItem('token') != null)
-      this.router.navigateByUrl('/home');
   }
   async delay(ms: number) {
     await new Promise(resolve => setTimeout(() => resolve(), ms));
   }
   getData() {
     this.getDemandeurs();
-
-    this.delay(1500).then(any => {
+    this.delay(5000).then(any => {
       this.filterInitemandeurs();
       console.log('demp: ', this.demandeurs);
     });
-
-
   }
   createFormControls() {
     this.demandeurControl = new FormControl('', Validators.required);
   
   }
-  get f() { return this.form.controls; }
+  get f() { return this. demandeurForm.controls; }
   createForm() {
-    this.form = this.formBuilder.group({
-
-      demandeur: this.demandeurControl,
-
+    this. demandeurForm = this.formBuilder.group({
+      LoginDemandeur: this.demandeurControl,
+      PassDemandeur: ['', Validators.required],
     });
   }
   private filterInitemandeurs() {
@@ -80,5 +71,37 @@ export class LoginComponent implements OnInit {
       console.log('dem: ', res);
       this.demandeurs = res;
     });
+  }
+  connecter() : void {
+    if (this.demandeurForm.invalid) {
+      return;
+    }
+    else{
+      this.verify();
+      this.delay(500).then(any=>{ 
+        if(this.role != null){
+          this.returnUrl = '/'+this.role;
+          localStorage.setItem('isLoggedIn', "true");
+          localStorage.setItem('token', this.f.LoginUser.value);
+          localStorage.setItem('url', this.returnUrl);
+          this.router.navigate([this.returnUrl]);
+        }
+        else{
+          this.message = "Login et Password incorrect !";
+        }
+      });
+    }   
+  }
+  
+  verify() : void {
+    this._DemandeurService.authLogin(this.demandeurForm.value).subscribe(
+      data => { 
+        console.log(data);
+       // this.role =  data!=null ? data.nomcomplet: null;
+      },
+      (error) => {
+        this.toastr.error('Opération échoué  ', 'error server');
+      }
+    );
   }
 }
