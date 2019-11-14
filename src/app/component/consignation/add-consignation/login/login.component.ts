@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
   constructor(private _DemandeurService: ServicedemandeurService, 
     private formBuilder: FormBuilder,
     private toastr: ToastrService, 
-    public ss: AddConsignationComponent,
     private dataService: DataService  ) { }
 
   ngOnInit() {
@@ -56,7 +55,6 @@ export class LoginComponent implements OnInit {
   }
   createFormControls() {
     this.demandeurControl = new FormControl('', Validators.required);
-
   }
   get f() { return this.demandeurForm.controls; }
   createForm() {
@@ -83,44 +81,37 @@ export class LoginComponent implements OnInit {
     });
   }
   
-  verify(stepper: MatStepper): void {
-
+  verify(): void {
     this._DemandeurService.authLogin(this.demandeurForm.value).subscribe(
       data => {
-        console.log('step', stepper);
+        console.log('step', this.stepper);
         console.log('data', data);
         this.dataService.changeDemandeur(data);
 
         if (data) {
           this.role = data != null ? data.nomcomplet : null;
           this.toastr.success('Opération reussie  ', data.nomcomplet);
-          this.ss.goForward(this.stepper);
+          this.stepper.next();
         } else {
           this.toastr.error('Opération échoué  ', 'password incorrect');
           this.stepper.reset();
         }
       },
-      (error) => {
-        this.toastr.error('Opération échoué  ', 'error server');
-      }
+     
     );
   }
 
-  connecter(stepper: MatStepper): void {
-
-
+  connecter(): void {
     if (this.demandeurForm.invalid) {
       return;
     }
     else {
-      this.verify(stepper);
+      this.verify();
       this.delay(5000).then(any => {
         if (this.role != null) {
           this.returnUrl = '/' + this.role;
           localStorage.setItem('isLoggedIn', "true");
           localStorage.setItem('token', this.demandeurForm.controls['LoginDemandeur'].value);
-          // localStorage.setItem('url', this.returnUrl);
-          // this.router.navigate([this.returnUrl]);
         }
         else {
           this.message = "Login et Password incorrect !";

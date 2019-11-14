@@ -7,16 +7,11 @@ import { DemandeurComponent } from '../component/demandeur/demandeur.component';
 import { EquipementComponent } from '../component/equipement/equipement.component';
 import { AddequipementComponent } from '../component/equipement/addequipement/addequipement.component';
 import { NotificationComponent } from '../component/notification/notification.component';
+import { AuthComponent } from '../component/auth/auth.component';
 
 
 const routes: Routes = [
-  {
-    path: "service",
-    component: SeviceComponent,
-    //pathMatch: 'full'
-    outlet: 'template'
-
-  },
+ 
   {
     path: "categorie",
     component: CategorieComponent,

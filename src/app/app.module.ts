@@ -130,7 +130,7 @@ import { SelectEquipementComponent } from './component/consignation/add-consigna
   bootstrap: [AppComponent],
   entryComponents: [SeviceComponent, AddServiceComponent, UpdateServiceComponent, CategorieComponent, AddcategorieComponent,
     UpdatecategorieComponent, SecteurComponent,
-    AddsecteurComponent,
+    AddsecteurComponent,AuthComponent,
     UpdatesecteurComponent, DemandeurComponent,
     AdddemandeurComponent,
     UpdatedemandeurComponent, EquipementComponent,
