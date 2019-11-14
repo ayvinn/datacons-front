@@ -6,7 +6,7 @@
         </div>
         <div class="card-body">
 
-            <form [formGroup]="demandeurForm" (ngSubmit)="connecter()" >
+            <form [formGroup]="demandeurForm" (ngSubmit)="connecter(stepper)" >
                 <ng-template matStepLabel>Intervention</ng-template>
                 <!---->
                 <div class="row">
@@ -26,12 +26,12 @@
                        
                     </div>
                 </div>
-                <p>
+              
                     
                 <div class="clearfix"></div>
 
-                <div mat-dialog-actions class="float-right">
-                    <button type="submit" cdkFocusInitial class="btn btn-info">Ok</button>
+                <div mat-dialog-actions class="float-left">
+                    <button type="submit" cdkFocusInitial class="btn btn-dark" >verifier</button>
                 </div>
 
             </form>

@@ -6,6 +6,7 @@ import { Demandeur } from 'src/app/models/demandeur.model';
 import { ServicedemandeurService } from 'src/app/services/servicedemandeur.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { MatStepper } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -17,12 +18,12 @@ export class LoginComponent implements OnInit {
   demandeurs: Demandeur[];
   demandeurControl: FormControl;
   demandeurForm: FormGroup;
-  interval :any;
+  interval: any;
   model = {};
-  
+
   message: string;
   returnUrl: string;
-  role :string;
+  role: string;
 
   filteredDemandeurs: Observable<Demandeur[]>;
 
@@ -46,11 +47,11 @@ export class LoginComponent implements OnInit {
   }
   createFormControls() {
     this.demandeurControl = new FormControl('', Validators.required);
-  
+
   }
-  get f() { return this. demandeurForm.controls; }
+  get f() { return this.demandeurForm.controls; }
   createForm() {
-    this. demandeurForm = this.formBuilder.group({
+    this.demandeurForm = this.formBuilder.group({
       LoginDemandeur: this.demandeurControl,
       PassDemandeur: ['', Validators.required],
     });
@@ -72,36 +73,48 @@ export class LoginComponent implements OnInit {
       this.demandeurs = res;
     });
   }
-  connecter() : void {
-    if (this.demandeurForm.invalid) {
-      return;
-    }
-    else{
-      this.verify();
-      this.delay(500).then(any=>{ 
-        if(this.role != null){
-          this.returnUrl = '/'+this.role;
-          localStorage.setItem('isLoggedIn', "true");
-          localStorage.setItem('token', this.f.LoginUser.value);
-          localStorage.setItem('url', this.returnUrl);
-          this.router.navigate([this.returnUrl]);
-        }
-        else{
-          this.message = "Login et Password incorrect !";
-        }
-      });
-    }   
-  }
-  
-  verify() : void {
+  ;
+  verify(stepper:MatStepper): void {
+
     this._DemandeurService.authLogin(this.demandeurForm.value).subscribe(
-      data => { 
+      data => {
         console.log(data);
-       // this.role =  data!=null ? data.nomcomplet: null;
+        if (data) {
+          this.role = data != null ? data.nomcomplet : null;
+          this.toastr.success('Opération reussie  ', data.nomcomplet);
+          stepper.next();
+        } else {
+         
+          this.toastr.error('Opération échoué  ', 'password incorrect');
+stepper.reset();
+        }
       },
       (error) => {
         this.toastr.error('Opération échoué  ', 'error server');
       }
     );
   }
+  connecter(stepper:MatStepper): void {
+
+    if (this.demandeurForm.invalid) {
+      return;
+    }
+    else {
+      this.verify(stepper);
+      this.delay(5000).then(any => {
+        if (this.role != null) {
+          this.returnUrl = '/' + this.role;
+          localStorage.setItem('isLoggedIn', "true");
+          localStorage.setItem('token', this.f.nomcomplet.value);
+          localStorage.setItem('url', this.returnUrl);
+          this.router.navigate([this.returnUrl]);
+        }
+        else {
+          this.message = "Login et Password incorrect !";
+        }
+      });
+    }
+  }
+
+
 }

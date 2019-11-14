@@ -1,10 +1,32 @@
-<mat-horizontal-stepper #stepper>
+<mat-horizontal-stepper    #stepper>
     <mat-step>
-        <ng-template matStepLabel>Etape 1</ng-template>
+        <ng-template matStepLabel>Login</ng-template>
         <app-login></app-login>
-        <button mat-button class="mt-2" matStepperPrevious>Back</button>
-        <button mat-button class="float-right mt-2 btn btn-info" matStepperNext>Suivant</button>
+       
     </mat-step>
-   
-
+    <mat-step>
+        <ng-template matStepLabel>Equipement</ng-template>
+        
+        
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Intervention</ng-template>
+        
+        
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Sous-equipement</ng-template>
+       
+        
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Responsable</ng-template>
+      
+        
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Intervenants</ng-template>
+      
+        
+    </mat-step>
 </mat-horizontal-stepper>

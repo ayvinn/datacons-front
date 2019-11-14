@@ -8,7 +8,7 @@ import { MatStepper } from '@angular/material';
   styleUrls: ['./add-consignation.component.sass']
 })
 export class AddConsignationComponent implements OnInit {
-
+ 
   constructor() { }
 
   ngOnInit() {
