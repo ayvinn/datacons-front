@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { Equipment } from 'src/app/models/equipment.model';
-import { MatPaginator, MatSort, MatDialog, MatTableDataSource } from '@angular/material'
+import { MatPaginator, MatSort, MatDialog, MatTableDataSource, MatStepper } from '@angular/material'
 import { ServiceequipementService } from 'src/app/services/serviceequipement.service';
 import { DataService } from 'src/app/services/data.service';
 import { ToastrService } from 'ngx-toastr';
+import { AddConsignationComponent } from '../add-consignation.component';
 
 @Component({
   selector: 'app-select-equipement',
@@ -11,9 +12,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./select-equipement.component.sass']
 })
 export class SelectEquipementComponent implements OnInit {
-
+  @Input() stepper: MatStepper;
   dataSource;
   IDEquipement;
+  public ss: AddConsignationComponent;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   constructor(private equipementser: ServiceequipementService, 
@@ -51,9 +53,10 @@ export class SelectEquipementComponent implements OnInit {
       data => {
         if (data) {
           this.dataService.changeSelectedIDEquip(row.id);
+          this.stepper.next();
           this.toastr.success('Opération reussie');
         } else {
-          this.toastr.warning('Equipement deja utilisé');         
+          this.toastr.warning('Cette Installation est en régime essaie');         
         }
       },
       (error) => {
