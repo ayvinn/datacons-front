@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   demandeurForm: FormGroup;
   interval: any;
   model = {};
-
+  stepper:MatStepper;
   message: string;
   returnUrl: string;
   role: string;
@@ -75,18 +75,18 @@ export class LoginComponent implements OnInit {
     });
   }
   ;
-  verify(stepper:MatStepper): void {
+  verify(): void {
 
     this._DemandeurService.authLogin(this.demandeurForm.value).subscribe(
       data => {
-        console.log('step',stepper);
+        console.log('step',this.stepper);
         if (data) {
           this.role = data != null ? data.nomcomplet : null;
           this.toastr.success('Opération reussie  ', data.nomcomplet);
-          this.ss.goForward(stepper);
+          this.ss.goForward(this.stepper);
         } else {
           this.toastr.error('Opération échoué  ', 'password incorrect');
-          stepper.reset();
+          this.stepper.reset();
         }
       },
       (error) => {
@@ -94,13 +94,13 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-  connecter(stepper:MatStepper): void {
+  connecter(): void {
 
     if (this.demandeurForm.invalid) {
       return;
     }
     else {
-      this.verify(stepper);
+      this.verify();
       this.delay(5000).then(any => {
         if (this.role != null) {
           this.returnUrl = '/' + this.role;
