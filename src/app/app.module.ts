@@ -45,6 +45,7 @@ import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { NotificationComponent } from './component/notification/notification.component';
 import { SelectEquipementComponent } from './component/consignation/add-consignation/select-equipement/select-equipement.component';
+import { SousEquipementComponent } from './component/consignation/add-consignation/sous-equipement/sous-equipement.component';
  
 
 
@@ -87,7 +88,8 @@ import { SelectEquipementComponent } from './component/consignation/add-consigna
     LoginComponent,
     NotificationComponent,
     LototoComponent,
-    SelectEquipementComponent
+    SelectEquipementComponent,
+    SousEquipementComponent
     
  
   ],
