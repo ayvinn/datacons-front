@@ -3,6 +3,7 @@ import { Equipment } from 'src/app/models/equipment.model';
 import { MatPaginator, MatSort, MatDialog, MatTableDataSource } from '@angular/material'
 import { ServiceequipementService } from 'src/app/services/serviceequipement.service';
 import { DataService } from 'src/app/services/data.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-select-equipement',
@@ -17,7 +18,8 @@ export class SelectEquipementComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   constructor(private equipementser: ServiceequipementService, 
     public dialog: MatDialog, 
-    private dataService: DataService) { }
+    private dataService: DataService,
+    private toastr:ToastrService) { }
 
 
   ngOnInit() {
@@ -44,8 +46,19 @@ export class SelectEquipementComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  getRecord(row) {
-    console.log('Row: ', row);
-    this.dataService.changeSelectedIDEquip(row.id);
+  getRecord(row): void {
+    this.equipementser.PostLogin(row.id).subscribe(
+      data => {
+        if (data) {
+          this.dataService.changeSelectedIDEquip(row.id);
+          this.toastr.success('Opération reussie');
+        } else {
+          this.toastr.warning('Equipement deja utilisé');         
+        }
+      },
+      (error) => {
+        this.toastr.error('Opération échoué  ', 'error server');
+      }
+    );
   }
 }

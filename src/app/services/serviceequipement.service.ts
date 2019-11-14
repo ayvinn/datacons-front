@@ -40,7 +40,9 @@ export class ServiceequipementService {
   put(id,data) {
     return this.http.put(`${this.url}/${id}`, data);
   }
-
+  PostLogin(id){
+    return this.http.post(this.url+"/select/",id);
+  }
   deleteService(id){
     return this.http.delete(this.url+"/"+id);
   }

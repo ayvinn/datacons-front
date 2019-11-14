@@ -133,6 +133,7 @@ export class AddimageComponent implements OnInit {
       },
       err => this.error = err
     );
+    this.ngOnInit();
   }
 
 
