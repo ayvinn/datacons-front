@@ -36,7 +36,7 @@ export class ServicedemandeurService {
   logout(): void {
     localStorage.setItem('isLoggedIn', "false");
     localStorage.removeItem('token');
-    localStorage.removeItem('url');
+    // localStorage.removeItem('url');
   } 
   authLogin(model): Observable<Demandeur> {
     return this.http.post<Demandeur>(`${this.url}/Login`, model, {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -8,6 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { MatStepper } from '@angular/material';
 import { AddConsignationComponent } from '../add-consignation.component';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -15,26 +16,33 @@ import { AddConsignationComponent } from '../add-consignation.component';
   styleUrls: ['./login.component.sass']
 })
 export class LoginComponent implements OnInit {
-  demandeur = new Demandeur;
+  @Input() stepper: MatStepper;
+
+  demandeur;
   demandeurs: Demandeur[];
   demandeurControl: FormControl;
   demandeurForm: FormGroup;
   interval: any;
   model = {};
-  stepper:MatStepper;
+
   message: string;
   returnUrl: string;
   role: string;
 
   filteredDemandeurs: Observable<Demandeur[]>;
 
-  constructor(private _DemandeurService: ServicedemandeurService, private formBuilder: FormBuilder,
-    private router: Router, private toastr: ToastrService, public ss:  AddConsignationComponent) { }
+  constructor(private _DemandeurService: ServicedemandeurService, 
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService, 
+    public ss: AddConsignationComponent,
+    private dataService: DataService  ) { }
 
   ngOnInit() {
     this.getData()
     this.createFormControls();
     this.createForm();
+    console.log('Stepper: ', this.stepper);
+    this.dataService.currentDemandeur.subscribe(res => this.demandeur = res);
   }
   async delay(ms: number) {
     await new Promise(resolve => setTimeout(() => resolve(), ms));
@@ -74,12 +82,15 @@ export class LoginComponent implements OnInit {
       this.demandeurs = res;
     });
   }
-  ;
-  verify(): void {
+  
+  verify(stepper: MatStepper): void {
 
     this._DemandeurService.authLogin(this.demandeurForm.value).subscribe(
       data => {
-        console.log('step',this.stepper);
+        console.log('step', stepper);
+        console.log('data', data);
+        this.dataService.changeDemandeur(data);
+
         if (data) {
           this.role = data != null ? data.nomcomplet : null;
           this.toastr.success('Opération reussie  ', data.nomcomplet);
@@ -94,20 +105,22 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-  connecter(): void {
+
+  connecter(stepper: MatStepper): void {
+
 
     if (this.demandeurForm.invalid) {
       return;
     }
     else {
-      this.verify();
+      this.verify(stepper);
       this.delay(5000).then(any => {
         if (this.role != null) {
           this.returnUrl = '/' + this.role;
           localStorage.setItem('isLoggedIn', "true");
-          localStorage.setItem('token', this.f.nomcomplet.value);
-          localStorage.setItem('url', this.returnUrl);
-          this.router.navigate([this.returnUrl]);
+          localStorage.setItem('token', this.demandeurForm.controls['LoginDemandeur'].value);
+          // localStorage.setItem('url', this.returnUrl);
+          // this.router.navigate([this.returnUrl]);
         }
         else {
           this.message = "Login et Password incorrect !";

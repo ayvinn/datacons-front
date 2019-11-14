@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatStepper } from '@angular/material';
 
 
@@ -8,7 +8,9 @@ import { MatStepper } from '@angular/material';
   styleUrls: ['./add-consignation.component.sass']
 })
 export class AddConsignationComponent implements OnInit {
- 
+
+  @ViewChild('stepper', {static: false}) stepper: MatStepper;
+
   constructor() { }
 
   ngOnInit() {

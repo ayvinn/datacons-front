@@ -33,7 +33,7 @@ export class NotificationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.equipementser.GetTodoItem(false).subscribe(res => {
+    this.equipementser.GetTodoItem().subscribe(res => {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
