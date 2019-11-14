@@ -7,6 +7,7 @@ import { ServicedemandeurService } from 'src/app/services/servicedemandeur.servi
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { MatStepper } from '@angular/material';
+import { AddConsignationComponent } from '../add-consignation.component';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
   filteredDemandeurs: Observable<Demandeur[]>;
 
   constructor(private _DemandeurService: ServicedemandeurService, private formBuilder: FormBuilder,
-    private router: Router, private toastr: ToastrService) { }
+    private router: Router, private toastr: ToastrService, public ss:  AddConsignationComponent) { }
 
   ngOnInit() {
     this.getData()
@@ -78,15 +79,14 @@ export class LoginComponent implements OnInit {
 
     this._DemandeurService.authLogin(this.demandeurForm.value).subscribe(
       data => {
-        console.log(data);
+        console.log('step',stepper);
         if (data) {
           this.role = data != null ? data.nomcomplet : null;
           this.toastr.success('Opération reussie  ', data.nomcomplet);
-          stepper.next();
+          this.ss.goForward(stepper);
         } else {
-         
           this.toastr.error('Opération échoué  ', 'password incorrect');
-stepper.reset();
+          stepper.reset();
         }
       },
       (error) => {

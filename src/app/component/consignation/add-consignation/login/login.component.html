@@ -5,7 +5,6 @@
             <p class="card-category">Remplissez le formulaire</p>
         </div>
         <div class="card-body">
-
             <form [formGroup]="demandeurForm" (ngSubmit)="connecter(stepper)" >
                 <ng-template matStepLabel>Intervention</ng-template>
                 <!---->
@@ -31,7 +30,7 @@
                 <div class="clearfix"></div>
 
                 <div mat-dialog-actions class="float-left">
-                    <button type="submit" cdkFocusInitial class="btn btn-dark" >verifier</button>
+                    <button type="submit" cdkFocusInitial class="btn btn-dark"  >verifier</button>
                 </div>
 
             </form>
