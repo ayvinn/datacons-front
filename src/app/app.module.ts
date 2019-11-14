@@ -44,6 +44,7 @@ import { LototoComponent } from './component/equipement/addequipement/lototo/lot
 import { CommonModule } from '@angular/common'; 
 import { ToastrModule } from 'ngx-toastr';
 import { NotificationComponent } from './component/notification/notification.component';
+import { SelectEquipementComponent } from './component/consignation/add-consignation/select-equipement/select-equipement.component';
  
 
 
@@ -85,7 +86,8 @@ import { NotificationComponent } from './component/notification/notification.com
     AddConsignationComponent,
     LoginComponent,
     NotificationComponent,
-    LototoComponent
+    LototoComponent,
+    SelectEquipementComponent
     
  
   ],
@@ -122,7 +124,7 @@ import { NotificationComponent } from './component/notification/notification.com
     UpdatedemandeurComponent, EquipementComponent,
     AddequipementComponent,
     UpdateequipementComponent, SousequipementComponent, AddlototoComponent, AddsousequipementComponent, AddinterventionComponent, InterventionComponent,
-    AddinterventionComponent, UpdateinterventionComponent,LototoComponent,  UpdatelototoComponent
+    AddinterventionComponent, UpdateinterventionComponent,LototoComponent,  UpdatelototoComponent ,SelectEquipementComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
@@ -134,6 +136,6 @@ import { NotificationComponent } from './component/notification/notification.com
     UpdatedemandeurComponent, EquipementComponent,
     AddequipementComponent, AddinterventionComponent,
     UpdateequipementComponent, SousequipementComponent, AddsousequipementComponent, AddlototoComponent, InterventionComponent, UpdatesousequipementComponent,
-    AddinterventionComponent, UpdateinterventionComponent,LototoComponent,  UpdatelototoComponent],
+    AddinterventionComponent, UpdateinterventionComponent,LototoComponent,  UpdatelototoComponent, SelectEquipementComponent],
 })
 export class AppModule { }

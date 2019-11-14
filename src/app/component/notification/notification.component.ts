@@ -33,24 +33,14 @@ export class NotificationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.equipementser.GetTodoItems(false).subscribe(res => {
+    this.equipementser.GetTodoItem(false).subscribe(res => {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
   }
 
-  delete(id) {
-    if (confirm("vous etes sur de supprimer cet equipement ")) {
-      this.equipementser.deleteService(id).subscribe(res => {
-
-        this.equipementser.getAllEquipements();
-        this.ngOnInit();
-      })
-    }
-  }
-
-  displayedColumns: string[] = ['id', 'codeHAC', 'description', 'Idsecteur', 'etat', 'Action'];
+  displayedColumns: string[] = ['codeHAC', 'description', 'nomsecteur', 'Action'];
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }

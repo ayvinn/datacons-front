@@ -34,6 +34,9 @@ export class ServiceequipementService {
   GetTodoItems(etat : boolean){
     return this.http.get<Equipment[]>(this.url+"/sous/"+etat);
   }
+  GetTodoItem(etat : boolean){
+    return this.http.get<Equipment[]>(this.url+"/equi/"+etat);
+  }
   put(id,data) {
     return this.http.put(`${this.url}/${id}`, data);
   }
