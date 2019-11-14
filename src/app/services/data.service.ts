@@ -13,6 +13,12 @@ export class DataService {
   private idEquipement = new BehaviorSubject<number>(-1);
   currentIdEquipement = this.idEquipement.asObservable();
 
+  private demandeur = new BehaviorSubject<any>([]);
+  currentDemandeur = this.demandeur.asObservable();
+
+  private selectedIDEquip = new BehaviorSubject<number>(-1);
+  currentSelectedIDEquip = this.selectedIDEquip.asObservable();
+
   constructor() { }
 
   changeMessage(id: number) {
@@ -21,5 +27,15 @@ export class DataService {
 
   changeIdEquipement(id: number) {
     this.idEquipement.next(id);
+  }
+
+  changeDemandeur(data) {
+    console.log('Demandeur: ', data);
+    this.demandeur.next(data);
+  }
+
+  changeSelectedIDEquip(data) {
+    console.log('ID Equipement: ', data);
+    this.selectedIDEquip.next(data);
   }
 }

@@ -1,7 +1,7 @@
 <mat-horizontal-stepper    #stepper>
     <mat-step>
         <ng-template matStepLabel>Login</ng-template>
-        <app-login></app-login>
+        <app-login [stepper]="stepper"></app-login>
        
     </mat-step>
     <mat-step>

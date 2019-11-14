@@ -41,7 +41,7 @@
                     <ng-container matColumnDef="Action">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header>Action</th>
                         <td mat-cell *matCellDef="let element">
-                                <button type="button" class="btn btn-info">Selectioner</button>
+                            <button type="button" class="btn btn-info" (click)="getRecord(element)">Selectioner</button>
                         </td>
                     </ng-container>
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
