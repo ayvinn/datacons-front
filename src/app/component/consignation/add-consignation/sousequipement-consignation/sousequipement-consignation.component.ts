@@ -6,6 +6,7 @@ import { DataService } from 'src/app/services/data.service';
 import { UpdatesousequipementComponent } from 'src/app/component/equipement/updateequipement/updatesousequipement/updatesousequipement.component';
 import { AddsousequipementComponent } from 'src/app/component/equipement/addequipement/sousequipement/addsousequipement/addsousequipement.component';
 import { take } from 'rxjs/operators';
+import { AddSousequipementConsignationComponent } from './add-sousequipement-consignation/add-sousequipement-consignation.component';
 
 @Component({
   selector: 'app-sousequipement-consignation',
@@ -77,7 +78,7 @@ export class SousequipementConsignationComponent implements OnInit {
 
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(AddsousequipementComponent, {
+    const dialogRef = this.dialog.open(AddSousequipementConsignationComponent, {
       width: '700px',
 
     });

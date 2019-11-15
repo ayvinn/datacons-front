@@ -47,6 +47,10 @@ import { NotificationComponent } from './component/notification/notification.com
 import { SelectEquipementComponent } from './component/consignation/add-consignation/select-equipement/select-equipement.component';
 import { SousequipementConsignationComponent } from './component/consignation/add-consignation/sousequipement-consignation/sousequipement-consignation.component';
 import { InterventionConsComponent } from './component/consignation/add-consignation/intervention/interventioncons.component';
+import {AddSousequipementConsignationComponent} from './component/consignation/add-consignation/sousequipement-consignation/add-sousequipement-consignation/add-sousequipement-consignation.component'
+import { ResponsablesComponent } from './component/consignation/add-consignation/responsables/responsables.component';
+import { IntervenantsconsComponent } from './component/consignation/add-consignation/intervenantscons/intervenantscons.component';
+
 
 
 
@@ -91,7 +95,13 @@ import { InterventionConsComponent } from './component/consignation/add-consigna
     LototoComponent,
     SelectEquipementComponent,
     SousequipementConsignationComponent,
-    InterventionConsComponent
+    InterventionConsComponent,
+    AddSousequipementConsignationComponent,
+    InterventionConsComponent,
+    InterventionConsComponent,
+    ResponsablesComponent,
+    IntervenantsconsComponent
+
 
   ],
   imports: [
@@ -136,7 +146,7 @@ import { InterventionConsComponent } from './component/consignation/add-consigna
     AddsecteurComponent, AuthComponent,
     UpdatesecteurComponent, DemandeurComponent,
     AdddemandeurComponent,
-    UpdatedemandeurComponent, EquipementComponent,
+    UpdatedemandeurComponent, EquipementComponent,AddSousequipementConsignationComponent,
     AddequipementComponent, AddinterventionComponent,
     UpdateequipementComponent, SousequipementComponent, AddsousequipementComponent, AddlototoComponent, InterventionComponent, UpdatesousequipementComponent,
     AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent],
