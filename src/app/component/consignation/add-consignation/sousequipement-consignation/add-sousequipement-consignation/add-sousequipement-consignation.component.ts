@@ -1,10 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SousEquipment } from 'src/app/models/sous-equipment.model';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ServicesousequipementService } from 'src/app/services/servicesousequipement.service';
 import { DataService } from 'src/app/services/data.service';
 import { SousequipementConsignationComponent } from '../sousequipement-consignation.component';
+import { DialogData } from 'src/app/component/service/sevice.component';
 
 @Component({
   selector: 'app-add-sousequipement-consignation',
@@ -16,7 +17,7 @@ export class AddSousequipementConsignationComponent implements OnInit {
   form: FormGroup;
   sousequipements: SousEquipment[];
   dataSource;
-  constructor(public dialogRef: MatDialogRef<SousequipementConsignationComponent>,private dataService: DataService, private sousequipement: ServicesousequipementService,private data1: DataService, private _formBuilder: FormBuilder,) { }
+  constructor(public dialogRef: MatDialogRef<SousequipementConsignationComponent>,@Inject(MAT_DIALOG_DATA) public data: any, private dataService: DataService, private sousequipement: ServicesousequipementService,private data1: DataService, private _formBuilder: FormBuilder,) { }
 
   ngOnInit() {
     this.dataService.allDataConsignation.subscribe(async res => {
@@ -60,9 +61,9 @@ export class AddSousequipementConsignationComponent implements OnInit {
     this.dialogRef.close();
   }
   submit(form, formName:string) {
-    const values = {id:0, CodeHAC: this.form.value.CodeHAC,Nomequipement: this.form.value.Nomequipement,
+    const values = {id:0 ,CodeHAC: this.form.value.CodeHAC,Nomequipement: this.form.value.Nomequipement,
       Emplacement: this.form.value.Emplacement,TypeEnergie: this.form.value.TypeEnergie,
-      IDequipement:this.idEquipement , Lieu: this.form.value.Lieu,
+      IDequipement: this.data.idE , Lieu: this.form.value.Lieu,
       numero: this.form.value.numero, etat :false,Remarque: this.form.value.Remarque,
     };
     if(!form.valid) {
