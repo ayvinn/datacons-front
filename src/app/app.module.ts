@@ -48,9 +48,9 @@ import { SelectEquipementComponent } from './component/consignation/add-consigna
 import { SousequipementConsignationComponent } from './component/consignation/add-consignation/sousequipement-consignation/sousequipement-consignation.component';
 import { InterventionConsComponent } from './component/consignation/add-consignation/intervention/interventioncons.component';
 import { AuthServiceGuard } from './guard/auth-service.guard';
-
-
-
+import {AddSousequipementConsignationComponent} from './component/consignation/add-consignation/sousequipement-consignation/add-sousequipement-consignation/add-sousequipement-consignation.component'
+import { ResponsablesComponent } from './component/consignation/add-consignation/responsables/responsables.component';
+import { IntervenantsconsComponent } from './component/consignation/add-consignation/intervenantscons/intervenantscons.component';
 
 
 @NgModule({
@@ -92,7 +92,13 @@ import { AuthServiceGuard } from './guard/auth-service.guard';
     LototoComponent,
     SelectEquipementComponent,
     SousequipementConsignationComponent,
-    InterventionConsComponent
+    InterventionConsComponent,
+    AddSousequipementConsignationComponent,
+    InterventionConsComponent,
+    InterventionConsComponent,
+    ResponsablesComponent,
+    IntervenantsconsComponent
+
 
   ],
   imports: [
@@ -137,7 +143,7 @@ import { AuthServiceGuard } from './guard/auth-service.guard';
     AddsecteurComponent, AuthComponent,
     UpdatesecteurComponent, DemandeurComponent,
     AdddemandeurComponent,
-    UpdatedemandeurComponent, EquipementComponent,
+    UpdatedemandeurComponent, EquipementComponent,AddSousequipementConsignationComponent,
     AddequipementComponent, AddinterventionComponent,
     UpdateequipementComponent, SousequipementComponent, AddsousequipementComponent, AddlototoComponent, InterventionComponent, UpdatesousequipementComponent,
     AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent,

@@ -1,28 +1,30 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SousEquipment } from 'src/app/models/sous-equipment.model';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ServicesousequipementService } from 'src/app/services/servicesousequipement.service';
-import { DialogData } from 'src/app/component/service/sevice.component';
 import { DataService } from 'src/app/services/data.service';
-import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
+import { SousequipementConsignationComponent } from '../sousequipement-consignation.component';
+import { DialogData } from 'src/app/component/service/sevice.component';
 
 @Component({
-  selector: 'app-addsousequipement',
-  templateUrl: './addsousequipement.component.html',
-  styleUrls: ['./addsousequipement.component.sass']
+  selector: 'app-add-sousequipement-consignation',
+  templateUrl: './add-sousequipement-consignation.component.html',
+  styleUrls: ['./add-sousequipement-consignation.component.sass']
 })
-export class AddsousequipementComponent implements OnInit {
-  message: string;
+export class AddSousequipementConsignationComponent implements OnInit {
   idEquipement: number;
   form: FormGroup;
   sousequipements: SousEquipment[];
   dataSource;
-  constructor(public dialogRef: MatDialogRef<AddsousequipementComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData, private sousequipement: ServicesousequipementService,private data1: DataService, private _formBuilder: FormBuilder,) { }
+  constructor(public dialogRef: MatDialogRef<SousequipementConsignationComponent>,@Inject(MAT_DIALOG_DATA) public data: any, private dataService: DataService, private sousequipement: ServicesousequipementService,private data1: DataService, private _formBuilder: FormBuilder,) { }
 
   ngOnInit() {
-  
-
+    this.dataService.allDataConsignation.subscribe(async res => {
+      console.log('Current:add -sous equipement', res);
+      this.idEquipement = res['IDEquipement'];
+      console.log("this id " + this.idEquipement);
+    });
     this.sousequipement.sousequipement = {
       id: 0,
       CodeHAC: null,
@@ -59,32 +61,29 @@ export class AddsousequipementComponent implements OnInit {
     this.dialogRef.close();
   }
   submit(form, formName:string) {
-  
-    const values = {id:0, CodeHAC: this.form.value.CodeHAC,Nomequipement: this.form.value.Nomequipement,
+    const values = {id:0 ,CodeHAC: this.form.value.CodeHAC,Nomequipement: this.form.value.Nomequipement,
       Emplacement: this.form.value.Emplacement,TypeEnergie: this.form.value.TypeEnergie,
-      IDequipement: this.idEquipement , Lieu: this.form.value.Lieu,
-      numero: this.form.value.numero, etat :true,Remarque: this.form.value.Remarque,
+      IDequipement: this.data.idE , Lieu: this.form.value.Lieu,
+      numero: this.form.value.numero, etat :false,Remarque: this.form.value.Remarque,
     };
-    console.log('Submit: ', form.valid );
     if(!form.valid) {
       return;
     }
+    console.log(values);
+    
     if(formName === 'sousequipement'){
       this.sousequipement.postSousEquipment(values).subscribe(res => {
-        console.log('Posted: ', res);
-       
+        console.log('Posted: ', res);       
         this.sousequipement.getAllSousEquipments();
-        
+
       },
         err => {
-          console.log(err);
+          console.log(err); 
         }
       )
     }
-    
-    this.ngOnInit();
     this.dialogRef.close();
-
   }
+
 
 }
