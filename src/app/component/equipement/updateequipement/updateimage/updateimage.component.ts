@@ -3,6 +3,8 @@ import { FormBuilder } from '@angular/forms';
 import { ServiceimageService } from 'src/app/services/serviceimage.service';
 import { ServiceequipementService } from 'src/app/services/serviceequipement.service';
 import { DataService } from "src/app/services/data.service";
+import { constantURL } from 'src/app/shared/constantURL';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-updateimage',
   templateUrl: './updateimage.component.html',
@@ -19,7 +21,7 @@ export class UpdateimageComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private imageService: ServiceimageService,
     private equipement: ServiceequipementService,
-    private dataShared: DataService) { }
+    private dataShared: DataService,private toastr: ToastrService) { }
 
   ngOnInit() {
     this.files = [];
@@ -31,8 +33,8 @@ export class UpdateimageComponent implements OnInit {
         this.images = res;
         /*this.files[0].name = res[0].lien.slice(7, res[0].lien.length - 5);
         this.files[0].type = res[0].lien.slice(res[0].lien.length - 4, res[0].lien.length);*/
-        console.log('Name: ', res[0].lien.slice(7, res[0].lien.length - 5));
-        console.log('Type: ', res[0].lien.slice(res[0].lien.length - 4, res[0].lien.length));
+        // console.log('Name: ', res[0].lien.slice(7, res[0].lien.length - 5));
+        // console.log('Type: ', res[0].lien.slice(res[0].lien.length - 4, res[0].lien.length));
       })
     })
   }
@@ -63,15 +65,36 @@ export class UpdateimageComponent implements OnInit {
 
 
   updateImage() {
-    const values = { id: this.images[0].id, lien: this.previewUrl, idequipement: this.idEquipement };
+    if(this.images.length>0){ const values = { id: this.images[0].id, lien: this.previewUrl, idequipement: this.idEquipement };
     console.log(values);
-   this.imageService.put(values.id, values).subscribe(res => {
+   this.imageService.put(values.id, values).subscribe(
+     res => { 
+       if (res.status === 'success') {
+    this.toastr.success('Image modifiée', 'Image bien modifié');
+     } 
       console.log(res);
-    });
+    });}else
+    {
+      const values = { lien: this.previewUrl, Idequipement: this.idEquipement };
+    
+    console.log('Form: ', values);
+    if(this.previewUrl!=null)
+    this.imageService.saveProduct(values).subscribe(
+      res => {
+        console.log('Ajouter Produit: ', res);
+        if (res.status === 'success') {
+         this.toastr.success('Image ajouter', 'Image bien ajouter');
+        } 
+      }, 
+    );
+    this.ngOnInit();
+    }
+   
   }
 
   createImage(url) {
-    return `http://192.168.1.88:5000/${url}`;
+    
+    return `${constantURL.apiEndpoint}/${url}`;
   }
   onRemove(event) {
 		console.log(event);

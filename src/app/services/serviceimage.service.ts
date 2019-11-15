@@ -23,21 +23,14 @@ export class ServiceimageService {
 
   deleteImage(formData) {
     return this.http.post<any>(`${this.url}`, formData)
-    
   }
   saveProduct(formData) {
     return this.http.post<any>(`${this.url}`, formData)
-    
   }
-
-
   getAllImages(): Observable<Image[]>{
-    return this.http.get<Image[]>(this.url);
-
-    
+    return this.http.get<Image[]>(this.url); 
   }
   getAllImages2(){
-
     this.http.get(this.url).toPromise().then(
       res=>{
         this.images = res as Image[];
@@ -48,9 +41,8 @@ export class ServiceimageService {
   postImage(){
     return this.http.post(this.url,this.image);
   }
-
   put(id,data) {
-    return this.http.put(`${this.url}/${id}`, data);
+    return this.http.put<any>(`${this.url}/${id}`, data);
   }
 
   deleteService(id){
