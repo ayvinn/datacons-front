@@ -48,6 +48,9 @@ import { SelectEquipementComponent } from './component/consignation/add-consigna
 import { SousequipementConsignationComponent } from './component/consignation/add-consignation/sousequipement-consignation/sousequipement-consignation.component';
 import { InterventionConsComponent } from './component/consignation/add-consignation/intervention/interventioncons.component';
 import {AddSousequipementConsignationComponent} from './component/consignation/add-consignation/sousequipement-consignation/add-sousequipement-consignation/add-sousequipement-consignation.component'
+import { ResponsablesComponent } from './component/consignation/add-consignation/responsables/responsables.component';
+import { IntervenantsconsComponent } from './component/consignation/add-consignation/intervenantscons/intervenantscons.component';
+
 
 
 
@@ -93,7 +96,12 @@ import {AddSousequipementConsignationComponent} from './component/consignation/a
     SelectEquipementComponent,
     SousequipementConsignationComponent,
     InterventionConsComponent,
-    AddSousequipementConsignationComponent
+    AddSousequipementConsignationComponent,
+    InterventionConsComponent,
+    InterventionConsComponent,
+    ResponsablesComponent,
+    IntervenantsconsComponent
+
 
   ],
   imports: [

@@ -15,8 +15,8 @@
             </div>
         </div>
 
-        <div class="col-md-3 col-xs-6">
-            <img *ngIf="images" style="height: auto;width: 22/0%;" [src]="createImage(images[0].lien)" alt="" />
+        <div class="col-md-3 col-xs-6" >
+            <img *ngIf="images && images.length>0" style="height: auto;width: 20%;" [src]="createImage(images[0].lien)" alt="" />
         </div>
     </div>
 

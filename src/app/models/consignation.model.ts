@@ -4,6 +4,7 @@ export class Consignation {
     Datesaisir:Date;
     Datefin:Date;
     Duree:number;
+    Dureeheure:number;
     Etat:string;
     NumberoBC:number;
     Essaie:string;
