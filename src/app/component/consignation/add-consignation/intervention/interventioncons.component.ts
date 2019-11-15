@@ -3,8 +3,9 @@ import { MatStepper } from '@angular/material';
 import { DataService } from 'src/app/services/data.service';
 import { ServiceinterventionService } from 'src/app/services/serviceintervention.service';
 import { Intervention } from 'src/app/models/intervention.model';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { take } from 'rxjs/operators';
+import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
+import { take, startWith, map } from 'rxjs/operators';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-interventioncons',
@@ -15,6 +16,8 @@ export class InterventionConsComponent implements OnInit {
   @Input() stepper: MatStepper;
   interventions: Intervention[];
   IDEquipement;
+  interventionControl: FormControl;
+  filteredInterventions: Observable<Intervention[]>;
 
   Formintervention: FormGroup;
 
@@ -25,8 +28,12 @@ export class InterventionConsComponent implements OnInit {
   ngOnInit() {
     this.Formintervention = this.formBuilder.group({
       nature: ['', Validators.required],
-      idIntervention: ['']
+      idIntervention: [''],
+      nature2: ['']
     });
+
+    
+
 
     this.dataService.allDataConsignation.subscribe(async res => {
       console.log('Current Consignation Intervention: ', res);
@@ -49,7 +56,49 @@ export class InterventionConsComponent implements OnInit {
       console.log('id', res);
       //this.IDEquipement = res
     });*/
+    this.getData();
   }
+
+  async delay(ms: number) {
+    await new Promise(resolve => setTimeout(() => resolve(), ms));
+  }
+ 
+  getData() {
+    this.getintervention();
+    this.delay(5000).then(any => {
+      this.filterInitemandeurs();
+      console.log('demp: ', this.interventions);
+    });
+  }
+
+  private filterInitemandeurs() {
+    this.filteredInterventions = this.interventionControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filterIntervetion(value))
+      );
+  }
+  getintervention(){
+
+    this.dataService.allDataConsignation.subscribe(async res => {
+      console.log('Current Consignation Intervention: ', res);
+      this.IDEquipement = res['IDEquipement'];
+      // console.log('ID Equipement Intervention: ', this.IDEquipement);
+      if (this.IDEquipement) {
+        await this.intervention.GetTodoItems(this.IDEquipement).pipe(take(1)).toPromise().then(res => {
+          console.log('inter: ', res);
+          this.interventions = res;
+        });
+      }
+
+    });
+
+  }
+  private _filterIntervetion(value: string): any[] {
+    const filterValue = value != null ? value.toLowerCase() : "";
+    return this.interventions.filter(e => e.libelle.toLowerCase().includes(filterValue));
+  }
+
 
   change(text) {
     // console.log('Libelle: ', text);

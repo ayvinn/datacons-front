@@ -7,7 +7,7 @@
     <div class="card-body">
       <form [formGroup]="Formintervention" (ngSubmit)="submit(Formintervention)">
         <div class="row">
-          <div class="col-md-8">
+         <div class="col-md-8">
             <div mat-dialog-content>
               <mat-form-field class="w-100">
                 <input type="text" matInput formControlName="nature" placeholder="Entrer la nature d'intervention:">
@@ -25,6 +25,21 @@
                   </mat-option>
                 </mat-select>
               </mat-form-field>
+
+
+
+              <mat-form-field style="width: 100%;">
+                <input #input type="text" placeholder="intervention" matInput formControlName="nature2" [matAutocomplete]="auto" required>
+                <mat-autocomplete #autoDemandeur="matAutocomplete">
+                    <mat-option *ngFor="let option of (filteredDemandeurs | async)" [value]="option.libelle">
+                        {{option.libelle}}
+                    </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+
+
+
+              
             </div>
           </div>
           <div class="col-md-12">
@@ -38,11 +53,14 @@
               <span class="col-md-6">
                 <mat-label>Heures</mat-label>
                 <mat-slider thumbLabel tickInterval="1" min="1" max="23" step="1" value="1" class="w-100" #matslider2
-                (input)="pitch($event, 'Dureeheure')"></mat-slider>
+                  (input)="pitch($event, 'Dureeheure')"></mat-slider>
               </span>
             </div>
           </div>
         </div>
+
+
+
 
         <div mat-dialog-actions class="form-row justify-content-end mb-2">
           <button type="submit" mat-button class="btn btn-info">Suivant</button>
