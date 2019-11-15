@@ -45,7 +45,7 @@ import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { NotificationComponent } from './component/notification/notification.component';
 import { SelectEquipementComponent } from './component/consignation/add-consignation/select-equipement/select-equipement.component';
-import { SousEquipementComponent } from './component/consignation/add-consignation/sous-equipement/sous-equipement.component';
+import { SousequipementConsignationComponent } from './component/consignation/add-consignation/sousequipement-consignation/sousequipement-consignation.component';
 import { InterventionConsComponent } from './component/consignation/add-consignation/intervention/interventioncons.component';
 
 
@@ -90,7 +90,7 @@ import { InterventionConsComponent } from './component/consignation/add-consigna
     NotificationComponent,
     LototoComponent,
     SelectEquipementComponent,
-    SousEquipementComponent,
+    SousequipementConsignationComponent,
     InterventionConsComponent
 
   ],
