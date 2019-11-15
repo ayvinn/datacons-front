@@ -47,6 +47,7 @@ import { NotificationComponent } from './component/notification/notification.com
 import { SelectEquipementComponent } from './component/consignation/add-consignation/select-equipement/select-equipement.component';
 import { SousequipementConsignationComponent } from './component/consignation/add-consignation/sousequipement-consignation/sousequipement-consignation.component';
 import { InterventionConsComponent } from './component/consignation/add-consignation/intervention/interventioncons.component';
+import { AuthServiceGuard } from './guard/auth-service.guard';
 
 
 
@@ -129,7 +130,7 @@ import { InterventionConsComponent } from './component/consignation/add-consigna
     UpdateequipementComponent, SousequipementComponent, AddlototoComponent, AddsousequipementComponent, AddinterventionComponent, InterventionComponent,
     AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent
   ],
-  providers: [],
+  providers: [AuthServiceGuard],
   bootstrap: [AppComponent],
   entryComponents: [SeviceComponent, AddServiceComponent, UpdateServiceComponent, CategorieComponent, AddcategorieComponent,
     UpdatecategorieComponent, SecteurComponent,
@@ -139,6 +140,7 @@ import { InterventionConsComponent } from './component/consignation/add-consigna
     UpdatedemandeurComponent, EquipementComponent,
     AddequipementComponent, AddinterventionComponent,
     UpdateequipementComponent, SousequipementComponent, AddsousequipementComponent, AddlototoComponent, InterventionComponent, UpdatesousequipementComponent,
-    AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent],
+    AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent,
+    AddConsignationComponent],
 })
 export class AppModule { }
