@@ -1,8 +1,8 @@
-<mat-horizontal-stepper    #stepper>
+<mat-horizontal-stepper #stepper>
     <mat-step editable="false">
         <ng-template matStepLabel>Login</ng-template>
         <app-login [stepper]="stepper"></app-login>
-       
+
     </mat-step>
     <mat-step editable="false">
         <ng-template matStepLabel>Equipement</ng-template>
@@ -10,21 +10,21 @@
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Intervention</ng-template>
-        <app-interventioncons [stepper]="stepper"></app-interventioncons>      
+        <app-interventioncons [stepper]="stepper"></app-interventioncons>
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Sous-equipement</ng-template>
-       
-        
+        <app-sousequipement-consignation></app-sousequipement-consignation>
+
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Responsable</ng-template>
-      
-        
+
+
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Intervenants</ng-template>
-      
-        
+
+
     </mat-step>
 </mat-horizontal-stepper>

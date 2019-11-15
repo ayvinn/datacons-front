@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { Equipment } from 'src/app/models/equipment.model';
 import { MatPaginator, MatSort, MatDialog, MatTableDataSource, MatStepper } from '@angular/material'
 import { ServiceequipementService } from 'src/app/services/serviceequipement.service';
 import { DataService } from 'src/app/services/data.service';
