@@ -5,6 +5,7 @@ import { ServicesousequipementService } from 'src/app/services/servicesousequipe
 import { DataService } from 'src/app/services/data.service';
 import { UpdatesousequipementComponent } from 'src/app/component/equipement/updateequipement/updatesousequipement/updatesousequipement.component';
 import { AddsousequipementComponent } from 'src/app/component/equipement/addequipement/sousequipement/addsousequipement/addsousequipement.component';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sousequipement-consignation',
@@ -19,21 +20,30 @@ export class SousequipementConsignationComponent implements OnInit {
   dataSource;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-  constructor(private sousequipementser:ServicesousequipementService,public dialog: MatDialog,private data1: DataService) { }
+  constructor(private sousequipementser:ServicesousequipementService,public dialog: MatDialog,private dataService: DataService) { }
 
-  ngOnInit() {
-    this.data1.currentIdEquipement.subscribe(id => {
+  async ngOnInit() {
+    this.dataService.currentIdEquipement.subscribe(id => {
       console.log('ID: ', id);
       this.idEquipement = id;
     }) 
     console.log('idequipment :',this.idEquipement);
-    this.sousequipementser.GetTodoItems(this.idEquipement).subscribe(res => {
-      this.dataSource = new MatTableDataSource(res);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
 
-  
+   /* await this.intervention.GetTodoItems(this.IDEquipement).pipe(take(1)).toPromise().then(res => {
+      console.log('inter: ', res);
+      this.interventions = res;
+    });*/
+    this.dataService.currentConsignation.subscribe(async res => {
+      console.log('Current Consignation Intervention: ', res);
+      this.idEquipement = res.IDEquipement;
+      console.log('ID Equipement Intervention: ', this.idEquipement);
+      await this.sousequipementser.GetTodoItems(this.idEquipement).pipe(take(1)).toPromise().then(res => {
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      });
     });
+
 
 }
 
@@ -45,7 +55,7 @@ delete(id){
   })}
 }
 
-  displayedColumns: string[] = ['id', 'codeHAC','nomequipement','emplacement','typeenergie','lieu','idequipement','numero','remarque','action'];
+  displayedColumns: string[] = ['numero', 'codeHAC','nomequipement','emplacement','typeenergie','lieu','idequipement','remarque'];
   
   openDialog1(elt): void {
     const dialogRef = this.dialog.open(UpdatesousequipementComponent, {
