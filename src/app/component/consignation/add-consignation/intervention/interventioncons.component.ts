@@ -31,7 +31,7 @@ export class InterventionConsComponent implements OnInit {
     this.dataService.allDataConsignation.subscribe(async res => {
       console.log('Current Consignation Intervention: ', res);
       this.IDEquipement = res['IDEquipement'];
-      console.log('ID Equipement Intervention: ', this.IDEquipement);
+      // console.log('ID Equipement Intervention: ', this.IDEquipement);
       if (this.IDEquipement) {
         await this.intervention.GetTodoItems(this.IDEquipement).pipe(take(1)).toPromise().then(res => {
           console.log('inter: ', res);
@@ -52,12 +52,12 @@ export class InterventionConsComponent implements OnInit {
   }
 
   change(text) {
-    console.log('Libelle: ', text);
+    // console.log('Libelle: ', text);
     this.dataService.changeConsignation({ intervention: text });
   }
 
   pitch(event, type) {
-    console.log('Slider: ', event);
+    // console.log('Slider: ', event);
     const data = {};
     data[type] = event.value;
     this.dataService.changeConsignation(data);
