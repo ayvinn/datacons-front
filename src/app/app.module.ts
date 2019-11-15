@@ -49,6 +49,7 @@ import { SousequipementConsignationComponent } from './component/consignation/ad
 import { InterventionConsComponent } from './component/consignation/add-consignation/intervention/interventioncons.component';
 import { ResponsablesComponent } from './component/consignation/add-consignation/responsables/responsables.component';
 import { IntervenantsconsComponent } from './component/consignation/add-consignation/intervenantscons/intervenantscons.component';
+import { AddintervenantsconsComponent } from './component/consignation/add-consignation/intervenantscons/addintervenantscons/addintervenantscons.component';
 
 
 
@@ -95,7 +96,8 @@ import { IntervenantsconsComponent } from './component/consignation/add-consigna
     SousequipementConsignationComponent,
     InterventionConsComponent,
     ResponsablesComponent,
-    IntervenantsconsComponent
+    IntervenantsconsComponent,
+    AddintervenantsconsComponent
 
   ],
   imports: [
@@ -131,7 +133,7 @@ import { IntervenantsconsComponent } from './component/consignation/add-consigna
     UpdatedemandeurComponent, EquipementComponent,
     AddequipementComponent,
     UpdateequipementComponent, SousequipementComponent, AddlototoComponent, AddsousequipementComponent, AddinterventionComponent, InterventionComponent,
-    AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent
+    AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent,AddintervenantsconsComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
@@ -143,6 +145,6 @@ import { IntervenantsconsComponent } from './component/consignation/add-consigna
     UpdatedemandeurComponent, EquipementComponent,
     AddequipementComponent, AddinterventionComponent,
     UpdateequipementComponent, SousequipementComponent, AddsousequipementComponent, AddlototoComponent, InterventionComponent, UpdatesousequipementComponent,
-    AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent],
+    AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent,AddintervenantsconsComponent],
 })
 export class AppModule { }
