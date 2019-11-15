@@ -22,7 +22,8 @@ export class DataService {
   private consignation = new BehaviorSubject<any>([]); 
   currentConsignation = this.consignation.asObservable();
 
-  test = this.consignation.pipe(
+
+  public allDataConsignation = this.consignation.pipe(
     scan((acc, curr) => Object.assign({}, acc, curr), {})
   );
 
@@ -47,6 +48,7 @@ export class DataService {
   }
 
   changeConsignation(data) {
+    
     console.log('Consignation: ', data);
     this.consignation.next(data);
   }

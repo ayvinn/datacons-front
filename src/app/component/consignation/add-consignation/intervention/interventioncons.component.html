@@ -5,35 +5,54 @@
       <p class="card-category">Remplissez le formulaire</p>
     </div>
     <div class="card-body">
-      <form [formGroup]="Formintervention">
+      <form [formGroup]="Formintervention" (ngSubmit)="submit(Formintervention)">
         <div class="row">
           <div class="col-md-8">
             <div mat-dialog-content>
               <mat-form-field class="w-100">
-                <input type="text" matInput formControlName="nature" placeholder="Entrer le nom du demandeur:">
+                <input type="text" matInput formControlName="nature" placeholder="Entrer la nature d'intervention:">
               </mat-form-field>
             </div>
           </div>
-
-
-
 
           <div class="col-md-8">
             <div class="form-group">
               <mat-form-field class="w-100">
                 <mat-label>Selectionner votre intervention</mat-label>
                 <mat-select formControlName="idIntervention">
-                  <mat-option *ngFor="let item of interventions" [value]="item.id">
+                  <mat-option *ngFor="let item of interventions" [value]="item.id" (click)="change(item.libelle)">
                     {{item.libelle}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
           </div>
+          <div class="col-md-12">
+            <div class="form-row">
+              <span class="col-md-6">
+                <mat-label>Jours</mat-label>
+                <mat-slider thumbLabel tickInterval="1" min="1" max="30" step="1" value="1" class="w-100" #matslider1
+                  (input)="pitch($event, 'Duree')"></mat-slider>
+              </span>
+
+              <span class="col-md-6">
+                <mat-label>Heures</mat-label>
+                <mat-slider thumbLabel tickInterval="1" min="1" max="23" step="1" value="1" class="w-100" #matslider2
+                (input)="pitch($event, 'Dureeheure')"></mat-slider>
+              </span>
+            </div>
+
+          </div>
+
+
+
+
+
+
         </div>
 
         <div mat-dialog-actions class="form-row justify-content-end mb-2">
-          <button type="button" mat-button (click)="onNoClick()" class="btn btn-danger">Non Merci</button>
+          <button type="button" mat-button (click)="onNoClick()" class="btn btn-danger mr-2">Non Merci</button>
           <button type="submit" mat-button class="btn btn-info">Ok</button>
         </div>
         <div class="clearfix"></div>
