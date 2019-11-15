@@ -18,13 +18,14 @@ export class SelectEquipementComponent implements OnInit {
   public ss: AddConsignationComponent;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  constructor(private equipementser: ServiceequipementService, 
-    public dialog: MatDialog, 
+  constructor(private equipementser: ServiceequipementService,
+    public dialog: MatDialog,
     private dataService: DataService,
-    private toastr:ToastrService) { }
+    private toastr: ToastrService) { }
 
 
   ngOnInit() {
+    this.dataService.currentConsignation.subscribe(res => console.log('Current Consignation: ', res));
     this.dataService.currentSelectedIDEquip.subscribe(res => this.IDEquipement = res);
     this.equipementser.GetTodoItem().subscribe(res => {
       this.dataSource = new MatTableDataSource(res);
@@ -53,10 +54,12 @@ export class SelectEquipementComponent implements OnInit {
       data => {
         if (data) {
           this.dataService.changeSelectedIDEquip(row.id);
+          this.dataService.changeConsignation({ IDEquipement: row.id });
+          
           this.stepper.next();
           this.toastr.success('Opération reussie');
         } else {
-          this.toastr.warning('Cette Installation est en régime essaie');         
+          this.toastr.warning('Cette Installation est en régime essaie');
         }
       },
       (error) => {

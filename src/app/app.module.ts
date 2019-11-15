@@ -41,12 +41,13 @@ import { ConsignationComponent } from './component/consignation/consignation.com
 import { AddConsignationComponent } from './component/consignation/add-consignation/add-consignation.component';
 import { LoginComponent } from './component/consignation/add-consignation/login/login.component';
 import { LototoComponent } from './component/equipement/addequipement/lototo/lototo.component'
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { NotificationComponent } from './component/notification/notification.component';
 import { SelectEquipementComponent } from './component/consignation/add-consignation/select-equipement/select-equipement.component';
 import { SousEquipementComponent } from './component/consignation/add-consignation/sous-equipement/sous-equipement.component';
- 
+import { InterventionConsComponent } from './component/consignation/add-consignation/intervention/interventioncons.component';
+
 
 
 
@@ -89,9 +90,9 @@ import { SousEquipementComponent } from './component/consignation/add-consignati
     NotificationComponent,
     LototoComponent,
     SelectEquipementComponent,
-    SousEquipementComponent
-    
- 
+    SousEquipementComponent,
+    InterventionConsComponent
+
   ],
   imports: [
     BrowserModule,
@@ -126,18 +127,18 @@ import { SousEquipementComponent } from './component/consignation/add-consignati
     UpdatedemandeurComponent, EquipementComponent,
     AddequipementComponent,
     UpdateequipementComponent, SousequipementComponent, AddlototoComponent, AddsousequipementComponent, AddinterventionComponent, InterventionComponent,
-    AddinterventionComponent, UpdateinterventionComponent,LototoComponent,  UpdatelototoComponent ,SelectEquipementComponent
+    AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [SeviceComponent, AddServiceComponent, UpdateServiceComponent, CategorieComponent, AddcategorieComponent,
     UpdatecategorieComponent, SecteurComponent,
-    AddsecteurComponent,AuthComponent,
+    AddsecteurComponent, AuthComponent,
     UpdatesecteurComponent, DemandeurComponent,
     AdddemandeurComponent,
     UpdatedemandeurComponent, EquipementComponent,
     AddequipementComponent, AddinterventionComponent,
     UpdateequipementComponent, SousequipementComponent, AddsousequipementComponent, AddlototoComponent, InterventionComponent, UpdatesousequipementComponent,
-    AddinterventionComponent, UpdateinterventionComponent,LototoComponent,  UpdatelototoComponent, SelectEquipementComponent],
+    AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent],
 })
 export class AppModule { }

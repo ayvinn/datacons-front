@@ -28,7 +28,7 @@ export class ServiceinterventionService {
   PostIntervention(par:Intervention){
     return this.http.post(this.url,par);
   }
-  GetTodoItems(idequipment : number){
+  GetTodoItems(idequipment){
     return this.http.get<Intervention[]>(this.url2+"/"+idequipment);
   }
   

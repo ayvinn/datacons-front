@@ -1,0 +1,43 @@
+<div class="col-md-14">
+  <div class="card">
+    <div class="card-header card-header-info">
+      <h4 class="card-title">Ajouter une intervention</h4>
+      <p class="card-category">Remplissez le formulaire</p>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="Formintervention">
+        <div class="row">
+          <div class="col-md-8">
+            <div mat-dialog-content>
+              <mat-form-field class="w-100">
+                <input type="text" matInput formControlName="nature" placeholder="Entrer le nom du demandeur:">
+              </mat-form-field>
+            </div>
+          </div>
+
+
+
+
+          <div class="col-md-8">
+            <div class="form-group">
+              <mat-form-field class="w-100">
+                <mat-label>Selectionner votre intervention</mat-label>
+                <mat-select formControlName="idIntervention">
+                  <mat-option *ngFor="let item of interventions" [value]="item.id">
+                    {{item.libelle}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div mat-dialog-actions class="form-row justify-content-end mb-2">
+          <button type="button" mat-button (click)="onNoClick()" class="btn btn-danger">Non Merci</button>
+          <button type="submit" mat-button class="btn btn-info">Ok</button>
+        </div>
+        <div class="clearfix"></div>
+      </form>
+    </div>
+  </div>
+</div>

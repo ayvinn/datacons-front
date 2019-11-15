@@ -1,18 +1,16 @@
 <mat-horizontal-stepper    #stepper>
-    <mat-step>
+    <mat-step editable="false">
         <ng-template matStepLabel>Login</ng-template>
         <app-login [stepper]="stepper"></app-login>
        
     </mat-step>
-    <mat-step>
+    <mat-step editable="false">
         <ng-template matStepLabel>Equipement</ng-template>
         <app-select-equipement [stepper]="stepper"></app-select-equipement>
-        
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Intervention</ng-template>
-        
-        
+        <app-interventioncons [stepper]="stepper"></app-interventioncons>      
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Sous-equipement</ng-template>

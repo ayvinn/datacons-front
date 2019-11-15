@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { scan } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,12 @@ export class DataService {
 
   private selectedIDEquip = new BehaviorSubject<number>(-1);
   currentSelectedIDEquip = this.selectedIDEquip.asObservable();
+  private consignation = new BehaviorSubject<any>([]); 
+  currentConsignation = this.consignation.asObservable();
+
+  test = this.consignation.pipe(
+    scan((acc, curr) => Object.assign({}, acc, curr), {})
+  );
 
   constructor() { }
 
@@ -38,4 +45,10 @@ export class DataService {
     console.log('ID Equipement: ', data);
     this.selectedIDEquip.next(data);
   }
+
+  changeConsignation(data) {
+    console.log('Consignation: ', data);
+    this.consignation.next(data);
+  }
+
 }
