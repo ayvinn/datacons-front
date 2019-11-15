@@ -22,7 +22,7 @@ export class SousequipementConsignationComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   constructor(private sousequipementser: ServicesousequipementService, public dialog: MatDialog, private dataService: DataService) { }
 
-  async ngOnInit() {
+  ngOnInit() {
     /*this.dataService.currentIdEquipement.subscribe(id => {
       console.log('ID: ', id);
       this.IDEquipement = id;

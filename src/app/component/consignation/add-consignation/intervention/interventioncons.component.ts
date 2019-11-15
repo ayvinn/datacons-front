@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { MatStepper } from '@angular/material';
 import { DataService } from 'src/app/services/data.service';
 import { ServiceinterventionService } from 'src/app/services/serviceintervention.service';
@@ -11,7 +11,7 @@ import { take } from 'rxjs/operators';
   templateUrl: './interventioncons.component.html',
   styleUrls: ['./interventioncons.component.sass']
 })
-export class InterventionConsComponent implements OnInit {
+export class InterventionConsComponent implements OnInit, AfterViewInit {
   @Input() stepper: MatStepper;
   interventions: Intervention[];
   IDEquipement;
@@ -38,17 +38,12 @@ export class InterventionConsComponent implements OnInit {
           this.interventions = res;
         });
       }
-
     });
+  }
 
-    // this.dataService.allDataConsignation.subscribe(res => {
-    //   console.log('All Data: ', res);
-    // });
-
-    /*this.dataService.currentSelectedIDEquip.subscribe(res => {
-      console.log('id', res);
-      //this.IDEquipement = res
-    });*/
+  ngAfterViewInit() {
+    this.dataService.changeConsignation({ 'Dureeheure': 0 });
+    this.dataService.changeConsignation({ 'Duree': 0 });
   }
 
   change(text) {
