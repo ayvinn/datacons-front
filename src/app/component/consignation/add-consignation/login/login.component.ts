@@ -92,11 +92,10 @@ export class LoginComponent implements OnInit {
         if (data) {
           this.dataService.changeConsignation({idDemandeur: data.id});
           this.role = data != null ? data.nomcomplet : null;
-          this.toastr.success('Opération reussie  ', data.nomcomplet);
-         
+          this.toastr.success('Opération reussie  ', data.nomcomplet, {timeOut: 500});
           this.stepper.next();
         } else {
-          this.toastr.error('Opération échoué  ', 'password incorrect');
+          this.toastr.error('Opération échoué  ', 'mot de passe incorrecte', {timeOut: 1500});
           this.stepper.reset();
         }
       },
