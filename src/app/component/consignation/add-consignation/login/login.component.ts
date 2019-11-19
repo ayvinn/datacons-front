@@ -88,10 +88,12 @@ export class LoginComponent implements OnInit {
         console.log('step', this.stepper);
         console.log('data', data);
         this.dataService.changeDemandeur(data);
-        this.dataService.changeConsignation({idDemandeur: data.id});
+        
         if (data) {
+          this.dataService.changeConsignation({idDemandeur: data.id});
           this.role = data != null ? data.nomcomplet : null;
           this.toastr.success('Opération reussie  ', data.nomcomplet);
+         
           this.stepper.next();
         } else {
           this.toastr.error('Opération échoué  ', 'password incorrect');

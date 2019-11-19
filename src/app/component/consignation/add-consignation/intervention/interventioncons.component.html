@@ -29,7 +29,7 @@
 
 
               <mat-form-field style="width: 100%;">
-                <input #input type="text" placeholder="Intervention" matInput formControlName="idIntervention" [matAutocomplete]="auto" required>
+                <input #input type="text" placeholder="Intervention" matInput formControlName="intervention" [matAutocomplete]="auto" required>
                 <mat-autocomplete #auto="matAutocomplete" (click)="change(item.libelle)">
                     <mat-option *ngFor="let item of interventions" [value]="item.libelle">
                       {{item.libelle}}
