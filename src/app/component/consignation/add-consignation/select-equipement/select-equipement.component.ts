@@ -24,7 +24,7 @@ export class SelectEquipementComponent implements OnInit {
 
 
   ngOnInit() {
-    this.dataService.currentConsignation.subscribe(res => console.log('Current Consignation: ', res));
+    this.dataService.currentConsignation.subscribe(/*res => console.log('Current Consignation: ', res)*/);
     this.dataService.currentSelectedIDEquip.subscribe(res => this.IDEquipement = res);
     this.equipementser.GetTodoItem().subscribe(res => {
       this.dataSource = new MatTableDataSource(res);
@@ -53,7 +53,7 @@ export class SelectEquipementComponent implements OnInit {
       data => {
         if (data) {
           this.dataService.changeSelectedIDEquip(row.id);
-          this.dataService.changeConsignation({ IDEquipement: row.id });
+          this.dataService.changeConsignation({ IDEquipment: row.id });
           
           this.stepper.next();
           this.toastr.success('Opération reussie');

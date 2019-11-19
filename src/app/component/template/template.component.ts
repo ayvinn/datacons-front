@@ -17,6 +17,6 @@ export class TemplateComponent implements OnInit {
   logout(): void {
     console.log("Logout");
     this.authService.logout();
-    this.router.navigate(['/consignation']);
+    this.router.navigate(['consignation']);
   }
 }

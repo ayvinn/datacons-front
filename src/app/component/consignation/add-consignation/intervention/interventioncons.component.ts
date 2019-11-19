@@ -29,8 +29,8 @@ export class InterventionConsComponent implements OnInit, AfterViewInit {
     });
 
     this.dataService.allDataConsignation.subscribe(async res => {
-      console.log('Current Consignation Intervention: ', res);
-      this.IDEquipement = res['IDEquipement'];
+      // console.log('Current Consignation Intervention: ', res);
+      this.IDEquipement = res['IDEquipment'];
       // console.log('ID Equipement Intervention: ', this.IDEquipement);
       if (this.IDEquipement) {
         await this.intervention.GetTodoItems(this.IDEquipement).pipe(take(1)).toPromise().then(res => {
@@ -42,7 +42,7 @@ export class InterventionConsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.dataService.changeConsignation({ 'Dureeheure': 0 });
+    this.dataService.changeConsignation({ 'Dureeheur': 0 });
     this.dataService.changeConsignation({ 'Duree': 0 });
   }
 
@@ -63,7 +63,7 @@ export class InterventionConsComponent implements OnInit, AfterViewInit {
       return;
     }
 
-    this.dataService.changeConsignation({ description: form.controls['nature'].value });
+    this.dataService.changeConsignation({ desription: form.controls['nature'].value });
     this.stepper.next();
   }
 

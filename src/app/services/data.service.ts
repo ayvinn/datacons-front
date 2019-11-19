@@ -48,8 +48,7 @@ export class DataService {
   }
 
   changeConsignation(data) {
-    
-    console.log('Consignation: ', data);
+    // console.log('Consignation: ', data);
     this.consignation.next(data);
   }
 
