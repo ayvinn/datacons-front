@@ -17,22 +17,22 @@
 
           <div class="col-md-8">
             <div class="form-group">
-              <mat-form-field class="w-100">
+             <!-- <mat-form-field class="w-100">
                 <mat-label>Selectionner votre intervention</mat-label>
                 <mat-select formControlName="idIntervention">
                   <mat-option *ngFor="let item of interventions" [value]="item.id" (click)="change(item.libelle)">
                     {{item.libelle}}
                   </mat-option>
                 </mat-select>
-              </mat-form-field>
+              </mat-form-field>-->
 
 
 
               <mat-form-field style="width: 100%;">
-                <input #input type="text" placeholder="intervention" matInput formControlName="nature2" [matAutocomplete]="auto" required>
-                <mat-autocomplete #autoDemandeur="matAutocomplete">
-                    <mat-option *ngFor="let option of (filteredDemandeurs | async)" [value]="option.libelle">
-                        {{option.libelle}}
+                <input #input type="text" placeholder="Intervention" matInput formControlName="idIntervention" [matAutocomplete]="auto" required>
+                <mat-autocomplete #auto="matAutocomplete" (click)="change(item.libelle)">
+                    <mat-option *ngFor="let item of interventions" [value]="item.libelle">
+                      {{item.libelle}}
                     </mat-option>
                 </mat-autocomplete>
               </mat-form-field>
@@ -58,9 +58,6 @@
             </div>
           </div>
         </div>
-
-
-
 
         <div mat-dialog-actions class="form-row justify-content-end mb-2">
           <button type="submit" mat-button class="btn btn-info">Suivant</button>

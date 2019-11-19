@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { MatStepper } from '@angular/material';
 import { DataService } from 'src/app/services/data.service';
 import { ServiceinterventionService } from 'src/app/services/serviceintervention.service';
@@ -12,15 +12,12 @@ import { Observable } from 'rxjs/internal/Observable';
   templateUrl: './interventioncons.component.html',
   styleUrls: ['./interventioncons.component.sass']
 })
-export class InterventionConsComponent implements OnInit {
+export class InterventionConsComponent implements OnInit, AfterViewInit {
   @Input() stepper: MatStepper;
   interventions: Intervention[];
   IDEquipement;
-  interventionControl: FormControl;
-  filteredInterventions: Observable<Intervention[]>;
-
   Formintervention: FormGroup;
-
+  
   constructor(private dataService: DataService,
     public intervention: ServiceinterventionService,
     private formBuilder: FormBuilder) { }
@@ -28,12 +25,8 @@ export class InterventionConsComponent implements OnInit {
   ngOnInit() {
     this.Formintervention = this.formBuilder.group({
       nature: ['', Validators.required],
-      idIntervention: [''],
-      nature2: ['']
+      intervention: [''],
     });
-
-    
-
 
     this.dataService.allDataConsignation.subscribe(async res => {
       console.log('Current Consignation Intervention: ', res);
@@ -45,65 +38,19 @@ export class InterventionConsComponent implements OnInit {
           this.interventions = res;
         });
       }
-
-    });
-
-    // this.dataService.allDataConsignation.subscribe(res => {
-    //   console.log('All Data: ', res);
-    // });
-
-    /*this.dataService.currentSelectedIDEquip.subscribe(res => {
-      console.log('id', res);
-      //this.IDEquipement = res
-    });*/
-    this.getData();
-  }
-
-  async delay(ms: number) {
-    await new Promise(resolve => setTimeout(() => resolve(), ms));
-  }
- 
-  getData() {
-    this.getintervention();
-    this.delay(5000).then(any => {
-      this.filterInitemandeurs();
-      console.log('demp: ', this.interventions);
     });
   }
 
-  private filterInitemandeurs() {
-    this.filteredInterventions = this.interventionControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filterIntervetion(value))
-      );
+  ngAfterViewInit() {
+    this.dataService.changeConsignation({ 'Dureeheure': 0 });
+    this.dataService.changeConsignation({ 'Duree': 0 });
   }
-  getintervention(){
-
-    this.dataService.allDataConsignation.subscribe(async res => {
-      console.log('Current Consignation Intervention: ', res);
-      this.IDEquipement = res['IDEquipement'];
-      // console.log('ID Equipement Intervention: ', this.IDEquipement);
-      if (this.IDEquipement) {
-        await this.intervention.GetTodoItems(this.IDEquipement).pipe(take(1)).toPromise().then(res => {
-          console.log('inter: ', res);
-          this.interventions = res;
-        });
-      }
-
-    });
-
-  }
-  private _filterIntervetion(value: string): any[] {
-    const filterValue = value != null ? value.toLowerCase() : "";
-    return this.interventions.filter(e => e.libelle.toLowerCase().includes(filterValue));
-  }
-
 
   change(text) {
     // console.log('Libelle: ', text);
     this.dataService.changeConsignation({ intervention: text });
   }
+
 
   pitch(event, type) {
     // console.log('Slider: ', event);
@@ -117,8 +64,10 @@ export class InterventionConsComponent implements OnInit {
       return;
     }
 
-    this.dataService.changeConsignation({ description: form.controls['nature'].value });
+    this.dataService.changeConsignation({ description: form.controls['nature'].value, intervention : form.controls['intervention'].value });
     this.stepper.next();
   }
+
+
 
 }

@@ -3,8 +3,6 @@ import { SousEquipment } from 'src/app/models/sous-equipment.model';
 import { MatPaginator, MatSort, MatDialog, MatTableDataSource } from '@angular/material';
 import { ServicesousequipementService } from 'src/app/services/servicesousequipement.service';
 import { DataService } from 'src/app/services/data.service';
-import { UpdatesousequipementComponent } from 'src/app/component/equipement/updateequipement/updatesousequipement/updatesousequipement.component';
-import { AddsousequipementComponent } from 'src/app/component/equipement/addequipement/sousequipement/addsousequipement/addsousequipement.component';
 import { take } from 'rxjs/operators';
 import { AddSousequipementConsignationComponent } from './add-sousequipement-consignation/add-sousequipement-consignation.component';
 
@@ -24,6 +22,7 @@ export class SousequipementConsignationComponent implements OnInit {
   constructor(private sousequipementser: ServicesousequipementService, public dialog: MatDialog, private dataService: DataService) { }
 
   async ngOnInit() {
+
     this.dataService.allDataConsignation.subscribe(async res => {
       console.log('Current Consignation Intervention: ', res);
       this.IDEquipement = res['IDEquipement'];

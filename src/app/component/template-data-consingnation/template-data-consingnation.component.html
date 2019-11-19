@@ -1,36 +1,11 @@
-<!--<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100"
-    id="sectionsNav">
-    <div class="container" style="float: right;">
-        <div class="navbar-translate">
-            <a href="#" class="simple-text logo-normal">
-                <img src="../assets/images/logosec2.png" alt="Lafrage Holcim" style="width: 28%;">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <div class="collapse navbar-collapse" style="margin-left: 45%;">
-            <a href="#" class="simple-text logo-normal">
-                <img src="../assets/images/HOLCIMMAROC2.png" alt="Lafrage Holcim" style="width: 26%; float:right;">
-            </a>
-        </div>
-    </div>
-</nav>-->
-
-
 <link href="../../../assets/css/material-kit.css" rel="stylesheet" />
-<div class="page-header header-filter clear-filter purple-filter" data-parallax="true"
-    style="background-image: url('../assets/images/siegeee.jpg'); height:5vh !important;">
+<div class="page-header header-filter clear-filter purple-filter" data-parallax="true" style="background-image: url('../assets/images/siegeee.jpg'); height:5vh !important;">
     <div class="container" style="margin-top: 5%;">
-        <a href="#" class="simple-text logo-normal">
+        <a [routerLink]="['login']" class="simple-text logo-normal">
             <img src="../assets/images/logosec2.png" alt="Lafrage Holcim" style="width: 8%;">
         </a>
-        
-        <a href="#" class="simple-text logo-normal">
+
+        <a [routerLink]="['login']" class="simple-text logo-normal">
             <img src="../assets/images/HOLCIMMAROC2.png" alt="Lafrage Holcim" style="width: 7.5%; float:right;">
         </a>
         <div class="row">
@@ -43,75 +18,33 @@
         </div>
     </div>
 </div>
+
 <div class="main main-raised">
 
+    <a class="nav-link" [routerLink]="[{outlets: {templateConsignation: ['dashboard']}}]">Dashboard</a>
+    <a class="nav-link" [routerLink]="[{outlets: {templateConsignation: ['addconsignation']}}]">Ajouter Consignation</a>
     <!--body-->
-    <div class="section section-basic">
+    <div class="section section-basic" style="padding: 30px 0;">
         <div class="container">
-            <app-add-consignation></app-add-consignation>
+            <router-outlet name="templateConsignation"></router-outlet>
+            <!-- <app-add-consignation></app-add-consignation> -->
         </div>
     </div>
 </div>
-<!-- Classic Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <i class="material-icons">clear</i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
-                    the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large
-                    language ocean. A small river named Duden flows by their place and supplies it with the necessary
-                    regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
-                    Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
-                    life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the
-                    far World of Grammar.
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-link">Nice Button</button>
-                <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!--  End Modal -->
-<footer class="footer" data-background-color="black">
-    <div class="container">
+<!-- Footer -->
+
+<footer class="footer">
+    <div class="container-fluid">
         <nav class="float-left">
             <ul>
-                <li>
-                    <a href="https://www.creative-tim.com">
-                        Creative Tim
-                    </a>
-                </li>
-                <li>
-                    <a href="https://creative-tim.com/presentation">
-                        About Us
-                    </a>
-                </li>
-                <li>
-                    <a href="http://blog.creative-tim.com">
-                        Blog
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.creative-tim.com/license">
-                        Licenses
-                    </a>
-                </li>
             </ul>
         </nav>
         <div class="copyright float-right">
             &copy;
             <script>
                 document.write(new Date().getFullYear())
-            </script>, Réalisé par
-            <a href="#" target="_blank">ADH Engenering</a> pour un meilleur web.
+            </script>, Réalisé par <i class="material-icons"></i>
+            <a href="#" target="_blank">ADH Engeeniring</a> pour un meilleur web.
         </div>
     </div>
 </footer>
@@ -124,7 +57,6 @@
 <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
 <script src="../assets/js/material-kit.js?v=2.0.6" type="text/javascript"></script>
 <script>
-
     function scrollToDownload() {
         if ($('.section-download').length != 0) {
             $("html, body").animate({
@@ -132,5 +64,4 @@
             }, 1000);
         }
     }
-
 </script>

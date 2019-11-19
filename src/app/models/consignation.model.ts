@@ -13,5 +13,6 @@ export class Consignation {
     ID_demedeur_mecanicien:number;
     IDdemandeur:number;
     IDequipment:number;
+    Intervention: string;
 
 }
