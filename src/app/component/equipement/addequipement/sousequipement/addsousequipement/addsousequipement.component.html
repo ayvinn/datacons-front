@@ -5,13 +5,11 @@
             <p class="card-category">Remplissez le formulaire</p>
         </div>
         <div class="card-body">
-
-
             <form [formGroup]="form" (ngSubmit)="submit(form, 'sousequipement')">
                 <ng-template matStepLabel>Equipement</ng-template>
                 <!---->
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <mat-form-field style="width: 100%;">
                                 <input matInput type="text" formControlName="numero" placeholder="numero:" />
@@ -19,30 +17,23 @@
                                     <mat-error *ngIf="f.numero.errors.required"> numero :</mat-error>
                                 </mat-error>
                             </mat-form-field>
-
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-8">
 
-
-                        <p></p>
+                    <div class="col-md-6">
+                        <div class="form-group">
                         <mat-form-field style="width: 100%;">
                             <input matInput type="text" formControlName="CodeHAC" placeholder="code hac :" />
                             <mat-error *ngIf="f.CodeHAC.errors" class="invalid-feedback">
                                 <mat-error *ngIf="f.CodeHAC.errors.required"> </mat-error>
                             </mat-error>
                         </mat-form-field>
-
+                      </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-8">
                         <div class="form-group">
-
-
-
                             <mat-form-field style="width: 100%;">
                                 <input matInput type="text" formControlName="Nomequipement"
                                     placeholder="Nomequipement:" />
@@ -51,24 +42,20 @@
                                     </mat-error>
                                 </mat-error>
                             </mat-form-field>
-
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-md-8">
                         <div class="form-group">
                             <mat-form-field style="width: 100%;">
                                 <input matInput type="text" formControlName="Emplacement" placeholder="Emplacement:" />
                             </mat-form-field>
-
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <mat-form-field class="w-100">
                                 <mat-label>Type d'energie</mat-label>
@@ -86,18 +73,14 @@
                                         Hydraulique
                                     </option>
                                     <option value="Pneumatique">
-                                            Pneumatique
-                                        </option>
+                                        Pneumatique
+                                    </option>
                                 </select>
                             </mat-form-field>
                         </div>
                     </div>
-                </div>
 
-
-
-                <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <mat-form-field style="width: 100%;">
                                 <input matInput type="text" formControlName="Lieu" placeholder="Lieu:" />
@@ -105,7 +88,6 @@
                                     <mat-error *ngIf="f.Lieu.errors.required"> Lieu :</mat-error>
                                 </mat-error>
                             </mat-form-field>
-
                         </div>
                     </div>
                 </div>
@@ -118,26 +100,16 @@
                                     <mat-error *ngIf="f.Remarque.errors.required"> Remarque :</mat-error>
                                 </mat-error>
                             </mat-form-field>
-
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
-
-
                 <div class="clearfix"></div>
-
                 <!---->
                 <div mat-dialog-actions class="form-row justify-content-end mb-2">
                     <button type="button" mat-button (click)="onNoClick()" class="btn btn-danger">Non Merci</button>
                     <button type="submit" mat-button class="btn btn-info">Ok</button>
                 </div>
-
             </form>
+        </div>    
+    </div>    
+</div>    
