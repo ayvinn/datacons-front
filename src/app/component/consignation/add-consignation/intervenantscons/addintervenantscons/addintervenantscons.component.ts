@@ -69,7 +69,7 @@ export class AddintervenantsconsComponent implements OnInit {
     
     
     this.ngOnInit();
-    this.dialogRef.close();
+    this.onNoClick();
 
   }
 }

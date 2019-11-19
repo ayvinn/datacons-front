@@ -1,1 +1,58 @@
-<p>responsables works!</p>
+<div class="col-md-14">
+    <div class="card">
+        <div class="card-header card-header-info">
+            <h4 class="card-title">Ajouter une intervention</h4>
+            <p class="card-category">Remplissez le formulaire</p>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="responsableForm" (ngSubmit)="submit(responsableForm)">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <mat-form-field class="w-100">
+                                <mat-label>Selectionner chargé de consignation</mat-label>
+                                <mat-select formControlName="idDemandeurCP">
+                                    <mat-option *ngFor="let item of charges" [value]="item.id"
+                                        (click)="change(item.id, 'IDdemandeur_chef_poste')">
+                                        {{item.login}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <mat-form-field class="w-100">
+                                <mat-label>Selectionner électricien</mat-label>
+                                <mat-select formControlName="idDemandeurElec">
+                                    <mat-option *ngFor="let item of elecs" [value]="item.id" (click)="change(item.id, 'IDdemandeur_electricien')">
+                                        {{item.login}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <mat-form-field class="w-100">
+                                <mat-label>Selectionner mécanicien</mat-label>
+                                <mat-select formControlName="idDemandeurMec">
+                                    <mat-option *ngFor="let item of mecs" [value]="item.id" (click)="change(item.id, 'IDdemandeur_mecanicien')">
+                                        {{item.login}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div mat-dialog-actions class="form-row justify-content-end mb-2">
+                <button mat-button class="btn btn-info mr-2" (click)="goPrevious()">Précedent</button>
+                <button mat-button class="btn btn-info">Suivant</button>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
     this.createForm();
     console.log('Stepper: ', this.stepper);
     this.dataService.currentDemandeur.subscribe(res => this.demandeur = res);
+    this.dataService.allDataConsignation.subscribe();
   }
   async delay(ms: number) {
     await new Promise(resolve => setTimeout(() => resolve(), ms));
@@ -87,10 +88,12 @@ export class LoginComponent implements OnInit {
         console.log('step', this.stepper);
         console.log('data', data);
         this.dataService.changeDemandeur(data);
-
+        
         if (data) {
+          this.dataService.changeConsignation({idDemandeur: data.id});
           this.role = data != null ? data.nomcomplet : null;
           this.toastr.success('Opération reussie  ', data.nomcomplet);
+         
           this.stepper.next();
         } else {
           this.toastr.error('Opération échoué  ', 'password incorrect');
