@@ -38,21 +38,8 @@ export class ResponsablesComponent implements OnInit {
 
       console.log('Demandeurs: ', res);
       this.elecs = res.filter((x: any) => x['idcategorieNavigation']['nomcomplet'] === 'ELEC');
-      res.forEach(element => {
-        console.log('Element: ', element['idcategorieNavigation']['nomcomplet']);
-
-        // if (element['idcategorieNavigation']['nomcomplet'] === 'ELEC') {
-        //   this.elecs.push(element);
-        // }
-
-        if (element['idcategorieNavigation']['nomcomplet'] === 'Opérateur' || element['idcategorieNavigation']['nomComplet'] === 'Chef de poste') {
-          this.charges.push(element);
-        }
-
-        if (element['idcategorieNavigation']['nomcomplet'] === 'MEC') {
-          this.mecs.push(element);
-        }
-      });
+      this.charges = res.filter((x: any) => x['idcategorieNavigation']['nomcomplet'] === 'Opérateur' || x['idcategorieNavigation']['nomcomplet'] === 'Chef de poste');
+      this.mecs = res.filter((x: any) => x['idcategorieNavigation']['nomcomplet'] === 'MEC');
       console.log('Charges: ', this.charges);
       console.log('elecs: ', this.elecs);
       console.log('mecs: ', this.mecs);
