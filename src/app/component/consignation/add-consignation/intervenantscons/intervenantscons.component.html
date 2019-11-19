@@ -1,1 +1,75 @@
-<p>intervenantscons works!</p>
+<br>
+
+
+
+<mat-form-field style="width: 100%;">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+<div class="mat-elevation-z8">
+    <div class="card">
+        <div class="card-header card-header-info" style="background: #00bcd4; ">
+            <div class="row">
+                <div class="col-md-10">
+                    <h4 class="card-title">Intervenants</h4>
+                    <p class="card-category"> Liste des Intervenants</p>
+                </div>
+                <div class="col-md-2 float-right">
+                    <button class="btn btn-info" (click)="openDialog()" style="border: 1px solid rgb(255, 255, 255);">
+                        <i class="material-icons" style="font-size: 25px;">
+                            add
+                        </i>
+                    </button>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table mat-table [dataSource]="dataSource" matSort class="table  table-hover ">
+
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                        <div>
+                            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                        </div>
+                    </ng-container>
+                    <!-- description Column -->
+                    <ng-container matColumnDef="Nomcomplet">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> nom complet </th>
+
+                        <td mat-cell *matCellDef="let element"> {{element.nomcomplet}} </td>
+                    </ng-container>
+                    <!-- description Column -->
+                    <!-- description Column -->
+                    <ng-container matColumnDef="entreprise">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> entreprise </th>
+                        <td mat-cell *matCellDef="let element"> {{element.entreprise}} </td>
+                    </ng-container>
+                    <!-- description Column -->
+
+
+
+
+
+
+                    <!-- action Column delete -->
+
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header>Action</th>
+                        <td mat-cell *matCellDef="let element">
+                            <i (click)="openDialog1(element)" class="mdc-icon-button material-icons icon-blue"> edit
+                            </i>
+
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+        </div>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>

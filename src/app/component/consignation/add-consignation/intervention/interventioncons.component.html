@@ -7,7 +7,7 @@
     <div class="card-body">
       <form [formGroup]="Formintervention" (ngSubmit)="submit(Formintervention)">
         <div class="row">
-          <div class="col-md-8">
+         <div class="col-md-8">
             <div mat-dialog-content>
               <mat-form-field class="w-100">
                 <input type="text" matInput formControlName="nature" placeholder="Entrer la nature d'intervention:">
@@ -17,14 +17,29 @@
 
           <div class="col-md-8">
             <div class="form-group">
-              <mat-form-field class="w-100">
+             <!-- <mat-form-field class="w-100">
                 <mat-label>Selectionner votre intervention</mat-label>
                 <mat-select formControlName="idIntervention">
                   <mat-option *ngFor="let item of interventions" [value]="item.id" (click)="change(item.libelle)">
                     {{item.libelle}}
                   </mat-option>
                 </mat-select>
+              </mat-form-field>-->
+
+
+
+              <mat-form-field style="width: 100%;">
+                <input #input type="text" placeholder="Intervention" matInput formControlName="intervention" [matAutocomplete]="auto" required>
+                <mat-autocomplete #auto="matAutocomplete" (click)="change(item.libelle)">
+                    <mat-option *ngFor="let item of interventions" [value]="item.libelle">
+                      {{item.libelle}}
+                    </mat-option>
+                </mat-autocomplete>
               </mat-form-field>
+
+
+
+              
             </div>
           </div>
           <div class="col-md-12">

@@ -19,14 +19,13 @@
         <button mat-button class="float-right btn btn-info mt-2" matStepperNext>Suivant</button>
 
     </mat-step>
-    <mat-step>
+    <mat-step editable="false">
         <ng-template matStepLabel>Responsable</ng-template>
         <app-responsables [stepper]="stepper"></app-responsables>
-
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Intervenants</ng-template>
-
+        <app-intervenantscons></app-intervenantscons>
 
     </mat-step>
 </mat-horizontal-stepper>

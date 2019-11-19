@@ -86,7 +86,11 @@ export class ResponsablesComponent implements OnInit {
       etat: true
     }
     this.consignationService.addConsignation(data)
-      .subscribe(res => console.log('Add Consignation: ', res));
+      .subscribe((res: any) => {
+        console.log('Add Consignation: ', res);
+        this.dataService.changeConsignation({ id: res.id });
+        this.stepper.next();
+      });
   }
 
 }

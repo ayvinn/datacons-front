@@ -39,6 +39,7 @@ const routes: Routes = [
       { path: "categorie", component: CategorieComponent, outlet: 'template' },
       { path: "secteur", component: SecteurComponent, outlet: 'template' },
       { path: "demandeur", component: DemandeurComponent, outlet: 'template' },
+      { path: "service", component: SeviceComponent, outlet: 'template' },
       { path: "equipement", component: EquipementComponent, outlet: 'template' },
       { path: "ajouterequipement", component: AddequipementComponent, outlet: 'template' },
       { path: "notifications", component: NotificationComponent, outlet: 'template' },

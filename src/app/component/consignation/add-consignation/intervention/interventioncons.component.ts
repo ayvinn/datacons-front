@@ -3,8 +3,9 @@ import { MatStepper } from '@angular/material';
 import { DataService } from 'src/app/services/data.service';
 import { ServiceinterventionService } from 'src/app/services/serviceintervention.service';
 import { Intervention } from 'src/app/models/intervention.model';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { take } from 'rxjs/operators';
+import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
+import { take, startWith, map } from 'rxjs/operators';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-interventioncons',
@@ -15,9 +16,8 @@ export class InterventionConsComponent implements OnInit, AfterViewInit {
   @Input() stepper: MatStepper;
   interventions: Intervention[];
   IDEquipement;
-
   Formintervention: FormGroup;
-
+  
   constructor(private dataService: DataService,
     public intervention: ServiceinterventionService,
     private formBuilder: FormBuilder) { }
@@ -25,7 +25,7 @@ export class InterventionConsComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.Formintervention = this.formBuilder.group({
       nature: ['', Validators.required],
-      idIntervention: ['']
+      intervention: [''],
     });
 
     this.dataService.allDataConsignation.subscribe(async res => {
@@ -51,6 +51,7 @@ export class InterventionConsComponent implements OnInit, AfterViewInit {
     this.dataService.changeConsignation({ intervention: text });
   }
 
+
   pitch(event, type) {
     // console.log('Slider: ', event);
     const data = {};
@@ -63,8 +64,11 @@ export class InterventionConsComponent implements OnInit, AfterViewInit {
       return;
     }
 
-    this.dataService.changeConsignation({ desription: form.controls['nature'].value });
+    this.dataService.changeConsignation({ desription: form.controls['nature'].value, intervention : form.controls['intervention'].value });
+
     this.stepper.next();
   }
+
+
 
 }
