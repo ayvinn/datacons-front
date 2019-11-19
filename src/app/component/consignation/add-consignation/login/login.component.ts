@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     this.getData()
     this.createFormControls();
     this.createForm();
-    console.log('Stepper: ', this.stepper);
+    // console.log('Stepper: ', this.stepper);
     this.dataService.currentDemandeur.subscribe(res => this.demandeur = res);
     this.dataService.allDataConsignation.subscribe();
   }
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
     this.getDemandeurs();
     this.delay(5000).then(any => {
       this.filterInitemandeurs();
-      console.log('demp: ', this.demandeurs);
+      // console.log('demp: ', this.demandeurs);
     });
   }
   createFormControls() {
@@ -77,7 +77,7 @@ export class LoginComponent implements OnInit {
   }
   getDemandeurs() {
     this._DemandeurService.getAllDemandeurs().subscribe((res: Demandeur[]) => {
-      console.log('dem: ', res);
+      // console.log('dem: ', res);
       this.demandeurs = res;
     });
   }
@@ -85,8 +85,8 @@ export class LoginComponent implements OnInit {
   verify(): void {
     this._DemandeurService.authLogin(this.demandeurForm.value).subscribe(
       data => {
-        console.log('step', this.stepper);
-        console.log('data', data);
+        /*console.log('step', this.stepper);
+        console.log('data', data);*/
         this.dataService.changeDemandeur(data);
         
         if (data) {

@@ -18,18 +18,11 @@ export class AddintervenantsconsComponent implements OnInit {
   intervenants: Intervenants[];
   dataSource;
   constructor(public dialogRef: MatDialogRef<AddintervenantsconsComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData, private intervenantser: ServiceintervenantService,private data1: DataService, private _formBuilder: FormBuilder,) { }
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    private intervenantser: ServiceintervenantService,
+    private data1: DataService, private _formBuilder: FormBuilder, ) { }
 
   ngOnInit() {
-    
-    this.intervenantser.intervenant = {
-      id: 0,
-      Nomcomplet: null,
-      Entreprise:null,
-      IDconsignation:null
-    
-
-    }
     this.form = this._formBuilder.group({
 
       id: [''],
@@ -37,37 +30,41 @@ export class AddintervenantsconsComponent implements OnInit {
       Entreprise: ['', Validators.required],
       IDconsignation: [''],
     });
-    
-    this.data1.currentConsignation.subscribe(id => {
-      console.log('ID: ', id);
-      this.idConsignation = id;
-    }) 
+
+    this.data1.allDataConsignation.subscribe((res: any) => {
+      this.idConsignation = res.id;
+    });
   }
+
   get f() { return this.form.controls; }
+
   onNoClick(): void {
     this.dialogRef.close();
   }
-  submit(form, formName:string) {
-  
-    const values = { IDconsignation: this.idConsignation, Nomcomplet: this.form.controls['Nomcomplet'].value,
-    Entreprise: this.form.controls['Entreprise'].value,
-   };
-   
-    if(!form.valid) {
+
+  submit(form) {
+    const values = {
+      IDconsignation: this.idConsignation, Nomcomplet: this.form.controls['Nomcomplet'].value,
+      Entreprise: this.form.controls['Entreprise'].value,
+    };
+
+    if (!form.valid) {
       return;
     }
-      this.intervenantser.PostIntervenants(values).subscribe(res => {
-        console.log('Posted: ', res);
-       
-        this.intervenantser.GetIntervenants();
-        
-      },
-        err => {
-          console.log(err);
-        }
-      )
-    
-    
+
+    console.log('Intervenant: ', values);
+    this.intervenantser.PostIntervenants(values).subscribe(res => {
+      console.log('Posted: ', res);
+
+      this.intervenantser.GetIntervenants();
+
+    },
+      err => {
+        console.log(err);
+      }
+    )
+
+
     this.ngOnInit();
     this.onNoClick();
 

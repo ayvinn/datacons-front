@@ -21,9 +21,9 @@ export class AddSousequipementConsignationComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.allDataConsignation.subscribe(async res => {
-      console.log('Current:add -sous equipement', res);
-      this.idEquipement = res['IDEquipement'];
-      console.log("this id " + this.idEquipement);
+      // console.log('Current:add -sous equipement', res);
+      this.idEquipement = res['IDEquipment'];
+      // console.log("this id " + this.idEquipement);
     });
     this.sousequipement.sousequipement = {
       id: 0,

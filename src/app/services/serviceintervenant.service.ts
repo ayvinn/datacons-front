@@ -21,7 +21,7 @@ export class ServiceintervenantService {
     
   }
   GetTodoItems(idconsignation){
-    return this.http.get<Intervenants[]>(this.url+"/"+idconsignation);
+    return this.http.get<Intervenants[]>(this.url+"/bycons/"+idconsignation);
   }
   PostIntervenants(par){
     return this.http.post(this.url,par);

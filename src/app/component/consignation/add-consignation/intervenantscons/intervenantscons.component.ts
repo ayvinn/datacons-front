@@ -12,40 +12,42 @@ import { AddintervenantsconsComponent } from './addintervenantscons/addintervena
   styleUrls: ['./intervenantscons.component.sass']
 })
 export class IntervenantsconsComponent implements OnInit {
-  intervenant=new Intervenants;
-  intervenants:Intervenants[];
+  intervenant = new Intervenants;
+  intervenants: Intervenants[];
   idConsignation: number;
   dataSource;
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
-  constructor(private intervenantser:ServiceintervenantService,public dialog: MatDialog,private data1: DataService) { }
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  constructor(private intervenantser: ServiceintervenantService, public dialog: MatDialog, private dataS: DataService) { }
 
   ngOnInit() {
-    this.data1.currentConsignation.subscribe(id => {
-      console.log('ID: ', id);
-      this.idConsignation = id;
-    }) 
-    console.log('idConsignation :',this.idConsignation);
-    this.intervenantser.GetTodoItems(this.idConsignation).subscribe(res => {
-      this.dataSource = new MatTableDataSource(res);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+    this.dataS.allDataConsignation.subscribe((res: any) => {
+      // console.log('ID: ', res);
+      this.idConsignation = res.id;
+    })
+    console.log('idConsignation :', this.idConsignation);
+    if (this.idConsignation) {
+      this.intervenantser.GetTodoItems(this.idConsignation).subscribe(res => {
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      });
+    }
     
-  
-});
-}
-displayedColumns: string[] = ['id', 'Nomcomplet','entreprise'];
-applyFilter(filterValue: string) {
-  this.dataSource.filter = filterValue.trim().toLowerCase();
-}
+  }
+  displayedColumns: string[] = ['id', 'Nomcomplet', 'entreprise'];
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
-openDialog(): void {
-  const dialogRef = this.dialog.open(AddintervenantsconsComponent, {
-    width: '700px',
-    
-  });
-  dialogRef.afterClosed().subscribe(result => {
-    this.ngOnInit();
-  });
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddintervenantsconsComponent, {
+      width: '700px',
 
-}}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
+
+  }
+}
