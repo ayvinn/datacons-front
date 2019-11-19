@@ -9,7 +9,7 @@
                 <ng-template matStepLabel>Equipement</ng-template>
                 <!---->
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <mat-form-field style="width: 100%;">
                                 <input matInput type="text" formControlName="numero" placeholder="numero:" />
@@ -19,16 +19,16 @@
                             </mat-form-field>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-8">
-                        <p></p>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
                         <mat-form-field style="width: 100%;">
                             <input matInput type="text" formControlName="CodeHAC" placeholder="code hac :" />
                             <mat-error *ngIf="f.CodeHAC.errors" class="invalid-feedback">
                                 <mat-error *ngIf="f.CodeHAC.errors.required"> </mat-error>
                             </mat-error>
                         </mat-form-field>
+                      </div>
                     </div>
                 </div>
                 <div class="row">

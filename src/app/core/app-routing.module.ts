@@ -13,6 +13,7 @@ import { TemplateComponent } from '../component/template/template.component';
 import { DashboardComponent } from '../component/dashboard/dashboard.component';
 import { AuthServiceGuard } from '../guard/auth-service.guard';
 import { AddConsignationComponent } from '../component/consignation/add-consignation/add-consignation.component';
+import { ConsignationComponent } from '../component/consignation/consignation.component';
 
 
 const routes: Routes = [
@@ -26,8 +27,8 @@ const routes: Routes = [
   {
     path: 'consignation', component: TemplateDataConsingnationComponent,
     children: [
-      { path: "", component: DashboardComponent, outlet: 'templateConsignation' },
-      { path: "dashboard", component: DashboardComponent, outlet: 'templateConsignation' },
+      { path: "", component: ConsignationComponent, outlet: 'templateConsignation' },
+      { path: "dashboard", component: ConsignationComponent, outlet: 'templateConsignation' },
       { path: "addconsignation", component: AddConsignationComponent, outlet: 'templateConsignation' },
       { path: "statistiaque", component: AddConsignationComponent, outlet: 'templateConsignation' },
     ]
