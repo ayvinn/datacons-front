@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <mat-form-field class="w-100">
                                 <mat-label>Type d'energie</mat-label>
@@ -79,9 +79,8 @@
                             </mat-form-field>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-8">
+
+                    <div class="col-md-6">
                         <div class="form-group">
                             <mat-form-field style="width: 100%;">
                                 <input matInput type="text" formControlName="Lieu" placeholder="Lieu:" />
@@ -106,9 +105,9 @@
                 </div>
                 <div class="clearfix"></div>
                 <!---->
-                <div mat-dialog-actions class="float-right">
+                <div mat-dialog-actions class="form-row justify-content-end mb-2">
                     <button type="button" mat-button (click)="onNoClick()" class="btn btn-danger">Non Merci</button>
-                    <button type="submit" cdkFocusInitial class="btn btn-info">Ok</button>
+                    <button type="submit" mat-button class="btn btn-info">Ok</button>
                 </div>
             </form>
         </div>    
