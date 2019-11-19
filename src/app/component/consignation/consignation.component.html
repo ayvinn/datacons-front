@@ -1,6 +1,11 @@
-<a class="nav-link" [routerLink]="[{outlets: {templateConsignation: ['dashboard']}}]">Dashboard</a>
+<!--<a class="nav-link" [routerLink]="[{outlets: {templateConsignation: ['dashboard']}}]">Dashboard</a>
 <a class="nav-link" [routerLink]="[{outlets: {templateConsignation: ['addconsignation']}}]">Ajouter Consignation</a>
 
-<button class="btn btn-primary waves-effect waves-light">
-    <span class="btn-icon"><i class="la la-pencil"></i>BUTTON</span>
-  </button>
+<button class="btn btn-primary"  [routerLink]="[{outlets: {templateConsignation: ['dashboard']}}]">
+    DashBoard
+</button>-->
+<div class="row">
+<button class="btn btn-primary"  [routerLink]="[{outlets: {templateConsignation: ['addconsignation']}}]">
+   Ajouter Consignation
+</button>
+</div>
