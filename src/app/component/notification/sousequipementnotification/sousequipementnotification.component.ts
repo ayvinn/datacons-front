@@ -32,7 +32,6 @@ export class SousequipementnotificationComponent implements OnInit {
       this.dataSource.sort = this.sort;
       this.totalCount = this.dataSource.data.length
     });
-    this.sousequipements = this.dataSource;
   
 }
 
