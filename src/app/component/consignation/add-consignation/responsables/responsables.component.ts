@@ -37,9 +37,9 @@ export class ResponsablesComponent implements OnInit {
     this.demandeurService.getAllDemandeurs().subscribe((res: []) => {
 
       console.log('Demandeurs: ', res);
-      this.elecs = res.filter((x: any) => x['idcategorieNavigation']['nomcomplet'] === 'ELEC');
-      this.charges = res.filter((x: any) => x['idcategorieNavigation']['nomcomplet'] === 'Opérateur' || x['idcategorieNavigation']['nomcomplet'] === 'Chef de poste');
-      this.mecs = res.filter((x: any) => x['idcategorieNavigation']['nomcomplet'] === 'MEC');
+      this.elecs = res.filter((x: any) => x['categorie'] === 'ELEC');
+      this.charges = res.filter((x: any) => x['categorie'] === 'Opérateur' || x['categorie'] === 'Chef de poste');
+      this.mecs = res.filter((x: any) => x['categorie'] === 'MEC');
       console.log('Charges: ', this.charges);
       console.log('elecs: ', this.elecs);
       console.log('mecs: ', this.mecs);
