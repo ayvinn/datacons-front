@@ -24,5 +24,6 @@ export class AddConsignationComponent implements OnInit {
     console.log('next');
     stepper.next();
   }
+  
 
 }

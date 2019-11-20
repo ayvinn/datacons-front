@@ -1,9 +1,9 @@
 export class Demandeur {
     id:number;
     nomcomplet:string;
-    Droit:string;
+    droit:string;
     Login:string;
     password:string;
     IDservice:number;
-    IDcategorie:number;
+    idcategorie:number;
 }
