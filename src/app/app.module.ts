@@ -52,6 +52,7 @@ import { AddSousequipementConsignationComponent } from './component/consignation
 import { ResponsablesComponent } from './component/consignation/add-consignation/responsables/responsables.component';
 import { IntervenantsconsComponent } from './component/consignation/add-consignation/intervenantscons/intervenantscons.component';
 import { AddintervenantsconsComponent } from './component/consignation/add-consignation/intervenantscons/addintervenantscons/addintervenantscons.component';
+import { UpdateintervenantsconsComponent } from './component/consignation/add-consignation/intervenantscons/updateintervenantscons/updateintervenantscons.component';
 
 
 @NgModule({
@@ -99,7 +100,8 @@ import { AddintervenantsconsComponent } from './component/consignation/add-consi
     InterventionConsComponent,
     ResponsablesComponent,
     IntervenantsconsComponent,
-    AddintervenantsconsComponent
+    AddintervenantsconsComponent,
+    UpdateintervenantsconsComponent
 
 
   ],
@@ -136,7 +138,7 @@ import { AddintervenantsconsComponent } from './component/consignation/add-consi
     UpdatedemandeurComponent, EquipementComponent,
     AddequipementComponent,
     UpdateequipementComponent, SousequipementComponent, AddlototoComponent, AddsousequipementComponent, AddinterventionComponent, InterventionComponent,
-    AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent,AddintervenantsconsComponent,ResponsablesComponent,AddintervenantsconsComponent
+    AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent,AddintervenantsconsComponent,ResponsablesComponent,AddintervenantsconsComponent,UpdateintervenantsconsComponent
   ],
   providers: [AuthServiceGuard],
   bootstrap: [AppComponent],
@@ -150,7 +152,7 @@ import { AddintervenantsconsComponent } from './component/consignation/add-consi
     UpdateequipementComponent, SousequipementComponent, AddsousequipementComponent, AddlototoComponent, InterventionComponent, UpdatesousequipementComponent,
 
     AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent,
-    AddConsignationComponent,ResponsablesComponent,AddintervenantsconsComponent],
+    AddConsignationComponent,ResponsablesComponent,AddintervenantsconsComponent,UpdateintervenantsconsComponent],
 
 })
 export class AppModule { }

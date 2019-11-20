@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceequipementService } from '../../../services/serviceequipement.service';
-import { MatStepper } from '@angular/material';
+import { MatStepper, MatDialogRef } from '@angular/material';
 
 import { Equipment } from '../../../models/equipment.model';
 import { FormGroup, Validators, FormBuilder, NgForm, FormControl } from '@angular/forms';
@@ -25,7 +25,8 @@ export class AddequipementComponent implements OnInit {
   equipements: Equipment[];
   secteurs: Secteur[];
   dataSource;
-  constructor( private _formBuilder: FormBuilder,
+  constructor( public dialogRef: MatDialogRef<AddequipementComponent>,
+     private _formBuilder: FormBuilder,
      private equipement: ServiceequipementService, 
      public secteur: ServicesecteurService,
      private data1: DataService,
@@ -53,7 +54,9 @@ export class AddequipementComponent implements OnInit {
     this.data1.currentMessage.subscribe();
   }
   get f() { return this.form.controls; }
-  
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
   submit(form, formName:string, stepper: MatStepper) {
     const values = {id:0, CodeHAC: this.form.value.CodeHAC,
       Description: this.form.value.Description,
