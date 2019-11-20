@@ -57,7 +57,7 @@ export class AuthComponent implements OnInit {
     this.demandeur.authLogin(this.loginForm.value).subscribe(
       data => {
         if(data)
-          this.etat= data.idcategorie == 1 ? true : false; //Categorie Admin
+          this.etat= data.idcategorie == 2 ? true : false; //Categorie Admin
         return false; 
       },
       (error) => {
