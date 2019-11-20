@@ -19,8 +19,6 @@ export class ServicesousequipementService {
   constructor(private http:HttpClient) { }
   getAllSousEquipments(): Observable<SousEquipment[]>{
     return this.http.get<SousEquipment[]>(this.url);
-
-    
   }
   getAllSousEquipments2(){
 
@@ -29,6 +27,9 @@ export class ServicesousequipementService {
         this.soussequipements = res as SousEquipment[];
       }
     )
+  }
+  GetSousEquipmentfalse(etat : boolean){
+    return this.http.get<SousEquipment[]>(this.url+"/etat/"+etat);
   }
   postSousEquipment(par:SousEquipment){
     return this.http.post(this.url,par);

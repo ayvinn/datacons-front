@@ -42,6 +42,7 @@ import { AddConsignationComponent } from './component/consignation/add-consignat
 import { LoginComponent } from './component/consignation/add-consignation/login/login.component';
 import { LototoComponent } from './component/equipement/addequipement/lototo/lototo.component'
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { NotificationComponent } from './component/notification/notification.component';
 import { SelectEquipementComponent } from './component/consignation/add-consignation/select-equipement/select-equipement.component';
@@ -52,7 +53,12 @@ import { AddSousequipementConsignationComponent } from './component/consignation
 import { ResponsablesComponent } from './component/consignation/add-consignation/responsables/responsables.component';
 import { IntervenantsconsComponent } from './component/consignation/add-consignation/intervenantscons/intervenantscons.component';
 import { AddintervenantsconsComponent } from './component/consignation/add-consignation/intervenantscons/addintervenantscons/addintervenantscons.component';
+
 import { UpdateintervenantsconsComponent } from './component/consignation/add-consignation/intervenantscons/updateintervenantscons/updateintervenantscons.component';
+
+import { SousequipementnotificationComponent } from './component/notification/sousequipementnotification/sousequipementnotification.component';
+import { UpdatesousequipementnotificationComponent } from './component/notification/sousequipementnotification/updatesousequipementnotification/updatesousequipementnotification.component';
+
 
 
 @NgModule({
@@ -101,6 +107,8 @@ import { UpdateintervenantsconsComponent } from './component/consignation/add-co
     ResponsablesComponent,
     IntervenantsconsComponent,
     AddintervenantsconsComponent,
+    SousequipementnotificationComponent,
+    UpdatesousequipementnotificationComponent,
     UpdateintervenantsconsComponent
 
 
@@ -126,8 +134,10 @@ import { UpdateintervenantsconsComponent } from './component/consignation/add-co
       timeOut: 10000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
+      
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot([])
   ],
   exports: [
     AddServiceComponent, UpdateServiceComponent, AddcategorieComponent,
@@ -138,7 +148,8 @@ import { UpdateintervenantsconsComponent } from './component/consignation/add-co
     UpdatedemandeurComponent, EquipementComponent,
     AddequipementComponent,
     UpdateequipementComponent, SousequipementComponent, AddlototoComponent, AddsousequipementComponent, AddinterventionComponent, InterventionComponent,
-    AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent,AddintervenantsconsComponent,ResponsablesComponent,AddintervenantsconsComponent,UpdateintervenantsconsComponent
+    AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent,AddintervenantsconsComponent,ResponsablesComponent,AddintervenantsconsComponent,UpdateintervenantsconsComponent, UpdatesousequipementnotificationComponent,
+    UpdateintervenantsconsComponent
   ],
   providers: [AuthServiceGuard],
   bootstrap: [AppComponent],
@@ -148,11 +159,12 @@ import { UpdateintervenantsconsComponent } from './component/consignation/add-co
     UpdatesecteurComponent, DemandeurComponent,
     AdddemandeurComponent,
     UpdatedemandeurComponent, EquipementComponent, AddSousequipementConsignationComponent,
-    AddequipementComponent, AddinterventionComponent,
+    AddequipementComponent, AddinterventionComponent,UpdatesousequipementnotificationComponent,
     UpdateequipementComponent, SousequipementComponent, AddsousequipementComponent, AddlototoComponent, InterventionComponent, UpdatesousequipementComponent,
 
     AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent,
-    AddConsignationComponent,ResponsablesComponent,AddintervenantsconsComponent,UpdateintervenantsconsComponent],
+    AddConsignationComponent,ResponsablesComponent,AddintervenantsconsComponent,UpdateintervenantsconsComponent, UpdatesousequipementnotificationComponent,
+    UpdateintervenantsconsComponent],
 
 })
 export class AppModule { }
