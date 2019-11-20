@@ -12,11 +12,12 @@ import { UpdatesousequipementnotificationComponent } from '../sousequipementnoti
 })
 export class SousequipementnotificationComponent implements OnInit {
   sousequipement=new SousEquipment;
-  sousequipements:SousEquipment[];
+  sousequipements:SousEquipment[] = [];
   idEquipement: number;
   dataSource;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
+  totalCount=0;
   constructor(private sousequipementser:ServicesousequipementService,public dialog: MatDialog,private data1: DataService) { }
 
   ngOnInit() {
@@ -29,8 +30,10 @@ export class SousequipementnotificationComponent implements OnInit {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.totalCount = this.dataSource.data.length
     });
-
+    this.sousequipements = this.dataSource;
+  
 }
 
 delete(id){
