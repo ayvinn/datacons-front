@@ -23,10 +23,11 @@ export class EquipementComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   constructor(private equipementser: ServiceequipementService, private activatedRoute: ActivatedRoute,public dialog: MatDialog, private router: Router, private route: ActivatedRoute) { }
   openDialog(): void {
-    const dialogRef = this.dialog.open(AddequipementComponent, {
-      width: '1000px',
-
-    });
+    const dialogRef = this.dialog.open(AddequipementComponent,{
+      width:'900px',
+      autoFocus: false,
+      maxHeight: '90vh' //you can adjust the value as per your view
+   });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
