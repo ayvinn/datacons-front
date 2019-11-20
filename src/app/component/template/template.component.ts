@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServicedemandeurService } from 'src/app/services/servicedemandeur.service';
+import { constants } from 'src/app/shared/constants';
 
 @Component({
   selector: 'app-template',
@@ -8,7 +9,7 @@ import { ServicedemandeurService } from 'src/app/services/servicedemandeur.servi
   styleUrls: ['./template.component.sass']
 })
 export class TemplateComponent implements OnInit {
-
+  readonly logodatacons: string = constants.img_logoDataCons;
   constructor(private router: Router,public authService: ServicedemandeurService) { }
 
   ngOnInit() {
