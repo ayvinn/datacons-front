@@ -14,4 +14,8 @@ export class ConsignationService {
     // console.log('Data Consignation JSON: ', JSON.parse(data));
     return this.http.post(`${constantURL.apiEndpoint}/api/consignations`, data);
   }
+
+  getConsignation(etat) {
+    return this.http.get(`${constantURL.apiEndpoint}/api/consignations/etat/${etat}`);
+  }
 }
