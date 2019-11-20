@@ -12,7 +12,7 @@ export class ConsignationComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
 
-  displayedColumns: string[] = ['id', 'description', 'duree', 'demandeur', 'secteur', 'action'];
+  displayedColumns: string[] = ['id', 'date', 'description', 'duree', 'demandeur', 'secteur', 'action'];
   dataSource;
 
 
@@ -28,7 +28,7 @@ export class ConsignationComponent implements OnInit, AfterViewInit {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-      // console.log('Get Consignation: ', res);
+      console.log('Get Consignation: ', res);
     });
   }
 
