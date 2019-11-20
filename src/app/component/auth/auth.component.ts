@@ -56,7 +56,9 @@ export class AuthComponent implements OnInit {
   verify() : any {
     this.demandeur.authLogin(this.loginForm.value).subscribe(
       data => {
-        this.etat= data!=null ? true : false; 
+        if(data)
+          this.etat= data.idcategorie == 1 ? true : false; //Categorie Admin
+        return false; 
       },
       (error) => {
         this.toastr.error('Opération échoué  ', 'error server');
