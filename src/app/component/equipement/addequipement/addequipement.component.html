@@ -19,7 +19,7 @@
 
                                 <p></p>
                                 <mat-form-field style="width: 100%;">
-                                    <input matInput type="text" formControlName="CodeHAC" placeholder="code hac :" />
+                                    <input matInput type="numbers" formControlName="CodeHAC" placeholder="code hac :" />
                                     <mat-error *ngIf="f.CodeHAC.errors" class="invalid-feedback">
                                         <mat-error *ngIf="f.CodeHAC.errors.required"> </mat-error>
                                     </mat-error>
@@ -116,7 +116,7 @@
         <app-intervention>
             </app-intervention>
             <button mat-button class="mt-2" matStepperPrevious>Précédent</button>
-            <button mat-button class="float-right btn btn-info mt-2" (click)="onNoClick()">Terminer</button>
+            <button mat-button class="float-right btn btn-info mt-2" (click)="stepper.reset()">Terminer</button>
 
     </mat-step>
 

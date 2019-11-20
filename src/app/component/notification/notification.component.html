@@ -2,6 +2,10 @@
 
 
 
+
+    <div class="text-center ">Nombre d'equipements a validé : {{totalCount}}</div>   
+
+
 <mat-form-field style="width: 100%;">
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
@@ -57,6 +61,7 @@
                                 class="mdc-icon-button material-icons icon-red"> close </i>
                         </td>
                     </ng-container>
+                    
 
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

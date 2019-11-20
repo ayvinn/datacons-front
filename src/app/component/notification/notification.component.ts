@@ -14,6 +14,7 @@ export class NotificationComponent implements OnInit {
   equipement = new Equipment;
   equipements: Equipment[];
   dataSource;
+  totalCount = 0 ;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   constructor(private equipementser: ServiceequipementService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute) { }
@@ -37,10 +38,12 @@ export class NotificationComponent implements OnInit {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-
+      this.totalCount = this.dataSource.data.length
     });
-  }
+  
 
+  }
+      
   delete(id) {
     if (confirm("vous etes sur de supprimer cet equipement ")) {
       this.equipementser.deleteService(id).subscribe(res => {

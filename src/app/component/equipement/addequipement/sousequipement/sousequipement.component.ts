@@ -51,7 +51,7 @@ delete(id){
   })}
 }
 
-  displayedColumns: string[] = ['id', 'codeHAC','nomequipement','emplacement','typeenergie','lieu','idequipement','numero','remarque','action'];
+  displayedColumns: string[] = ['codeHAC','nomequipement','emplacement','typeenergie','lieu','idequipement','numero','remarque','action'];
   
   openDialog1(elt): void {
     const dialogRef = this.dialog.open(UpdatesousequipementComponent, {
