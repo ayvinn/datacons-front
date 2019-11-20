@@ -34,7 +34,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'admin', component: TemplateComponent, canActivate: [AuthServiceGuard],
+    path: 'admin', component: TemplateComponent, canActivate: [AuthServiceGuard],pathMatch: 'prefix',
     children: [
       { path: "", component: DemandeurComponent, outlet: 'template' },
       { path: "categorie", component: CategorieComponent, outlet: 'template' },
@@ -46,6 +46,8 @@ const routes: Routes = [
       { path: "notifications", component: NotificationComponent, outlet: 'template' },
     ]
   },
+  { path: "ajouterequipement", component: AddequipementComponent, outlet: 'template' },
+
   { path: '**', redirectTo: 'consignation', pathMatch: 'full' }
 ];
 

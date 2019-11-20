@@ -21,14 +21,12 @@ export class EquipementComponent implements OnInit {
   dataSource;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  constructor(private equipementser: ServiceequipementService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute) { }
+  constructor(private equipementser: ServiceequipementService, private activatedRoute: ActivatedRoute,public dialog: MatDialog, private router: Router, private route: ActivatedRoute) { }
   openDialog(): void {
     const dialogRef = this.dialog.open(AddequipementComponent, {
       width: '1000px',
 
     });
-
-
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
@@ -79,7 +77,9 @@ export class EquipementComponent implements OnInit {
   }
 
   navigateTo() {
-    console.log('Navigate');
-    this.router.navigate([{ outlets: { template: 'ajouterequipement' } }], { replaceUrl: false });
+          console.log('Navigate');
+          this.router.navigate([{ outlets: { template: 'ajouterequipement' } }], {relativeTo: this.activatedRoute});
+    //      this.router.navigate(["ajouterequipement"]);
+    //sthis.router.navigate([{ outlets: { template: 'ajouterequipement' } }], { replaceUrl: false });
   }
 }
