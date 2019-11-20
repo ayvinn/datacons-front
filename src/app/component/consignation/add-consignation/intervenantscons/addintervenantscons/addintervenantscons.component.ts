@@ -24,7 +24,6 @@ export class AddintervenantsconsComponent implements OnInit {
 
   ngOnInit() {
     this.form = this._formBuilder.group({
-
       id: [''],
       Nomcomplet: ['', Validators.required],
       Entreprise: ['', Validators.required],

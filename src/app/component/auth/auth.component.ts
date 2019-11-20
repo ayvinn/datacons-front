@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ServicedemandeurService } from 'src/app/services/servicedemandeur.service';
+import { constants } from 'src/app/shared/constants';
 
 @Component({
   selector: 'app-auth',
@@ -10,7 +11,7 @@ import { ServicedemandeurService } from 'src/app/services/servicedemandeur.servi
   styleUrls: ['./auth.component.sass']
 })
 export class AuthComponent implements OnInit {
-  
+  readonly logodatacons: string = constants.img_logoDataCons;
   interval :any;
   model = {};
   loginForm: FormGroup;
@@ -56,7 +57,9 @@ export class AuthComponent implements OnInit {
   verify() : any {
     this.demandeur.authLogin(this.loginForm.value).subscribe(
       data => {
-        this.etat= data!=null ? true : false; 
+        if(data)
+          this.etat= data.idcategorie == 2 ? true : false; //Categorie Admin
+        return false; 
       },
       (error) => {
         this.toastr.error('Opération échoué  ', 'error server');

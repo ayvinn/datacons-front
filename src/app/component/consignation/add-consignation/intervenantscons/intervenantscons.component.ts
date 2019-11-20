@@ -4,6 +4,7 @@ import { MatPaginator, MatSort, MatDialog, MatTableDataSource } from '@angular/m
 import { ServiceintervenantService } from 'src/app/services/serviceintervenant.service';
 import { DataService } from 'src/app/services/data.service';
 import { AddintervenantsconsComponent } from './addintervenantscons/addintervenantscons.component';
+import { UpdateintervenantsconsComponent } from './updateintervenantscons/updateintervenantscons.component';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { AddintervenantsconsComponent } from './addintervenantscons/addintervena
   styleUrls: ['./intervenantscons.component.sass']
 })
 export class IntervenantsconsComponent implements OnInit {
+  displayedColumns: string[] = ['id', 'Nomcomplet', 'entreprise','action'];
   intervenant = new Intervenants;
   intervenants: Intervenants[];
   idConsignation: number;
@@ -35,7 +37,7 @@ export class IntervenantsconsComponent implements OnInit {
     }
     
   }
-  displayedColumns: string[] = ['id', 'Nomcomplet', 'entreprise'];
+
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
@@ -50,4 +52,22 @@ export class IntervenantsconsComponent implements OnInit {
     });
 
   }
+  openDialog1(elt): void {
+    console.log(elt);
+    const dialogRef = this.dialog.open(UpdateintervenantsconsComponent, {
+      width: '700px',
+      data: { element: elt }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
+
+  }
+  delete(id){
+    if(confirm("vous etes sur de supprimer cet intervenant")){
+      this.intervenantser.DeleteIntervenants(id).subscribe(res=>{
+      this.intervenantser.GetIntervenants();
+      this.ngOnInit();
+    })}
+}
 }

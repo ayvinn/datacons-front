@@ -14,7 +14,7 @@
                     <p class="card-category"> Liste des equipements</p>
                 </div>
                 <div class="col-md-2 float-right">
-                    <button class="btn btn-info"  (click)="openDialog()" style="border: 1px solid rgb(255, 255, 255);">
+                    <button class="btn btn-info" (click)="openDialog()" style="border: 1px solid rgb(255, 255, 255);">
                         <i class="material-icons"  style="font-size: 25px;">
                             add
                         </i>
@@ -22,7 +22,7 @@
 
                 </div>
             </div>
-            
+
 
         </div>
         <div class="card-body">
@@ -61,8 +61,7 @@
                         <td mat-cell *matCellDef="let element">
                             <i (click)="openDialog1(element)" class="mdc-icon-button material-icons icon-blue"> edit
                             </i>
-                            <i (click)="delete(element.id)"
-                                class="mdc-icon-button material-icons icon-red"> close </i>
+                            <i (click)="delete(element.id)" class="mdc-icon-button material-icons icon-red"> close </i>
                         </td>
                     </ng-container>
 

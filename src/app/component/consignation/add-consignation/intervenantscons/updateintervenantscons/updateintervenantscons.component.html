@@ -1,0 +1,51 @@
+<form [formGroup]="form" (ngSubmit)="update()">
+    <ng-template matStepLabel>Intervenants</ng-template>
+    <!---->
+
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+
+                <mat-form-field style="width: 100%;">
+                    <input matInput type="text" formControlName="nomcomplet"  />
+                </mat-form-field>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+
+                <mat-form-field style="width: 100%;">
+                    <input matInput type="text" formControlName="entreprise"  />
+                </mat-form-field>
+
+            </div>
+        </div>
+    </div>
+
+
+    
+
+    <div mat-dialog-actions class="float-right">
+        <button type="button" mat-button (click)="onNoClick()" class="btn btn-danger">Non Merci</button>
+        <button type="submit" mat-button cdkFocusInitial class="btn btn-info">Ok</button>
+    </div>
+    <div class="clearfix"></div>
+
+    <!---->
+
+
+</form>
+
+
+
+
+
+
+
+<!-- Copyright 2019 Google Inc. All Rights Reserved.
+                        Use of this source code is governed by an MIT-style license that
+                        can be found in the LICENSE file at http://angular.io/license -->

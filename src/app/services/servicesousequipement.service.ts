@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-
 import { constantURL } from 'src/app/shared/constantURL';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { SousEquipment } from '../models/sous-equipment.model';
 
