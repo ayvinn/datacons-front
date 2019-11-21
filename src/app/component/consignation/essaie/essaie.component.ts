@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -6,35 +6,36 @@ import { Demandeur } from 'src/app/models/demandeur.model';
 import { ServicedemandeurService } from 'src/app/services/servicedemandeur.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { MatStepper } from '@angular/material';
-import { AddConsignationComponent } from '../add-consignation.component';
+import { MatStepper, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+
 import { DataService } from 'src/app/services/data.service';
+import { ConsignationService } from 'src/app/services/consignation.service';
+import { DialogData } from '../../service/sevice.component';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.sass']
+  selector: 'app-essaie',
+  templateUrl: './essaie.component.html',
+  styleUrls: ['./essaie.component.sass']
 })
-export class LoginComponent implements OnInit {
-  @Input() stepper: MatStepper;
-
+export class EssaieComponent implements OnInit {
+ 
   demandeur;
   demandeurs: Demandeur[];
   demandeurControl: FormControl;
   demandeurForm: FormGroup;
   interval: any;
   model = {};
-
+idconsignation:number;
   message: string;
   returnUrl: string;
   role: string;
 
   filteredDemandeurs: Observable<Demandeur[]>;
-
-  constructor(private _DemandeurService: ServicedemandeurService, 
+  constructor(public dialogRef: MatDialogRef<EssaieComponent>,private _DemandeurService: ServicedemandeurService, 
     private formBuilder: FormBuilder,
     private toastr: ToastrService, 
-    private dataService: DataService  ) { }
+    private dataService: DataService, 
+    private consignationService: ConsignationService, @Inject(MAT_DIALOG_DATA) public data: DialogData ) { }
 
   ngOnInit() {
     this.getData()
@@ -49,7 +50,7 @@ export class LoginComponent implements OnInit {
   }
   getData() {
     this.getDemandeurs();
-    this.delay(1500).then(any => {
+    this.delay(5000).then(any => {
       this.filterInitemandeurs();
      
     });
@@ -92,10 +93,10 @@ export class LoginComponent implements OnInit {
           this.dataService.changeConsignation({idDemandeur: data.id});
           this.role = data != null ? data.nomcomplet : null;
           this.toastr.success('Opération reussie  ', data.nomcomplet, {timeOut: 500});
-          this.stepper.next();
+          this.ngOnInit();
         } else {
           this.toastr.error('Opération échoué  ', 'mot de passe incorrecte', {timeOut: 1500});
-          this.stepper.reset();
+    
         }
       },
      
@@ -108,6 +109,11 @@ export class LoginComponent implements OnInit {
     }
     else {
       this.verify();
+      this.data['essaie'] =true;
+    this.consignationService.getConsignationEssaie(this.data['id'],this.data).subscribe(res =>  {
+      console.log('Update Etat: ', res);
+      this.dialogRef.close();
+    })
       this.delay(5000).then(any => {
         if (this.role != null) {
           this.returnUrl = '/' + this.role;
