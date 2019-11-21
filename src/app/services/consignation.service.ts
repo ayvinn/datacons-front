@@ -18,4 +18,7 @@ export class ConsignationService {
   getConsignation(etat) {
     return this.http.get(`${constantURL.apiEndpoint}/api/consignations/etat/${etat}`);
   }
+  getConsignationEssaie(id,data) {
+    return this.http.put(`${constantURL.apiEndpoint}/api/consignations/essaie/${id}`,data);
+  }
 }
