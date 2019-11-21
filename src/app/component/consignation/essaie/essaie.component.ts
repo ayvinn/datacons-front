@@ -91,6 +91,11 @@ idconsignation:number;
         
         if (data) {
           this.dataService.changeConsignation({idDemandeur: data.id});
+          this.data['essaie'] =true;
+    this.consignationService.getConsignationEssaie(this.data['id'],this.data).subscribe(res =>  {
+      console.log('Update Etat: ', res);
+      this.dialogRef.close();
+    })
           this.role = data != null ? data.nomcomplet : null;
           this.toastr.success('Opération reussie  ', data.nomcomplet, {timeOut: 500});
           this.ngOnInit();
@@ -109,11 +114,7 @@ idconsignation:number;
     }
     else {
       this.verify();
-      this.data['essaie'] =true;
-    this.consignationService.getConsignationEssaie(this.data['id'],this.data).subscribe(res =>  {
-      console.log('Update Etat: ', res);
-      this.dialogRef.close();
-    })
+      
       this.delay(5000).then(any => {
         if (this.role != null) {
           this.returnUrl = '/' + this.role;

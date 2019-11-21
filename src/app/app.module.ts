@@ -58,6 +58,8 @@ import { UpdateintervenantsconsComponent } from './component/consignation/add-co
 
 import { SousequipementnotificationComponent } from './component/notification/sousequipementnotification/sousequipementnotification.component';
 import { UpdatesousequipementnotificationComponent } from './component/notification/sousequipementnotification/updatesousequipementnotification/updatesousequipementnotification.component';
+import { EssaieComponent } from './component/consignation/essaie/essaie.component';
+import { DeconsignationComponent } from './component/consignation/deconsignation/deconsignation.component';
 
 
 
@@ -109,7 +111,9 @@ import { UpdatesousequipementnotificationComponent } from './component/notificat
     AddintervenantsconsComponent,
     SousequipementnotificationComponent,
     UpdatesousequipementnotificationComponent,
-    UpdateintervenantsconsComponent
+    UpdateintervenantsconsComponent,
+    EssaieComponent,
+    DeconsignationComponent
 
 
   ],
@@ -149,7 +153,8 @@ import { UpdatesousequipementnotificationComponent } from './component/notificat
     AddequipementComponent,
     UpdateequipementComponent, SousequipementComponent, AddlototoComponent, AddsousequipementComponent, AddinterventionComponent, InterventionComponent,
     AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent,AddintervenantsconsComponent,ResponsablesComponent,AddintervenantsconsComponent,UpdateintervenantsconsComponent, UpdatesousequipementnotificationComponent,
-    UpdateintervenantsconsComponent
+    UpdateintervenantsconsComponent, EssaieComponent,
+    DeconsignationComponent
   ],
   providers: [AuthServiceGuard],
   bootstrap: [AppComponent],
@@ -164,7 +169,8 @@ import { UpdatesousequipementnotificationComponent } from './component/notificat
 
     AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent,
     AddConsignationComponent,ResponsablesComponent,AddintervenantsconsComponent,UpdateintervenantsconsComponent, UpdatesousequipementnotificationComponent,
-    UpdateintervenantsconsComponent],
+    UpdateintervenantsconsComponent, EssaieComponent,
+    DeconsignationComponent],
 
 })
 export class AppModule { }
