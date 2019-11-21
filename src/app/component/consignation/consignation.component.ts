@@ -32,6 +32,8 @@ export class ConsignationComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       this.totalCount = this.dataSource.data.length
+      console.log('Res: ', res);
+      console.log('Res essaie: ', res['essaie']);
     });
   }
 

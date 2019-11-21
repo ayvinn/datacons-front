@@ -93,7 +93,7 @@ idconsignation:number;
           this.dataService.changeConsignation({idDemandeur: data.id});
           this.role = data != null ? data.nomcomplet : null;
           this.toastr.success('Opération reussie  ', data.nomcomplet, {timeOut: 500});
-          
+          this.ngOnInit();
         } else {
           this.toastr.error('Opération échoué  ', 'mot de passe incorrecte', {timeOut: 1500});
     
@@ -109,7 +109,7 @@ idconsignation:number;
     }
     else {
       this.verify();
-      this.data['Essaie'] =true;
+      this.data['essaie'] =true;
     this.consignationService.getConsignationEssaie(this.data['id'],this.data).subscribe(res =>  {
       console.log('Update Etat: ', res);
       this.dialogRef.close();
