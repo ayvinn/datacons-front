@@ -7,16 +7,15 @@ import { ServicedemandeurService } from 'src/app/services/servicedemandeur.servi
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { MatStepper } from '@angular/material';
-import { AddConsignationComponent } from '../add-consignation.component';
+
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.sass']
+  selector: 'app-deconsignation',
+  templateUrl: './deconsignation.component.html',
+  styleUrls: ['./deconsignation.component.sass']
 })
-export class LoginComponent implements OnInit {
-  @Input() stepper: MatStepper;
+export class DeconsignationComponent implements OnInit {
 
   demandeur;
   demandeurs: Demandeur[];
@@ -30,7 +29,6 @@ export class LoginComponent implements OnInit {
   role: string;
 
   filteredDemandeurs: Observable<Demandeur[]>;
-
   constructor(private _DemandeurService: ServicedemandeurService, 
     private formBuilder: FormBuilder,
     private toastr: ToastrService, 
@@ -92,10 +90,10 @@ export class LoginComponent implements OnInit {
           this.dataService.changeConsignation({idDemandeur: data.id});
           this.role = data != null ? data.nomcomplet : null;
           this.toastr.success('Opération reussie  ', data.nomcomplet, {timeOut: 500});
-          this.stepper.next();
+          
         } else {
           this.toastr.error('Opération échoué  ', 'mot de passe incorrecte', {timeOut: 1500});
-          this.stepper.reset();
+    
         }
       },
      
@@ -120,6 +118,5 @@ export class LoginComponent implements OnInit {
       });
     }
   }
-
 
 }
