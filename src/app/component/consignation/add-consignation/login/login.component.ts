@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
   }
   getData() {
     this.getDemandeurs();
-    this.delay(5000).then(any => {
+    this.delay(1500).then(any => {
       this.filterInitemandeurs();
      
     });

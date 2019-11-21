@@ -41,7 +41,12 @@ export class ServiceequipementService {
     return this.http.put(`${this.url}/${id}`, data);
   }
   PostLogin(id){
-    return this.http.post(this.url+"/select/",id);
+    console.log(id);
+    return this.http.get(this.url+"/select/"+id);
+  }
+  PostLoginDroit(id){
+    console.log(id);
+    return this.http.get(this.url+"/selectDroit/"+id);
   }
   deleteService(id){
     return this.http.delete(this.url+"/"+id);
