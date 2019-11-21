@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Intervention } from 'src/app/models/intervention.model';
-import { MatPaginator, MatSort, MatDialog, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatSort, MatDialog, MatTableDataSource, MatDialogRef } from '@angular/material';
 import { ServicesousequipementService } from 'src/app/services/servicesousequipement.service';
 import { DataService } from 'src/app/services/data.service';
 import { ServiceinterventionService } from 'src/app/services/serviceintervention.service';
 import { AddinterventionComponent } from './addintervention/addintervention.component';
 import { UpdateinterventionComponent } from '../../updateequipement/updateintervention/updateintervention.component';
+import { AddequipementComponent } from '../addequipement.component';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -21,7 +23,10 @@ export class InterventionComponent implements OnInit {
     dataSource;
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
     @ViewChild(MatSort, {static: true}) sort: MatSort;
-    constructor(private interventionser:ServiceinterventionService,public dialog: MatDialog,private data1: DataService) { }
+    public dialogRef: MatDialogRef<AddequipementComponent>;
+    constructor(private interventionser:ServiceinterventionService,public dialog: MatDialog,private data1: DataService,
+      private toastr : ToastrService
+      ) { }
   
     ngOnInit() {
       this.data1.currentMessage.subscribe(id => {
@@ -74,5 +79,14 @@ export class InterventionComponent implements OnInit {
         this.ngOnInit();
       });
   
+    }
+
+    onNoClick(): void {
+      this.dialogRef.close();
+    }
+
+    resetid(){
+      this.toastr.success("Equipement bien ajouté");
+      this.data1.changeMessage(0);
     }
 }

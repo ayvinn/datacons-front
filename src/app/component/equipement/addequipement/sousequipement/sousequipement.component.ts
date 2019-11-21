@@ -29,7 +29,6 @@ export class SousequipementComponent implements OnInit {
 
   ngOnInit() {
     this.data1.currentMessage.subscribe(id => {
-      console.log('ID: ', id);
       this.idEquipement = id;
     }) 
     console.log('idequipment :',this.idEquipement);
@@ -37,8 +36,6 @@ export class SousequipementComponent implements OnInit {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-
-  
     });
 
 }

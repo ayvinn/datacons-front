@@ -6,22 +6,32 @@
 </button>-->
 
 
-<div class="row">
-  <button class="btn btn-primary" [routerLink]="[{outlets: {templateConsignation: ['addconsignation']}}]">
-    Ajouter Consignation
-  </button>
-<br>
 
 
 
-  <mat-form-field style="width: 100%;">           
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-  </mat-form-field>
-  Nombre de Consignation en cours : {{totalCount}}
-</div>
+<mat-form-field style="width: 100%;">
+  <input matInput (keyup)="applyFilter($event.target.value)"  placeholder="Rechercher">
+</mat-form-field>
+<div class="mat-elevation-z8" >
+  <div class="card">
+      <div class="card-header card-header-info" style="background: #00bcd4; ">
+          <div class="row">
+              <div class="col-md-10">
+                  <h4 class="card-title">Consignation</h4>
+                  <p class="card-category">Consignation en cours : {{totalCount}}</p>
+              </div>
+              <div class="col-md-2 float-right">
+                <button class="btn btn-info" [routerLink]="[{outlets: {templateConsignation: ['addconsignation']}}]" style="border: 1px solid rgb(255, 255, 255);">
+                    <i class="material-icons" style="font-size: 25px;">
+                        add
+                    </i>
+                </button>
 
-<div class="row">
-  <div class="w-100 mat-elevation-z8">
+            </div>
+          </div>
+      </div>
+      <div class="card-body">
+          <div class="table-responsive">
     <table mat-table [dataSource]="dataSource" matSort>
 
       <ng-container matColumnDef="id">
@@ -60,7 +70,7 @@
           <button mat-raised-button  (click)=" openDialog1deconsignation(element)" class="mr-2">Deconsigner</button>
           <button mat-raised-button class="mr-2">Consulter/Imprimer</button>
           <button mat-raised-button class="mr-2">Passation</button>
-          <button  (click)="openDialog(element)" [ngClass]="[element.essaie ? 'my-color': 'red-color']"mat-raised-button class="mr-2">Essaie</button>
+          <button  (click)="openDialog(element)" [ngClass]="[element.essaie ? 'btn btn-success': 'btn btn-light']"mat-raised-button class="mr-2">Essaie</button>
         </td>
       </ng-container>
 
@@ -68,8 +78,12 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
   </div>
+</div>
+</div>
 
- 
+
+
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>
