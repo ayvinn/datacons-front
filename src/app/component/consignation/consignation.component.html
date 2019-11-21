@@ -13,15 +13,21 @@
 <br>
 
 
-
-  <mat-form-field style="width: 100%;">           
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-  </mat-form-field>
-  Nombre de Consignation en cours : {{totalCount}}
-</div>
-
-<div class="row">
-  <div class="w-100 mat-elevation-z8">
+<mat-form-field style="width: 100%;">
+  <input matInput (keyup)="applyFilter($event.target.value)"  placeholder="Rechercher">
+</mat-form-field>
+<div class="mat-elevation-z8">
+  <div class="card">
+      <div class="card-header card-header-info" style="background: #00bcd4; ">
+          <div class="row">
+              <div class="col-md-10">
+                  <h4 class="card-title">Consignation</h4>
+                  <p class="card-category">Consignation en cours : {{totalCount}}</p>
+              </div>
+          </div>
+      </div>
+      <div class="card-body">
+          <div class="table-responsive">
     <table mat-table [dataSource]="dataSource" matSort>
 
       <ng-container matColumnDef="id">
@@ -68,8 +74,12 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
   </div>
+</div>
+</div>
 
- 
+
+
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>

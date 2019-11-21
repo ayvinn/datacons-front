@@ -24,7 +24,7 @@ export class EquipementComponent implements OnInit {
   constructor(private equipementser: ServiceequipementService, private activatedRoute: ActivatedRoute,public dialog: MatDialog, private router: Router, private route: ActivatedRoute) { }
   openDialog(): void {
     const dialogRef = this.dialog.open(AddequipementComponent,{
-      width:'900px',
+      width:'1100px',
       autoFocus: false,
       maxHeight: '90vh' //you can adjust the value as per your view
    });
@@ -36,7 +36,7 @@ export class EquipementComponent implements OnInit {
   }
   openDialog1(elt): void {
     const dialogRef = this.dialog.open(UpdateequipementComponent, {
-      width:'900px',
+      width:'1100px',
       autoFocus: false,
       maxHeight: '90vh',
       data: { element: elt }
