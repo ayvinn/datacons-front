@@ -21,4 +21,12 @@ export class ConsignationService {
   getConsignationEssaie(id,data) {
     return this.http.put(`${constantURL.apiEndpoint}/api/consignations/essaie/${id}`,data);
   }
+  authdemandeur(id,iddemandeur) {
+    console.log("demandeur2",iddemandeur)
+    return this.http.get(`${constantURL.apiEndpoint}/api/consignations/verifierdemandeur/${id}/${iddemandeur}`);
+  }
+  deconsigner(id){
+    console.log(id);
+    return this.http.get(`${constantURL.apiEndpoint}/api/consignations/deconsigne/${id}`)
+  }
 }

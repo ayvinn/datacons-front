@@ -22,7 +22,7 @@ export class ConsignationComponent implements OnInit, AfterViewInit {
   constructor(private consignationService: ConsignationService, public dialog: MatDialog) { }
 
   ngOnInit() {
-
+    const etat = true;
   }
 
   ngAfterViewInit() {
@@ -54,17 +54,18 @@ export class ConsignationComponent implements OnInit, AfterViewInit {
       this.ngOnInit();
     });
   }
-  openDialog1deconsignation(): void {
+  openDialog1deconsignation(elt): void {
     const dialogRef = this.dialog.open(
       DeconsignationComponent, {
       width: '900px',
       autoFocus: false,
+      data: elt,
       maxHeight: '90vh' //you can adjust the value as per your view
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      this.ngOnInit();
+      this.ngAfterViewInit();
     });
   }
 

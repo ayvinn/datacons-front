@@ -18,30 +18,30 @@ import { DialogData } from '../../service/sevice.component';
   styleUrls: ['./essaie.component.sass']
 })
 export class EssaieComponent implements OnInit {
- 
+
   demandeur;
   demandeurs: Demandeur[];
   demandeurControl: FormControl;
   demandeurForm: FormGroup;
   interval: any;
   model = {};
-idconsignation:number;
+  idconsignation: number;
   message: string;
   returnUrl: string;
   role: string;
 
   filteredDemandeurs: Observable<Demandeur[]>;
-  constructor(public dialogRef: MatDialogRef<EssaieComponent>,private _DemandeurService: ServicedemandeurService, 
+  constructor(public dialogRef: MatDialogRef<EssaieComponent>, private _DemandeurService: ServicedemandeurService,
     private formBuilder: FormBuilder,
-    private toastr: ToastrService, 
-    private dataService: DataService, 
-    private consignationService: ConsignationService, @Inject(MAT_DIALOG_DATA) public data: DialogData ) { }
+    private toastr: ToastrService,
+    private dataService: DataService,
+    private consignationService: ConsignationService, @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   ngOnInit() {
     this.getData()
     this.createFormControls();
     this.createForm();
-    
+
     this.dataService.currentDemandeur.subscribe(res => this.demandeur = res);
     this.dataService.allDataConsignation.subscribe();
   }
@@ -52,7 +52,7 @@ idconsignation:number;
     this.getDemandeurs();
     this.delay(5000).then(any => {
       this.filterInitemandeurs();
-     
+
     });
   }
   createFormControls() {
@@ -78,33 +78,31 @@ idconsignation:number;
   }
   getDemandeurs() {
     this._DemandeurService.getAllDemandeurs().subscribe((res: Demandeur[]) => {
-      
+
       this.demandeurs = res;
     });
   }
-  
+
   verify(): void {
     this._DemandeurService.authLogin(this.demandeurForm.value).subscribe(
       data => {
-       
+
         this.dataService.changeDemandeur(data);
-        
+
         if (data) {
-          this.dataService.changeConsignation({idDemandeur: data.id});
-          this.data['essaie'] =true;
-    this.consignationService.getConsignationEssaie(this.data['id'],this.data).subscribe(res =>  {
-      console.log('Update Etat: ', res);
-      this.dialogRef.close();
-    })
+
+console.log("demand",data.id);
+          this.dataService.changeConsignation({ idDemandeur: data.id });
+      this.checkDemandeurDroit(data.id);
           this.role = data != null ? data.nomcomplet : null;
-          this.toastr.success('Opération reussie  ', data.nomcomplet, {timeOut: 500});
+          this.toastr.success('Opération reussie  ', data.nomcomplet, { timeOut: 500 });
           this.ngOnInit();
         } else {
-          this.toastr.error('Opération échoué  ', 'mot de passe incorrecte', {timeOut: 1500});
-    
+          this.toastr.error('Opération échoué  ', 'mot de passe incorrecte', { timeOut: 1500 });
+
         }
       },
-     
+
     );
   }
 
@@ -114,7 +112,7 @@ idconsignation:number;
     }
     else {
       this.verify();
-      
+
       this.delay(5000).then(any => {
         if (this.role != null) {
           this.returnUrl = '/' + this.role;
@@ -126,7 +124,28 @@ idconsignation:number;
         }
       });
     }
-  }
 
+  }
+  checkDemandeurDroit(iddem): void {
+    this.consignationService.authdemandeur(this.data['id'], iddem).subscribe(
+      data => {
+        if (data) {
+          this.data['essaie'] = true;
+          this.consignationService.getConsignationEssaie(this.data['id'], this.data).subscribe(res => {
+            console.log('Update Etat: ', res);
+            this.dialogRef.close();
+
+
+          })
+        }
+         else {
+            this.toastr.warning("Vous n'etes pas autorisé de deconsigner");
+          }
+        },
+        (error) => {
+          this.toastr.error('Opération échoué  ', 'error server');
+        }
+    );
+  }
 
 }
