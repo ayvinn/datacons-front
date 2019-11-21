@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { constantURL } from '../shared/constantURL';
-
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,5 +17,8 @@ export class ConsignationService {
 
   getConsignation(etat) {
     return this.http.get(`${constantURL.apiEndpoint}/api/consignations/etat/${etat}`);
+  }
+  getConsignationEssaie(id,data) {
+    return this.http.put(`${constantURL.apiEndpoint}/api/consignations/essaie/${id}`,data);
   }
 }
