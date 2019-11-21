@@ -14,6 +14,7 @@ export class ConsignationComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ['id', 'description', 'duree', 'demandeur', 'secteur', 'action'];
   dataSource;
+  totalCount;
 
 
   constructor(private consignationService: ConsignationService) { }
@@ -28,6 +29,7 @@ export class ConsignationComponent implements OnInit, AfterViewInit {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.totalCount = this.dataSource.data.length
       // console.log('Get Consignation: ', res);
     });
   }

@@ -4,13 +4,20 @@
 <button class="btn btn-primary"  [routerLink]="[{outlets: {templateConsignation: ['dashboard']}}]">
     DashBoard
 </button>-->
+
+
 <div class="row">
   <button class="btn btn-primary" [routerLink]="[{outlets: {templateConsignation: ['addconsignation']}}]">
     Ajouter Consignation
   </button>
+<br>
+
+
+
   <mat-form-field style="width: 100%;">           
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   </mat-form-field>
+  Nombre de Consignation en cours : {{totalCount}}
 </div>
 
 <div class="row">
