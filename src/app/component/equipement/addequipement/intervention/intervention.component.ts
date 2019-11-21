@@ -7,6 +7,7 @@ import { ServiceinterventionService } from 'src/app/services/serviceintervention
 import { AddinterventionComponent } from './addintervention/addintervention.component';
 import { UpdateinterventionComponent } from '../../updateequipement/updateintervention/updateintervention.component';
 import { AddequipementComponent } from '../addequipement.component';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -23,7 +24,9 @@ export class InterventionComponent implements OnInit {
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
     @ViewChild(MatSort, {static: true}) sort: MatSort;
     public dialogRef: MatDialogRef<AddequipementComponent>;
-    constructor(private interventionser:ServiceinterventionService,public dialog: MatDialog,private data1: DataService) { }
+    constructor(private interventionser:ServiceinterventionService,public dialog: MatDialog,private data1: DataService,
+      private toastr : ToastrService
+      ) { }
   
     ngOnInit() {
       this.data1.currentMessage.subscribe(id => {
@@ -83,6 +86,7 @@ export class InterventionComponent implements OnInit {
     }
 
     resetid(){
+      this.toastr.success("Equipement bien ajouté");
       this.data1.changeMessage(0);
     }
 }
