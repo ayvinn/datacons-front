@@ -76,6 +76,7 @@ export class ConsignationComponent implements OnInit, AfterViewInit {
 consignation:Consignation;
   onPrintInvoice(elt) {
     this.data.changeImprimerequipement(elt.idequipment);
+    this.data.changeImprimerconsignation(elt.id);
     this.data.changeImprimerdemandeur(elt.iddemandeur);
     const invoiceIds = [elt.idequipment, elt.iddemandeur];
     this.printService

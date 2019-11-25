@@ -20,6 +20,9 @@ export class DataService {
   private idEquipement = new BehaviorSubject<number>(-1);
   currentIdEquipement = this.idEquipement.asObservable();
 
+  private idconsignation = new BehaviorSubject<number>(-1);
+  currentidconsignation = this.idconsignation.asObservable();
+
   private demandeur = new BehaviorSubject<any>([]);
   currentDemandeur = this.demandeur.asObservable();
 
@@ -51,6 +54,9 @@ export class DataService {
     this.iddemandeur.next(id);
   }
 
+  changeImprimerconsignation(id : number){
+    this.idconsignation.next(id);
+  }
   changeDemandeur(data) {
     console.log('Demandeur: ', data);
     this.demandeur.next(data);
