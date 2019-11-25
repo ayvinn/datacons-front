@@ -1,0 +1,25 @@
+<table>
+    <thead><tr><td>
+      <div class="header-space">&nbsp;</div>
+    </td></tr></thead>
+    <tbody style="width: 100%;"><tr><td>
+      <div class="content" style="width: 100%;" >
+        <router-outlet></router-outlet>
+      </div>
+    </td></tr></tbody>
+    <tfoot><tr><td>
+      <div class="footer-space">&nbsp;</div>
+    </td></tr></tfoot>
+  </table>
+  
+  <div class="header">
+      <br>
+    <a [routerLink]="['login']" class="simple-text logo-normal">
+        <img [src]="img_Holcim2" alt="Lafrage Holcim" style="width: 8%;">
+    </a>
+
+    <a [routerLink]="['login']" class="simple-text logo-normal">
+        <img [src]="logo" alt="Lafrage Holcim" style="width: 6%; float:right; margin-top: 1%;">
+    </a>
+  </div>
+  <div class="footer">AWESOME FOOTER</div>

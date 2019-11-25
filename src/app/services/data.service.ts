@@ -11,6 +11,12 @@ export class DataService {
   private messageSource = new BehaviorSubject<number>(-1);
   currentMessage = this.messageSource.asObservable();
 
+  private idequipment = new BehaviorSubject<number>(-1);
+  currentidequipment = this.idequipment.asObservable();
+
+  private iddemandeur = new BehaviorSubject<number>(-1);
+  currentdemandeur = this.iddemandeur.asObservable();
+
   private idEquipement = new BehaviorSubject<number>(-1);
   currentIdEquipement = this.idEquipement.asObservable();
 
@@ -35,6 +41,14 @@ export class DataService {
 
   changeIdEquipement(id: number) {
     this.idEquipement.next(id);
+  }
+
+  changeImprimerequipement(id : number){
+    this.idequipment.next(id);
+  }
+
+  changeImprimerdemandeur(id : number){
+    this.iddemandeur.next(id);
   }
 
   changeDemandeur(data) {

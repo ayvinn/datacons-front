@@ -3,4 +3,7 @@
     <app-template></app-template> 
     <app-template-data-consingnation></app-template-data-consingnation>
 -->
+<div [class.isPrinting]="printService.isPrinting">
 <router-outlet></router-outlet>
+<router-outlet name="print"></router-outlet>
+</div>

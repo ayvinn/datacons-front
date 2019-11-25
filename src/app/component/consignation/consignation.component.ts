@@ -3,6 +3,9 @@ import { ConsignationService } from 'src/app/services/consignation.service';
 import { MatPaginator, MatSort, MatTableDataSource, MatDialog } from '@angular/material';
 import { EssaieComponent } from './essaie/essaie.component';
 import { DeconsignationComponent } from './deconsignation/deconsignation.component';
+import { PrintserviceService } from 'src/app/services/printservice.service';
+import { Consignation } from 'src/app/models/consignation.model';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-consignation',
@@ -19,7 +22,9 @@ export class ConsignationComponent implements OnInit, AfterViewInit {
   totalCount;
 
 
-  constructor(private consignationService: ConsignationService, public dialog: MatDialog) { }
+  constructor(private consignationService: ConsignationService, public dialog: MatDialog,
+    public printService: PrintserviceService,private data : DataService
+    ) { }
 
   ngOnInit() {
     const etat = true;
@@ -68,5 +73,14 @@ export class ConsignationComponent implements OnInit, AfterViewInit {
       this.ngAfterViewInit();
     });
   }
+consignation:Consignation;
+  onPrintInvoice(elt) {
+    this.data.changeImprimerequipement(elt.idequipment);
+    this.data.changeImprimerdemandeur(elt.iddemandeur);
+    const invoiceIds = [elt.idequipment, elt.iddemandeur];
+    this.printService
+      .printDocument('invoice', invoiceIds);
+  }
+
 
 }

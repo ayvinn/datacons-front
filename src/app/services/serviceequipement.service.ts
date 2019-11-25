@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Equipment } from '../models/equipment.model';
+import { ClassImprimerequipement } from '../component/imprimer/invoice/class-imprimerequipement';
 
 @Injectable({
   providedIn: 'root'
@@ -51,7 +52,9 @@ export class ServiceequipementService {
   deleteService(id){
     return this.http.delete(this.url+"/"+id);
   }
-
+  GetEquipement(id){
+    return this.http.get<ClassImprimerequipement>(this.url+"/"+id);
+  }
 }
 
 

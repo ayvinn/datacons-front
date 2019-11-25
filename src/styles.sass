@@ -26,3 +26,12 @@ i.icon-red
   .test
   display: inline-block
     height: auto
+
+
+
+@media print
+  .isPrinting
+    > *
+      display: none
+    app-print-layout
+      display: block

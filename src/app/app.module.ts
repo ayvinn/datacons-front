@@ -60,6 +60,9 @@ import { SousequipementnotificationComponent } from './component/notification/so
 import { UpdatesousequipementnotificationComponent } from './component/notification/sousequipementnotification/updatesousequipementnotification/updatesousequipementnotification.component';
 import { EssaieComponent } from './component/consignation/essaie/essaie.component';
 import { DeconsignationComponent } from './component/consignation/deconsignation/deconsignation.component';
+import { ImprimerComponent } from './component/imprimer/imprimer.component';
+import { PrintLayoutComponent } from './component/imprimer/print-layout/print-layout.component';
+import { InvoiceComponent } from './component/imprimer/invoice/invoice.component';
 
 
 
@@ -113,7 +116,10 @@ import { DeconsignationComponent } from './component/consignation/deconsignation
     UpdatesousequipementnotificationComponent,
     UpdateintervenantsconsComponent,
     EssaieComponent,
-    DeconsignationComponent
+    DeconsignationComponent,
+    ImprimerComponent,
+    PrintLayoutComponent,
+    InvoiceComponent
 
 
   ],
