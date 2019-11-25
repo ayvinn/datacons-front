@@ -63,6 +63,7 @@ import { DeconsignationComponent } from './component/consignation/deconsignation
 import { ImprimerComponent } from './component/imprimer/imprimer.component';
 import { PrintLayoutComponent } from './component/imprimer/print-layout/print-layout.component';
 import { InvoiceComponent } from './component/imprimer/invoice/invoice.component';
+import { PrintIntervenantsComponent } from './component/imprimer/print-intervenants/print-intervenants.component';
 
 
 
@@ -119,7 +120,8 @@ import { InvoiceComponent } from './component/imprimer/invoice/invoice.component
     DeconsignationComponent,
     ImprimerComponent,
     PrintLayoutComponent,
-    InvoiceComponent
+    InvoiceComponent,
+    PrintIntervenantsComponent
 
 
   ],
