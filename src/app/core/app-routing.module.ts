@@ -14,6 +14,7 @@ import { DashboardComponent } from '../component/dashboard/dashboard.component';
 import { AuthServiceGuard } from '../guard/auth-service.guard';
 import { AddConsignationComponent } from '../component/consignation/add-consignation/add-consignation.component';
 import { ConsignationComponent } from '../component/consignation/consignation.component';
+import { HistoriqueComponent } from '../component/historique/historique.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
       { path: "dashboard", component: ConsignationComponent, outlet: 'templateConsignation' },
       { path: "addconsignation", component: AddConsignationComponent, outlet: 'templateConsignation' },
       { path: "statistiaque", component: AddConsignationComponent, outlet: 'templateConsignation' },
+      { path: "historique", component: HistoriqueComponent, outlet: 'templateConsignation' },
     ]
   },
   {

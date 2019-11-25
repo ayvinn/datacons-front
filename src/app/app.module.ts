@@ -58,6 +58,7 @@ import { UpdateintervenantsconsComponent } from './component/consignation/add-co
 
 import { SousequipementnotificationComponent } from './component/notification/sousequipementnotification/sousequipementnotification.component';
 import { UpdatesousequipementnotificationComponent } from './component/notification/sousequipementnotification/updatesousequipementnotification/updatesousequipementnotification.component';
+import { HistoriqueComponent } from './component/historique/historique.component';
 
 
 
@@ -109,7 +110,8 @@ import { UpdatesousequipementnotificationComponent } from './component/notificat
     AddintervenantsconsComponent,
     SousequipementnotificationComponent,
     UpdatesousequipementnotificationComponent,
-    UpdateintervenantsconsComponent
+    UpdateintervenantsconsComponent,
+    HistoriqueComponent
 
 
   ],
