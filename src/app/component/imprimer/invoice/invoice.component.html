@@ -1,105 +1,110 @@
-<div class = "test">
-<div class="titre">BON DE CONSIGNATION / DECONSIGNATION N° 6702019</div>
-<br>
+<div class="test">
+    <div class="titre">BON DE CONSIGNATION / DECONSIGNATION N° {{numerobc}}</div>
+    <br>
 
-<!-- Your first column here -->
-<div class="col-xs-6">
-    <div class="tableLeft">
-    <table class="demandeur">
-        <tbody>
-            <tr>
-                <td style=" border: none; width: 60%;text-align: right;font-weight: bold;">Demandeur :</td>
-                <td style=" border: none">{{nomDemandeur}}</td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="demandeur">
-        <tbody>
-            <tr>
-                <td style=" border: none; width: 60%;text-align: right;font-weight: bold;">Type de consignation :</td>
-                <td style=" border: none">{{typeConsignation}}</td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="conduite">
-        <tbody>
-            <tr>
-                <td style=" border: none; width: 60%; text-align: right;font-weight: bold;
+    <!-- Your first column here -->
+    <div class="col-xs-6">
+        <div class="tableLeft">
+            <table class="demandeur .first">
+                <tbody>
+                    <tr>
+                        <td style=" border: none; width: 60%;text-align: right;font-weight: bold;">Demandeur :</td>
+                        <td style=" border: none">{{nomDemandeur}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="demandeur first">
+                <tbody>
+                    <tr>
+                        <td style=" border: none; width: 60%;text-align: right;font-weight: bold;">Type de consignation
+                            :</td>
+                        <td style=" border: none">{{typeConsignation}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="conduite first">
+                <tbody>
+                    <tr>
+                        <td style=" border: none; width: 60%; text-align: right;font-weight: bold;
                     padding-top: 1%;
     padding-bottom: 5.8%;">Chargé de conduite/ Phase consignation :</td>
-                <td style=" border: none"></td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="conduite">
-        <tbody>
-            <tr>
-                <td style=" border: none; width: 60%; text-align: right;font-weight: bold;     padding-top: 1%;
+                        <td style=" border: none"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="conduite first">
+                <tbody>
+                    <tr>
+                        <td style=" border: none; width: 60%; text-align: right;font-weight: bold;     padding-top: 1%;
                 padding-bottom: 5.8%;">Chargé de conduite/ Phase déconsignation :</td>
-                <td style=" border: none"></td>
-            </tr>
-        </tbody>
-    </table>
+                        <td style=" border: none"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
 
-<div class="tableRight">
-    <table class="demandeur">
-        <tbody>
-            <tr>
-                <td style=" border: none; width: 18%; text-align: right;font-weight: bold;">Service :</td>
-                <td style=" border: none">{{Service_demandeur}}</td>
-                <td style=" border: none; width: 18%; text-align: right;font-weight: bold; ">Secteur :</td>
-                <td style="width :30% ;  border: none">{{secteur}}</td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="demandeur">
-        <tbody>
-            <tr>
-                <td style=" border: none; width: 18%; text-align: right;font-weight: bold;">Installation :</td>
-                <td style=" border: none">{{installation}}</td>
-                <td style=" border: none; width: 18%; text-align: right;font-weight: bold;">Date :</td>
-                <td style="width :30% ;  border: none">{{test}}</td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="conduite">
-        <tbody>
-            <tr>
-                <td style=" border: none; width: 18%; text-align: right;font-weight: bold;     padding-top: 1%;
+    <div class="tableRight">
+        <table class="demandeur first">
+            <tbody>
+                <tr>
+                    <td style=" border: none; width: 18%; text-align: right;font-weight: bold;">Service :</td>
+                    <td style=" border: none">{{Service_demandeur}}</td>
+                    <td style=" border: none; width: 18%; text-align: right;font-weight: bold; ">Secteur :</td>
+                    <td style="width :30% ;  border: none">{{secteur}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="demandeur first">
+            <tbody>
+                <tr>
+                    <td style=" border: none; width: 18%; text-align: right;font-weight: bold;">Installation :</td>
+                    <td style=" border: none">{{installation}}</td>
+                    <td style=" border: none; width: 18%; text-align: right;font-weight: bold;">Date :</td>
+                    <td style="width :30% ;  border: none">{{test}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="conduite first">
+            <tbody>
+                <tr>
+                    <td style=" border: none; width: 18%; text-align: right;font-weight: bold;     padding-top: 1%;
                 padding-bottom: 5%;">Date :</td>
-                <td style=" border: none"></td>
-                <td style="width :15% ; font-weight: bold;
+                    <td style=" border: none"></td>
+                    <td style="width :15% ; font-weight: bold;
                     padding-top: 1%; padding-bottom: 5%;">Heure :</td>
-                <td style="width :30% ;  border: none ; font-weight: bold;    padding-top: 1%;
+                    <td style="width :30% ;  border: none ; font-weight: bold;    padding-top: 1%;
                 padding-bottom: 5%;">Signature :</td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="conduite">
-        <tbody>
-            <tr>
-                <td style=" border: none; width: 18%; text-align: right;font-weight: bold;
+                </tr>
+            </tbody>
+        </table>
+        <table class="conduite first">
+            <tbody>
+                <tr>
+                    <td style=" border: none; width: 18%; text-align: right;font-weight: bold;
                     padding-top: 1%;
                     padding-bottom: 5%;">Date :</td>
-                <td style=" border: none"></td>
-                <td style="width :15% ; font-weight: bold;    padding-top: 1%;
+                    <td style=" border: none"></td>
+                    <td style="width :15% ; font-weight: bold;    padding-top: 1%;
                 padding-bottom: 5%;">Heure :</td>
-                <td style="width :30% ;  border: none; font-weight: bold;    padding-top: 1%;
+                    <td style="width :30% ;  border: none; font-weight: bold;    padding-top: 1%;
                 padding-bottom: 5%;">Signature :</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-<br>
-<p style="text-align: center" >Nom des Intervenans : </p>
-<app-print-intervenants></app-print-intervenants>
-<div class="tableRight" style="margin-top: 21.6%;">
-    <p style="text-align: center" >Nature de l'intervention :</p>
-     
-    <app-imprimer-intervention></app-imprimer-intervention>
+    <br>
+    <p style="text-align: center">Nom des Intervenans : </p>
+    <app-print-intervenants></app-print-intervenants>
+    <div class="tableRight" style="margin-top: 21.6%;">
+        <p style="text-align: center">Nature de l'intervention :</p>
 
-</div>
+        <app-imprimer-intervention></app-imprimer-intervention>
+
+    </div>
+    <br>
+    <p>test</p>
+    <app-imprimer-sousequipement></app-imprimer-sousequipement>
+
 </div>

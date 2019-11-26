@@ -7,6 +7,8 @@ import { ClassImprimerequipement } from './class-imprimerequipement';
 import { PrintserviceService } from 'src/app/services/printservice.service';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
+import { ConsignationService } from 'src/app/services/consignation.service';
+import { ClassImprimerconsignation } from './class-imprimerconsignation';
 
 @Component({
   selector: 'app-invoice',
@@ -21,22 +23,30 @@ export class InvoiceComponent implements OnInit {
   invoiceIds: string[];
   
   constructor(route: ActivatedRoute,private demandeurser: ServicedemandeurService,private datePipe: DatePipe, private equipemetser : ServiceequipementService,
-    private printService: PrintserviceService , private data: DataService,
+    private printService: PrintserviceService , private data: DataService, public consignationser : ConsignationService
     ) {
     this.test = this.datePipe.transform(this.myDate, 'dd/ MM/ yyyy h:mm');
     this.invoiceIds = ['123','123'];
   }
   equipement : ClassImprimerequipement;
   demandeur : ClassImprimerdem;
+  consignation : ClassImprimerconsignation;
   iddemandeur;
+  numerobc;
   idequipment;
   nomDemandeur;
   installation;
   secteur;
   typeConsignation;
   Service_demandeur;
+  idconsignation;
   invoiceDetails: Promise<any>[];
   ngOnInit() {
+    this.data.currentidconsignation.subscribe(id => {
+      console.log('ID: ', id);
+      this.idconsignation = id;
+    })
+
     this.data.currentidequipment.subscribe(id => {
       console.log('ID: ', id);
       this.idequipment = id;
@@ -45,6 +55,14 @@ export class InvoiceComponent implements OnInit {
       console.log('ID: ', id);
       this.iddemandeur = id;
     }) 
+    this.consignationser.Getconsignationforprint( this.idconsignation).subscribe(res => {
+      
+      this.consignation = res;
+      console.log(this.consignation);
+      console.log(this.consignation);
+      this.numerobc = this.consignation[0].numeroBc;
+
+    });
     this.demandeurser.GetDemandeur(this.iddemandeur).subscribe(res => {
       this.demandeur = res;
       this.nomDemandeur = this.demandeur[0].nomcomplet;
