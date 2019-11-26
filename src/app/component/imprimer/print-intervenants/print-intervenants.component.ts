@@ -29,7 +29,6 @@ export class PrintIntervenantsComponent implements OnInit {
       this.dataSource = new MatTableDataSource(res);
       console.log(res);
     });
-    
   }
 
 

@@ -64,6 +64,7 @@ import { ImprimerComponent } from './component/imprimer/imprimer.component';
 import { PrintLayoutComponent } from './component/imprimer/print-layout/print-layout.component';
 import { InvoiceComponent } from './component/imprimer/invoice/invoice.component';
 import { PrintIntervenantsComponent } from './component/imprimer/print-intervenants/print-intervenants.component';
+import { ImprimerInterventionComponent } from './component/imprimer/imprimer-intervention/imprimer-intervention.component';
 
 
 
@@ -121,7 +122,8 @@ import { PrintIntervenantsComponent } from './component/imprimer/print-intervena
     ImprimerComponent,
     PrintLayoutComponent,
     InvoiceComponent,
-    PrintIntervenantsComponent
+    PrintIntervenantsComponent,
+    ImprimerInterventionComponent
 
 
   ],
