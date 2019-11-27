@@ -1,41 +1,53 @@
 <br>
-<p>tache example</p>
+<p style = "font-weight: bold;">Tache : {{natureintervention}} </p>
 
-<table mat-table [dataSource]="dataSource" matSort style=" border: 1px solid black; width: 190%;" >
-
+<table mat-table [dataSource]="dataSource" matSort style=" border: 1px solid black; width: 130%;" >
     <ng-container matColumnDef="numero">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header placeholder="numero"> N° </th>
-        <td mat-cell *matCellDef="let element"> {{element.numero}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header placeholder="numero" style="border : none;  border-left: 1px solid #000;
+        border-right: 1px solid #000; width: 3%; "> N°</th>
+        <td mat-cell *matCellDef="let element" style="border : none;  border-left: 1px solid #000;
+        border-right: 1px solid #000; "> {{element.numero}} </td>
     </ng-container>
     <!-- code hac Column -->
     <ng-container matColumnDef="codeHAC">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> HAC </th>
-        <td mat-cell *matCellDef="let element"> {{element.codeHac}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header style="border : none;  border-left: 1px solid #000;
+        border-right: 1px solid #000; padding-left: 1%;">Code HAC </th>
+        <td mat-cell *matCellDef="let element" style="border : none;  border-left: 1px solid #000;
+        border-right: 1px solid #000; padding-left: 1%;"> {{element.codeHac}} </td>
     </ng-container>
     <!-- description Column -->
     <ng-container matColumnDef="nomequipement">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> Nom </th>
-        <td mat-cell *matCellDef="let element"> {{element.nomequipement}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header style="border : none;  border-left: 1px solid #000;
+        border-right: 1px solid #000; padding-left: 1%;"> Equipement consigné </th>
+        <td mat-cell *matCellDef="let element"  style="border : none;  border-left: 1px solid #000;
+        border-right: 1px solid #000; padding-left: 1%;"> {{element.nomequipement}} </td>
     </ng-container>
     <!-- description Column -->
     <ng-container matColumnDef="emplacement">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> Emplacement </th>
-        <td mat-cell *matCellDef="let element"> {{element.emplacement}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header style="border : none;  border-left: 1px solid #000;
+        border-right: 1px solid #000; padding-left: 1%;"> Emplacement </th>
+        <td mat-cell *matCellDef="let element" style="border : none;  border-left: 1px solid #000;
+        border-right: 1px solid #000; padding-left: 1%;"> {{element.emplacement}} </td>
     </ng-container>
     <!-- description Column -->
     <ng-container matColumnDef="typeenergie">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> Type energie </th>
-        <td mat-cell *matCellDef="let element"> {{element.typeEnergie}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header style="border : none;  border-left: 1px solid #000;
+        border-right: 1px solid #000; padding-left: 1%;"> Type d'énergie à consigner</th>
+        <td mat-cell *matCellDef="let element"  style="border : none;  border-left: 1px solid #000;
+        border-right: 1px solid #000; padding-left: 1%;"> {{element.typeEnergie}} </td>
     </ng-container>
     <!-- description Column -->
     <ng-container matColumnDef="lieu">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> Lieu </th>
-        <td mat-cell *matCellDef="let element"> {{element.lieu}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header style="border : none;  border-left: 1px solid #000;
+        border-right: 1px solid #000; padding-left: 1%;"> Lieu de consignation</th>
+        <td mat-cell *matCellDef="let element"  style="border : none;  border-left: 1px solid #000;
+        border-right: 1px solid #000; padding-left: 1%;"> {{element.lieu}} </td>
     </ng-container>
-
     <ng-container matColumnDef="remarque">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> Remarque </th>
-        <td mat-cell *matCellDef="let element"> {{element.remarque}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header style="border : none;  border-left: 1px solid #000;
+        border-right: 1px solid #000; padding-left: 1%; width: 30%;"> Remarques </th>
+        <td mat-cell *matCellDef="let element"  style="border : none;  border-left: 1px solid #000;
+        border-right: 1px solid #000; padding-left: 1%;"> {{element.remarque}} </td>
     </ng-container>
     <!-- action Column delete -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

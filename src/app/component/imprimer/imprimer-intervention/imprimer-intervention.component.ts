@@ -25,7 +25,7 @@ export class ImprimerInterventionComponent implements OnInit {
       
       this.consignation = res;
       console.log(this.consignation);
-      this.natureintervention = this.consignation[0].intervention;
+      this.natureintervention = this.consignation[0].desription;
 
     });
   }
