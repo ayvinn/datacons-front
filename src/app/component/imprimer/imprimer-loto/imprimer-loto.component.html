@@ -131,13 +131,13 @@
                     au service exploitation
                     ou l'arrêt à distance les equipements au service expolitation ou l'arrêt localement .</td>
         </tr>
-        <tr>
+        <tr *ngFor="let item of lototes">
             <td style="border : none;  border-left: 1px solid rgb(145, 104, 104);
-                            border-right: 1px solid #000;padding: 0.5%;">4</td>
+                            border-right: 1px solid #000;padding: 0.5%;">{{item.numero}}</td>
             <td style="border : none;  border-left: 1px solid #000;
-            border-right: 1px solid #000;padding: 1%;">Isolation</td>
+            border-right: 1px solid #000;padding: 1%;">{{item.description}}</td>
             <td style="border : none;  border-left: 1px solid #000;
-            border-right: 1px solid #000;padding: 1%;"></td>
+            border-right: 1px solid #000;padding: 1%;">{{item.details}}</td>
         </tr>
 
         <tr>

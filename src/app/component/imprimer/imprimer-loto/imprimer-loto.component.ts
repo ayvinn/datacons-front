@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { ServicelototoService } from 'src/app/services/servicelototo.service';
 import { MatTableDataSource } from '@angular/material';
+import { Lototo } from 'src/app/models/lototo.model';
 
 @Component({
   selector: 'app-imprimer-loto',
@@ -12,7 +13,7 @@ export class ImprimerLotoComponent implements OnInit {
 
   idEquipement: number;
   dataSource;
-
+  lototes : Lototo[];
   constructor(private lototoser: ServicelototoService, private data1: DataService) { }
 
   ngOnInit() {
@@ -22,8 +23,8 @@ export class ImprimerLotoComponent implements OnInit {
     })
     console.log('idequipment :', this.idEquipement);
     this.lototoser.GetTodoItems(this.idEquipement).subscribe(res => {
-      console.log(res);
-      this.dataSource = new MatTableDataSource(res);
+      this.lototes = res;
+      console.log(this.lototes);
     });
 
   }
