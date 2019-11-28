@@ -3,4 +3,5 @@ export class ClassImprimerconsignation {
     Intervention : number;
     NumeroBc : number;
     description :string;
+    datesaisir:Date;
 }

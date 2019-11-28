@@ -1,97 +1,6 @@
 <br>
 <p style="font-weight: bold;">LOTOTO : </p>
 
-<!-- <table mat-table [dataSource]="dataSource" matSort style=" border: 1px solid black; width: 130%;">
-    <ng-container matColumnDef="numero">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header placeholder="numero" style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000; width: 3%; "> N°</th>
-        <td style="border : none;  border-left: 1px solid rgb(145, 104, 104);
-        border-right: 1px solid #000;">1</td>
-        <td style="border : none;  border-left: 1px solid #000;
-                border-right: 1px solid #000;">2</td>
-        <td mat-cell style="border : none;  border-left: 1px solid #000;
-                        border-right: 1px solid #000;">3</td>
-        <td mat-cell *matCellDef="let element" style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000; "> {{element.numero}} </td>
-        <td style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000;">5</td>
-        <td style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000;">6</td>
-        <td style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000;">7</td>
-        <td style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000;">8</td>
-        <td style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000;">9</td>
-
-    </ng-container>
-    <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000; padding-left: 1%;">Elément </th>
-        <td style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000;">Préparer</td>
-        <td mat-cell style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000;">Notifier</td>
-        <td mat-cell style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000;">Couper / Arrêter</td>
-
-        <td mat-cell *matCellDef="let element" style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000; padding-left: 1%;"> {{element.description}} </td>
-
-        <td mat-cell style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000;">Cadenasser</td>
-        <td mat-cell style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000;">Etat Zéro Energie</td>
-        <td mat-cell style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000;">Try out / Essai</td>
-        <td mat-cell style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000;">Effectuer la tâche</td>
-        <td mat-cell style="border : none;  border-left: 1px solid #000;
-         border-right: 1px solid #000;">Inspection et restauration</td>
-    </ng-container>
-    <ng-container matColumnDef="details">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000; padding-left: 1%; width: 80%;"> Description</th>
-        <td style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000;">Le contrôleur de consignation doit: Préparer avec son equipe le bon travail
-            spécifique à lopération,
-            refaire lanalyse des risques.</td>
-        <td style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000;">Le contrôleur de consignation doit: Aviser que tous les équipements sont
-            consignées / conseiller de rester à l'écart
-            / Donner des instructions pour ne pas redémarrer les équipements consignées.</td>
-        <td style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000;">Le contrôleur de consignation doit : Demander l'arrêt à distance des équipements
-            au service exploitation
-            ou l'arrêt à distance les equipements au service expolitation ou l'arrêt localement .</td>
-        <td mat-cell *matCellDef="let element" style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000; padding-left: 1%;"> {{element.details}} </td>
-        <td style="border : none;  border-left: 1px solid #000;
-                border-right: 1px solid #000;">Respecter le principe : une source d'energie, une personne, un cadenas(à
-            clé unique)
-            . Le contrôleur de consignation est le premier à mettre son cadenas et le dernier à lenlever.</td>
-        <td style="border : none;  border-left: 1px solid #000;
-                border-right: 1px solid #000;">Le contrôleur de consignation et son équipe doivent : Vérifier létat
-            zéro énergie</td>
-        <td style="border : none;  border-left: 1px solid #000;
-                 border-right: 1px solid #000;">Le contrôleur de consignation doit : Tester le redémarrage de
-            léquipement en mode local.</td>
-        <td style="border : none;  border-left: 1px solid #000;
-            border-right: 1px solid #000;">Le contrôleur de consignation et son équipe doivent : Effectuer la tâche en
-            respectant les procédures ,les modes opératoires et les règlessécurité usine
-        </td>
-        <td style="border : none;  border-left: 1px solid #000;
-        border-right: 1px solid #000;">Le contrôleur de consignation et son équipe doivent : Inspecter le chantier
-            avant, pendant et après l'exécution de la tâche /Rendre les équipement disponible Après fin chantier /
-            remettre toutes les protections /Attention à ne pas oublier de retirer le systèmes de blocage mécaniques.
-        </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table> -->
-
-
-
 <table style=" border: 1px solid black; width: 100%;">
     <tr >
         <th style="border : none;  border-left: 1px solid #000;
@@ -189,3 +98,8 @@
         </tr>
     </tbody>
 </table>
+<br>
+<br>
+
+
+<app-signature></app-signature>

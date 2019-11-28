@@ -67,6 +67,7 @@ import { PrintIntervenantsComponent } from './component/imprimer/print-intervena
 import { ImprimerInterventionComponent } from './component/imprimer/imprimer-intervention/imprimer-intervention.component';
 import { ImprimerSousequipementComponent } from './component/imprimer/imprimer-sousequipement/imprimer-sousequipement.component';
 import { ImprimerLotoComponent } from './component/imprimer/imprimer-loto/imprimer-loto.component';
+import { SignatureComponent } from './component/imprimer/signature/signature.component';
 
 
 
@@ -127,7 +128,8 @@ import { ImprimerLotoComponent } from './component/imprimer/imprimer-loto/imprim
     PrintIntervenantsComponent,
     ImprimerInterventionComponent,
     ImprimerSousequipementComponent,
-    ImprimerLotoComponent
+    ImprimerLotoComponent,
+    SignatureComponent
 
 
   ],
