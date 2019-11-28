@@ -66,6 +66,7 @@ import { InvoiceComponent } from './component/imprimer/invoice/invoice.component
 import { PrintIntervenantsComponent } from './component/imprimer/print-intervenants/print-intervenants.component';
 import { ImprimerInterventionComponent } from './component/imprimer/imprimer-intervention/imprimer-intervention.component';
 import { ImprimerSousequipementComponent } from './component/imprimer/imprimer-sousequipement/imprimer-sousequipement.component';
+import { ImprimerLotoComponent } from './component/imprimer/imprimer-loto/imprimer-loto.component';
 
 
 
@@ -125,7 +126,8 @@ import { ImprimerSousequipementComponent } from './component/imprimer/imprimer-s
     InvoiceComponent,
     PrintIntervenantsComponent,
     ImprimerInterventionComponent,
-    ImprimerSousequipementComponent
+    ImprimerSousequipementComponent,
+    ImprimerLotoComponent
 
 
   ],

@@ -45,7 +45,7 @@ export class ImprimerSousequipementComponent implements OnInit {
 
   }
 
-  displayedColumns: string[] = ['numero','nomequipement','codeHAC','emplacement','typeenergie','lieu','remarque'];
+  displayedColumns: string[] = ['numero','nomequipement','codeHAC','typeenergie','lieu','emplacement','remarque'];
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
