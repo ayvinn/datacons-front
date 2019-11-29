@@ -2,10 +2,6 @@
 
 
 
-
-    <div class="text-center ">Nombre d'equipements a validé : {{totalCount}}</div>   
-
-
 <mat-form-field style="width: 100%;">
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
@@ -15,7 +11,7 @@
             <div class="row">
                 <div class="col-md-10">
                     <h4 class="card-title">Equipement</h4>
-                    <p class="card-category"> Liste des equipements</p>
+                    <p class="card-category">Nombre d'equipements a validé : {{totalCount}}</p>
                 </div>
             </div>
             

@@ -49,7 +49,7 @@ export class AuthComponent implements OnInit {
             
         }else
         {
-          this.message = "Login et Password incorrect !";
+          this.message = "Login ou Mot de passe incorrect !";
         }
      });
     } 

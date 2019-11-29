@@ -10,21 +10,18 @@ import { NotificationComponent } from '../component/notification/notification.co
 import { AuthComponent } from '../component/auth/auth.component';
 import { TemplateDataConsingnationComponent } from '../component/template-data-consingnation/template-data-consingnation.component';
 import { TemplateComponent } from '../component/template/template.component';
-import { DashboardComponent } from '../component/dashboard/dashboard.component';
 import { AuthServiceGuard } from '../guard/auth-service.guard';
 import { AddConsignationComponent } from '../component/consignation/add-consignation/add-consignation.component';
 import { ConsignationComponent } from '../component/consignation/consignation.component';
 import { HistoriqueComponent } from '../component/historique/historique.component';
+import { PrintLayoutComponent } from '../component/imprimer/print-layout/print-layout.component';
+import { InvoiceComponent } from '../component/imprimer/invoice/invoice.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'consignation', pathMatch: 'full' },
   { path: 'login', component: AuthComponent },
   { path: "consignation/login", component: AuthComponent },
-  /* 
-  { path: 'consignation', component: DashboardComponent },
-  { path: 'addconsignation', component: TemplateDataConsingnationComponent },
-  */
   {
     path: 'consignation', component: TemplateDataConsingnationComponent,
     children: [
@@ -36,7 +33,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'admin', component: TemplateComponent, canActivate: [AuthServiceGuard],pathMatch: 'prefix',
+    path: 'admin', component: TemplateComponent, canActivate: [AuthServiceGuard], pathMatch: 'prefix',
     children: [
       { path: "", component: DemandeurComponent, outlet: 'template' },
       { path: "categorie", component: CategorieComponent, outlet: 'template' },
@@ -50,7 +47,12 @@ const routes: Routes = [
   },
   { path: "ajouterequipement", component: AddequipementComponent, outlet: 'template' },
 
-  { path: '**', redirectTo: 'consignation', pathMatch: 'full' }
+  { path: '**', redirectTo: 'consignation', pathMatch: 'full' },
+  { path: 'print', outlet: 'print', component: PrintLayoutComponent,
+    children: [
+      { path: 'invoice', component: InvoiceComponent }
+    ]
+  }
 ];
 
 @NgModule({

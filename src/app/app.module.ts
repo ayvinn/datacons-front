@@ -59,6 +59,16 @@ import { UpdateintervenantsconsComponent } from './component/consignation/add-co
 import { SousequipementnotificationComponent } from './component/notification/sousequipementnotification/sousequipementnotification.component';
 import { UpdatesousequipementnotificationComponent } from './component/notification/sousequipementnotification/updatesousequipementnotification/updatesousequipementnotification.component';
 import { HistoriqueComponent } from './component/historique/historique.component';
+import { EssaieComponent } from './component/consignation/essaie/essaie.component';
+import { DeconsignationComponent } from './component/consignation/deconsignation/deconsignation.component';
+import { ImprimerComponent } from './component/imprimer/imprimer.component';
+import { PrintLayoutComponent } from './component/imprimer/print-layout/print-layout.component';
+import { InvoiceComponent } from './component/imprimer/invoice/invoice.component';
+import { PrintIntervenantsComponent } from './component/imprimer/print-intervenants/print-intervenants.component';
+import { ImprimerInterventionComponent } from './component/imprimer/imprimer-intervention/imprimer-intervention.component';
+import { ImprimerSousequipementComponent } from './component/imprimer/imprimer-sousequipement/imprimer-sousequipement.component';
+import { ImprimerLotoComponent } from './component/imprimer/imprimer-loto/imprimer-loto.component';
+import { SignatureComponent } from './component/imprimer/signature/signature.component';
 
 
 
@@ -111,9 +121,17 @@ import { HistoriqueComponent } from './component/historique/historique.component
     SousequipementnotificationComponent,
     UpdatesousequipementnotificationComponent,
     UpdateintervenantsconsComponent,
-    HistoriqueComponent
-
-
+    HistoriqueComponent,
+    EssaieComponent,
+    DeconsignationComponent,
+    ImprimerComponent,
+    PrintLayoutComponent,
+    InvoiceComponent,
+    PrintIntervenantsComponent,
+    ImprimerInterventionComponent,
+    ImprimerSousequipementComponent,
+    ImprimerLotoComponent,
+    SignatureComponent
   ],
   imports: [
     BrowserModule,
@@ -151,7 +169,8 @@ import { HistoriqueComponent } from './component/historique/historique.component
     AddequipementComponent,
     UpdateequipementComponent, SousequipementComponent, AddlototoComponent, AddsousequipementComponent, AddinterventionComponent, InterventionComponent,
     AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent,AddintervenantsconsComponent,ResponsablesComponent,AddintervenantsconsComponent,UpdateintervenantsconsComponent, UpdatesousequipementnotificationComponent,
-    UpdateintervenantsconsComponent
+    UpdateintervenantsconsComponent, EssaieComponent,
+    DeconsignationComponent
   ],
   providers: [AuthServiceGuard],
   bootstrap: [AppComponent],
@@ -166,7 +185,8 @@ import { HistoriqueComponent } from './component/historique/historique.component
 
     AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent,
     AddConsignationComponent,ResponsablesComponent,AddintervenantsconsComponent,UpdateintervenantsconsComponent, UpdatesousequipementnotificationComponent,
-    UpdateintervenantsconsComponent],
+    UpdateintervenantsconsComponent, EssaieComponent,
+    DeconsignationComponent],
 
 })
 export class AppModule { }

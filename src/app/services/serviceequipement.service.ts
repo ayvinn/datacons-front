@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Equipment } from '../models/equipment.model';
+import { ClassImprimerequipement } from '../component/imprimer/invoice/class-imprimerequipement';
 
 @Injectable({
   providedIn: 'root'
@@ -41,12 +42,19 @@ export class ServiceequipementService {
     return this.http.put(`${this.url}/${id}`, data);
   }
   PostLogin(id){
-    return this.http.post(this.url+"/select/",id);
+    console.log(id);
+    return this.http.get(this.url+"/select/"+id);
+  }
+  PostLoginDroit(id){
+    console.log(id);
+    return this.http.get(this.url+"/selectDroit/"+id);
   }
   deleteService(id){
     return this.http.delete(this.url+"/"+id);
   }
-
+  GetEquipement(id){
+    return this.http.get<ClassImprimerequipement>(this.url+"/"+id);
+  }
 }
 
 

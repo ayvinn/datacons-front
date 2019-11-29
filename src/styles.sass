@@ -26,3 +26,21 @@ i.icon-red
   .test
   display: inline-block
     height: auto
+
+
+
+@media print
+  .isPrinting
+    > *
+      display: none
+    app-print-layout
+      display: block
+  body
+     display: table     
+      
+
+.modal-full .modal-dialog
+  width: 90%
+
+
+

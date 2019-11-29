@@ -78,7 +78,7 @@ export class AddequipementComponent implements OnInit {
         }
       )
     }
-    this.ngOnInit();
+
   }
 
   test() {

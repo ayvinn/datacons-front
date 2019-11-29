@@ -17,8 +17,6 @@ export class ServiceintervenantService {
 
   GetIntervenants(): Observable<Intervenants[]>{
     return this.http.get<Intervenants[]>(this.url);
-
-    
   }
   GetTodoItems(idconsignation){
     return this.http.get<Intervenants[]>(this.url+"/bycons/"+idconsignation);

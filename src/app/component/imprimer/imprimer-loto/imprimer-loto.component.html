@@ -1,0 +1,105 @@
+<br>
+<p style="font-weight: bold;">LOTOTO : </p>
+
+<table style=" border: 1px solid black; width: 100%;">
+    <tr >
+        <th style="border : none;  border-left: 1px solid #000;
+        border-right: 1px solid #000;">N°</th>
+        <th style="border : none;  border-left: 1px solid #000;
+        border-right: 1px solid #000;padding: 1%;">Element</th>
+        <th style="border : none;  border-left: 1px solid #000;
+        border-right: 1px solid #000;padding: 1%;">Description</th>
+    </tr>
+    <tbody>
+        <tr style="padding: 1%;">
+            <td style="border : none;  border-left: 1px solid rgb(145, 104, 104);
+                border-right: 1px solid #000;padding: 0.5%;text-align: center;">1</td>
+            <td style="border : none;  border-left: 1px solid #000;
+            border-right: 1px solid #000;padding: 1%;">Préparer</td>
+            <td style="padding: 1%;">Le contrôleur de consignation doit: Préparer avec son equipe le bon travail
+                    spécifique à lopération,
+                    refaire lanalyse des risques.</td>
+        </tr>
+        <tr>
+            <td style="border : none;  border-left: 1px solid rgb(145, 104, 104);
+                    border-right: 1px solid #000;padding: 0.5%;">2</td>
+            <td style="border : none;  border-left: 1px solid #000;
+            border-right: 1px solid #000;padding: 1%;">Notifier</td>
+            <td style="border : none;  border-left: 1px solid #000;
+            border-right: 1px solid #000;padding: 1%;">Le contrôleur de consignation doit: Aviser que tous les équipements sont
+                    consignées / conseiller de rester à l'écart
+                    / Donner des instructions pour ne pas redémarrer les équipements consignées.</td>
+        </tr>
+        <tr>
+            <td style="border : none;  border-left: 1px solid rgb(145, 104, 104);
+                        border-right: 1px solid #000;padding: 0.5%;">3</td>
+            <td style="border : none;  border-left: 1px solid #000;
+            border-right: 1px solid #000;padding: 1%;">Couper/ Arrêter</td>
+            <td style="border : none;  border-left: 1px solid #000;
+            border-right: 1px solid #000;padding: 1%;">Le contrôleur de consignation doit : Demander l'arrêt à distance des équipements
+                    au service exploitation
+                    ou l'arrêt à distance les equipements au service expolitation ou l'arrêt localement .</td>
+        </tr>
+        <tr *ngFor="let item of lototes">
+            <td style="border : none;  border-left: 1px solid rgb(145, 104, 104);
+                            border-right: 1px solid #000;padding: 0.5%;">{{item.numero}}</td>
+            <td style="border : none;  border-left: 1px solid #000;
+            border-right: 1px solid #000;padding: 1%;">{{item.description}}</td>
+            <td style="border : none;  border-left: 1px solid #000;
+            border-right: 1px solid #000;padding: 1%;">{{item.details}}</td>
+        </tr>
+
+        <tr>
+            <td style="border : none;  border-left: 1px solid rgb(145, 104, 104);
+                                border-right: 1px solid #000;padding: 0.5%;">5</td>
+            <td style="border : none;  border-left: 1px solid #000;
+            border-right: 1px solid #000;padding: 1%;">Cadenasser</td>
+            <td style="border : none;  border-left: 1px solid #000;
+            border-right: 1px solid #000;padding: 1%;">Respecter le principe : une source d'energie, une personne, un cadenas(à
+                    clé unique)
+                    . Le contrôleur de consignation est le premier à mettre son cadenas et le dernier à lenlever.</td>
+        </tr>
+        <tr>
+            <td style="border : none;  border-left: 1px solid rgb(145, 104, 104);
+                                    border-right: 1px solid #000;padding: 0.5%;">6</td>
+            <td style="border : none;  border-left: 1px solid #000;
+            border-right: 1px solid #000;padding: 1%;">Etat Zéro Energier</td>
+            <td style="border : none;  border-left: 1px solid #000;
+            border-right: 1px solid #000;padding: 1%;">Le contrôleur de consignation et son équipe doivent : Vérifier létat
+                    zéro énergie</td>
+        </tr>
+        <tr>
+            <td style="border : none;  border-left: 1px solid rgb(145, 104, 104);
+                                        border-right: 1px solid #000;padding: 0.5%;">7</td>
+            <td style="border : none;  border-left: 1px solid #000;
+            border-right: 1px solid #000;padding: 1%;">Try out/Essai</td>
+            <td style="border : none;  border-left: 1px solid #000;
+            border-right: 1px solid #000;padding: 1%;">Le contrôleur de consignation doit : Tester le redémarrage de
+                    léquipement en mode local.</td>
+        </tr>
+        <tr>
+            <td style="border : none;  border-left: 1px solid rgb(145, 104, 104);
+                                            border-right: 1px solid #000;padding: 0.5%;">8</td>
+            <td style="border : none;  border-left: 1px solid #000;
+            border-right: 1px solid #000;padding: 1%;">Effectuer la tâche</td>
+            <td style="border : none;  border-left: 1px solid #000;
+            border-right: 1px solid #000;padding: 1%;">Le contrôleur de consignation et son équipe doivent : Effectuer la tâche en
+                    respectant les procédures ,les modes opératoires et les règles sécurité usine</td>
+        </tr>
+        <tr>
+            <td style="border : none;  border-left: 1px solid rgb(145, 104, 104);
+                                                border-right: 1px solid #000;padding: 0.3%;">9</td>
+            <td style="border : none;  border-left: 1px solid #000;
+            border-right: 1px solid #000;padding: 1%;">Inspection et restauration</td>
+            <td style="border : none;  border-left: 1px solid #000;
+            border-right: 1px solid #000;padding: 1%; padding-bottom: 3;">Le contrôleur de consignation et son équipe doivent : Inspecter le chantier
+                    avant, pendant et après l'exécution de la tâche /Rendre les équipement disponible Après fin chantier /
+                    remettre toutes les protections /Attention à ne pas oublier de retirer le systèmes de blocage mécaniques.</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<br>
+
+
+<app-signature></app-signature>

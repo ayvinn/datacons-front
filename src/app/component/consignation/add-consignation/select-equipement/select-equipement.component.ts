@@ -13,6 +13,7 @@ import { AddConsignationComponent } from '../add-consignation.component';
 export class SelectEquipementComponent implements OnInit {
   @Input() stepper: MatStepper;
   dataSource;
+  consignation;
   IDEquipement;
   public ss: AddConsignationComponent;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -31,6 +32,7 @@ export class SelectEquipementComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
+    this.dataService.allDataConsignation.subscribe(res => this.consignation = res);
   }
 
   delete(id) {
@@ -49,14 +51,12 @@ export class SelectEquipementComponent implements OnInit {
   }
 
   getRecord(row): void {
+    
+    console.log(row);
     this.equipementser.PostLogin(row.id).subscribe(
       data => {
         if (data) {
-          this.dataService.changeSelectedIDEquip(row.id);
-          this.dataService.changeConsignation({ IDEquipment: row.id });
-          
-          this.stepper.next();
-          this.toastr.success('Opération reussie');
+          this.checkDemandeurDroit(this.consignation.idDemandeur);
         } else {
           this.toastr.warning('Cette Installation est en régime essaie');
         }
@@ -66,4 +66,25 @@ export class SelectEquipementComponent implements OnInit {
       }
     );
   }
+  checkDemandeurDroit(id): void {
+    console.log(id);
+
+    this.equipementser.PostLoginDroit(id).subscribe(
+      data => {
+        if (data) {
+          this.dataService.changeSelectedIDEquip(id);
+          this.dataService.changeConsignation({ IDEquipment: id });
+          
+          this.stepper.next();
+          this.toastr.success('Opération reussie');
+        } else {
+          this.toastr.warning("Vous n'etes pas autorise de faire une consignation multiple");
+        }
+      },
+      (error) => {
+        this.toastr.error('Opération échoué  ', 'error server');
+      }
+    );
+  }
+
 }

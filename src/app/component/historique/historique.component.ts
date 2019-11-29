@@ -96,4 +96,7 @@ export class HistoriqueComponent implements OnInit, AfterViewInit {
     }
   }
 
+  refresh() {
+    this.dataSource.data = this.oldDataSource;
+  }
 }
