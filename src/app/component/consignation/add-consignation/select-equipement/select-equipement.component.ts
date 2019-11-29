@@ -56,6 +56,7 @@ export class SelectEquipementComponent implements OnInit {
     this.equipementser.PostLogin(row.id).subscribe(
       data => {
         if (data) {
+          this.dataService.changeConsignation({ IDEquipment: row.id });
           this.checkDemandeurDroit(this.consignation.idDemandeur);
         } else {
           this.toastr.warning('Cette Installation est en régime essaie');
@@ -73,7 +74,6 @@ export class SelectEquipementComponent implements OnInit {
       data => {
         if (data) {
           this.dataService.changeSelectedIDEquip(id);
-          this.dataService.changeConsignation({ IDEquipment: id });
           
           this.stepper.next();
           this.toastr.success('Opération reussie');
