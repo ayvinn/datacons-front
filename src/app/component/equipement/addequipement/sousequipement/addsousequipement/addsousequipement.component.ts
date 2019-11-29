@@ -15,6 +15,7 @@ export class AddsousequipementComponent implements OnInit {
   message: string;
   idEquipement: number;
   form: FormGroup;
+  numero;
   sousequipements: SousEquipment[];
   dataSource;
   constructor(public dialogRef: MatDialogRef<AddsousequipementComponent>,
@@ -36,6 +37,7 @@ export class AddsousequipementComponent implements OnInit {
       numero:null
 
     }
+    this.numero = 0;
     this.form = this._formBuilder.group({
 
       CodeHAC: ['', Validators.required],
@@ -58,12 +60,18 @@ export class AddsousequipementComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
-  submit(form, formName:string) {
-  
+  test;
+  submit(form, formName:string) {  
+    this.data1.currentnumero.subscribe(id => {
+      this.test = id;
+    }) 
+    this.test=this.test+1;
+    console.log(this.test)
+    this.data1.changenumero(this.test);
     const values = {id:0, CodeHAC: this.form.value.CodeHAC,Nomequipement: this.form.value.Nomequipement,
       Emplacement: this.form.value.Emplacement,TypeEnergie: this.form.value.TypeEnergie,
       IDequipement: this.idEquipement , Lieu: this.form.value.Lieu,
-      numero: this.form.value.numero, etat :true,Remarque: this.form.value.Remarque,
+      numero: this.test, etat :true,Remarque: this.form.value.Remarque,
     };
     console.log('Submit: ', form.valid );
     if(!form.valid) {
@@ -81,8 +89,7 @@ export class AddsousequipementComponent implements OnInit {
         }
       )
     }
-    
-    this.ngOnInit();
+
     this.dialogRef.close();
 
   }
