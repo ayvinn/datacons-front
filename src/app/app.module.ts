@@ -41,7 +41,6 @@ import { ConsignationComponent } from './component/consignation/consignation.com
 import { AddConsignationComponent } from './component/consignation/add-consignation/add-consignation.component';
 import { LoginComponent } from './component/consignation/add-consignation/login/login.component';
 import { LototoComponent } from './component/equipement/addequipement/lototo/lototo.component'
-import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { NotificationComponent } from './component/notification/notification.component';
@@ -53,9 +52,7 @@ import { AddSousequipementConsignationComponent } from './component/consignation
 import { ResponsablesComponent } from './component/consignation/add-consignation/responsables/responsables.component';
 import { IntervenantsconsComponent } from './component/consignation/add-consignation/intervenantscons/intervenantscons.component';
 import { AddintervenantsconsComponent } from './component/consignation/add-consignation/intervenantscons/addintervenantscons/addintervenantscons.component';
-
 import { UpdateintervenantsconsComponent } from './component/consignation/add-consignation/intervenantscons/updateintervenantscons/updateintervenantscons.component';
-
 import { SousequipementnotificationComponent } from './component/notification/sousequipementnotification/sousequipementnotification.component';
 import { UpdatesousequipementnotificationComponent } from './component/notification/sousequipementnotification/updatesousequipementnotification/updatesousequipementnotification.component';
 import { EssaieComponent } from './component/consignation/essaie/essaie.component';
@@ -68,6 +65,9 @@ import { ImprimerInterventionComponent } from './component/imprimer/imprimer-int
 import { ImprimerSousequipementComponent } from './component/imprimer/imprimer-sousequipement/imprimer-sousequipement.component';
 import { ImprimerLotoComponent } from './component/imprimer/imprimer-loto/imprimer-loto.component';
 import { SignatureComponent } from './component/imprimer/signature/signature.component';
+import { PassationComponent } from './component/passation/passation.component';
+import { Demandeur1Component } from './component/passation/demandeur1/demandeur1.component';
+import { Demandeur2Component } from './component/passation/demandeur2/demandeur2.component';
 
 
 
@@ -129,7 +129,10 @@ import { SignatureComponent } from './component/imprimer/signature/signature.com
     ImprimerInterventionComponent,
     ImprimerSousequipementComponent,
     ImprimerLotoComponent,
-    SignatureComponent
+    SignatureComponent,
+    PassationComponent,
+    Demandeur1Component,
+    Demandeur2Component
 
 
   ],
@@ -185,7 +188,7 @@ import { SignatureComponent } from './component/imprimer/signature/signature.com
 
     AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent,
     AddConsignationComponent,ResponsablesComponent,AddintervenantsconsComponent,UpdateintervenantsconsComponent, UpdatesousequipementnotificationComponent,
-    UpdateintervenantsconsComponent, EssaieComponent,
+    UpdateintervenantsconsComponent, EssaieComponent,PassationComponent,
     DeconsignationComponent],
 
 })

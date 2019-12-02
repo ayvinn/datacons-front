@@ -7,7 +7,6 @@ import { scan } from 'rxjs/operators';
 })
 export class DataService {
 
-  
   private messageSource = new BehaviorSubject<number>(-1);
   currentMessage = this.messageSource.asObservable();
 
@@ -29,8 +28,12 @@ export class DataService {
   private demandeur = new BehaviorSubject<any>([]);
   currentDemandeur = this.demandeur.asObservable();
 
+  private demandeur2 = new BehaviorSubject<any>([]);
+  currentDemandeur2 = this.demandeur2.asObservable();
+
   private selectedIDEquip = new BehaviorSubject<number>(-1);
   currentSelectedIDEquip = this.selectedIDEquip.asObservable();
+
   private consignation = new BehaviorSubject<any>([]); 
   currentConsignation = this.consignation.asObservable();
 
@@ -66,6 +69,11 @@ export class DataService {
   changeDemandeur(data) {
     console.log('Demandeur: ', data);
     this.demandeur.next(data);
+  }
+
+  changeDemandeur2(data) {
+    console.log('Demandeur: ', data);
+    this.demandeur2.next(data);
   }
 
   changeSelectedIDEquip(data) {

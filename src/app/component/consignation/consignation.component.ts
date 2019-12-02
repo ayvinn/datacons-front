@@ -6,6 +6,7 @@ import { DeconsignationComponent } from './deconsignation/deconsignation.compone
 import { PrintserviceService } from 'src/app/services/printservice.service';
 import { Consignation } from 'src/app/models/consignation.model';
 import { DataService } from 'src/app/services/data.service';
+import { PassationComponent } from '../passation/passation.component';
 
 @Component({
   selector: 'app-consignation',
@@ -48,6 +49,19 @@ export class ConsignationComponent implements OnInit, AfterViewInit {
   }
   openDialog(elt): void {
     const dialogRef = this.dialog.open(EssaieComponent, {
+      width: '900px',
+      autoFocus: false,
+      maxHeight: '90vh', //you can adjust the value as per your view
+      data: elt
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+      this.ngOnInit();
+    });
+  }
+  openDialogPassation(elt): void {
+    const dialogRef = this.dialog.open(PassationComponent, {
       width: '900px',
       autoFocus: false,
       maxHeight: '90vh', //you can adjust the value as per your view
