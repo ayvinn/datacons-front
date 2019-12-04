@@ -85,7 +85,7 @@
                 class="btn btn-outline-info btn-sm" (click)="openDialogPassation(element)">Passation</button>
               <button (click)="openDialog(element)"
                 [ngClass]="[element.essaie ? 'btn btn-success': 'btn btn-outline-success']" mat-raised-button
-                class="mr-2 btn-sm">Essaie</button>
+                class="mr-2 btn-sm">IsoSep</button>
             </td>
           </ng-container>
 
@@ -96,9 +96,5 @@
       </div>
     </div>
   </div>
-
-
-
-
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>

@@ -16,11 +16,31 @@ export class PrintserviceService {
       }}]);
   }
 
+  
+  printDocument2(documentName: string, documentData: string[]) {
+    this.isPrinting = true;
+    this.router.navigate(['/',
+      { outlets: {
+        'print2': ['print2', documentName]
+      }}]);
+  }
+
   onDataReady() {
     setTimeout(() => {
       window.print();
       this.isPrinting = false;
       this.router.navigate([{ outlets: { print: null }}]);
+    });
+  }
+
+  onDataReady2() {
+    setTimeout(() => {
+      window.print();
+      if(confirm("Voulez vous recommençer l'impression ? ")) {
+        window.print();
+      }
+      this.isPrinting = false;
+      this.router.navigate([{ outlets: { print2: null }}]);
     });
   }
 

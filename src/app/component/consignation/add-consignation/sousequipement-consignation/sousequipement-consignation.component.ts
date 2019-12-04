@@ -16,6 +16,7 @@ export class SousequipementConsignationComponent implements OnInit {
   sousequipement = new SousEquipment;
   sousequipements: SousEquipment[];
   IDEquipement: number;
+  totalCount;
   dataSource;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -34,10 +35,9 @@ export class SousequipementConsignationComponent implements OnInit {
           this.dataSource = new MatTableDataSource(res);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
-        });
+       });
       }
     });
-    
 
   }
 
@@ -57,6 +57,15 @@ export class SousequipementConsignationComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  datasourceupdate(){
+    this.sousequipementser.GetTodoItems(this.IDEquipement).pipe(take(1)).toPromise().then(res => {
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      });
+
+
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddSousequipementConsignationComponent, {
@@ -64,13 +73,8 @@ export class SousequipementConsignationComponent implements OnInit {
       data : {idE : this.IDEquipement}
     });
     dialogRef.afterClosed().subscribe(result => {
-       this.sousequipementser.GetTodoItems(this.IDEquipement).pipe(take(1)).toPromise().then(res => {
-        this.dataSource = new MatTableDataSource(res);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-      });
+       this.datasourceupdate();
     });
-
 
   }
 

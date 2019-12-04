@@ -51,7 +51,6 @@ export class SelectEquipementComponent implements OnInit {
   }
 
   getRecord(row): void {
-    
     console.log(row);
     this.equipementser.PostLogin(row.id).subscribe(
       data => {
@@ -74,7 +73,6 @@ export class SelectEquipementComponent implements OnInit {
       data => {
         if (data) {
           this.dataService.changeSelectedIDEquip(id);
-          
           this.stepper.next();
           this.toastr.success('Opération reussie');
         } else {

@@ -68,6 +68,9 @@ import { SignatureComponent } from './component/imprimer/signature/signature.com
 import { PassationComponent } from './component/passation/passation.component';
 import { Demandeur1Component } from './component/passation/demandeur1/demandeur1.component';
 import { Demandeur2Component } from './component/passation/demandeur2/demandeur2.component';
+import { ImprimerdeconsignationComponent } from './component/imprimerdeconsignation/imprimerdeconsignation.component';
+import { Printlayout2Component } from './component/imprimerdeconsignation/printlayout2/printlayout2.component';
+import { Invoice2Component } from './component/imprimerdeconsignation/invoice2/invoice2.component';
 
 
 
@@ -132,7 +135,10 @@ import { Demandeur2Component } from './component/passation/demandeur2/demandeur2
     SignatureComponent,
     PassationComponent,
     Demandeur1Component,
-    Demandeur2Component
+    Demandeur2Component,
+    ImprimerdeconsignationComponent,
+    Printlayout2Component,
+    Invoice2Component
 
 
   ],

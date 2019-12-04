@@ -74,6 +74,9 @@ export class ConsignationComponent implements OnInit, AfterViewInit {
     });
   }
   openDialog1deconsignation(elt): void {
+    this.data.changeImprimerequipement(elt.idequipment);
+    this.data.changeImprimerconsignation(elt.id);
+    this.data.changeImprimerdemandeur(elt.iddemandeur);
     const dialogRef = this.dialog.open(
       DeconsignationComponent, {
       width: '900px',

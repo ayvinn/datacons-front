@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ServicedemandeurService } from 'src/app/services/servicedemandeur.service';
-import { ClassImprimerdem } from './class-imprimerdem';
 import { DatePipe } from '@angular/common';
 import { ServiceequipementService } from 'src/app/services/serviceequipement.service';
-import { ClassImprimerequipement } from './class-imprimerequipement';
 import { PrintserviceService } from 'src/app/services/printservice.service';
-import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { ConsignationService } from 'src/app/services/consignation.service';
-import { ClassImprimerconsignation } from './class-imprimerconsignation';
+import { ClassImprimerequipement } from '../../imprimer/invoice/class-imprimerequipement';
+import { ClassImprimerdem } from '../../imprimer/invoice/class-imprimerdem';
+import { ClassImprimerconsignation } from '../../imprimer/invoice/class-imprimerconsignation';
 
 @Component({
-  selector: 'app-invoice',
-  templateUrl: './invoice.component.html',
-  styleUrls: ['./invoice.component.sass'],
+  selector: 'app-invoice2',
+  templateUrl: './invoice2.component.html',
+  styleUrls: ['./invoice2.component.sass'],
   providers: [DatePipe]
 })
+export class Invoice2Component implements OnInit {
 
-export class InvoiceComponent implements OnInit {
   myDate = new Date();
   test : string;
   invoiceIds: string[];
@@ -79,7 +79,7 @@ export class InvoiceComponent implements OnInit {
       this.invoiceDetails = this.invoiceIds
       .map(id => this.getInvoiceDetails(id));
     Promise.all(this.invoiceDetails)
-      .then(() => this.printService.onDataReady());
+      .then(() => this.printService.onDataReady2());
   }
 
   getInvoiceDetails(invoiceId) {
@@ -87,5 +87,5 @@ export class InvoiceComponent implements OnInit {
     return new Promise(resolve =>
       setTimeout(() => resolve({amount}), 1000)
     );
-  } 
+  }
 }

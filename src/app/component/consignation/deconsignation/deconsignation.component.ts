@@ -11,6 +11,7 @@ import { MatStepper, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DataService } from 'src/app/services/data.service';
 import { ConsignationService } from 'src/app/services/consignation.service';
 import { DialogData } from '../../service/sevice.component';
+import { PrintserviceService } from 'src/app/services/printservice.service';
 
 @Component({
   selector: 'app-deconsignation',
@@ -33,6 +34,7 @@ export class DeconsignationComponent implements OnInit {
   filteredDemandeurs: Observable<Demandeur[]>;
   constructor(public dialogRef: MatDialogRef<DeconsignationComponent>, private _DemandeurService: ServicedemandeurService,
     private formBuilder: FormBuilder,
+    public printService: PrintserviceService,
     private toastr: ToastrService,
     private dataService: DataService,
     private consignationService: ConsignationService, @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
@@ -98,6 +100,9 @@ export class DeconsignationComponent implements OnInit {
           this.checkDemandeurDroit(data.id);
           this.role = data != null ? data.nomcomplet : null;
           this.toastr.success('Opération reussie  ', data.nomcomplet, { timeOut: 500 });
+          const invoiceIds = ["1", "2"];
+          this.printService
+            .printDocument2('invoice2', invoiceIds);
           this.ngOnInit();
         } else {
           this.toastr.error('Opération échoué  ', 'mot de passe incorrecte', { timeOut: 1500 });

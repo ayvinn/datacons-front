@@ -15,6 +15,8 @@ import { AddConsignationComponent } from '../component/consignation/add-consigna
 import { ConsignationComponent } from '../component/consignation/consignation.component';
 import { PrintLayoutComponent } from '../component/imprimer/print-layout/print-layout.component';
 import { InvoiceComponent } from '../component/imprimer/invoice/invoice.component';
+import { Printlayout2Component } from '../component/imprimerdeconsignation/printlayout2/printlayout2.component';
+import { Invoice2Component } from '../component/imprimerdeconsignation/invoice2/invoice2.component';
 
 
 const routes: Routes = [
@@ -50,9 +52,13 @@ const routes: Routes = [
     children: [
       { path: 'invoice', component: InvoiceComponent }
     ]
+  },
+  { path: 'print2', outlet: 'print2', component: Printlayout2Component,
+  children: [
+    { path: 'invoice2', component: Invoice2Component }
+  ]
   }
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
