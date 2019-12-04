@@ -3,9 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SousEquipment } from 'src/app/models/sous-equipment.model';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ServicesousequipementService } from 'src/app/services/servicesousequipement.service';
-import { DataService } from 'src/app/services/data.service';
-import { SousequipementConsignationComponent } from '../sousequipement-consignation.component';
-import { DialogData } from 'src/app/component/service/sevice.component';
+
 
 @Component({
   selector: 'app-add-sousequipement-consignation',
@@ -17,14 +15,12 @@ export class AddSousequipementConsignationComponent implements OnInit {
   form: FormGroup;
   sousequipements: SousEquipment[];
   dataSource;
-  constructor(public dialogRef: MatDialogRef<SousequipementConsignationComponent>,@Inject(MAT_DIALOG_DATA) public data: any, private dataService: DataService, private sousequipement: ServicesousequipementService,private data1: DataService, private _formBuilder: FormBuilder,) { }
+  constructor(public dialogRef: MatDialogRef<AddSousequipementConsignationComponent>,@Inject(MAT_DIALOG_DATA) public data: any, private sousequipement: ServicesousequipementService, private _formBuilder: FormBuilder,) { }
 
   ngOnInit() {
-    this.dataService.allDataConsignation.subscribe(async res => {
-      // console.log('Current:add -sous equipement', res);
-      this.idEquipement = res['IDEquipment'];
-      // console.log("this id " + this.idEquipement);
-    });
+
+
+
     this.sousequipement.sousequipement = {
       id: 0,
       CodeHAC: null,
@@ -45,16 +41,11 @@ export class AddSousequipementConsignationComponent implements OnInit {
       Emplacement: ['', Validators.required],
       TypeEnergie: ['', Validators.required],
       Lieu:[''],
-      IDequipement:[''],
       Remarque:[''],
       etat:[''],
       numero:['']
     });
-    
-    this.data1.currentMessage.subscribe(id => {
-      console.log('ID: ', id);
-      this.idEquipement = id;
-    }) 
+
   }
   get f() { return this.form.controls; }
   onNoClick(): void {
