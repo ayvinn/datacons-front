@@ -2,12 +2,22 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ConsignationService } from 'src/app/services/consignation.service';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { FormControl } from '@angular/forms';
+import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import * as moment from 'moment';
 
 @Component({
   selector: 'app-historique',
   templateUrl: './historique.component.html',
-  styleUrls: ['./historique.component.sass']
+  styleUrls: ['./historique.component.sass'],
+  providers: [
+    // `MomentDateAdapter` and `MAT_MOMENT_DATE_FORMATS` can be automatically provided by importing
+    // `MatMomentDateModule` in your applications root module. We provide it at the component level
+    // here, due to limitations of our example generation script.
+    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
+    { provide: MAT_DATE_LOCALE, useValue: 'fr-FR' }
+  ],
 })
 export class HistoriqueComponent implements OnInit, AfterViewInit {
 
@@ -31,6 +41,7 @@ export class HistoriqueComponent implements OnInit, AfterViewInit {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.oldDataSource = this.dataSource.data;
       this.data = <any[]>this.dataSource.data;
       console.log('Get Consignation: ', res);
       console.log('Date Consignation: ', this.dateEntree);
@@ -42,13 +53,13 @@ export class HistoriqueComponent implements OnInit, AfterViewInit {
     this.ds = moment(this.dateSortie.value).format('YYYY-MM-DD') + 'T00:00:00';
   }
 
-  applyFilter(filterValue: string) {
+  /*applyFilter(filterValue: string) {
     // console.log('Filter Value: ', filterValue);
     this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
+  }*/
 
   onChange(term, event) {
-    // console.log('Date: ', term.value);
+    // console.log('Date: ', term);
     if (event === 'dateEntree') {
       this.de = this.validateDate(term);
       console.log('De: ', new Date(this.de) + ' ' + this.de);
