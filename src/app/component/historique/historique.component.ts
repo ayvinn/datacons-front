@@ -95,13 +95,14 @@ export class HistoriqueComponent implements OnInit, AfterViewInit {
   }
 
   filtrer() {
-    console.log('DataSource: ', this.dataSource.data);
+    // console.log('De: ', this.de);
+    // console.log('Ds: ', this.ds);
     if (this.de && this.ds) {
       if (this.de > this.ds) {
         console.log(this.de);
         alert('La date d\'entree doit être supérieure à la date de sortie');
       } else {
-        const filter = this.data.filter(x => x.date >= this.de && x.date <= this.ds);
+        const filter = this.data.filter(x => x.datesaisir >= this.de && x.datesaisir <= this.ds);
         this.dataSource.data = filter;
       }
     }
