@@ -55,6 +55,7 @@ import { AddintervenantsconsComponent } from './component/consignation/add-consi
 import { UpdateintervenantsconsComponent } from './component/consignation/add-consignation/intervenantscons/updateintervenantscons/updateintervenantscons.component';
 import { SousequipementnotificationComponent } from './component/notification/sousequipementnotification/sousequipementnotification.component';
 import { UpdatesousequipementnotificationComponent } from './component/notification/sousequipementnotification/updatesousequipementnotification/updatesousequipementnotification.component';
+import { HistoriqueComponent } from './component/historique/historique.component';
 import { EssaieComponent } from './component/consignation/essaie/essaie.component';
 import { DeconsignationComponent } from './component/consignation/deconsignation/deconsignation.component';
 import { ImprimerComponent } from './component/imprimer/imprimer.component';
@@ -123,6 +124,7 @@ import { Invoice2Component } from './component/imprimerdeconsignation/invoice2/i
     SousequipementnotificationComponent,
     UpdatesousequipementnotificationComponent,
     UpdateintervenantsconsComponent,
+    HistoriqueComponent,
     EssaieComponent,
     DeconsignationComponent,
     ImprimerComponent,
@@ -135,13 +137,13 @@ import { Invoice2Component } from './component/imprimerdeconsignation/invoice2/i
     SignatureComponent,
     PassationComponent,
     Demandeur1Component,
+
     Demandeur2Component,
     ImprimerdeconsignationComponent,
     Printlayout2Component,
     Invoice2Component
-
-
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

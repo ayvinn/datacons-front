@@ -13,6 +13,7 @@ import { TemplateComponent } from '../component/template/template.component';
 import { AuthServiceGuard } from '../guard/auth-service.guard';
 import { AddConsignationComponent } from '../component/consignation/add-consignation/add-consignation.component';
 import { ConsignationComponent } from '../component/consignation/consignation.component';
+import { HistoriqueComponent } from '../component/historique/historique.component';
 import { PrintLayoutComponent } from '../component/imprimer/print-layout/print-layout.component';
 import { InvoiceComponent } from '../component/imprimer/invoice/invoice.component';
 import { Printlayout2Component } from '../component/imprimerdeconsignation/printlayout2/printlayout2.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
       { path: "dashboard", component: ConsignationComponent, outlet: 'templateConsignation' },
       { path: "addconsignation", component: AddConsignationComponent, outlet: 'templateConsignation' },
       { path: "statistiaque", component: AddConsignationComponent, outlet: 'templateConsignation' },
+      { path: "historique", component: HistoriqueComponent, outlet: 'templateConsignation' },
     ]
   },
   {
