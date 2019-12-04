@@ -25,7 +25,7 @@ export class Invoice2Component implements OnInit {
   constructor(route: ActivatedRoute,private demandeurser: ServicedemandeurService,private datePipe: DatePipe, private equipemetser : ServiceequipementService,
     private printService: PrintserviceService , private data: DataService, public consignationser : ConsignationService
     ) {
-    this.test = this.datePipe.transform(this.myDate, 'dd/ MM/ yyyy h:mm');
+      this.test = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
     this.invoiceIds = ['123','123'];
   }
   equipement : ClassImprimerequipement;
@@ -62,7 +62,7 @@ export class Invoice2Component implements OnInit {
       console.log(this.consignation);
       this.numerobc = this.consignation[0].numeroBc;
       this.date = this.consignation[0].datesaisir;
-      this.date = this.datePipe.transform(this.date, 'dd/ MM/ yyyy h:mm');
+      this.date = this.test;
     });
     this.demandeurser.GetDemandeur(this.iddemandeur).subscribe(res => {
       this.demandeur = res;
