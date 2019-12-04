@@ -5,9 +5,11 @@
     DashBoard
 </button>-->
 <div class="text-center">
-  <button type="button" class="btn btn-success btn-lg btn-round" [routerLink]="['consignation']"><i class="fa fa-file-text"
-      style="font-size:22px;padding: 1%;" aria-hidden="true"></i> Consignation en cours : {{totalCount}} </button>
-  <button type="button" class="btn btn-warning btn-lg btn-round" style="margin: 3%;"><i class="fa fa-history"
+  <button type="button" class="btn btn-success btn-lg btn-round" [routerLink]="['consignation']"><i
+      class="fa fa-file-text" style="font-size:22px;padding: 1%;" aria-hidden="true"></i> Consignation en cours :
+    {{totalCount}} </button>
+  <button type="button" class="btn btn-warning btn-lg btn-round"
+    [routerLink]="[{outlets: {templateConsignation: ['historique']}}]" style="margin: 3%;"><i class="fa fa-history"
       style="font-size:23px;padding: 1%;" aria-hidden="true"></i> Historique </button>
   <button type="button" class="btn btn-info btn-lg btn-round" style="width: 26%;"
     [routerLink]="[{outlets: {templateConsignation: ['addconsignation']}}]"> <i class="fa fa-pencil"

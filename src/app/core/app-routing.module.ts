@@ -48,7 +48,7 @@ const routes: Routes = [
     ]
   },
   { path: "ajouterequipement", component: AddequipementComponent, outlet: 'template' },
-
+  { path: "historique", component: HistoriqueComponent, outlet: 'template' },
   { path: '**', redirectTo: 'consignation', pathMatch: 'full' },
   { path: 'print', outlet: 'print', component: PrintLayoutComponent,
     children: [
