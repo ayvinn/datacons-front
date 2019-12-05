@@ -61,6 +61,7 @@ export class Invoice2Component implements OnInit {
       this.consignation = res;
       console.log(this.consignation);
       this.numerobc = this.consignation[0].numeroBc;
+      console.log(this.numerobc);
       this.date = this.consignation[0].datesaisir;
       this.date = this.test;
     });

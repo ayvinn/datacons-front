@@ -14,4 +14,5 @@ export class Printlayout2Component implements OnInit {
 
   ngOnInit() {
   }
+
 }
