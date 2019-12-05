@@ -9,7 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { ConsignationService } from 'src/app/services/consignation.service';
 import { ClassImprimerconsignation } from './class-imprimerconsignation';
-
+import { ServiceimageService } from 'src/app/services/serviceimage.service';
+import { constantURL } from 'src/app/shared/constantURL';
 @Component({
   selector: 'app-invoice',
   templateUrl: './invoice.component.html',
@@ -23,7 +24,7 @@ export class InvoiceComponent implements OnInit {
   invoiceIds: string[];
   
   constructor(route: ActivatedRoute,private demandeurser: ServicedemandeurService,private datePipe: DatePipe, private equipemetser : ServiceequipementService,
-    private printService: PrintserviceService , private data: DataService, public consignationser : ConsignationService
+    private printService: PrintserviceService ,private imageService: ServiceimageService, private data: DataService, public consignationser : ConsignationService
     ) {
     this.test = this.datePipe.transform(this.myDate, 'dd/ MM/ yyyy h:mm');
     this.invoiceIds = ['123','123'];
@@ -33,6 +34,7 @@ export class InvoiceComponent implements OnInit {
   consignation : ClassImprimerconsignation;
   iddemandeur;
   numerobc;
+  images;
   idequipment;
   nomDemandeur;
   installation;
@@ -56,6 +58,17 @@ export class InvoiceComponent implements OnInit {
       console.log('ID: ', id);
       this.iddemandeur = id;
     }) 
+
+    this.imageService.GetImagemodification(this.idequipment).subscribe(res => {
+      console.log(this.idequipment)
+      console.log(res.length);
+      this.images = res;
+      /*this.files[0].name = res[0].lien.slice(7, res[0].lien.length - 5);
+      this.files[0].type = res[0].lien.slice(res[0].lien.length - 4, res[0].lien.length);*/
+      // console.log('Name: ', res[0].lien.slice(7, res[0].lien.length - 5));
+      // console.log('Type: ', res[0].lien.slice(res[0].lien.length - 4, res[0].lien.length));
+    })
+
     this.consignationser.Getconsignationforprint( this.idconsignation).subscribe(res => {
       
       this.consignation = res;
@@ -80,6 +93,11 @@ export class InvoiceComponent implements OnInit {
       .map(id => this.getInvoiceDetails(id));
     Promise.all(this.invoiceDetails)
       .then(() => this.printService.onDataReady());
+  }
+  
+  createImage(url) {
+    
+    return `${constantURL.apiEndpoint}/${url}`;
   }
 
   getInvoiceDetails(invoiceId) {

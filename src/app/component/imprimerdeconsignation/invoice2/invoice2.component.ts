@@ -83,6 +83,7 @@ export class Invoice2Component implements OnInit {
       .then(() => this.printService.onDataReady2());
   }
 
+
   getInvoiceDetails(invoiceId) {
     const amount = Math.floor((Math.random() * 100));
     return new Promise(resolve =>

@@ -108,3 +108,7 @@
     <app-imprimer-sousequipement></app-imprimer-sousequipement>
 
 </div>
+
+<div class="invoice" >
+    <img *ngIf="images && images.length>0" style="height: auto;width: 200%;" [src]="createImage(images[0].lien)" alt="" />
+</div>
