@@ -83,8 +83,8 @@ export class SelectEquipementComponent implements OnInit {
       data => {
         console.log('Check Demandeur Droit: ', data)
         if (data) {
-          this.dataService.changeSelectedIDEquip(id);
-          if (this.countSousEquipement > 1 && this.demandeur.droit === 'ICV') {
+          // this.dataService.changeSelectedIDEquip(id);
+          if (this.countSousEquipement > 1 && this.demandeur.droit.toLowerCase() === 'ICV'.toLowerCase()) {
             this.toastr.warning("Vous n'etes pas autorise de faire une consignation multiple");
             // this.stepper.selectedIndex = 0;
           } else {
