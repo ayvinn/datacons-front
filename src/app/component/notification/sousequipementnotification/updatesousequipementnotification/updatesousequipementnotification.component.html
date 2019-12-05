@@ -36,8 +36,7 @@
                     <div class="col-md-8">
                         <div class="form-group">
                             <mat-form-field style="width: 100%;">
-                                <input matInput type="text" formControlName="Nomequipement"
-                                    placeholder="Nomequipement:" />
+                                <input matInput type="text" formControlName="Nomequipement" placeholder="Nomequipement:" />
                                 <mat-error *ngIf="f.Nomequipement.errors" class="invalid-feedback">
                                     <mat-error *ngIf="f.Nomequipement.errors.required"> Nomequipement</mat-error>
                                 </mat-error>
@@ -65,7 +64,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                    <!--       <mat-form-field style="width: 100%;">
+                            <!--       <mat-form-field style="width: 100%;">
                                 <input matInput type="text" formControlName="TypeEnergie" placeholder="TypeEnergie:" />
                                 <mat-error *ngIf="f.TypeEnergie.errors" class="invalid-feedback">
                                     <mat-error *ngIf="f.TypeEnergie.errors.required"> description</mat-error>
@@ -74,8 +73,8 @@
                             <mat-form-field style="width: 100%;">
                                 <mat-label>service :</mat-label>
                                 <select matNativeControl formControlName="TypeEnergie" [(value)]="this.data.element.typeEnergie" name="TypeEnergie">
-                                    <option value="Mechanique">
-                                        Mechanique
+                                    <option value="Mécanique">
+                                        Mécanique
                                     </option>
                                     <option value="Electrique">
                                         Electrique
@@ -90,7 +89,7 @@
                                         Pneumatique
                                     </option>
                                 </select>
-                            </mat-form-field>        
+                            </mat-form-field>
 
                         </div>
                     </div>
@@ -131,8 +130,7 @@
                     <div class="col-md-8">
                         <div class="form-group">
 
-                            <mat-button-toggle-group appearance="legacy" formControlName="etat" name="fontStyle"
-                                aria-label="Font Style" value="true">
+                            <mat-button-toggle-group appearance="legacy" formControlName="etat" name="fontStyle" aria-label="Font Style" value="true">
                                 <mat-button-toggle value="true" style="color: grey;">Activé</mat-button-toggle>
                                 <mat-button-toggle value="false" style="color: grey;">Désactiver </mat-button-toggle>
                             </mat-button-toggle-group>
@@ -142,7 +140,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div mat-dialog-actions class="float-right">
                     <button type="button" mat-button (click)="onNoClick()" class="btn btn-danger">Non Merci</button>
                     <button type="submit" mat-button cdkFocusInitial class="btn btn-info">Ok</button>
