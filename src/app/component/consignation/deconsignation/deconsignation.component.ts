@@ -6,12 +6,13 @@ import { Demandeur } from 'src/app/models/demandeur.model';
 import { ServicedemandeurService } from 'src/app/services/servicedemandeur.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { MatStepper, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatStepper, MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 
 import { DataService } from 'src/app/services/data.service';
 import { ConsignationService } from 'src/app/services/consignation.service';
 import { DialogData } from '../../service/sevice.component';
 import { PrintserviceService } from 'src/app/services/printservice.service';
+import { ConfirmprintComponent } from './confirmprint/confirmprint.component';
 
 @Component({
   selector: 'app-deconsignation',
@@ -34,6 +35,7 @@ export class DeconsignationComponent implements OnInit {
   filteredDemandeurs: Observable<Demandeur[]>;
   constructor(public dialogRef: MatDialogRef<DeconsignationComponent>, private _DemandeurService: ServicedemandeurService,
     private formBuilder: FormBuilder,
+    public dialog: MatDialog,
     public printService: PrintserviceService,
     private toastr: ToastrService,
     private dataService: DataService,
@@ -87,6 +89,20 @@ export class DeconsignationComponent implements OnInit {
     });
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ConfirmprintComponent, {
+      width: '800px',
+      autoFocus: false,
+      maxHeight: '90vh', //you can adjust the value as per your view
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      const invoiceIds = ["1", "2"];
+      this.printService
+        .printDocument2('invoice2', invoiceIds);
+      this.ngOnInit()
+    });
+  }
+
   verify(): void {
     this._DemandeurService.authLogin(this.demandeurForm.value).subscribe(
       data => {
@@ -100,10 +116,7 @@ export class DeconsignationComponent implements OnInit {
           this.checkDemandeurDroit(data.id);
           this.role = data != null ? data.nomcomplet : null;
           this.toastr.success('Opération reussie  ', data.nomcomplet, { timeOut: 500 });
-          const invoiceIds = ["1", "2"];
-          this.printService
-            .printDocument2('invoice2', invoiceIds);
-          this.ngOnInit();
+          this.openDialog();
         } else {
           this.toastr.error('Opération échoué  ', 'mot de passe incorrecte', { timeOut: 1500 });
         }
