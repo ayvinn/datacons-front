@@ -23,15 +23,14 @@ export class SousequipementConsignationComponent implements OnInit {
   constructor(private sousequipementser: ServicesousequipementService, public dialog: MatDialog, private dataService: DataService) { }
 
   async ngOnInit() {
-
+    this.dataService.currentCountSousEquipement.subscribe();
     this.dataService.allDataConsignation.subscribe(async res => {
-      // console.log('Current Consignation Intervention: ', res);
+      console.log('Current Consignation Intervention: ', res);
       this.IDEquipement = res['IDEquipment'];
-      console.log("voila :" + this.IDEquipement);
-      // console.log('ID Equipement Intervention: ', this.IDEquipement);
       if (this.IDEquipement) {
         await this.sousequipementser.GetTodoItems(this.IDEquipement).pipe(take(1)).toPromise().then(res => {
-          // console.log('Sous Equipement: ', res);
+          console.log('Sous Equipement: ', res);
+          this.dataService.changeCountSousEquipement(res.length);
           this.dataSource = new MatTableDataSource(res);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
