@@ -25,7 +25,7 @@ export class Invoice2Component implements OnInit {
   constructor(route: ActivatedRoute,private demandeurser: ServicedemandeurService,private datePipe: DatePipe, private equipemetser : ServiceequipementService,
     private printService: PrintserviceService , private data: DataService, public consignationser : ConsignationService
     ) {
-      this.test = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
+      this.test = this.datePipe.transform(this.myDate, 'yyyy-MM-dd hh:mm');
     this.invoiceIds = ['123','123'];
   }
   equipement : ClassImprimerequipement;
