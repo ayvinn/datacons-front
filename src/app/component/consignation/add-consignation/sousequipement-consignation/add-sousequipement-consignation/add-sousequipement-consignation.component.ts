@@ -57,19 +57,13 @@ export class AddSousequipementConsignationComponent implements OnInit {
     this.dialogRef.close();
   }
   totalCount;
-  datasourceupdate(){
+  datasourceupdate(form, formName: string){
     this.sousequipement.GetTodoItems(this.data.idE).subscribe(res => {
         this.dataSource = new MatTableDataSource(res);
-        this.totalCount = this.dataSource.data.length
-      });
-    
-    }
-
-  submit(form, formName: string) {
-
-    this.datasourceupdate();
-    this.test = this.totalCount + 1;
-    console.log(this.test)
+        this.totalCount = this.dataSource.data.length;
+        this.test = this.totalCount + 1;
+        console.log(this.totalCount);
+        console.log(this.test)
     this.data1.changenumero(this.test);
 
     const values = {
@@ -95,6 +89,15 @@ export class AddSousequipementConsignationComponent implements OnInit {
       )
     }
     this.dialogRef.close();
+      });
+    
+    }
+
+  submit(form, formName: string) {
+
+    this.datasourceupdate(form,formName);
+    
+    
   }
 
 
