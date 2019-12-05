@@ -54,10 +54,13 @@ export class LoginComponent implements OnInit {
      
     });
   }
+
   createFormControls() {
     this.demandeurControl = new FormControl('', Validators.required);
   }
+
   get f() { return this.demandeurForm.controls; }
+
   createForm() {
     this.demandeurForm = this.formBuilder.group({
       LoginDemandeur: this.demandeurControl,
@@ -75,6 +78,7 @@ export class LoginComponent implements OnInit {
     const filterValue = value != null ? value.toLowerCase() : "";
     return this.demandeurs.filter(e => e.nomcomplet.toLowerCase().includes(filterValue));
   }
+  
   getDemandeurs() {
     this._DemandeurService.getAllDemandeurs().subscribe((res: Demandeur[]) => {
       

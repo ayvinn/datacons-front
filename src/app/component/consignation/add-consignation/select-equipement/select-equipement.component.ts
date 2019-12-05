@@ -15,6 +15,8 @@ export class SelectEquipementComponent implements OnInit {
   dataSource;
   consignation;
   IDEquipement;
+  countSousEquipement;
+  demandeur;
   public ss: AddConsignationComponent;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -25,6 +27,14 @@ export class SelectEquipementComponent implements OnInit {
 
 
   ngOnInit() {
+    this.dataService.currentCountSousEquipement.subscribe(res => {
+      console.log('Count Sous Equipement: ', res);
+      this.countSousEquipement = res;
+    });
+    this.dataService.currentDemandeur.subscribe(res => {
+      console.log('Demandeur', res);
+      this.demandeur = res;
+    });
     this.dataService.currentConsignation.subscribe(/*res => console.log('Current Consignation: ', res)*/);
     this.dataService.currentSelectedIDEquip.subscribe(res => this.IDEquipement = res);
     this.equipementser.GetTodoItem().subscribe(res => {
@@ -54,6 +64,7 @@ export class SelectEquipementComponent implements OnInit {
     console.log(row);
     this.equipementser.PostLogin(row.id).subscribe(
       data => {
+        console.log('EquipeSer: ', data);
         if (data) {
           this.dataService.changeConsignation({ IDEquipment: row.id });
           this.checkDemandeurDroit(this.consignation.idDemandeur);
@@ -66,15 +77,20 @@ export class SelectEquipementComponent implements OnInit {
       }
     );
   }
-  checkDemandeurDroit(id): void {
-    console.log(id);
 
+  checkDemandeurDroit(id): void {
     this.equipementser.PostLoginDroit(id).subscribe(
       data => {
+        console.log('Check Demandeur Droit: ', data)
         if (data) {
           this.dataService.changeSelectedIDEquip(id);
-          this.stepper.next();
-          this.toastr.success('Opération reussie');
+          if (this.countSousEquipement > 1 && this.demandeur.droit === 'ICV') {
+            this.toastr.warning("Vous n'etes pas autorise de faire une consignation multiple");
+            // this.stepper.selectedIndex = 0;
+          } else {
+            this.stepper.next();
+            this.toastr.success('Opération reussie');
+          }
         } else {
           this.toastr.warning("Vous n'etes pas autorise de faire une consignation multiple");
         }

@@ -37,6 +37,9 @@ export class DataService {
   private consignation = new BehaviorSubject<any>([]); 
   currentConsignation = this.consignation.asObservable();
 
+  private countSousEquipement = new BehaviorSubject<number>(-1);
+  currentCountSousEquipement = this.countSousEquipement.asObservable();
+
 
   public allDataConsignation = this.consignation.pipe(
     scan((acc, curr) => Object.assign({}, acc, curr), {})
@@ -84,6 +87,10 @@ export class DataService {
   changeConsignation(data) {
     // console.log('Consignation: ', data);
     this.consignation.next(data);
+  }
+
+  changeCountSousEquipement(data) {
+    this.countSousEquipement.next(data);
   }
 
 }
