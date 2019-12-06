@@ -26,10 +26,11 @@
             <table class="conduite first">
                 <tbody>
                     <tr>
-                        <td style=" border: none; width: 60%; text-align: right;font-weight: bold;
+                        <td style="border: none; width: 60%; text-align: right;font-weight: bold;
                     padding-top: 1%;
     padding-bottom: 5.8%;font-size: 18px">Chargé de conduite/ Phase consignation :</td>
-                        <td style=" border: none"></td>
+                        <td style=" border: none;font-size: 18px;padding-top: 1%;
+                        padding-bottom: 5.8%;">{{chefpost}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -109,6 +110,5 @@
 
 </div>
 <br>
-<div class="invoice" >
+
     <img *ngIf="images && images.length>0" style="height: auto;width: 100%;" [src]="createImage(images[0].lien)" alt="" />
-</div>

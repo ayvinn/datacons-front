@@ -72,6 +72,7 @@ import { Demandeur2Component } from './component/passation/demandeur2/demandeur2
 import { ImprimerdeconsignationComponent } from './component/imprimerdeconsignation/imprimerdeconsignation.component';
 import { Printlayout2Component } from './component/imprimerdeconsignation/printlayout2/printlayout2.component';
 import { Invoice2Component } from './component/imprimerdeconsignation/invoice2/invoice2.component';
+import { ConfirmprintComponent } from './component/consignation/deconsignation/confirmprint/confirmprint.component';
 
 
 
@@ -141,7 +142,8 @@ import { Invoice2Component } from './component/imprimerdeconsignation/invoice2/i
     Demandeur2Component,
     ImprimerdeconsignationComponent,
     Printlayout2Component,
-    Invoice2Component
+    Invoice2Component,
+    ConfirmprintComponent
   ],
 
   imports: [
@@ -187,7 +189,7 @@ import { Invoice2Component } from './component/imprimerdeconsignation/invoice2/i
   bootstrap: [AppComponent],
   entryComponents: [SeviceComponent, AddServiceComponent, UpdateServiceComponent, CategorieComponent, AddcategorieComponent,
     UpdatecategorieComponent, SecteurComponent,
-    AddsecteurComponent, AuthComponent,
+    AddsecteurComponent, AuthComponent,ConfirmprintComponent,
     UpdatesecteurComponent, DemandeurComponent,
     AdddemandeurComponent,
     UpdatedemandeurComponent, EquipementComponent, AddSousequipementConsignationComponent,

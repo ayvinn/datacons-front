@@ -40,6 +40,7 @@ export class InvoiceComponent implements OnInit {
   installation;
   secteur;
   date;
+  chefpost;
   typeConsignation;
   Service_demandeur;
   idconsignation;
@@ -75,6 +76,7 @@ export class InvoiceComponent implements OnInit {
       console.log(this.consignation);
       this.numerobc = this.consignation[0].numeroBc;
       this.date = this.consignation[0].datesaisir;
+      this.chefpost = this.consignation[0].nomcomplet;
       this.date = this.datePipe.transform(this.date, 'dd/ MM/ yyyy h:mm');
     });
     this.demandeurser.GetDemandeur(this.iddemandeur).subscribe(res => {
