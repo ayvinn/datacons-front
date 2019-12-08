@@ -73,6 +73,7 @@ import { ImprimerdeconsignationComponent } from './component/imprimerdeconsignat
 import { Printlayout2Component } from './component/imprimerdeconsignation/printlayout2/printlayout2.component';
 import { Invoice2Component } from './component/imprimerdeconsignation/invoice2/invoice2.component';
 import { ConfirmprintComponent } from './component/consignation/deconsignation/confirmprint/confirmprint.component';
+import { PrintelectricienComponent } from './component/imprimer/printelectricien/printelectricien.component';
 
 
 
@@ -143,7 +144,8 @@ import { ConfirmprintComponent } from './component/consignation/deconsignation/c
     ImprimerdeconsignationComponent,
     Printlayout2Component,
     Invoice2Component,
-    ConfirmprintComponent
+    ConfirmprintComponent,
+    PrintelectricienComponent
   ],
 
   imports: [

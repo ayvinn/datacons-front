@@ -4,4 +4,7 @@ export class ClassImprimerconsignation {
     NumeroBc : number;
     description :string;
     datesaisir:Date;
+    Nomcomplet : string;
+    electricien :string;
+    mecanique :string;
 }
