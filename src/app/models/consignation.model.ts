@@ -10,7 +10,7 @@ export class Consignation {
     Essaie:string;
     IDdemandeur_chef_post:number;
     IDdemendeur_electricien:string;
-    ID_demedeur_mecanicien:number;
+    idDemendeurMecanicien:number;
     IDdemandeur:number;
     IDequipment:number;
     Intervention: string;

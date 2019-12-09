@@ -41,7 +41,7 @@
                                 <mat-label>Selectionner mécanicien</mat-label>
                                 <mat-select formControlName="idDemandeurMec">
                                     <mat-option *ngFor="let item of mecs" [value]="item.id"
-                                        (click)="change(item.id, 'idDemedeurMecanicien')">
+                                        (click)="change(item.id, 'idDemendeurMecanicien')">
                                         {{item.nomcomplet}}
                                     </mat-option>
                                 </mat-select>

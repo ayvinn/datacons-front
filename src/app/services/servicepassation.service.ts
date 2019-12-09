@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import * as _ from 'lodash';
 import { Passation } from '../models/passation.model';
+import { PrintPassation } from '../component/printpassation/print-passation';
 
 
 @Injectable({
@@ -22,7 +23,9 @@ export class ServicepassationService {
   postPassation(par) {
     return this.http.post(this.url, par);
   }
-
+  getPassation(id) {
+    return this.http.get<PrintPassation>(`${constantURL.apiEndpoint}/api/passations/nom/${id}`);
+  }
   put(id, data) {
     return this.http.put(`${this.url}/${id}`, data);
   }

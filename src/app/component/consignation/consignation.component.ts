@@ -55,12 +55,13 @@ export class ConsignationComponent implements OnInit, AfterViewInit {
       data: elt
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-
-      this.ngOnInit();
+      this.ngAfterViewInit();
     });
   }
   openDialogPassation(elt): void {
+    this.data.changeImprimerequipement(elt.idequipment);
+    this.data.changeImprimerconsignation(elt.id);
+    this.data.changeImprimerdemandeur(elt.iddemandeur);
     const dialogRef = this.dialog.open(PassationComponent, {
       width: '900px',
       autoFocus: false,
@@ -68,9 +69,7 @@ export class ConsignationComponent implements OnInit, AfterViewInit {
       data: elt
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-
-      this.ngOnInit();
+      this.ngAfterViewInit();
     });
   }
   openDialog1deconsignation(elt): void {

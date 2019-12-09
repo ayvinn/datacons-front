@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatStepper } from '@angular/material';
+import { Component, OnInit, Input, Inject } from '@angular/core';
+import { MatStepper, MAT_DIALOG_DATA } from '@angular/material';
 import { Demandeur } from 'src/app/models/demandeur.model';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -7,6 +7,7 @@ import { ServicedemandeurService } from 'src/app/services/servicedemandeur.servi
 import { ToastrService } from 'ngx-toastr';
 import { DataService } from 'src/app/services/data.service';
 import { startWith, map } from 'rxjs/operators';
+import { ConsignationService } from 'src/app/services/consignation.service';
 
 @Component({
   selector: 'app-demandeur1',
@@ -35,7 +36,10 @@ export class Demandeur1Component implements OnInit {
   constructor(private _DemandeurService: ServicedemandeurService, 
     private formBuilder: FormBuilder,
     private toastr: ToastrService, 
-    private dataService: DataService  ) { }
+    private dataService: DataService ,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private consignationService : ConsignationService
+    ) { }
 
   ngOnInit() {
     this.getData()
@@ -92,8 +96,8 @@ export class Demandeur1Component implements OnInit {
         if (data) {
           this.dataService.changeConsignation({idDemandeur: data.id});
           this.role = data != null ? data.nomcomplet : null;
-          this.toastr.success('Opération reussie  ', data.nomcomplet, {timeOut: 500});
-          this.stepper.next();
+          this.checkDemandeurDroit(data.id)
+
         } else {
           this.toastr.error('Opération échoué  ', 'mot de passe incorrecte', {timeOut: 1500});
           this.stepper.reset();
@@ -102,24 +106,26 @@ export class Demandeur1Component implements OnInit {
      
     );
   }
-
-  connecter(): void {
-    if (this.demandeurForm.invalid) {
-      return;
+  checkDemandeurDroit(iddem : number): void {
+        this.consignationService.authdemandeur(this.data['id'], iddem).subscribe(
+    
+          data => {
+            console.log(this.data['id'], iddem)
+            if (data) {
+              this.toastr.success('Opération reussie  ', '', {timeOut: 500});
+              this.stepper.next();
+            }
+            else {
+              this.toastr.warning("Vous n'etes pas autorisé à faire cette action");
+            }
+          },
+          (error) => {
+            this.toastr.error('Opération échoué  ', 'error server');
+          }
+        );
+      }
+    
     }
-    else {
-      this.verify();
-      this.delay(5000).then(any => {
-        if (this.role != null) {
-          this.returnUrl = '/' + this.role;
-          localStorage.setItem('isLoggedIn', "true");
-          localStorage.setItem('token', this.demandeurForm.controls['LoginDemandeur'].value);
-        }
-        else {
-          this.message = "Login et Password incorrect !";
-        }
-      });
-    }
-  }
+    
 
-}
+

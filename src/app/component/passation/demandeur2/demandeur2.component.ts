@@ -12,6 +12,8 @@ import { ServicepassationService } from 'src/app/services/servicepassation.servi
 import { Passation } from 'src/app/models/passation.model';
 import { Consignation } from 'src/app/models/consignation.model';
 import { DatePipe } from '@angular/common';
+import { ConsignationService } from 'src/app/services/consignation.service';
+import { PrintserviceService } from 'src/app/services/printservice.service';
 
 @Component({
   selector: 'app-demandeur2',
@@ -24,6 +26,7 @@ export class Demandeur2Component implements OnInit {
   myDate = new Date();
   demandeur;
   demandeurs: Demandeur[];
+  consignation : Consignation;
   demandeurControl: FormControl;
   demandeurForm: FormGroup;
   passation : Passation ={
@@ -47,7 +50,9 @@ export class Demandeur2Component implements OnInit {
     public dialogRef: MatDialogRef<Demandeur2Component>,
     private toastr: ToastrService, 
     private dataService: DataService ,
+    private consignationService : ConsignationService,
     public passationservice :ServicepassationService,
+    public printService: PrintserviceService,
     @Inject(MAT_DIALOG_DATA) public data1: DialogData
     ) { }
 
@@ -57,6 +62,24 @@ export class Demandeur2Component implements OnInit {
     this.createForm();
     this.dataService.currentDemandeur.subscribe(res => this.demandeur = res);
     this.dataService.allDataConsignation.subscribe();
+    this.consignation = {
+      id:0,
+      Description:"",
+      Datesaisir:new Date('2017-05-03'),
+      Datefin:new Date('2017-05-03'),
+      Duree:0,
+      Dureeheure:0,
+      Etat:"",
+      NumberoBC:0,
+      Essaie:"",
+      IDdemandeur_chef_post:0,
+      IDdemendeur_electricien:"",
+      idDemendeurMecanicien:0,
+      IDdemandeur:0,
+      IDequipment:0,
+      Intervention: ""
+
+    }
   }
   async delay(ms: number) {
     await new Promise(resolve => setTimeout(() => resolve(), ms));
@@ -112,10 +135,17 @@ export class Demandeur2Component implements OnInit {
           this.passationservice.postPassation(this.passation).subscribe(res => {
             console.log('Post Passsation: ', res);
                });
+               this.consignation.IDdemandeur =  data.id;
+               this.consignationService.putConsignationdem(this.data1['id'], this.consignation).subscribe(res => {
+                console.log('Update Etat: ', res);
+                this.toastr.success('Opération reussie  ', data.nomcomplet, {timeOut: 500});
+                const invoiceIds = ["1", "2"];
+                this.printService
+                  .printDocument3('invoice3', invoiceIds);
+              })
           console.log(this.passation);
-          this.toastr.success('Opération reussie  ', data.nomcomplet, {timeOut: 1500});
+          
           this.dialogRef.close();
-          this.stepper.next();
           
         } else {
           this.toastr.error('Opération échoué  ', 'Mot de passe incorrecte', {timeOut: 1500});

@@ -68,10 +68,13 @@ export class ResponsablesComponent implements OnInit {
       idDemandeur: this.consignation.idDemandeur,
       iddemandeurChefPost: this.consignation.iddemandeurChefPost,
       iddemendeurElectricien: this.consignation.iddemendeurElectricien,
+      idDemedeurMecanicien : this.consignation.idDemendeurMecanicien,
       intervention: this.consignation.intervention,
       essaie: false,
       etat: true
     }
+    console.log(data.idDemedeurMecanicien);
+    console.log(this.consignation.iddemendeurMecanicien);
     this.consignationService.addConsignation(data)
       .subscribe((res: any) => {
         console.log('Add Consignation: ', res);

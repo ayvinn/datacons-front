@@ -18,6 +18,8 @@ import { PrintLayoutComponent } from '../component/imprimer/print-layout/print-l
 import { InvoiceComponent } from '../component/imprimer/invoice/invoice.component';
 import { Printlayout2Component } from '../component/imprimerdeconsignation/printlayout2/printlayout2.component';
 import { Invoice2Component } from '../component/imprimerdeconsignation/invoice2/invoice2.component';
+import { Printlayout3Component } from '../component/printpassation/printlayout3/printlayout3.component';
+import { Invoice3Component } from '../component/printpassation/invoice3/invoice3.component';
 
 
 const routes: Routes = [
@@ -58,6 +60,11 @@ const routes: Routes = [
   { path: 'print2', outlet: 'print2', component: Printlayout2Component,
   children: [
     { path: 'invoice2', component: Invoice2Component }
+  ]
+  },
+  { path: 'print3', outlet: 'print3', component: Printlayout3Component,
+  children: [
+    { path: 'invoice3', component: Invoice3Component }
   ]
   }
 ];

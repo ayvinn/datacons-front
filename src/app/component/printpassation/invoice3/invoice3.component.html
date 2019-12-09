@@ -1,5 +1,5 @@
 <div class="test">
-    <div class="titre" style="font-size: 25px;">BON DE DECONSIGNATION N° {{numerobc}}</div>
+    <div class="titre" style="font-size: 25px;">BON DE PASSATION N° {{numerobc}}</div>
     <br>
 
 
@@ -60,7 +60,7 @@
     <br>
 
     <p style="font-weight: bold; color: black;">
-        Deconsignation : <br>
+        Consignation : <br>
         /- l'intervenant peut consigner en cas d'une seule consignation ICV<br>
         avec un seul intervenant (LafrageHolcim)<br>
         - L'électricien signe en cas de consignation sur module.
@@ -70,8 +70,7 @@
             <table class="demandeur .first">
                 <tbody>
                     <tr>
-                        <td style="font-weight: bold; color: black;font-size: 15px;">Signature Controleur de
-                            consignation /Chargé de conduite /Superviseur</td>
+                        <td style="font-weight: bold; color: black;font-size: 15px;">Signature Du demandeur 1 :</td>
 
                     </tr>
                 </tbody>
@@ -80,15 +79,32 @@
             <table class="demandeur .first" style="margin-top: 0.3%;">
                 <tbody>
                     <tr>
-                        <td style="font-weight: bold; color: black;padding: 8.5%;font-size: 15px;">{{date}}</td>
+                        <td style="font-weight: bold; color: black;padding: 8.5%;font-size: 15px;">{{Dem2}}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div class="col-xs-3 col-md-3" style="margin-left: 40px;font-size: 25px;">
-            <app-printelectricien></app-printelectricien>
+            
         </div>
-        <div class="col-xs-3 col-md-3" style="margin-left: 40px;">
-            <app-printmecanique></app-printmecanique>
-        </div>
+        
+            <div class="col-xs-3 col-md-3">
+                <table class="demandeur .first">
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: bold; color: black;font-size: 15px;">Signature Du demandeur 2 :</td>
+    
+                        </tr>
+                    </tbody>
+                </table>
+    
+                <table class="demandeur .first" style="margin-top: 0.3%;">
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: bold; color: black;padding: 8.5%;font-size: 15px;">{{Dem1}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+       
     </div>

@@ -8,6 +8,15 @@ export class PrintserviceService {
   isPrinting = false;
   constructor(private router: Router) { }
 
+  printDocument3(documentName: string, documentData: string[]) {
+    this.isPrinting = true;
+    this.router.navigate(['/',
+      { outlets: {
+        'print3': ['print3', documentName]
+      }}]);
+  }
+
+
   printDocument(documentName: string, documentData: string[]) {
     this.isPrinting = true;
     this.router.navigate(['/',
@@ -25,6 +34,8 @@ export class PrintserviceService {
       }}]);
   }
 
+
+
   onDataReady() {
     setTimeout(() => {
       window.print();
@@ -41,6 +52,14 @@ export class PrintserviceService {
       }
       this.isPrinting = false;
       this.router.navigate([{ outlets: { print2: null }}]);
+    });
+  }
+
+  onDataReady3() {
+    setTimeout(() => {
+      window.print();
+      this.isPrinting = false;
+      this.router.navigate([{ outlets: { print3: null }}]);
     });
   }
 

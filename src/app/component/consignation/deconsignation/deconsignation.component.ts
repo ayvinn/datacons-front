@@ -115,8 +115,8 @@ export class DeconsignationComponent implements OnInit {
           console.log("demand", data.id);
           this.checkDemandeurDroit(data.id);
           this.role = data != null ? data.nomcomplet : null;
-          this.toastr.success('Opération reussie  ', data.nomcomplet, { timeOut: 500 });
-          this.openDialog();
+          
+         
         } else {
           this.toastr.error('Opération échoué  ', 'mot de passe incorrecte', { timeOut: 1500 });
         }
@@ -155,12 +155,15 @@ console.log(this.data['id']);
           this.consignationService.deconsigner(this.data['id']).subscribe(res => {
             console.log('Update Etat: ', res);
             this.dialogRef.close();
-
+            this.toastr.success('Opération reussie ', 'Impression ...', {
+              timeOut: 500
+            });
+            this.openDialog();
 
           })
         }
         else {
-          this.toastr.warning("Vous n'etes pas autorisé de deconsigner");
+          this.toastr.warning("Vous n'etes pas autorisé à deconsigner");
         }
       },
       (error) => {
