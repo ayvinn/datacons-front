@@ -5,6 +5,9 @@ import { FormControl } from '@angular/forms';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import * as moment from 'moment';
+import { Consignation } from 'src/app/models/consignation.model';
+import { PrintserviceService } from 'src/app/services/printservice.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-historique',
@@ -33,7 +36,7 @@ export class HistoriqueComponent implements OnInit, AfterViewInit {
   de; ds;
 
 
-  constructor(private consignationService: ConsignationService) { }
+  constructor(private consignationService: ConsignationService,public printService: PrintserviceService,private data1 : DataService) { }
 
   ngOnInit() {
     const etat = false;
@@ -110,5 +113,14 @@ export class HistoriqueComponent implements OnInit, AfterViewInit {
 
   refresh() {
     this.dataSource.data = this.oldDataSource;
+  }
+  consignation:Consignation;
+  onPrintInvoice(elt) {
+    this.data1.changeImprimerequipement(elt.idequipment);
+    this.data1.changeImprimerconsignation(elt.id);
+    this.data1.changeImprimerdemandeur(elt.iddemandeur);
+    const invoiceIds = [elt.idequipment, elt.iddemandeur];
+    this.printService
+      .printDocument('invoice', invoiceIds);
   }
 }
