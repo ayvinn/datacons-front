@@ -28,6 +28,15 @@ export class DataService {
   private demandeur = new BehaviorSubject<any>([]);
   currentDemandeur = this.demandeur.asObservable();
 
+  private type = new BehaviorSubject<boolean>(false);
+  currenttype = this.type.asObservable();
+
+  private lieu = new BehaviorSubject<boolean>(false);
+  currentlieu = this.lieu.asObservable();
+
+  private description = new BehaviorSubject<boolean>(false);
+  currentdescription = this.description.asObservable();
+
   private demandeur2 = new BehaviorSubject<any>([]);
   currentDemandeur2 = this.demandeur2.asObservable();
 
@@ -39,6 +48,8 @@ export class DataService {
 
   private countSousEquipement = new BehaviorSubject<number>(-1);
   currentCountSousEquipement = this.countSousEquipement.asObservable();
+
+
 
 
   public allDataConsignation = this.consignation.pipe(
@@ -57,7 +68,15 @@ export class DataService {
   changenumero(id: number) {
     this.numerosousequipement.next(id);
   }
-
+  changetype(id: boolean) {
+    this.type.next(id);
+  }
+  changelieu(id: boolean) {
+    this.lieu.next(id);
+  }
+  changedescription(id: boolean) {
+    this.description.next(id);
+  }
   changeImprimerequipement(id : number){
     this.idequipment.next(id);
   }

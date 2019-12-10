@@ -31,6 +31,7 @@ export class ConsignationComponent implements OnInit, AfterViewInit {
     const etat = true;
   }
 
+
   ngAfterViewInit() {
     const etat = true;
     this.consignationService.getConsignation(etat).subscribe((res: any) => {

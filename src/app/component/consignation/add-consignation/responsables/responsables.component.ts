@@ -15,7 +15,8 @@ export class ResponsablesComponent implements OnInit {
 
   @Input() stepper: MatStepper;
   responsableForm: FormGroup;
-
+  mec;
+  elec;
   charges = [];
   elecs = [];
   mecs = [];
@@ -28,6 +29,12 @@ export class ResponsablesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.dataService.currentlieu.subscribe(id => {
+      this.elec = id;
+    }) 
+    this.dataService.currentdescription.subscribe(id => {
+      this.mec = id;
+    }) 
     this.dataService.allDataConsignation.subscribe(res => this.consignation = res);
     this.responsableForm = this.formBuilder.group({
       idDemandeurCP: ['', Validators.required],
@@ -79,6 +86,8 @@ export class ResponsablesComponent implements OnInit {
       .subscribe((res: any) => {
         console.log('Add Consignation: ', res);
         this.dataService.changeConsignation({ id: res.id });
+        this.dataService.changelieu(false);
+        this.dataService.changedescription(false);
         this.stepper.next();
       });
   }

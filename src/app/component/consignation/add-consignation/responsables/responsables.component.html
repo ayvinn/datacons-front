@@ -8,6 +8,7 @@
             <form [formGroup]="responsableForm" (ngSubmit)="addConsignation()">
                 <div class="row">
                     <div class="col-md-8">
+
                         <div class="form-group">
                             <mat-form-field class="w-100">
                                 <mat-label>Selectionner chargé de consignation</mat-label>
@@ -19,41 +20,45 @@
                                 </mat-select>
                             </mat-form-field>
                         </div>
+
                     </div>
 
                     <div class="col-md-8">
-                        <div class="form-group">
-                            <mat-form-field class="w-100">
-                                <mat-label>Selectionner électricien</mat-label>
-                                <mat-select formControlName="idDemandeurElec">
-                                    <mat-option *ngFor="let item of elecs" [value]="item.id"
-                                        (click)="change(item.id, 'iddemendeurElectricien')">
-                                        {{item.nomcomplet}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                        <div *ngIf="elec != false">
+                            <div class="form-group">
+                                <mat-form-field class="w-100">
+                                    <mat-label>Selectionner électricien</mat-label>
+                                    <mat-select formControlName="idDemandeurElec">
+                                        <mat-option *ngFor="let item of elecs" [value]="item.id"
+                                            (click)="change(item.id, 'iddemendeurElectricien')">
+                                            {{item.nomcomplet}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-md-8">
                         <div class="form-group">
-                            <mat-form-field class="w-100">
-                                <mat-label>Selectionner mécanicien</mat-label>
-                                <mat-select formControlName="idDemandeurMec">
-                                    <mat-option *ngFor="let item of mecs" [value]="item.id"
-                                        (click)="change(item.id, 'idDemendeurMecanicien')">
-                                        {{item.nomcomplet}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <div *ngIf="mec != false">
+                                <mat-form-field class="w-100">
+                                    <mat-label>Selectionner mécanicien</mat-label>
+                                    <mat-select formControlName="idDemandeurMec">
+                                        <mat-option *ngFor="let item of mecs" [value]="item.id"
+                                            (click)="change(item.id, 'idDemendeurMecanicien')">
+                                            {{item.nomcomplet}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
                         </div>
                     </div>
                 </div>
             </form>
 
             <button mat-button class="mr-2" matStepperPrevious (click)="goPrevious()">Précedent</button>
-            <button mat-button class="float-right btn btn-info"
-                (click)="addConsignation()">Suivant</button>
+            <button mat-button class="float-right btn btn-info" (click)="addConsignation()">Suivant</button>
 
         </div>
 

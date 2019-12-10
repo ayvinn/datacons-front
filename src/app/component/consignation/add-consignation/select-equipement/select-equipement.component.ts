@@ -24,13 +24,15 @@ export class SelectEquipementComponent implements OnInit {
     public dialog: MatDialog,
     private dataService: DataService,
     private toastr: ToastrService) { }
-
+  state;
 
   ngOnInit() {
     this.dataService.currentCountSousEquipement.subscribe(res => {
       console.log('Count Sous Equipement: ', res);
       this.countSousEquipement = res;
+      this.state = false;
     });
+
     this.dataService.currentDemandeur.subscribe(res => {
       console.log('Demandeur', res);
       this.demandeur = res;
@@ -44,7 +46,9 @@ export class SelectEquipementComponent implements OnInit {
     });
     this.dataService.allDataConsignation.subscribe(res => this.consignation = res);
   }
-
+  func() {
+    this.state = true;
+  }
   delete(id) {
     if (confirm("vous etes sur de supprimer cet equipement ")) {
       this.equipementser.deleteService(id).subscribe(res => {
@@ -62,6 +66,11 @@ export class SelectEquipementComponent implements OnInit {
 
   getRecord(row): void {
     console.log(row);
+    if (row.description.includes('Bande') || row.description.includes('Filtre')
+      || row.description.includes('Compresseur') ) {
+      this.dataService.changedescription(true);
+    }
+
     this.equipementser.PostLogin(row.id).subscribe(
       data => {
         console.log('EquipeSer: ', data);
@@ -88,6 +97,7 @@ export class SelectEquipementComponent implements OnInit {
             this.toastr.warning("Vous n'etes pas autorise de faire une consignation multiple");
             // this.stepper.selectedIndex = 0;
           } else {
+            console.log(this.state);
             this.stepper.next();
             this.toastr.success('Opération reussie');
           }

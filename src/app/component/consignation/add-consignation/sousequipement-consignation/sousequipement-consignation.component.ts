@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ɵConsole } from '@angular/core';
 import { SousEquipment } from 'src/app/models/sous-equipment.model';
 import { MatPaginator, MatSort, MatDialog, MatTableDataSource } from '@angular/material';
 import { ServicesousequipementService } from 'src/app/services/servicesousequipement.service';
@@ -34,10 +34,15 @@ export class SousequipementConsignationComponent implements OnInit {
           this.dataSource = new MatTableDataSource(res);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
+
        });
       }
     });
 
+  }
+  func(){
+
+    this.dataService.changelieu(true);
   }
 
   delete(id) {
@@ -61,11 +66,14 @@ export class SousequipementConsignationComponent implements OnInit {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        var a = res.filter(r=>r.TypeEnergie == "ELEC" && r.Lieu != "ICV");
+        if (a.length > 0) {
+    
+          this.dataService.changelieu(true);
+        }
+        console.log(a);
       });
-
-
   }
-
   openDialog(): void {
     const dialogRef = this.dialog.open(AddSousequipementConsignationComponent, {
       width: '700px',
