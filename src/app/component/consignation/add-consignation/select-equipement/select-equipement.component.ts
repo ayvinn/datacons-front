@@ -78,7 +78,7 @@ export class SelectEquipementComponent implements OnInit {
           this.dataService.changeConsignation({ IDEquipment: row.id });
           this.checkDemandeurDroit(this.consignation.idDemandeur);
         } else {
-          this.toastr.warning('Cette Installation est en isolation spéciale');
+          this.toastr.warning("Cette Installation est en regime d'essai ");
         }
       },
       (error) => {

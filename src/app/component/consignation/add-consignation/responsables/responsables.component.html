@@ -11,7 +11,7 @@
 
                         <div class="form-group">
                             <mat-form-field class="w-100">
-                                <mat-label>Selectionner chargé de consignation</mat-label>
+                                <mat-label>Selectionner chargé de conduite</mat-label>
                                 <mat-select formControlName="idDemandeurCP">
                                     <mat-option *ngFor="let item of charges" [value]="item.id"
                                         (click)="change(item.id, 'iddemandeurChefPost')">
