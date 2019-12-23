@@ -88,11 +88,7 @@
         </div>
 
     </mat-step>
-    <mat-step>
-        <ng-template matStepLabel>Image</ng-template>
-        <app-addimage></app-addimage>
-        <button mat-button class="float-right mt-2 btn btn-info" matStepperNext>Suivant</button>
-    </mat-step>
+
 
     <mat-step>
         <ng-template matStepLabel> Interventions
@@ -120,7 +116,11 @@
         <button mat-button class="float-right btn btn-info mt-2" matStepperNext>Suivant</button>
 
     </mat-step>
-
+    <mat-step>
+        <ng-template matStepLabel>Image</ng-template>
+        <app-addimage></app-addimage>
+        <button mat-button class="float-right mt-2 btn btn-info" matStepperNext>Suivant</button>
+    </mat-step>
 
 
 </mat-horizontal-stepper>
