@@ -37,6 +37,16 @@
                         <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> secteur </th>
                         <td mat-cell *matCellDef="let element"> {{element.nomsecteur}} </td>
                     </ng-container>
+
+                    <ng-container matColumnDef="intervention">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header> Interventions </th>
+                        <td mat-cell *matCellDef="let element"> 
+                            <div  *ngFor="let f of element.intervention">
+                                {{f.libelle}},
+                            </div>
+                        </td>
+                    </ng-container>
+
                     <!-- action Column delete -->
                     <ng-container matColumnDef="Action">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header>Action</th>

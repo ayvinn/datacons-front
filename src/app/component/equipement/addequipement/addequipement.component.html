@@ -93,6 +93,16 @@
         <app-addimage></app-addimage>
         <button mat-button class="float-right mt-2 btn btn-info" matStepperNext>Suivant</button>
     </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel> Interventions
+        </ng-template>
+        <app-intervention>
+            </app-intervention>
+
+
+    </mat-step>
+    
     <mat-step>
         <ng-template matStepLabel> Sous Equipement
         </ng-template>
@@ -110,14 +120,7 @@
         <button mat-button class="float-right btn btn-info mt-2" matStepperNext>Suivant</button>
 
     </mat-step>
-    <mat-step>
-        <ng-template matStepLabel> Interventions
-        </ng-template>
-        <app-intervention>
-            </app-intervention>
 
-
-    </mat-step>
 
 
 </mat-horizontal-stepper>

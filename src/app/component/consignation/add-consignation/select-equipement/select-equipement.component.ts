@@ -28,13 +28,11 @@ export class SelectEquipementComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.currentCountSousEquipement.subscribe(res => {
-      console.log('Count Sous Equipement: ', res);
       this.countSousEquipement = res;
       this.state = false;
     });
 
     this.dataService.currentDemandeur.subscribe(res => {
-      console.log('Demandeur', res);
       this.demandeur = res;
     });
     this.dataService.currentConsignation.subscribe(/*res => console.log('Current Consignation: ', res)*/);
@@ -43,6 +41,7 @@ export class SelectEquipementComponent implements OnInit {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      console.log(res);
     });
     this.dataService.allDataConsignation.subscribe(res => this.consignation = res);
   }
@@ -59,13 +58,13 @@ export class SelectEquipementComponent implements OnInit {
     }
   }
 
-  displayedColumns: string[] = ['codeHAC', 'description', 'nomsecteur', 'Action'];
+  displayedColumns: string[] = ['codeHAC', 'description', 'nomsecteur', 'intervention','Action'];
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   getRecord(row): void {
-    console.log(row);
+  
     if (row.description.includes('Bande') || row.description.includes('Filtre')
       || row.description.includes('Compresseur') ) {
       this.dataService.changedescription(true);
@@ -73,7 +72,7 @@ export class SelectEquipementComponent implements OnInit {
 
     this.equipementser.PostLogin(row.id).subscribe(
       data => {
-        console.log('EquipeSer: ', data);
+       
         if (data) {
           this.dataService.changeConsignation({ IDEquipment: row.id });
           this.checkDemandeurDroit(this.consignation.idDemandeur);
@@ -90,14 +89,14 @@ export class SelectEquipementComponent implements OnInit {
   checkDemandeurDroit(id): void {
     this.equipementser.PostLoginDroit(id).subscribe(
       data => {
-        console.log('Check Demandeur Droit: ', data)
+       
         if (data) {
           // this.dataService.changeSelectedIDEquip(id);
           if (this.countSousEquipement > 1 && this.demandeur.droit.toLowerCase() === 'ICV'.toLowerCase()) {
             this.toastr.warning("Vous n'etes pas autorise de faire une consignation multiple");
             // this.stepper.selectedIndex = 0;
           } else {
-            console.log(this.state);
+            
             this.stepper.next();
             this.toastr.success('Opération reussie');
           }
