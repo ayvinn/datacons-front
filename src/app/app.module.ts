@@ -60,7 +60,7 @@ import { SousequipementnotificationComponent } from './component/notification/so
 import { UpdatesousequipementnotificationComponent } from './component/notification/sousequipementnotification/updatesousequipementnotification/updatesousequipementnotification.component';
 import { EssaieComponent } from './component/consignation/essaie/essaie.component';
 import { DeconsignationComponent } from './component/consignation/deconsignation/deconsignation.component';
-
+import {NgxPrintModule} from 'ngx-print';
 
 
 @NgModule({
@@ -133,6 +133,7 @@ import { DeconsignationComponent } from './component/consignation/deconsignation
     HttpClientModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    NgxPrintModule,
     NgxDropzoneModule,
     ToastrModule.forRoot({
       timeOut: 10000,

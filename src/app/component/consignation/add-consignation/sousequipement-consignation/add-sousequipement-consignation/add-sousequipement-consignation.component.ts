@@ -82,7 +82,9 @@ export class AddSousequipementConsignationComponent implements OnInit {
         }
       )
     }
+    this.ngOnInit();
     this.dialogRef.close();
+    
   }
 
 

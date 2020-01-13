@@ -46,26 +46,19 @@ export class AddintervenantsconsComponent implements OnInit {
       IDconsignation: this.idConsignation, Nomcomplet: this.form.controls['Nomcomplet'].value,
       Entreprise: this.form.controls['Entreprise'].value,
     };
-
     if (!form.valid) {
       return;
     }
-
     console.log('Intervenant: ', values);
     this.intervenantser.PostIntervenants(values).subscribe(res => {
       console.log('Posted: ', res);
-
       this.intervenantser.GetIntervenants();
-
     },
       err => {
         console.log(err);
       }
     )
-
-
     this.ngOnInit();
     this.onNoClick();
-
   }
 }

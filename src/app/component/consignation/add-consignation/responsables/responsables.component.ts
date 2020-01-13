@@ -39,7 +39,7 @@ export class ResponsablesComponent implements OnInit {
       console.log('Demandeurs: ', res);
       this.elecs = res.filter((x: any) => x['categorie'] === 'ELEC');
       this.charges = res.filter((x: any) => x['categorie'] === 'Opérateur' || x['categorie'] === 'Chef de poste');
-      this.mecs = res.filter((x: any) => x['categorie'] === 'MEC');
+      this.mecs = res.filter((x: any) => x['categorie'] === 'MEC' && x['droit'] === 'Multiple');
       console.log('Charges: ', this.charges);
       console.log('elecs: ', this.elecs);
       console.log('mecs: ', this.mecs);

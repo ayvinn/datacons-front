@@ -5,7 +5,7 @@
             <p class="card-category">Remplissez le formulaire</p>
         </div>
         <div class="card-body">
-            <form [formGroup]="responsableForm" (ngSubmit)="addConsignation()">
+            <form [formGroup]="responsableForm" (ngSubmit)="submit(responsableForm)">
                 <div class="row">
                     <div class="col-md-8">
                         <div class="form-group">
@@ -26,8 +26,7 @@
                             <mat-form-field class="w-100">
                                 <mat-label>Selectionner électricien</mat-label>
                                 <mat-select formControlName="idDemandeurElec">
-                                    <mat-option *ngFor="let item of elecs" [value]="item.id"
-                                        (click)="change(item.id, 'iddemendeurElectricien')">
+                                    <mat-option *ngFor="let item of elecs" [value]="item.id" (click)="change(item.id, 'iddemendeurElectricien')">
                                         {{item.nomcomplet}}
                                     </mat-option>
                                 </mat-select>
@@ -40,8 +39,7 @@
                             <mat-form-field class="w-100">
                                 <mat-label>Selectionner mécanicien</mat-label>
                                 <mat-select formControlName="idDemandeurMec">
-                                    <mat-option *ngFor="let item of mecs" [value]="item.id"
-                                        (click)="change(item.id, 'idDemedeurMecanicien')">
+                                    <mat-option *ngFor="let item of mecs" [value]="item.id" (click)="change(item.id, 'idDemedeurMecanicien')">
                                         {{item.nomcomplet}}
                                     </mat-option>
                                 </mat-select>
@@ -50,11 +48,10 @@
                     </div>
                 </div>
             </form>
-
-            <button mat-button class="mr-2" matStepperPrevious (click)="goPrevious()">Précedent</button>
-            <button mat-button class="float-right btn btn-info"
-                (click)="addConsignation()">Suivant</button>
-
+            <div mat-dialog-actions class="form-row justify-content-end mb-2">
+                <button mat-button class="btn btn-info mr-2" (click)="goPrevious()">Précedent</button>
+                <button mat-button class="btn btn-info" (click)="addConsignation()">Suivant</button>
+            </div>
         </div>
 
     </div>
