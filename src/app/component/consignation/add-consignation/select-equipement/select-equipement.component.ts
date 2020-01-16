@@ -15,6 +15,8 @@ export class SelectEquipementComponent implements OnInit {
   dataSource;
   consignation;
   IDEquipement;
+  countSousEquipement;
+  demandeur;
   public ss: AddConsignationComponent;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -22,19 +24,30 @@ export class SelectEquipementComponent implements OnInit {
     public dialog: MatDialog,
     private dataService: DataService,
     private toastr: ToastrService) { }
-
+  state;
 
   ngOnInit() {
+    this.dataService.currentCountSousEquipement.subscribe(res => {
+      this.countSousEquipement = res;
+      this.state = false;
+    });
+
+    this.dataService.currentDemandeur.subscribe(res => {
+      this.demandeur = res;
+    });
     this.dataService.currentConsignation.subscribe(/*res => console.log('Current Consignation: ', res)*/);
     this.dataService.currentSelectedIDEquip.subscribe(res => this.IDEquipement = res);
     this.equipementser.GetTodoItem().subscribe(res => {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      console.log(res);
     });
     this.dataService.allDataConsignation.subscribe(res => this.consignation = res);
   }
-
+  func() {
+    this.state = true;
+  }
   delete(id) {
     if (confirm("vous etes sur de supprimer cet equipement ")) {
       this.equipementser.deleteService(id).subscribe(res => {
@@ -45,20 +58,26 @@ export class SelectEquipementComponent implements OnInit {
     }
   }
 
-  displayedColumns: string[] = ['codeHAC', 'description', 'nomsecteur', 'Action'];
+  displayedColumns: string[] = ['codeHAC', 'description', 'nomsecteur', 'intervention','Action'];
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   getRecord(row): void {
-    
-    console.log(row);
+  
+    if (row.description.includes('Bande') || row.description.includes('Filtre')
+      || row.description.includes('Compresseur') ) {
+      this.dataService.changedescription(true);
+    }
+
     this.equipementser.PostLogin(row.id).subscribe(
       data => {
+       
         if (data) {
+          this.dataService.changeConsignation({ IDEquipment: row.id });
           this.checkDemandeurDroit(this.consignation.idDemandeur);
         } else {
-          this.toastr.warning('Cette Installation est en régime essaie');
+          this.toastr.warning("Cette Installation est en regime d'essai ");
         }
       },
       (error) => {
@@ -66,17 +85,21 @@ export class SelectEquipementComponent implements OnInit {
       }
     );
   }
-  checkDemandeurDroit(id): void {
-    console.log(id);
 
+  checkDemandeurDroit(id): void {
     this.equipementser.PostLoginDroit(id).subscribe(
       data => {
+       
         if (data) {
-          this.dataService.changeSelectedIDEquip(id);
-          this.dataService.changeConsignation({ IDEquipment: id });
           
-          this.stepper.next();
-          this.toastr.success('Opération reussie');
+          if (this.countSousEquipement > 1 && this.demandeur.droit.toLowerCase() === 'ICV'.toLowerCase()) {
+            this.toastr.warning("Vous n'etes pas autorise de faire une consignation multiple");
+            
+          } else {
+            
+            this.stepper.next();
+            this.toastr.success('Opération reussie');
+          }
         } else {
           this.toastr.warning("Vous n'etes pas autorise de faire une consignation multiple");
         }

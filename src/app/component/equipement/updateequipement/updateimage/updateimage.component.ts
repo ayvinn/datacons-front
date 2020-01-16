@@ -5,6 +5,7 @@ import { ServiceequipementService } from 'src/app/services/serviceequipement.ser
 import { DataService } from "src/app/services/data.service";
 import { constantURL } from 'src/app/shared/constantURL';
 import { ToastrService } from 'ngx-toastr';
+import { MatDialog } from '@angular/material';
 @Component({
   selector: 'app-updateimage',
   templateUrl: './updateimage.component.html',
@@ -21,7 +22,7 @@ export class UpdateimageComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private imageService: ServiceimageService,
     private equipement: ServiceequipementService,
-    private dataShared: DataService,private toastr: ToastrService) { }
+    private dataShared: DataService,private toastr: ToastrService,public dialog: MatDialog) { }
 
   ngOnInit() {
     this.files = [];

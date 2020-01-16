@@ -12,31 +12,19 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <mat-form-field style="width: 100%;">
-                                <input matInput type="text" formControlName="numero" placeholder="numero:" />
-                                <mat-error *ngIf="f.numero.errors" class="invalid-feedback">
-                                    <mat-error *ngIf="f.numero.errors.required"> numero :</mat-error>
+                                <input matInput type="text" formControlName="CodeHAC" placeholder="code hac :" />
+                                <mat-error *ngIf="f.CodeHAC.errors" class="invalid-feedback">
+                                    <mat-error *ngIf="f.CodeHAC.errors.required"> </mat-error>
                                 </mat-error>
                             </mat-form-field>
                         </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                        <mat-form-field style="width: 100%;">
-                            <input matInput type="text" formControlName="CodeHAC" placeholder="code hac :" />
-                            <mat-error *ngIf="f.CodeHAC.errors" class="invalid-feedback">
-                                <mat-error *ngIf="f.CodeHAC.errors.required"> </mat-error>
-                            </mat-error>
-                        </mat-form-field>
-                      </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-8">
                         <div class="form-group">
                             <mat-form-field style="width: 100%;">
-                                <input matInput type="text" formControlName="Nomequipement"
-                                    placeholder="Nomequipement:" />
+                                <input matInput type="text" formControlName="Nomequipement" placeholder="Nomequipement:" />
                                 <mat-error *ngIf="f.Nomequipement.errors" class="invalid-feedback">
                                     <mat-error *ngIf="f.Nomequipement.errors.required">Nom du sous equipement
                                     </mat-error>
@@ -60,8 +48,8 @@
                             <mat-form-field class="w-100">
                                 <mat-label>Type d'energie</mat-label>
                                 <select formControlName="TypeEnergie" matNativeControl required>
-                                    <option value="Mechanique">
-                                        Mechanique
+                                    <option value="Mécanique">
+                                        Mécanique
                                     </option>
                                     <option value="Electrique">
                                         Electrique
@@ -110,6 +98,6 @@
                     <button type="submit" mat-button class="btn btn-info">Ok</button>
                 </div>
             </form>
-        </div>    
-    </div>    
-</div>    
+        </div>
+    </div>
+</div>

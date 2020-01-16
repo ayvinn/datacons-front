@@ -1,38 +1,8 @@
-<!-- <ngx-dropzone (change)="onSelectedFile($event)">
-        <ngx-dropzone-label>ajouter des images</ngx-dropzone-label>
-        <ngx-dropzone-preview *ngFor="let image of images" [removable]="true" ">
-            <ngx-dropzone-label>{{ image.id }} ({{image.lien}})</ngx-dropzone-label>
-        </ngx-dropzone-preview>
-    </ngx-dropzone> -->
+
 <h2>Ajouter des images</h2>
 <div class="row">
     <div class="col-md-12">
-        <!--<form [formGroup]="imageForm" (ngSubmit)="onSubmit(imageForm.value)">
-            <div class="form-group">
-                <input type="text" formControlName="lien" class="form-control" placeholder="lien Name">
-            </div>
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="form-group">
-                        <mat-form-field style="width: 100%;">
-                            <mat-label>Selectionner votre equipement</mat-label>
-                            <select matNativeControl formControlName="idequipement" [(value)]="idEquipement" name="idequipement">
-                                <option *ngFor="let item of equipement.equipements" [value]="item.id">
-                                    {{item.codeHac}}
-                                </option>
-
-                            </select>
-                        </mat-form-field>
-
-                    </div>
-                </div>
-            </div>
-
-            
-        </form>-->
-        
-        <form (ngSubmit)="onSubmit()" >
-
+        <form (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <ngx-dropzone (change)="upload($event)">
                     <ngx-dropzone-label>ajouter des images</ngx-dropzone-label>
@@ -47,5 +17,9 @@
             </div>
            
         </form> 
+        <button mat-button class="mt-2" matStepperPrevious>Précédent</button>
+    <button mat-button class="float-right btn btn-info mt-2" (click)="dialog.closeAll()">Terminer</button>
     </div>
+    
+
 </div>

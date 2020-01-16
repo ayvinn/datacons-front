@@ -9,6 +9,7 @@ import { Equipment } from 'src/app/models/equipment.model';
 import { ServiceequipementService } from 'src/app/services/serviceequipement.service';
 import { UpdateequipementComponent } from './updateequipement/updateequipement.component';
 import { Router, ActivatedRoute } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-equipement',
@@ -21,7 +22,7 @@ export class EquipementComponent implements OnInit {
   dataSource;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  constructor(private equipementser: ServiceequipementService, private activatedRoute: ActivatedRoute,public dialog: MatDialog, private router: Router, private route: ActivatedRoute) { }
+  constructor(private equipementser: ServiceequipementService,public data1 :DataService ,private activatedRoute: ActivatedRoute,public dialog: MatDialog, private router: Router, private route: ActivatedRoute) { }
   openDialog(): void {
     const dialogRef = this.dialog.open(AddequipementComponent,{
       width:'1100px',
@@ -30,7 +31,7 @@ export class EquipementComponent implements OnInit {
    });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
+      this.data1.changenumero(0);
       this.ngOnInit();
     });
   }

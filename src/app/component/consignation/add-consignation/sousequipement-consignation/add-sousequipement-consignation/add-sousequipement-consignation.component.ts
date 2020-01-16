@@ -1,11 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SousEquipment } from 'src/app/models/sous-equipment.model';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatTableDataSource } from '@angular/material';
 import { ServicesousequipementService } from 'src/app/services/servicesousequipement.service';
 import { DataService } from 'src/app/services/data.service';
-import { SousequipementConsignationComponent } from '../sousequipement-consignation.component';
-import { DialogData } from 'src/app/component/service/sevice.component';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-sousequipement-consignation',
@@ -17,14 +16,16 @@ export class AddSousequipementConsignationComponent implements OnInit {
   form: FormGroup;
   sousequipements: SousEquipment[];
   dataSource;
-  constructor(public dialogRef: MatDialogRef<SousequipementConsignationComponent>,@Inject(MAT_DIALOG_DATA) public data: any, private dataService: DataService, private sousequipement: ServicesousequipementService,private data1: DataService, private _formBuilder: FormBuilder,) { }
-
+  constructor(public dialogRef: MatDialogRef<AddSousequipementConsignationComponent>,
+    public data1 : DataService,
+    @Inject(MAT_DIALOG_DATA) public data: any, private sousequipement: ServicesousequipementService, private _formBuilder: FormBuilder, ) { }
+  test;    
   ngOnInit() {
-    this.dataService.allDataConsignation.subscribe(async res => {
-      // console.log('Current:add -sous equipement', res);
-      this.idEquipement = res['IDEquipment'];
-      // console.log("this id " + this.idEquipement);
-    });
+
+    this.data1.currentnumero.subscribe(id => {
+      this.test = id;
+    })
+
     this.sousequipement.sousequipement = {
       id: 0,
       CodeHAC: null,
@@ -33,9 +34,9 @@ export class AddSousequipementConsignationComponent implements OnInit {
       TypeEnergie: null,
       Lieu: null,
       IDequipement: 0,
-      Remarque:null,
-      etat:true,
-      numero:null
+      Remarque: null,
+      etat: true,
+      numero: null
 
     }
     this.form = this._formBuilder.group({
@@ -44,46 +45,61 @@ export class AddSousequipementConsignationComponent implements OnInit {
       Nomequipement: ['', Validators.required],
       Emplacement: ['', Validators.required],
       TypeEnergie: ['', Validators.required],
-      Lieu:[''],
-      IDequipement:[''],
-      Remarque:[''],
-      etat:[''],
-      numero:['']
+      Lieu: [''],
+      Remarque: [''],
+      etat: [''],
+      numero: ['']
     });
-    
-    this.data1.currentMessage.subscribe(id => {
-      console.log('ID: ', id);
-      this.idEquipement = id;
-    }) 
+
   }
   get f() { return this.form.controls; }
   onNoClick(): void {
     this.dialogRef.close();
   }
-  submit(form, formName:string) {
-    const values = {id:0 ,CodeHAC: this.form.value.CodeHAC,Nomequipement: this.form.value.Nomequipement,
-      Emplacement: this.form.value.Emplacement,TypeEnergie: this.form.value.TypeEnergie,
-      IDequipement: this.data.idE , Lieu: this.form.value.Lieu,
-      numero: this.form.value.numero, etat :false,Remarque: this.form.value.Remarque,
+  totalCount;
+  datasourceupdate(form, formName: string){
+    this.sousequipement.GetTodoItems(this.data.idE).subscribe(res => {
+        this.dataSource = new MatTableDataSource(res);
+        this.totalCount = this.dataSource.data.length;
+        this.test = this.totalCount + 1;
+        console.log(this.totalCount);
+        console.log(this.test)
+    this.data1.changenumero(this.test);
+
+    const values = {
+      id: 0, CodeHAC: this.form.value.CodeHAC, Nomequipement: this.form.value.Nomequipement,
+      Emplacement: this.form.value.Emplacement, TypeEnergie: this.form.value.TypeEnergie,
+      IDequipement: this.data.idE, Lieu: this.form.value.Lieu,
+      numero: this.test, etat: false, Remarque: this.form.value.Remarque,
     };
-    if(!form.valid) {
+    if (!form.valid) {
       return;
     }
     console.log(values);
-    
-    if(formName === 'sousequipement'){
+
+    if (formName === 'sousequipement') {
       this.sousequipement.postSousEquipment(values).subscribe(res => {
-        console.log('Posted: ', res);       
+        console.log('Posted: ', res);
         this.sousequipement.getAllSousEquipments();
 
       },
         err => {
-          console.log(err); 
+          console.log(err);
         }
       )
     }
     this.ngOnInit();
     this.dialogRef.close();
+
+      });
+    
+    }
+
+  submit(form, formName: string) {
+
+    this.datasourceupdate(form,formName);
+    
+
     
   }
 

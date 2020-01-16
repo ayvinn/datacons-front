@@ -1,0 +1,11 @@
+<mat-horizontal-stepper #stepper>
+    <mat-step editable="false">
+        <ng-template matStepLabel>Demandeur 1</ng-template>
+        <app-demandeur1 [stepper]="stepper"></app-demandeur1>
+
+    </mat-step>
+    <mat-step editable="false">
+        <ng-template matStepLabel>Demandeur 2</ng-template>
+        <app-demandeur2 [stepper]="stepper"></app-demandeur2>
+    </mat-step>
+</mat-horizontal-stepper>

@@ -41,7 +41,6 @@ import { ConsignationComponent } from './component/consignation/consignation.com
 import { AddConsignationComponent } from './component/consignation/add-consignation/add-consignation.component';
 import { LoginComponent } from './component/consignation/add-consignation/login/login.component';
 import { LototoComponent } from './component/equipement/addequipement/lototo/lototo.component'
-import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { NotificationComponent } from './component/notification/notification.component';
@@ -53,14 +52,37 @@ import { AddSousequipementConsignationComponent } from './component/consignation
 import { ResponsablesComponent } from './component/consignation/add-consignation/responsables/responsables.component';
 import { IntervenantsconsComponent } from './component/consignation/add-consignation/intervenantscons/intervenantscons.component';
 import { AddintervenantsconsComponent } from './component/consignation/add-consignation/intervenantscons/addintervenantscons/addintervenantscons.component';
-
 import { UpdateintervenantsconsComponent } from './component/consignation/add-consignation/intervenantscons/updateintervenantscons/updateintervenantscons.component';
-
 import { SousequipementnotificationComponent } from './component/notification/sousequipementnotification/sousequipementnotification.component';
 import { UpdatesousequipementnotificationComponent } from './component/notification/sousequipementnotification/updatesousequipementnotification/updatesousequipementnotification.component';
+import { HistoriqueComponent } from './component/historique/historique.component';
 import { EssaieComponent } from './component/consignation/essaie/essaie.component';
 import { DeconsignationComponent } from './component/consignation/deconsignation/deconsignation.component';
+
 import {NgxPrintModule} from 'ngx-print';
+
+import { ImprimerComponent } from './component/imprimer/imprimer.component';
+import { PrintLayoutComponent } from './component/imprimer/print-layout/print-layout.component';
+import { InvoiceComponent } from './component/imprimer/invoice/invoice.component';
+import { PrintIntervenantsComponent } from './component/imprimer/print-intervenants/print-intervenants.component';
+import { ImprimerInterventionComponent } from './component/imprimer/imprimer-intervention/imprimer-intervention.component';
+import { ImprimerSousequipementComponent } from './component/imprimer/imprimer-sousequipement/imprimer-sousequipement.component';
+import { ImprimerLotoComponent } from './component/imprimer/imprimer-loto/imprimer-loto.component';
+import { SignatureComponent } from './component/imprimer/signature/signature.component';
+import { PassationComponent } from './component/passation/passation.component';
+import { Demandeur1Component } from './component/passation/demandeur1/demandeur1.component';
+import { Demandeur2Component } from './component/passation/demandeur2/demandeur2.component';
+import { ImprimerdeconsignationComponent } from './component/imprimerdeconsignation/imprimerdeconsignation.component';
+import { Printlayout2Component } from './component/imprimerdeconsignation/printlayout2/printlayout2.component';
+import { Invoice2Component } from './component/imprimerdeconsignation/invoice2/invoice2.component';
+import { ConfirmprintComponent } from './component/consignation/deconsignation/confirmprint/confirmprint.component';
+import { PrintelectricienComponent } from './component/imprimer/printelectricien/printelectricien.component';
+import { PrintmecaniqueComponent } from './component/imprimer/printmecanique/printmecanique.component';
+import { PrintpassationComponent } from './component/printpassation/printpassation.component';
+import { Printlayout3Component } from './component/printpassation/printlayout3/printlayout3.component';
+import { Invoice3Component } from './component/printpassation/invoice3/invoice3.component';
+
+
 
 
 @NgModule({
@@ -112,11 +134,32 @@ import {NgxPrintModule} from 'ngx-print';
     SousequipementnotificationComponent,
     UpdatesousequipementnotificationComponent,
     UpdateintervenantsconsComponent,
+    HistoriqueComponent,
     EssaieComponent,
-    DeconsignationComponent
+    DeconsignationComponent,
+    ImprimerComponent,
+    PrintLayoutComponent,
+    InvoiceComponent,
+    PrintIntervenantsComponent,
+    ImprimerInterventionComponent,
+    ImprimerSousequipementComponent,
+    ImprimerLotoComponent,
+    SignatureComponent,
+    PassationComponent,
+    Demandeur1Component,
 
-
+    Demandeur2Component,
+    ImprimerdeconsignationComponent,
+    Printlayout2Component,
+    Invoice2Component,
+    ConfirmprintComponent,
+    PrintelectricienComponent,
+    PrintmecaniqueComponent,
+    PrintpassationComponent,
+    Printlayout3Component,
+    Invoice3Component
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -161,7 +204,7 @@ import {NgxPrintModule} from 'ngx-print';
   bootstrap: [AppComponent],
   entryComponents: [SeviceComponent, AddServiceComponent, UpdateServiceComponent, CategorieComponent, AddcategorieComponent,
     UpdatecategorieComponent, SecteurComponent,
-    AddsecteurComponent, AuthComponent,
+    AddsecteurComponent, AuthComponent,ConfirmprintComponent,
     UpdatesecteurComponent, DemandeurComponent,
     AdddemandeurComponent,
     UpdatedemandeurComponent, EquipementComponent, AddSousequipementConsignationComponent,
@@ -170,7 +213,7 @@ import {NgxPrintModule} from 'ngx-print';
 
     AddinterventionComponent, UpdateinterventionComponent, LototoComponent, UpdatelototoComponent, SelectEquipementComponent,
     AddConsignationComponent,ResponsablesComponent,AddintervenantsconsComponent,UpdateintervenantsconsComponent, UpdatesousequipementnotificationComponent,
-    UpdateintervenantsconsComponent, EssaieComponent,
+    UpdateintervenantsconsComponent, EssaieComponent,PassationComponent,
     DeconsignationComponent],
 
 })

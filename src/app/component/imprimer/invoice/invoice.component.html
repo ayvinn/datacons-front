@@ -1,0 +1,115 @@
+
+<div class="test" >
+    <div class="titre" style="font-size: 25px;">BON DE CONSIGNATION N° {{numerobc}}</div>
+    <br>
+
+    <!-- Your first column here -->
+    <div class="col-xs-6" >
+        <div class="tableLeft">
+            <table class="demandeur .first">
+                <tbody>
+                    <tr>
+                        <td style=" border: none; width: 60%;text-align: right;font-weight: bold;font-size: 18px">Demandeur :</td>
+                        <td style=" border: none;font-size: 18px">{{nomDemandeur}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="demandeur first">
+                <tbody>
+                    <tr>
+                        <td style=" border: none; width: 60%;text-align: right;font-weight: bold;font-size: 18px">Type de consignation
+                            :</td>
+                        <td style=" border: none;font-size: 18px">{{typeConsignation}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="conduite first">
+                <tbody>
+                    <tr>
+                        <td style="border: none; width: 60%; text-align: right;font-weight: bold;
+                    padding-top: 1%;
+    padding-bottom: 5.8%;font-size: 18px">Chargé de conduite/ Phase consignation :</td>
+                        <td style=" border: none;font-size: 18px;padding-top: 1%;
+                        padding-bottom: 5.8%;">{{chefpost}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="conduite first">
+                <tbody>
+                    <tr>
+                        <td style=" border: none; width: 60%; text-align: right;font-weight: bold;     padding-top: 1%;
+                padding-bottom: 5.8%;font-size: 18px">Chargé de conduite/ Phase déconsignation :</td>
+                        <td style=" border: none;font-size: 18px;padding-top: 1%;
+                        padding-bottom: 5.8%;">{{chefpost}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="tableRight">
+        <table class="demandeur first">
+            <tbody>
+                <tr>
+                    <td style=" border: none; width: 18%; text-align: right;font-weight: bold;font-size: 18px">Service :</td>
+                    <td style=" border: none;font-size: 18px">{{Service_demandeur}}</td>
+                    <td style=" border: none; width: 18%; text-align: right;font-weight: bold;font-size: 18px ">Secteur :</td>
+                    <td style="width :30% ;  border: none;font-size: 18px">{{secteur}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="demandeur first">
+            <tbody>
+                <tr>
+                    <td style=" border: none; width: 18%; text-align: right;font-weight: bold;font-size: 18px">Installation :</td>
+                    <td style=" border: none;font-size: 18px">{{installation}}</td>
+                    <td style=" border: none; width: 18%; text-align: right;font-weight: bold;font-size: 18px">Date :</td>
+                    <td style="width :30% ;  border: none;font-size: 18px">{{date}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="conduite first">
+            <tbody>
+                <tr>
+                    <td style=" border: none; width: 18%; text-align: right;font-weight: bold;     padding-top: 1%;
+                padding-bottom: 4.9%;font-size: 18px">Date :</td>
+                    <td style=" border: none"></td>
+                    <td style="width :15% ; font-weight: bold;
+                    padding-top: 1%; padding-bottom: 4.9%;font-size: 18px">Heure :</td>
+                    <td style="width :30% ;  border: none ; font-weight: bold;    padding-top: 1%;
+                padding-bottom: 4.9%;font-size: 18px">Signature :</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="conduite first">
+            <tbody>
+                <tr>
+                    <td style=" border: none; width: 18%; text-align: right;font-weight: bold;
+                    padding-top: 1%;
+                    padding-bottom: 4.9%;font-size: 18px">Date :</td>
+                    <td style=" border: none"></td>
+                    <td style="width :15% ; font-weight: bold;    padding-top: 1%;
+                padding-bottom: 4.9%;font-size: 18px">Heure :</td>
+                    <td style="width :30% ;  border: none; font-weight: bold;    padding-top: 1%;
+                padding-bottom: 4.9%;font-size: 18px">Signature :</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <br>
+    <p style="margin-left: 170px;font-size: 18px;">Nom des Intervenans : </p>
+    <app-print-intervenants></app-print-intervenants>
+    <div class="tableRight" style="margin-top: 246px;">
+        <p style="margin-left: 170px;font-size: 18px">Nature de l'intervention :</p>
+
+        <app-imprimer-intervention></app-imprimer-intervention>
+
+    </div>
+    
+    <app-imprimer-sousequipement></app-imprimer-sousequipement>
+
+</div>
+<br>
+
+    <img *ngIf="images && images.length>0" style="height: auto;width: 100%;" [src]="createImage(images[0].lien)" alt="" />

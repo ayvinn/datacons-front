@@ -41,7 +41,8 @@
               "src/assets/css/datatable.css",
               "src/assets/css/material-kit.css?v=2.0.6",
               "node_modules/ngx-toastr/toastr.css",
-              "node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
+              "node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
+              "node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -96,8 +97,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "6mb",
-                  "maximumError": "7mb"
+                  "maximumWarning": "7mb",
+                  "maximumError": "10mb"
                 }
               ]
             }

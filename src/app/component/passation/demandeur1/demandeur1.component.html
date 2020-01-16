@@ -1,0 +1,33 @@
+<div class="col-md-14">
+    <div class="card">
+        <div class="card-header card-header-info">
+            <h4 class="card-title">Demandeur 1</h4>
+            <p class="card-category">Remplissez le formulaire</p>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="demandeurForm" (ngSubmit)="verify()" >                
+                <!---->
+                <div class="row">
+                    <div class="col-md-8">
+                        <p></p>
+                        <mat-form-field style="width: 100%;">
+                                <input #input type="text" placeholder="Nom Complet" matInput formControlName="LoginDemandeur" [matAutocomplete]="autoDemandeur" required>
+                                <mat-autocomplete #autoDemandeur="matAutocomplete">
+                                    <mat-option *ngFor="let option of (filteredDemandeurs | async)" [value]="option.nomcomplet">
+                                        {{option.nomcomplet}}
+                                    </mat-option>
+                                </mat-autocomplete>
+                        </mat-form-field>
+                        <mat-form-field style="width: 100%;">
+                            <input type="password" matInput placeholder="Password" formControlName="PassDemandeur">
+                          </mat-form-field>
+                    </div>
+                </div>              
+                <div class="clearfix"></div>
+                <div mat-dialog-actions class="form-row justify-content-end mb-2">
+                    <button type="submit" mat-button class="btn btn-info">Suivant</button>    
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
