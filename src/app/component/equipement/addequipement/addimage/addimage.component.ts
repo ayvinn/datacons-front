@@ -5,6 +5,7 @@ import { Image } from 'src/app/models/image.model';
 import { ServiceequipementService } from 'src/app/services/serviceequipement.service';
 import { DataService } from "src/app/services/data.service";
 import { ToastrService } from 'ngx-toastr';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-addimage',
@@ -27,7 +28,7 @@ export class AddimageComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private imageService: ServiceimageService,
-    private renderer: Renderer2, private equipement: ServiceequipementService, private data1: DataService,
+    private renderer: Renderer2, private equipement: ServiceequipementService, private data1: DataService,public dialog: MatDialog,
     private toastr: ToastrService) { }
   ngOnInit() {
     this.imageForm = this.fb.group({
@@ -69,56 +70,14 @@ export class AddimageComponent implements OnInit {
       console.log('Reader: ', this.previewUrl);
     };
   }
-
-  /* onSelectedFile(event) {
-    console.log(event);
-    if (event.addedFiles.length > 0) {
-      const productImage = event.addedFiles[0];
- 
-      const formData = new FormData();
-      formData.append('file', productImage);
-      this.imageService.uploadImage(formData).subscribe(
-        res => {
-          if (res.status === 200 && res.response.status === 'success') {
-            this.uploadError = '';
- 
-            const li: HTMLLIElement = this.renderer.createElement('li');
- 
-            const img: HTMLImageElement = this.renderer.createElement('img');
-            img.src = res.response.imagePath;
-            this.renderer.addClass(img, 'image');
- 
-            const a: HTMLAnchorElement = this.renderer.createElement('a');
-            a.innerText = 'Delete';
-            this.renderer.addClass(a, 'delete-btn');
-            a.addEventListener('click', this.deleteImage.bind(this, res.response.filename, a));
- 
-            this.renderer.appendChild(this.image.nativeElement, li);
-            this.renderer.appendChild(li, img);
-            this.renderer.appendChild(li, a);
-          } else {
-            this.uploadError = res.response.message;
-          }
-        },
-        err => this.error = err
-      );
-    }
+  resetid(){
+    this.toastr.success("Equipement bien ajouté");
+    this.data1.changeMessage(0);
   }
-  deleteImage(filename, a) {
-    const formData = new FormData();
-    formData.append('filename', filename);
-    this.imageService.deleteImage(formData).subscribe(
-      res => {
-        a.parentElement.remove();
-      },
-      err => this.error = err
-    );
-  }  */
+
+ 
   onSubmit() {
-    /*const formData = new FormData();
-    formData.append('id', this.imageForm.get('id').value);
-    formData.append('lien', this.imageForm.get('lien').value);
-    formData.append('idequipement', this.imageForm.get('idequipement').value);*/
+ 
 
     const values = { lien: this.previewUrl, Idequipement: this.idEquipement };
     
@@ -147,13 +106,7 @@ export class AddimageComponent implements OnInit {
     this.close.emit(data);
   }
 
-  /*files: File[] = [];
-
-	onSelect(event) {
-		console.log(event);
-		this.files.push(...event.addedFiles);
-	}
-*/
+  
 
 
 

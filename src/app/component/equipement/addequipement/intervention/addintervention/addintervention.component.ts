@@ -47,9 +47,7 @@ export class AddinterventionComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
-  //.subscribe(res=>{
-  //  this.sousequipement.getAllSousEquipments();
-  //  ),
+ 
   submit(form, formName:string) {
   
     const values = {id:0, libelle: this.form.value.libelle, idequipement: this.idEquipement 

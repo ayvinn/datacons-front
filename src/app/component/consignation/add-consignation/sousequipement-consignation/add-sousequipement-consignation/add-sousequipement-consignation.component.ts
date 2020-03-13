@@ -88,7 +88,9 @@ export class AddSousequipementConsignationComponent implements OnInit {
         }
       )
     }
+    this.ngOnInit();
     this.dialogRef.close();
+
       });
     
     }
@@ -97,6 +99,7 @@ export class AddSousequipementConsignationComponent implements OnInit {
 
     this.datasourceupdate(form,formName);
     
+
     
   }
 
