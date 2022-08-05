@@ -58,9 +58,6 @@ import { UpdatesousequipementnotificationComponent } from './component/notificat
 import { HistoriqueComponent } from './component/historique/historique.component';
 import { EssaieComponent } from './component/consignation/essaie/essaie.component';
 import { DeconsignationComponent } from './component/consignation/deconsignation/deconsignation.component';
-
-import {NgxPrintModule} from 'ngx-print';
-
 import { ImprimerComponent } from './component/imprimer/imprimer.component';
 import { PrintLayoutComponent } from './component/imprimer/print-layout/print-layout.component';
 import { InvoiceComponent } from './component/imprimer/invoice/invoice.component';
@@ -176,7 +173,6 @@ import { Invoice3Component } from './component/printpassation/invoice3/invoice3.
     HttpClientModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    NgxPrintModule,
     NgxDropzoneModule,
     ToastrModule.forRoot({
       timeOut: 10000,
